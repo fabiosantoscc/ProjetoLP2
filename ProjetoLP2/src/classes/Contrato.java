@@ -5,7 +5,7 @@ public class Contrato {
 	private Hospede hospede;
 	private EstrategiaDeCalculoDaMontante estrategia;
 	
-	public Contrato(Hospede umHospede, int cpf) {	
+	public Contrato( Hospede umHospede ) {	
 	}
 	
 	public Hospede getHospede() {
