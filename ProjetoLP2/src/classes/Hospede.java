@@ -34,11 +34,14 @@ public class Hospede {
 			cartao, String email ) throws Exception {
 		
 		if ( ! (isCPF(cpf) ) )
-			throw new Exception ("cpf invalido");
+			throw new Exception("cpf invalido");
+		
+		if ( ! (isCartao(cartao)) ) {
+			throw new Exception("cartao invalido");
+		}
 		
 		verificaNome(nome);
 		verificaRG(rg);
-		verificaCartao(cartao);
 		verificaEmail(email);
 		this.endereco = endereco;
 		this.nome = nome;
@@ -128,16 +131,38 @@ public class Hospede {
 			throw new Exception("Quantidade de digitos do rg invalida.");
 	}
 	
-	private void verificaCartao( String cartao ) throws Exception {
-		if ( cartao == null || cartao.equals("") )
-			throw new Exception ("O campo do numero do cartao nao pode ser null ou vazio.");
+	private boolean isCartao( String cartao ) {
 		
-		for ( int i = 0; i < cartao.length(); i++ ) {
-			if ( !(Character.isDigit(cartao.charAt(i))) )
-					throw new Exception ("O numero do cartao deve conter apenas numeros.");
-		}
+		if ( cartao == null || cartao.equals("") )
+			return false;
+		
 		if ( cartao.length() != 16 )
-			throw new Exception("Quantidade de digitos do cartao invalida.");		
+			return false;
+		
+		for ( int i = 0; i < 16; i++ ) {
+			if ( !(Character.isDigit(cartao.charAt(i))) )
+				return false;
+		}
+		
+		int somatorio = 0;
+		for ( int i = 0; i < cartao.length(); i++) {
+			if ( (i + 1) % 2 != 0 ) {
+				if ( (int) cartao.charAt(i) * 2 <= 9 ) {
+					somatorio += (int) cartao.charAt(i) * 2;
+				} else {
+					somatorio += ((int) cartao.charAt(i) * 2) - 9;
+				}
+				
+			} else {
+				somatorio += (int) (cartao.charAt(i));
+			}
+		}
+		
+		if ( somatorio % 10 != 0 || somatorio > 150 ) {
+			return false;
+		}
+			
+		return true;
 	}
 	
 	private void verificaEmail( String email ) throws Exception {
@@ -163,7 +188,10 @@ public class Hospede {
 	 */
 	
 	public void setNumeroDoCartao( String numeroDoCartao ) throws Exception {
-		verificaCartao(numeroDoCartao);
+		if ( !(isCartao(numeroDoCartao)) ) {
+			throw new Exception("Cartao invalido");
+		}
+		
 		this.numeroDoCartao = numeroDoCartao;
 	}
 	
