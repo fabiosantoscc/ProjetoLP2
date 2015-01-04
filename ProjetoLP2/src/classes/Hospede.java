@@ -4,8 +4,7 @@ package classes;
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * Alteracoes: 25/12/2014
- * Alterecoes: 27/12/2014
+ * última revisao: 04/01/2015 / Fabio Alexandre
  */
 
 public class Hospede {
@@ -318,6 +317,19 @@ public class Hospede {
 		return " - Nome: " + nome + "\n" + "- EndereÃ§o: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
 				"\n" + "- RG: " + rg + "\n- Telefone: \n" + telefone + "\n" +
 				"- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
+	}
+	
+	/**
+	 * @return Um inteiro representando o hospede.
+	 */
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
 	}
 	
 	/**
