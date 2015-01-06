@@ -1,5 +1,7 @@
 package classes;
 
+import exceções.NotaInvalidaException;
+
 /**
  * Classe criada para representar uma opiniao.
  * 
@@ -26,7 +28,7 @@ public class Opiniao {
 	
 	public Opiniao( String comentario, double nota ) throws Exception {
 		if ( nota < 0.0 || nota > 10.0 ) {
-			throw new Exception("Nota invalida");
+			throw new NotaInvalidaException("Nota invalida");
 		}
 		
 		if ( comentario.length() > 100 || comentario == null || comentario.equals("")) {
