@@ -32,15 +32,39 @@ public class Hospede {
 	public Hospede( Endereco endereco, String nome, String cpf, String rg, Telefone telefone, String
 			cartao, String email ) throws Exception {
 		
-		if ( ! (isCPF(cpf) ) )
-			throw new Exception("cpf invalido");
+		verificaNome(nome);
 		
-		if ( ! (isCartao(cartao)) ) {
-			throw new Exception("cartao invalido");
+		if ( cpf == null || cpf.equals("") )
+			throw new IllegalArgumentException("O campo do cpf nao pode ser null ou vazio.");
+		
+		for (int i = 0; i < cpf.length(); i++){
+			if(!(Character.isDigit(cpf.charAt(i))))
+				throw new IllegalArgumentException("O cpf deve conter apenas numeros.");
 		}
 		
-		verificaNome(nome);
+		if (cpf.length() != 11)
+			throw new IllegalArgumentException("Quantidade de digitos do cpf invalida.");
+		
+		if ( ! (isCPF(cpf) ) )
+			throw new IllegalArgumentException("cpf invalido");
+		
 		verificaRG(rg);
+		
+		if ( cartao == null || cartao.equals("") )
+			throw new IllegalArgumentException("O campo do numero do cartao nao pode ser null ou vazio.");
+		
+		if ( cartao.length() != 16 )
+			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
+		
+		for ( int i = 0; i < 16; i++ ) {
+			if ( !(Character.isDigit(cartao.charAt(i))) )
+				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
+		}
+		
+		if ( ! (isCartao(cartao)) ) {
+			throw new IllegalArgumentException("cartao invalido");
+		}
+		
 		verificaEmail(email);
 		this.endereco = endereco;
 		this.nome = nome;
@@ -55,21 +79,10 @@ public class Hospede {
 		
 		int digito10, digito11;
 		
-		if ( cpf == null || cpf.equals("") )
-			return false;
-		
-		for (int i = 0; i < cpf.length(); i++){
-			if(!(Character.isDigit(cpf.charAt(i))))
-				return false;
-		}
-		
-		if (cpf.length() != 11)
-			return false;
-		
 		digito10 = calculaDigito10(cpf);
 		digito11 = calculaDigito11(cpf);
 		
-		if ( digito10 != cpf.charAt(9) || digito11 != cpf.charAt(10))
+		if ( digito10 != Integer.parseInt(cpf.charAt(9) + "") || digito11 != Integer.parseInt(cpf.charAt(10) + ""))
 			return false;
 		
 		return true;
@@ -80,8 +93,7 @@ public class Hospede {
 		int digito11, soma = 0, j = 0;
 		
 		for ( int i = 11; i > 1; i-- ) {
-			soma = j = 0;
-			soma += (int) cpf.charAt(j) * 11;
+			soma += Integer.parseInt(cpf.charAt(j) + "") * i;
 			j++;
 		}
 		
@@ -95,10 +107,10 @@ public class Hospede {
 	}
 	
 	private int calculaDigito10( String cpf ) {
-		int digito10, soma = 0, j = 0 ;
+		int digito10, soma = 0, j = 0;
 		
 		for ( int i = 10; i > 1; i-- ) {
-			soma += (int) cpf.charAt(j) * i;
+			soma += Integer.parseInt(cpf.charAt(j) + "") * i;
 			j++;
 		}
 		
@@ -132,28 +144,17 @@ public class Hospede {
 	
 	private boolean isCartao( String cartao ) {
 		
-		if ( cartao == null || cartao.equals("") )
-			return false;
-		
-		if ( cartao.length() != 16 )
-			return false;
-		
-		for ( int i = 0; i < 16; i++ ) {
-			if ( !(Character.isDigit(cartao.charAt(i))) )
-				return false;
-		}
-		
 		int somatorio = 0;
 		for ( int i = 0; i < cartao.length(); i++) {
 			if ( (i + 1) % 2 != 0 ) {
-				if ( (int) cartao.charAt(i) * 2 <= 9 ) {
-					somatorio += (int) cartao.charAt(i) * 2;
+				if ( Integer.parseInt(cartao.charAt(i) + "") * 2 <= 9 ) {
+					somatorio += Integer.parseInt(cartao.charAt(i) + "") * 2;
 				} else {
-					somatorio += ((int) cartao.charAt(i) * 2) - 9;
+					somatorio += (Integer.parseInt(cartao.charAt(i) + "") * 2) - 9;
 				}
 				
 			} else {
-				somatorio += (int) (cartao.charAt(i));
+				somatorio += Integer.parseInt(cartao.charAt(i) + "");
 			}
 		}
 		
@@ -166,10 +167,10 @@ public class Hospede {
 	
 	private void verificaEmail( String email ) throws Exception {
 		if ( email == null || email.equals("") )
-			throw new Exception ("O campo do email nao pode ser null ou vazio.");
+			throw new IllegalArgumentException ("O campo do email nao pode ser null ou vazio.");
 		
 		if ( email.indexOf("@") == -1 )
-			throw new Exception ("O campo do email deve ser preenchido no formato adequado com o @.");
+			throw new IllegalArgumentException ("O campo do email deve ser preenchido no formato adequado com o @.");
 	}
 	
 	/**
