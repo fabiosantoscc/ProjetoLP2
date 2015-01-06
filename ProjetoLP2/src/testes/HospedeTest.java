@@ -22,7 +22,7 @@ public class HospedeTest {
 	
 	@Test
 	public void testaConstrutor() throws Exception{
-		try{
+		try {
 			new Hospede(endereco, "Osório", "00100100101", "123456789", telefone, "1111222233334444", 
 					"seu.email@gmail.com");
 		}
