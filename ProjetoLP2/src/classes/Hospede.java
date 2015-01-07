@@ -4,7 +4,7 @@ package classes;
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * última revisao: 04/01/2015 / Fabio Alexandre
+ * última revisao: 07/01/2015 / Fabio Alexandre
  */
 
 public class Hospede {
@@ -125,25 +125,25 @@ public class Hospede {
 
 	private void verificaNome( String nome ) throws Exception {
 		if ( nome == null || nome.equals("") ) {
-			throw new Exception ("O nome do hospede nao pode ser null ou vazio.");
+			throw new IllegalArgumentException ("O nome do hospede nao pode ser null ou vazio.");
 		}
 	}
 	
 	private void verificaRG( String rg ) throws Exception {
 		if ( rg == null || rg.equals("") )
-			throw new Exception ("O campo do rg nao pode ser null ou vazio.");
+			throw new IllegalArgumentException ("O campo do rg nao pode ser null ou vazio.");
 		
 		for ( int i = 0; i < rg.length(); i++ ){
 			if ( !(Character.isDigit(rg.charAt(i))) )
-					throw new Exception ("O rg deve conter apenas numeros.");
+					throw new IllegalArgumentException ("O rg deve conter apenas numeros.");
 		}
 		
 		if ( rg.length() < 7 || rg.length() > 9 )
-			throw new Exception("Quantidade de digitos do rg invalida.");
+			throw new IllegalArgumentException("Quantidade de digitos do rg invalida.");
 	}
 	
 	private boolean isCartao( String cartao ) {
-		
+				
 		int somatorio = 0;
 		for ( int i = 0; i < cartao.length(); i++) {
 			if ( (i + 1) % 2 != 0 ) {
@@ -188,8 +188,19 @@ public class Hospede {
 	 */
 	
 	public void setNumeroDoCartao( String numeroDoCartao ) throws Exception {
+		if ( numeroDoCartao == null || numeroDoCartao.equals("") )
+			throw new IllegalArgumentException("O campo do numero do cartao nao pode ser null ou vazio.");
+		
+		if ( numeroDoCartao.length() != 16 )
+			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
+		
+		for ( int i = 0; i < 16; i++ ) {
+			if ( !(Character.isDigit(numeroDoCartao.charAt(i))) )
+				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
+		}
+		
 		if ( !(isCartao(numeroDoCartao)) ) {
-			throw new Exception("Cartao invalido");
+			throw new IllegalArgumentException("Cartao invalido");
 		}
 		
 		this.numeroDoCartao = numeroDoCartao;
@@ -218,8 +229,8 @@ public class Hospede {
 	 * @return O telefone do hospede com o dd e o numero
 	 */
 	
-	public Telefone getTelefone() {
-		return telefone;
+	public String getTelefone() {
+		return telefone.getDdd() + "-" + telefone.getNumero();
 	}
 
 	/**
@@ -301,8 +312,19 @@ public class Hospede {
 	 */
 	
 	public void setCpf( String cpf ) throws Exception {
+		if ( cpf == null || cpf.equals("") )
+			throw new IllegalArgumentException("O campo do cpf nao pode ser null ou vazio.");
+		
+		for (int i = 0; i < cpf.length(); i++){
+			if(!(Character.isDigit(cpf.charAt(i))))
+				throw new IllegalArgumentException("O cpf deve conter apenas numeros.");
+		}
+		
+		if (cpf.length() != 11)
+			throw new IllegalArgumentException("Quantidade de digitos do cpf invalida.");
+		
 		if ( ! (isCPF(cpf)) ) {
-			throw new Exception ("cpf invalido");
+			throw new IllegalArgumentException ("cpf invalido");
 		}
 		
 		this.cpf = cpf;
@@ -315,22 +337,9 @@ public class Hospede {
 	
 	@Override
 	public String toString() {
-		return " - Nome: " + nome + "\n" + "- EndereÃ§o: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
+		return " - Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
 				"\n" + "- RG: " + rg + "\n- Telefone: \n" + telefone + "\n" +
 				"- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
-	}
-	
-	/**
-	 * @return Um inteiro representando o hospede.
-	 */
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
 	}
 	
 	/**

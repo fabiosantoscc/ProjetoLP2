@@ -8,6 +8,15 @@ import classes.Endereco;
 import classes.Telefone;
 import classes.Hospede;
 
+/*
+ * Classe de testes da classe hospede
+ * 
+ * Author: Ravi Lopes
+ * 
+ * Ultima revisao: 07/01/2015 / Fabio Alexandre
+ *
+ */
+
 public class HospedeTest {
 	Endereco endereco; 
 	Telefone telefone;
@@ -176,160 +185,172 @@ public class HospedeTest {
 			Assert.assertEquals("O campo do email deve ser preenchido no formato adequado com o @.", e.getMessage());
 			}
 		}
-//	
-//	@Test
-//	public void testaSetters(){
-//		try{
-//			hospede.setNome("");
-//			Assert.fail("Esperava excecao pois o nome do hospede esta vazio.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O nome do hospede nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setNome(null);
-//			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O nome do hospede nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setCpf("");
-//			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setCpf(null);
-//			Assert.fail("Esperava excecao pois o cpf do hospede esta como null.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setCpf("123456789123");
-//			Assert.fail("Esperava excecao pois o cpf esta com a quantidade de digitos invalida.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("Quantidade de digitos do cpf invalida.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setCpf("1234567a912");
-//			Assert.fail("Esperava excecao pois o cpf so deve conter numero.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O cpf deve conter apenas numeros.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setRg("");
-//			Assert.fail("Esperava excecao pois o rg do hospede esta vazio.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do rg nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setRg(null);
-//			Assert.fail("Esperava excecao pois o rg do hospede esta como null.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do rg nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setRg("1234567891");
-//			Assert.fail("Esperava excecao pois o rg esta com a quantidade de digitos invalida.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("Quantidade de digitos do rg invalida.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setRg("1234567a");
-//			Assert.fail("Esperava excecao pois o rg so deve conter numero.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O rg deve conter apenas numeros.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setNumeroDoCartao("");
-//			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta vazio.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do numero do cartao nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setNumeroDoCartao(null);
-//			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta como null.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do numero do cartao nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setNumeroDoCartao("11112222333344445");
-//			Assert.fail("Esperava excecao pois o numero do cartao esta com a quantidade de digitos invalida.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("Quantidade de digitos do cartao invalida.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setNumeroDoCartao("11112222333a4444");
-//			Assert.fail("Esperava excecao pois o numero do cartao so deve conter numero.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O numero do cartao deve conter apenas numeros.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setEmail("");
-//			Assert.fail("Esperava excecao pois ocampo do email do hospede esta vazio.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do email nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setEmail(null);
-//			Assert.fail("Esperava excecao pois o campo do email do hospede esta como null.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do email nao pode ser null ou vazio.", e.getMessage());
-//		}
-//		
-//		try{
-//			hospede.setEmail("ze.taboregmail.com");
-//			Assert.fail("Esperava excecao pois o e-mail do hospede nao esta no formato correto.");
-//		}
-//		catch (Exception e){
-//			Assert.assertEquals("O campo do email deve ser preenchido no formato adequado com o @.", e.getMessage());
-//		}
-//	}
-//	@Test
-//	public void testaToString(){
-//		Assert.assertEquals(hospede.toString(), " - Nome: Anisio\n- Endereço: \n- Cidade: Campina Grande"
-//				+ "\n- Bairro: Bodocongo\n- Rua: Rua de Baixo\n- Numero: 500\n- Complemento: "
-//				+ "De frente do Bar\n- CPF: 12345687901\n- RG: 1334557\n- Telefone: \n- DDD: 87\n-"
-//				+ " Numero: 99999999\n- Numero do Cartao: 1111222233334444\n- E-Mail: "
-//				+ "moral.legal@gmail.com");
-//	}
-//	
-//	@Test
-//	public void testaEquals()throws Exception{
-//		Hospede novoHospede = new Hospede (endereco, "Anisio", "12345687902", "1334557", telefone, "1111222233334444", 
-//				"moral.legal@gmail.com");
-//		Assert.assertFalse(hospede.equals(novoHospede));
-//		novoHospede.setCpf("12345687901");
-//		Assert.assertTrue(hospede.equals(novoHospede));
-//	}
+	
+	@Test
+	public void testaSettersEGetters() throws Exception {
+		
+		hospede.setTelefone(telefone);
+		Assert.assertEquals("87-99999999", hospede.getTelefone());
+		
+		hospede.setNome("Fabio");
+		Assert.assertEquals("Fabio", hospede.getNome());
+
+		try {
+			hospede.setNome("");
+			Assert.fail("Esperava excecao pois o nome do hospede esta vazio.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O nome do hospede nao pode ser null ou vazio.", e.getMessage());
+		}
+				
+		try {
+			hospede.setNome(null);
+			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O nome do hospede nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		hospede.setCpf("23714131272");
+		Assert.assertEquals("23714131272", hospede.getCpf());
+		
+		try {
+			hospede.setCpf("");
+			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setCpf(null);
+			Assert.fail("Esperava excecao pois o cpf do hospede esta como null.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setCpf("123456789123");
+			Assert.fail("Esperava excecao pois o cpf esta com a quantidade de digitos invalida.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("Quantidade de digitos do cpf invalida.", e.getMessage());
+		}
+		
+		try {
+			hospede.setCpf("1234567a912");
+			Assert.fail("Esperava excecao pois o cpf so deve conter numero.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O cpf deve conter apenas numeros.", e.getMessage());
+		}
+		
+		hospede.setRg("418757896");
+		Assert.assertEquals("418757896", hospede.getRg());
+		
+		try {
+			hospede.setRg("");
+			Assert.fail("Esperava excecao pois o rg do hospede esta vazio.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do rg nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setRg(null);
+			Assert.fail("Esperava excecao pois o rg do hospede esta como null.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do rg nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setRg("1234567891");
+			Assert.fail("Esperava excecao pois o rg esta com a quantidade de digitos invalida.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("Quantidade de digitos do rg invalida.", e.getMessage());
+		}
+		
+		try {
+			hospede.setRg("1234567a");
+			Assert.fail("Esperava excecao pois o rg so deve conter numero.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O rg deve conter apenas numeros.", e.getMessage());
+		}
+		
+		hospede.setNumeroDoCartao("5105105105105100");
+		Assert.assertEquals("5105105105105100", hospede.getNumeroDoCartao());
+		
+		try {
+			hospede.setNumeroDoCartao("");
+			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta vazio.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do numero do cartao nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setNumeroDoCartao(null);
+			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta como null.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do numero do cartao nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setNumeroDoCartao("11112222333344445");
+			Assert.fail("Esperava excecao pois o numero do cartao esta com a quantidade de digitos invalida.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("Quantidade de digitos do cartao invalida.", e.getMessage());
+		}
+		
+		try {
+			hospede.setNumeroDoCartao("11112222333a4444");
+			Assert.fail("Esperava excecao pois o numero do cartao so deve conter numero.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O numero do cartao deve conter apenas numeros.", e.getMessage());
+		}
+		
+		try {
+			hospede.setNumeroDoCartao("4111111111311311");
+			Assert.fail("Esperava excecao pois o numero do cartao nao eh valido.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("Cartao invalido", e.getMessage());
+		}
+		
+		
+		try {
+			hospede.setEmail("");
+			Assert.fail("Esperava excecao pois ocampo do email do hospede esta vazio.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do email nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		hospede.setEmail("fabio.junior@ccc.ufcg.edu.br");
+		Assert.assertEquals("fabio.junior@ccc.ufcg.edu.br", hospede.getEmail());
+		
+		try {
+			hospede.setEmail(null);
+			Assert.fail("Esperava excecao pois o campo do email do hospede esta como null.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do email nao pode ser null ou vazio.", e.getMessage());
+		}
+		
+		try {
+			hospede.setEmail("ze.taboregmail.com");
+			Assert.fail("Esperava excecao pois o e-mail do hospede nao esta no formato correto.");
+		} catch (IllegalArgumentException e) {
+			Assert.assertEquals("O campo do email deve ser preenchido no formato adequado com o @.", e.getMessage());
+		}
+	}
+		
+
+	@Test
+	public void testToString() {
+		Assert.assertEquals(hospede.toString(), " - Nome: Anisio\n- Endereco: \n- Cidade: Campina Grande"
+				+ "\n- Bairro: Bodocongo\n- Rua: Rua de Baixo\n- Numero: 500\n- Complemento: "
+				+ "De frente do Bar\n- CPF: 75265471855\n- RG: 1334557\n- Telefone: \n- DDD: 87\n-"
+				+ " Numero: 99999999\n- Numero do Cartao: 4012888888881881\n- E-Mail: "
+				+ "moral.legal@gmail.com");
+	}
+	
+	@Test
+	public void testaEquals() throws Exception {
+		Hospede novoHospede = new Hospede (endereco, "Anisio", "65673434197", "1334557", telefone, "4012888888881881", 
+				"moral.legal@gmail.com");
+		Assert.assertFalse(hospede.equals(novoHospede));
+		novoHospede.setCpf("75265471855");
+		Assert.assertTrue(hospede.equals(novoHospede));
+	}
 }
