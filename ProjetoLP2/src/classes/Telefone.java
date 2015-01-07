@@ -4,10 +4,11 @@ package classes;
  * Classe que contem os dados referentes ao numedo do telefone do hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * Alteracoes: 25/12/2014
+ * Ultima alteracao: 07/01/2015 / Fabio Alexandre
  */
 
 public class Telefone {
+	
 	long numero;
 	int ddd;
 	
@@ -18,25 +19,23 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public Telefone(long numero, int ddd)throws Exception{
-		checaNumero(numero);
-		checaDDD(ddd);
+	public Telefone(long numero, int ddd) throws Exception {
+		verificaNumero(numero);
+		verificaDDD(ddd);
 		this.numero = numero;
 		this.ddd = ddd;
 	}
 	
-	private void checaNumero(long numero)throws Exception{
-		String numeroString = new String();
-		numeroString = "" + numero;
-		if (numeroString.length() > 9 || numeroString.length() < 8)
-			throw new Exception ("Quantidade de digitos invalida.");
+	private void verificaNumero(long numero) throws Exception {
+		String numeroString = "" + numero;
+		if ( numeroString.length() > 9 || numeroString.length() < 8 )
+			throw new IllegalArgumentException ("Quantidade de digitos invalida.");
 	}
 	
-	private void checaDDD(int ddd)throws Exception{
-		String dddString = new String();
-		dddString = "" + ddd;
-		if (dddString.length() != 2)
-			throw new Exception ("Quantidade de digitos invalida.");
+	private void verificaDDD(int ddd) throws Exception {
+		String dddString = "" + ddd;
+		if ( dddString.length() != 2 )
+			throw new IllegalArgumentException ("Quantidade de digitos invalida.");
 	}
 	
 	/**
@@ -53,8 +52,8 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public void setNumero(long numero) throws Exception{
-		checaNumero(numero);
+	public void setNumero(long numero) throws Exception {
+		verificaNumero(numero);
 		this.numero = numero;
 	}
 	
@@ -72,8 +71,8 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public void setDdd(int ddd) throws Exception{
-		checaDDD(ddd);
+	public void setDdd(int ddd) throws Exception {
+		verificaDDD(ddd);
 		this.ddd = ddd;
 	}
 	
@@ -82,8 +81,8 @@ public class Telefone {
 	 */
 	
 	@Override
-	public  String toString(){
-		return "- DDD: " + ddd + "\n" + "- Numero: " + numero;
+	public String toString() {
+		return "Numero: " + getDdd() + "-" + getNumero();
 	}
 	
 	/**
@@ -91,11 +90,12 @@ public class Telefone {
 	 */
 	
 	@Override
-	public boolean equals(Object obj){
-		if (!(obj instanceof Telefone)) return false;
-		Telefone novoTelefone = (Telefone)obj;
-		if (ddd == novoTelefone.getDdd() && numero == novoTelefone.getNumero()) return true;
-		return false;
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Telefone))
+			return false;
+		
+		Telefone novoTelefone = (Telefone) obj;
+		
+		return (ddd == novoTelefone.getDdd() && numero == novoTelefone.getNumero());
 	}
-	
 }
