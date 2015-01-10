@@ -1,6 +1,6 @@
 package classes;
 
-public class BabySitter implements Servicos {
+public class BabySitter extends Servicos {
 
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;

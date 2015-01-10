@@ -1,6 +1,6 @@
 package classes;
 
-public class Restaurante implements Servicos {
+public class Restaurante extends Servicos {
 
 	private double valorConsumido;
 

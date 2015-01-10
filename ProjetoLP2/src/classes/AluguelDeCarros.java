@@ -1,6 +1,6 @@
 package classes;
 
-public class AluguelDeCarros implements Servicos {
+public class AluguelDeCarros extends Servicos {
 
 	private boolean luxo = false;
 	private boolean executivo = false;

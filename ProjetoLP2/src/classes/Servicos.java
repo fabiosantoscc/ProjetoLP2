@@ -1,6 +1,6 @@
 package classes;
 
-public interface Servicos {
+public abstract class Servicos {
 
-	public double calculaTarifa();
+	public abstract double calculaTarifa();
 }

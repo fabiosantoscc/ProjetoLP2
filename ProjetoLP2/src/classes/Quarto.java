@@ -1,4 +1,4 @@
 package classes;
 
-public abstract class Quarto implements Servicos {
+public abstract class Quarto extends Servicos {
 }
