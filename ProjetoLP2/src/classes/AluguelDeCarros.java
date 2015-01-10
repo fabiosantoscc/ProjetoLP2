@@ -13,7 +13,9 @@ public class AluguelDeCarros extends Servicos {
 	}
 
 	public void setLuxo(boolean luxo) {
-		this.luxo = luxo;
+		if (executivo == false){
+			this.luxo = luxo;
+		}
 	}
 
 	public boolean isExecutivo() {
@@ -21,7 +23,9 @@ public class AluguelDeCarros extends Servicos {
 	}
 
 	public void setExecutivo(boolean executivo) {
-		this.executivo = executivo;
+		if (luxo =! true){
+			this.executivo = executivo;
+		}
 	}
 
 	public boolean isTanqueCheio() {
