@@ -5,12 +5,13 @@ import java.util.List;
 
 /**
  * 
- * @author Fabio
+ * @author Fabio Alexandre Santos Silva Junior
  *
  */
 
 public class Hotel {
 
+	private static int camaExtra = 10;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
 	private static int quartoExecutivoDuplo = 15;
@@ -28,6 +29,14 @@ public class Hotel {
 	
 	public void adicionaContrato( Contrato contrato ) {
 		contratos.add(contrato);
+	}
+	
+	public static int getCamaExtra() {
+		return camaExtra;
+	}
+	
+	public static void setCamaExtra(int camaExtra) {
+		Hotel.camaExtra = camaExtra;
 	}
 	
 	public static int getQuartoPresidencial() {
