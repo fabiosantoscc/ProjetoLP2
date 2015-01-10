@@ -8,7 +8,7 @@ public class AluguelDeCarros extends Servicos {
 	private boolean seguroDeAutomovel = false;
 	
 	
-	public boolean isLuxo() {
+	public boolean isLuxo(boolean luxo) {
 		return luxo;
 	}
 
