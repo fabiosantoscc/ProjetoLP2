@@ -1,35 +1,41 @@
 package classes;
 
 public class BabySitter extends Servicos {
-
-	private int quantidadeHoras;
-	private int quantidadeHorasDobradas;
 	
-	public int getQuantidadeHoras() {
-		return quantidadeHoras;
+	private int minInicial, horaInicial, quantHoras, horas, quantHorasDobradas;
+		
+	public BabySitter(int horaInicial, int minInicial, int quantHoras){
+		this.horaInicial = horaInicial;
+		this.minInicial = minInicial;
+		this.quantHoras = quantHoras;
 	}
 	
-	public void setQuantidadeHoras(int quantidadeHoras) {
-		this.quantidadeHoras = quantidadeHoras;
+	public int getQuantidadeHoras() {
+		return quantHoras;
 	}
 	
 	public int getQuantidadeHorasDobradas() {
-		return quantidadeHorasDobradas;
+		horas = horaInicial;
+		for (int i = 0; i <= quantHoras; i++){
+			if (horas == 24){
+				horas = 0;
+			}
+			if (horas >= 18 || horas <= 23 || horas >= 0 || horas <= 7){
+				quantHorasDobradas++;
+			}
+		}
+		return quantHorasDobradas;
 	}
 	
-	public void setQuantidadeHorasDobradas(int quantidadeHorasDobradas) {
-		this.quantidadeHorasDobradas = quantidadeHorasDobradas;
-	}
-
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return (quantHorasDobradas * 50) + ((quantHoras - quantHorasDobradas) * 25);
 	}
 
 	@Override
 	public String toString() {
-		return "BabySitter [quantidadeHoras=" + quantidadeHoras
-				+ ", quantidadeHorasDobradas=" + quantidadeHorasDobradas + "]";
+		return "BabySitter [quantidadeHoras=" + quantHoras
+				+ ", quantidadeHorasDobradas=" + quantHorasDobradas + "]";
 	}
 	
 	@Override
