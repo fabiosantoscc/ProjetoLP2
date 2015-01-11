@@ -2,31 +2,36 @@ package classes;
 
 /**
  * 
+ * Classe que representa um Quarto de luxo duplo com capacidade para até 3 pessoas
+ * com cama extra.
+ * 
  * @author Fabio Alexandre Santos Silva Junior
- *
+ * Ultima atualizacao: 11/01/2015 / Fabio Alexandre
  */
 
 public class QuartoLuxoDuplo extends Quarto {
 
 	private final double VALOR_DIARIA = 570;
-	private int quantidadeDePessoas;
 	private int camaExtra;
 	
 	/**
+	 * Construtor de um quarto de luxo duplo.
 	 * 
-	 * @param quantidadeDePessoas
-	 * @param camaExtra
+	 * @param quantidadeDePessoas - Quantidade de pessoas hospedadas no quarto, maximo de 3.
+	 * @param camaExtra - Quantidade de camas extras do quarto.
 	 * @throws Exception
 	 */
 	
 	public QuartoLuxoDuplo( int quantidadeDePessoas, int camaExtra ) throws Exception {
 		
-		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
-			throw new IllegalArgumentException("Quantidade de camas extras invalida");
-		}
+		super(quantidadeDePessoas);
 		
 		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
 			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
+		}
+		
+		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+			throw new IllegalArgumentException("Quantidade de camas extras invalida");
 		}
 		
 		if ( Hotel.getQuartoLuxoDuplo() - 1 < 0 ) {
@@ -35,13 +40,11 @@ public class QuartoLuxoDuplo extends Quarto {
 		
 		this.camaExtra = camaExtra;
 		Hotel.setCamaExtra(Hotel.getCamaExtra() - this.camaExtra);
-		this.quantidadeDePessoas = quantidadeDePessoas;
 		Hotel.setQuartoLuxoDuplo(Hotel.getQuartoLuxoDuplo() - 1);
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return - A quantidade de camas extras do quarto.
 	 */
 	
 	public int getCamaExtra() {
@@ -49,17 +52,7 @@ public class QuartoLuxoDuplo extends Quarto {
 	}
 	
 	/**
-	 * 
-	 * @return
-	 */
-	
-	public int getQuantidadeDePessoas() {
-		return quantidadeDePessoas;
-	}
-	
-	/**
-	 * 
-	 * @return
+	 * @return - O valor da diaria de um quarto de luxo duplo.
 	 */
 	
 	public double getValorDiaria() {
@@ -76,21 +69,31 @@ public class QuartoLuxoDuplo extends Quarto {
 	}
 	
 	/**
+	 * Metodo que retorna uma string para representacao de um quarto de luxo duplo.
 	 * 
+	 * @return A string de representacao do quarto de luxo duplo.
 	 */
 	
 	@Override
 	public String toString() {
 		return "Quarto Luxo Duplo [ Quantidade de quartos diponiveis = " + Hotel.getQuartoLuxoDuplo() 
-				+ ", Valor diaria = " + VALOR_DIARIA + " ]";
+				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
 	}
 	
 	/**
+	 * Metodo que compara se dois objetos do tipo quarto de luxo simples sao iguais.
 	 * 
+	 * @return Um boolean (true) se os objetos forem iguais, (false) caso contrario.
 	 */
 	
 	@Override
 	public boolean equals( Object obj ) {
-		return false;
+		if ( !(obj instanceof QuartoLuxoDuplo))
+			return false;
+		
+		QuartoLuxoDuplo qld = (QuartoLuxoDuplo) obj;
+		
+		return super.equals(qld) && qld.getValorDiaria() == VALOR_DIARIA &&
+				qld.getCamaExtra() == getCamaExtra();
 	}
 }
