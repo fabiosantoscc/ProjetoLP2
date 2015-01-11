@@ -1,58 +1,36 @@
 package classes;
 
 public class AluguelDeCarros extends Servicos {
-
-	private boolean luxo = false;
-	private boolean executivo = false;
-	private boolean tanqueCheio = false;
-	private boolean seguroDeAutomovel = false;
+	private String tipoCarro;
+	private boolean tanqueCheio;
+	private boolean seguroDeAutomovel;
 	
+	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel){
+		this.tipoCarro = tipoCarro;
+		this.tanqueCheio = tanqueCheio;
+		this.seguroDeAutomovel = seguroAutomovel;
+		
+	}	
 	
-	public boolean isLuxo(boolean luxo) {
-		return luxo;
-	}
-
-	public void setLuxo(boolean luxo) {
-		if (executivo == false){
-			this.luxo = luxo;
-		}
-	}
-
-	public boolean isExecutivo() {
-		return executivo;
-	}
-
-	public void setExecutivo(boolean executivo) {
-		if (luxo =! true){
-			this.executivo = executivo;
-		}
-	}
-
+	public String tipoCarro(){ return tipoCarro;}
+	
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
-	}
-
-	public void setTanqueCheio(boolean tanqueCheio) {
-		this.tanqueCheio = tanqueCheio;
 	}
 
 	public boolean isSeguroDeAutomovel() {
 		return seguroDeAutomovel;
 	}
 
-	public void setSeguroDeAutomovel(boolean seguroDeAutomovel) {
-		this.seguroDeAutomovel = seguroDeAutomovel;
-	}
-
 	@Override
 	public double calculaTarifa() {
-		// TODO Auto-generated method stub
+			
 		return 0;
 	}
 
 	@Override
 	public String toString() {
-		return "AluguelDeCarros [luxo=" + luxo + ", executivo=" + executivo
+		return "AluguelDeCarros [ Tipo de Automóvel: "+tipoCarro 
 				+ ", tanqueCheio=" + tanqueCheio + ", seguroDeAutomovel="
 				+ seguroDeAutomovel + "]";
 	}
