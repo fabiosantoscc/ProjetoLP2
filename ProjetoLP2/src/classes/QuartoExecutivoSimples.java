@@ -51,21 +51,13 @@ public class QuartoExecutivoSimples extends Quarto {
 	}
 	
 	/**
-	 * @return - O valor da diaria de um quarto executivo simples.
-	 */
-	
-	public double getValorDiaria() {
-		return VALOR_DIARIA;
-	}
-	
-	/**
 	 * 
 	 * @return
 	 */
 	
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return VALOR_DIARIA;
 	}
 	
 	/**
@@ -93,7 +85,7 @@ public class QuartoExecutivoSimples extends Quarto {
 		
 		QuartoExecutivoSimples qes = (QuartoExecutivoSimples) obj;
 		
-		return super.equals(qes) && qes.getValorDiaria() == VALOR_DIARIA &&
+		return super.equals(qes) && qes.calculaTarifa() == VALOR_DIARIA &&
 			   qes.getCamaExtra() == getCamaExtra();
 	}
 }

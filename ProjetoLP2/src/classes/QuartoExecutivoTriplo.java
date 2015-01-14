@@ -36,21 +36,13 @@ public class QuartoExecutivoTriplo extends Quarto {
 	}
 	
 	/**
-	 * @return - O valor da diaria de um quarto executivo triplo.
-	 */
-	
-	public double getValorDiaria() {
-		return VALOR_DIARIA;
-	}
-	
-	/**
 	 * 
 	 * @return
 	 */
 	
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return VALOR_DIARIA;
 	}
 	
 	/**
@@ -78,6 +70,6 @@ public class QuartoExecutivoTriplo extends Quarto {
 		
 		QuartoExecutivoTriplo qet = (QuartoExecutivoTriplo) obj;
 		
-		return super.equals(qet) && qet.getValorDiaria() == VALOR_DIARIA;
+		return super.equals(qet) && qet.calculaTarifa() == VALOR_DIARIA;
 	}
 }

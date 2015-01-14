@@ -52,20 +52,12 @@ public class QuartoLuxoDuplo extends Quarto {
 	}
 	
 	/**
-	 * @return - O valor da diaria de um quarto de luxo duplo.
-	 */
-	
-	public double getValorDiaria() {
-		return VALOR_DIARIA;
-	}
-	
-	/**
 	 * 
 	 */
 	
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return VALOR_DIARIA;
 	}
 	
 	/**
@@ -93,7 +85,7 @@ public class QuartoLuxoDuplo extends Quarto {
 		
 		QuartoLuxoDuplo qld = (QuartoLuxoDuplo) obj;
 		
-		return super.equals(qld) && qld.getValorDiaria() == VALOR_DIARIA &&
+		return super.equals(qld) && qld.calculaTarifa() == VALOR_DIARIA &&
 				qld.getCamaExtra() == getCamaExtra();
 	}
 }

@@ -45,14 +45,6 @@ public class QuartoExecutivoDuplo extends Quarto {
 	}
 	
 	/**
-	 * @return - O valor da diaria de um quarto executivo duplo.
-	 */
-	
-	public double getValorDiaria() {
-		return VALOR_DIARIA;
-	}
-
-	/**
 	 *  @return - Quantidade de camas extras do quarto.
 	 */
 	
@@ -66,7 +58,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return VALOR_DIARIA;
 	}
 
 	/**
@@ -94,7 +86,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 		
 		QuartoExecutivoDuplo qed = (QuartoExecutivoDuplo) obj;
 		
-		return super.equals(qed) && qed.getValorDiaria() == VALOR_DIARIA &&
+		return super.equals(qed) && qed.calculaTarifa() == VALOR_DIARIA &&
 			   qed.getCamaExtra() == getCamaExtra();
 	}
 }

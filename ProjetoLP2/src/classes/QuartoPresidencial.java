@@ -37,21 +37,11 @@ public class QuartoPresidencial extends Quarto {
 	
 	/**
 	 * 
-	 * @return - O valor da diaria do quarto presidencial.
-	 * 
-	 */
-	
-	public double getValorDiaria() {
-		return VALOR_DIARIA;
-	}
-	
-	/**
-	 * 
 	 */
 	
 	@Override
 	public double calculaTarifa() {
-		return 0;
+		return VALOR_DIARIA;
 	}
 	
 	/**
@@ -79,6 +69,6 @@ public class QuartoPresidencial extends Quarto {
 		
 		QuartoPresidencial qp = (QuartoPresidencial) obj;
 		
-		return super.equals(qp) && qp.VALOR_DIARIA == VALOR_DIARIA;
+		return super.equals(qp) && qp.calculaTarifa() == VALOR_DIARIA;
 	}
 }
