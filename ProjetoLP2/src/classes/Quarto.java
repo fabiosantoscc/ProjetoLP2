@@ -3,10 +3,10 @@ package classes;
 /**
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima atualizacao: 10/01/2015 / Fabio Alexandre
+ * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
  */
 
-public abstract class Quarto extends Servicos {
+public abstract class Quarto implements Servicos {
 	
 	private int quantidadeDePessoas;
 	

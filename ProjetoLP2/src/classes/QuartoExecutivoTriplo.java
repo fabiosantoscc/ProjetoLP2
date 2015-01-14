@@ -6,7 +6,7 @@ package classes;
  * sem cama extra.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima atualizacao: 11/01/2015 / Fabio Alexandre
+ * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
  */
 
 public class QuartoExecutivoTriplo extends Quarto {
@@ -41,7 +41,7 @@ public class QuartoExecutivoTriplo extends Quarto {
 	 */
 	
 	@Override
-	public double calculaTarifa() {
+	public double getPreco() {
 		return VALOR_DIARIA;
 	}
 	
@@ -70,6 +70,6 @@ public class QuartoExecutivoTriplo extends Quarto {
 		
 		QuartoExecutivoTriplo qet = (QuartoExecutivoTriplo) obj;
 		
-		return super.equals(qet) && qet.calculaTarifa() == VALOR_DIARIA;
+		return super.equals(qet) && qet.getPreco() == VALOR_DIARIA;
 	}
 }

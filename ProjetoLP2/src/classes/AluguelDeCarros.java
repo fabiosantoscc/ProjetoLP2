@@ -1,11 +1,17 @@
 package classes;
 
-public class AluguelDeCarros extends Servicos {
+/**
+ * 
+ * @author -
+ * Ultima atualizacao 14/01/2014 / Fabio Alexandre
+ */
+
+public class AluguelDeCarros implements Servicos {
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
 	
-	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel){
+	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) {
 		this.tipoCarro = tipoCarro;
 		this.tanqueCheio = tanqueCheio;
 		this.seguroDeAutomovel = seguroAutomovel;
@@ -23,16 +29,15 @@ public class AluguelDeCarros extends Servicos {
 	}
 
 	@Override
-	public double calculaTarifa() {
-			
+	public double getPreco() {
 		return 0;
 	}
 
 	@Override
 	public String toString() {
-		return "AluguelDeCarros [ Tipo de Automóvel: "+tipoCarro 
-				+ ", tanqueCheio=" + tanqueCheio + ", seguroDeAutomovel="
-				+ seguroDeAutomovel + "]";
+		return "Aluguel De Carros [ Tipo de Automovel: " + tipoCarro 
+				+ ", tanque Cheio = " + tanqueCheio + ", seguroDeAutomovel = "
+				+ seguroDeAutomovel + " ]";
 	}
 
 	@Override

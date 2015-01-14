@@ -1,6 +1,8 @@
 package classes;
 
-public class BabySitter extends Servicos {
+public class BabySitter implements Servicos {
+	
+	// Esse minInicial nao vai ser utilizado em nada?
 	
 	private int minInicial, horaInicial, quantHoras, horas, quantHorasDobradas;
 		
@@ -27,8 +29,13 @@ public class BabySitter extends Servicos {
 		return quantHorasDobradas;
 	}
 	
+	/* OBS: O metodo antes era calculaTarifa, possa ser que seja necessário
+	 * modificar esse metodo, ou nao. (Fabio Alexandre) 
+	 * 
+	 */
+	
 	@Override
-	public double calculaTarifa() {
+	public double getPreco() {
 		return (quantHorasDobradas * 50) + ((quantHoras - quantHorasDobradas) * 25);
 	}
 

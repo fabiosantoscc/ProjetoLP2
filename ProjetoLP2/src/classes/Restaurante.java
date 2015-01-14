@@ -1,6 +1,13 @@
 package classes;
 
-public class Restaurante extends Servicos {
+/**
+ * Classe que representa um restaurante
+ * 
+ * @author -
+ * Ultima atualizacao 14/01/2015 / Fabio Alexandre
+ */
+
+public class Restaurante implements Servicos {
 
 	private double valorConsumido;
 
@@ -13,14 +20,12 @@ public class Restaurante extends Servicos {
 	}
 
 	@Override
-	public double calculaTarifa() {
-		// TODO Auto-generated method stub
+	public double getPreco() {
 		return 0;
 	}
 	
-	@Override
-	public String toString() {
-		return "Restaurante [valorConsumido=" + valorConsumido + "]";
+	public String toStrig() {
+		return "Restaurante [ valorConsumido = " + valorConsumido + " ]";
 	}
 	
 	@Override
