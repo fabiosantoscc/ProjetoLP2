@@ -24,6 +24,7 @@ public class AluguelDeCarrosTest {
 			Assert.fail("Não deveria ocorrer erros!!");
 		}
 	}
+	
 	@Test
 	public void testaConstrutor(){
 		try{

@@ -2,11 +2,9 @@ package testes;
 
 import java.util.Date;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import classes.BabySitter;
 
 public class BabySitterTest {
@@ -23,7 +21,6 @@ public class BabySitterTest {
 		
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testaConstrutor(){
 		try{
@@ -81,8 +78,6 @@ public class BabySitterTest {
 		}
 	}
 
-	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testaGets(){
 		Assert.assertEquals(2, baby1.getQuantidadeHoras());
@@ -98,9 +93,9 @@ public class BabySitterTest {
 	
 	@Test
 	public void testaCalculaTarifa(){
-		Assert.assertEquals(600.0, baby2.getPreco());
-		Assert.assertEquals(475.0, baby3.getPreco());
-		Assert.assertEquals(650.0, baby4.getPreco());
+		Assert.assertTrue(600.0 == baby2.getPreco());
+		Assert.assertTrue(475.0 == baby3.getPreco());
+		Assert.assertTrue(650.0 == baby4.getPreco());
 	}
 	
 	@Test
