@@ -1,4 +1,4 @@
-package lp2.projeto;
+package classes;
 
 import java.util.GregorianCalendar;
 
@@ -7,6 +7,8 @@ import java.util.GregorianCalendar;
  * @author Ravi Leite
  * @data 12/01/2015
  */
+
+// falta o arraylist de servicos
 
 public class Contrato {
 	private GregorianCalendar inicioDoContrato, fimDoContrato;
@@ -79,7 +81,7 @@ public class Contrato {
 	public String toString() {
 		return " - Hospede: " + hospede.getNome() + "\n" + " - Inicio do Contrato: " + inicioDoContrato + "\n" +
 				" - Fim do Contrato: " + fimDoContrato + "\n" + " - Contrato fechado: " + fechado + "\n"
-				+ " - Valor Total: R$" + valorTotal ;
+				+ " - Valor Total: R$ " + valorTotal ;
 	}
 	
 	/**
