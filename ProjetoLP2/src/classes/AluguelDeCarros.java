@@ -1,47 +1,116 @@
 package classes;
 
 /**
+ * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 
- * @author -
- * Ultima atualizacao 14/01/2014 / Fabio Alexandre
+ * @author Ronan Souza
+ * @date 12/01/2014
  */
-
 public class AluguelDeCarros implements Servicos {
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
+	private int quantidadeDias;
+	private int valorDiaria;
+	private int tarifaTotal = 0;
 	
-	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) {
+	/**
+	 * Construtor da classe AluguelDeCarros
+	 * 
+	 * @param tipoCarro Modelo do Automovel desejado ( "Luxo" ou "Executivo")
+	 * @param tanqueCheio Veiculo já com tanque cheio
+	 * @param seguroAutomovel Seguro do automovel no periodo do aluguel 
+	 * @param quantidadeDias Quantidade de dias em que o automovel estará em uso do cliente
+	 */
+	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel, int quantidadeDias) throws Exception{
+		checaTipoCarro(tipoCarro);
+		checaquantidadeDias(quantidadeDias);
 		this.tipoCarro = tipoCarro;
 		this.tanqueCheio = tanqueCheio;
 		this.seguroDeAutomovel = seguroAutomovel;
+		this.quantidadeDias = quantidadeDias;
+		calculaTarifa();
 		
 	}	
 	
-	public String tipoCarro(){ return tipoCarro;}
+	private void checaTipoCarro(String tipo)throws Exception{
+		if (!( tipo.equals("Executivo") ||  tipo.equals("Luxo"))) {
+			throw new Exception("Modelo de Automóvel Inválido (\"Luxo\" ou \"Executivo\")");
+		}
+	}
 	
+	private void checaquantidadeDias(int quant) throws Exception{
+		if (quant <= 0){
+			throw new Exception("O número de dias deve ser maior que zero");
+		}
+	}
+	/**
+	 * 
+	 * @return Modelo do Automovel desejado ( "Luxo" ou "Executivo")
+	 */
+	public String getTipoCarro(){ return tipoCarro;}
+	
+	public double getPreco(){ 
+		return tarifaTotal;
+	}
+	
+	/**
+	 * 
+	 * @return Se o veículo já sai para o aluguel com o tanque de combustível cheio
+	 */
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
 	}
 
+	/**
+	 * 
+	 * @return Se o veículo será assegurado no periodo que estiver com o cliente
+	 */
 	public boolean isSeguroDeAutomovel() {
 		return seguroDeAutomovel;
 	}
 
-	@Override
-	public double getPreco() {
-		return 0;
+	/**
+	 * Calcula o valor a ser pago pelo alugel do automóvel.
+	 * @return Valor a ser pago 
+	 */
+	private void calculaTarifa() {
+		switch (tipoCarro) {
+		case "Luxo":
+			valorDiaria = 100;
+			break;
+		case "Executivo":
+			valorDiaria = 60;
+		}
+		if (isSeguroDeAutomovel()){
+			tarifaTotal += 100;
+		}
+		if (isTanqueCheio()){
+			tarifaTotal += 150;
+		}
+		tarifaTotal += valorDiaria * quantidadeDias;
 	}
 
+	/**
+	 * Metodo que retorna uma String com os atributos da classe
+	 */
 	@Override
 	public String toString() {
-		return "Aluguel De Carros [ Tipo de Automovel: " + tipoCarro 
-				+ ", tanque Cheio = " + tanqueCheio + ", seguroDeAutomovel = "
-				+ seguroDeAutomovel + " ]";
+		return "AluguelDeCarros\n"
+				+ "Modelo do Automóvel: "+tipoCarro 
+				+ "\nTanque Cheio: " + tanqueCheio + 
+						 "\nAutomóvel Assegurado: " + seguroDeAutomovel 
+						+ "\nQuantidade de dias do aluguel: " + quantidadeDias;
 	}
 
 	@Override
 	public boolean equals( Object obj ) {
+		if (!(obj instanceof AluguelDeCarros)) return false;
+		AluguelDeCarros novoAluguel = (AluguelDeCarros)obj;
+		if (tipoCarro.equals(novoAluguel.getTipoCarro()) && tanqueCheio == novoAluguel.isTanqueCheio() &&
+				seguroDeAutomovel == novoAluguel.isSeguroDeAutomovel()){
+			return true;
+		}
 		return false;
-	}
+		}
 }
