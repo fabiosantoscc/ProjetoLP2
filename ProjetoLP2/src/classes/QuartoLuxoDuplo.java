@@ -60,6 +60,14 @@ public class QuartoLuxoDuplo extends Quarto {
 		return VALOR_DIARIA;
 	}
 	
+	public void setQuantidadeDePessoas(int pessoas) {
+		if ( pessoas <= 0 || pessoas > 3 ) {
+			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
+		}
+		
+		super.setQuantidadeDePessoas(pessoas);
+	}
+	
 	/**
 	 * Metodo que retorna uma string para representacao de um quarto de luxo duplo.
 	 * 

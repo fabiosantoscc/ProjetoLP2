@@ -11,7 +11,7 @@ package classes;
 
 public class QuartoPresidencial extends Quarto {
 
-	private final double VALOR_DIARIA = 1.200;
+	private final double VALOR_DIARIA = 1200.0;
 	
 	/**
 	 * construtor de um quarto presidencial
@@ -28,7 +28,7 @@ public class QuartoPresidencial extends Quarto {
 			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
 		}
 		
-		if ( Hotel.getQuartoPresidencial() - 1 < 0 ) {
+		if ( Hotel.getQuartoPresidencial() == 0 ) {
 			throw new IllegalArgumentException("Nao ha mais quartos livres");
 		}
 		
@@ -44,16 +44,25 @@ public class QuartoPresidencial extends Quarto {
 		return VALOR_DIARIA;
 	}
 	
+	public void setQuantidadeDePessoas(int pessoas) {
+		if ( pessoas <= 0 || pessoas > 4 ) {
+			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
+		}
+		
+		super.setQuantidadeDePessoas(pessoas);
+	}
+	
+	
 	/**
 	 * Metodo que retorna uma string para representacao de um quarto presidencial.
 	 * 
 	 * @return A string de representacao do quarto presidencial.
 	 */
 	
+	
 	@Override
 	public String toString() {
-		return "Quarto Presidencial [ Quantidade de quartos diponiveis = " + Hotel.getQuartoPresidencial() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Presidencial [ Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
 	}
 	
 	/**

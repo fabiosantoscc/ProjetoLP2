@@ -29,6 +29,10 @@ public abstract class Quarto implements Servicos {
 		return quantidadeDePessoas;
 	}
 
+	public void setQuantidadeDePessoas(int pessoas) {
+		this.quantidadeDePessoas = pessoas;
+	}
+	
 	/**
 	 * Metodo que retorna uma string para representacao de um quarto.
 	 * 
