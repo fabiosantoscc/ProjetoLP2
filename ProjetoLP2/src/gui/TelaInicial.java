@@ -1,107 +1,135 @@
 package gui;
 
-import javax.swing.JFrame;
+/**
+*
+* @author Fabio
+*/
+
 import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-import javax.swing.JLabel;
+public class TelaInicial extends javax.swing.JFrame {
 
-import java.awt.Font;
+   /**
+    * Creates new form TelaInicial
+    */
+   public TelaInicial() {
+       initComponents();
+   }
 
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
 
-import java.awt.Color;
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        usuario = new javax.swing.JTextField();
+        senha = new javax.swing.JPasswordField();
+        entrar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
 
-public class TelaInicial {
-	
-	private JTextField login;
-	private JPasswordField senha;
-	
-	public TelaInicial() {
-		
-		JFrame frame = new JFrame("Hotel Rivieira");
-		frame.getContentPane().setEnabled(false);
-		frame.setForeground(Color.BLACK);
-		frame.setResizable(false);
-		frame.setSize(500, 500);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.getContentPane().setLayout(null);
-		
-		JButton entrar = new JButton("Entrar");
-		entrar.setForeground(Color.WHITE);
-		entrar.setBackground(Color.BLUE);
-		entrar.setToolTipText("Entrar no gerenciador do hotel");
-		
-		entrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if ( login.getText().equals("fabio") && senha.getText().equals("123") ) {
-					JOptionPane.showMessageDialog(null, "Acesso permitido");
-				} else {
-					login.setText("");
-					senha.setText("");
-					JOptionPane.showMessageDialog(null, "Acesso negado");
-				}
-			}
-		});
-		
-		entrar.setBounds(140, 342, 89, 23);
-		frame.getContentPane().add(entrar);
-		
-		JButton cancelar = new JButton("Cancelar");
-		cancelar.setForeground(Color.WHITE);
-		cancelar.setBackground(Color.BLUE);
-		cancelar.setToolTipText("Sair do sistema");
-		
-		cancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		
-		cancelar.setBounds(313, 342, 89, 23);
-		frame.getContentPane().add(cancelar);
-		
-		JButton esqueciSenha = new JButton("Esqueci a senha");
-		esqueciSenha.setForeground(Color.WHITE);
-		esqueciSenha.setBackground(Color.BLUE);
-		esqueciSenha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "A senha foi enviada para seu e-mail.\n"
-						+ "Tenha mais cuidado com sua senha!");
-			}
-		});
-		esqueciSenha.setBounds(202, 293, 139, 23);
-		frame.getContentPane().add(esqueciSenha);
-		
-		JLabel usuario = new JLabel("Usu\u00E1rio:");
-		usuario.setFont(new Font("Consolas", Font.BOLD, 14));
-		usuario.setBounds(140, 186, 69, 50);
-		frame.getContentPane().add(usuario);
-		
-		login = new JTextField();
-		login.setFont(new Font("Consolas", Font.BOLD, 13));
-		login.setToolTipText("Digite o nome do usuário");
-		login.setBounds(230, 201, 86, 20);
-		frame.getContentPane().add(login);
-		login.setColumns(10);
-		
-		JLabel labelSenha = new JLabel("Senha:");
-		labelSenha.setFont(new Font("Consolas", Font.BOLD, 14));
-		labelSenha.setBounds(139, 232, 69, 50);
-		frame.getContentPane().add(labelSenha);
-		
-		senha = new JPasswordField();
-		senha.setToolTipText("Digite a senha");
-		senha.setBounds(230, 247, 86, 20);
-		frame.getContentPane().add(senha);
-	}
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-	public static void main(String[] args) {
-		new TelaInicial();
-	}
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        jLabel1.setText("Hotel");
+
+        jLabel2.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jLabel2.setText("Usuário: ");
+
+        jLabel3.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jLabel3.setText("Senha: ");
+
+        senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaActionPerformed(evt);
+            }
+        });
+
+        entrar.setText("Entrar");
+        entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarActionPerformed(evt);
+            }
+        });
+
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(entrar)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(senha))
+                        .addGap(209, 209, 209))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(cancelar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel1)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entrar)
+                    .addComponent(cancelar))
+                .addGap(35, 35, 35))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        if ( usuario.getText().equals("fabio") && senha.getText().equals("123"))
+            JOptionPane.showMessageDialog(null, "Acesso Permitido");
+        else {
+            senha.setText("");
+            usuario.setText("");
+            JOptionPane.showMessageDialog(null, "Acesso Negado");
+        }
+    }                                      
+
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        System.exit(0);
+    }                                        
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton cancelar;
+    private javax.swing.JButton entrar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField senha;
+    private javax.swing.JTextField usuario;
+    // End of variables declaration                   
 }
