@@ -39,7 +39,6 @@ public class Restaurante implements Servicos {
 			quantUsoUnidade2++;
 			consumoUnidade2 += valor;
 			break;
-			
 		}
 		
 	}
