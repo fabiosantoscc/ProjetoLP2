@@ -1,37 +1,47 @@
 package classes;
 
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * Classe que manipula os dados referentes ao contrato do hospede
  * @author Ravi Leite
  * @data 12/01/2015
+ * Ultima alteracao: 16/01/2015 / Fabio Alexandre
  */
 
 // falta o arraylist de servicos
 
 public class Contrato {
+	
 	private GregorianCalendar inicioDoContrato, fimDoContrato;
-	private Hospede hospede;
+	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private boolean fechado;
 	private double valorTotal;
 	
 	/**
 	 * Construtor de um contrato que não tem data de encerramento
+	 * 
 	 * @param hospede Contem todos os dados referentes ao hospede
 	 * @param fechado Indica se o contrato ja foi ou nao pago, esta fechado ou aberto
 	 * @param inicioDoContrato Data do inicio do contrato
 	 * @param fimDoContrato Data do fim do contrato
 	 */
 	
-	public Contrato(Hospede hospede, boolean fechado, GregorianCalendar inicioDoContrato, GregorianCalendar fimDoContrato,
-			double valorTotal){
+	public Contrato( Hospede hospede, GregorianCalendar inicioDoContrato, GregorianCalendar fimDoContrato,
+			double valorTotal ) {
+		
 		this.inicioDoContrato = inicioDoContrato;
 		this.fimDoContrato = fimDoContrato;
-		this.fechado = fechado;
-		this.hospede = hospede;
+		this.fechado = false;
 		this.valorTotal = valorTotal;
 	}	
+	
+	public void adicionaServico( Servicos servico ) {
+		servicos.add(servico);
+	}
 	
 	/**
 	 * @return A data do inicio do contrato
@@ -58,15 +68,15 @@ public class Contrato {
 	}
 	
 	/**
-	 * @return O objeto referente ao hospede
+	 *
 	 */
 	
-	public Hospede getHospede() {
-		return hospede;
+	public void SetFechado(boolean fechado) {
+		this.fechado = fechado;
 	}
 	
 	/**
-	 * @return Todo o valor gasto durante o período
+	 * @return Todo o valor gasto durante o periodo
 	 */
 	
 	public double getValorTotal(){
@@ -79,22 +89,24 @@ public class Contrato {
 	
 	@Override
 	public String toString() {
-		return " - Hospede: " + hospede.getNome() + "\n" + " - Inicio do Contrato: " + inicioDoContrato + "\n" +
-				" - Fim do Contrato: " + fimDoContrato + "\n" + " - Contrato fechado: " + fechado + "\n"
+		return "- Inicio do Contrato: " + inicioDoContrato + "\n" + " - Fim do Contrato: " + 
+				fimDoContrato + "\n" + " - Contrato fechado: " + fechado + "\n"
 				+ " - Valor Total: R$ " + valorTotal ;
 	}
 	
 	/**
-	 * Verifica se dois contratos são iguais
+	 * Verifica se dois contratos sao iguais
 	 */
 	
 	@Override
 	public boolean equals( Object obj ) {
-		if (!(obj instanceof Contrato)) return false;
+		if (!(obj instanceof Contrato))
+			return false;
+		
 		Contrato novoContrato = (Contrato)obj;
-		if (hospede.equals(novoContrato.getHospede()) && inicioDoContrato.equals(novoContrato.getInicioDoContrato())
-				&& fimDoContrato.equals(novoContrato.getFimDoContrato())) return true;
-		return false;
+		
+		return (inicioDoContrato.equals(novoContrato.getInicioDoContrato())
+				&& fimDoContrato.equals(novoContrato.getFimDoContrato()));
 	}
 }
 

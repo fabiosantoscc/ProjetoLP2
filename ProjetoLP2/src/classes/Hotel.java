@@ -19,7 +19,7 @@ public class Hotel {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	private List<Contrato> contratos = new ArrayList<Contrato>();
+	private List<Hospede> contratos = new ArrayList<Hospede>();
 	
 	/**
 	 * 
@@ -27,8 +27,8 @@ public class Hotel {
 	 */
 	
 	
-	public void adicionaContrato( Contrato contrato ) {
-		contratos.add(contrato);
+	public void adicionaHospede( Hospede hospede ) {
+		contratos.add(hospede);
 	}
 	
 	public static int getCamaExtra() {

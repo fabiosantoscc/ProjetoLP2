@@ -1,5 +1,8 @@
 package classes;
 
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
@@ -9,6 +12,7 @@ package classes;
 
 public class Hospede {
 
+	private List<Contrato> contratos = new ArrayList<Contrato>();
 	private Endereco endereco;
 	private String nome;
 	private String cpf;
