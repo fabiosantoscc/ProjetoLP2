@@ -44,6 +44,10 @@ public class QuartoLuxoTriplo extends Quarto {
 		return VALOR_DIARIA;
 	}
 	
+	/**
+	 * 
+	 */
+	
 	public void setQuantidadeDePessoas(int pessoas) {
 		if ( pessoas <= 0 || pessoas > 3 ) {
 			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
@@ -60,8 +64,8 @@ public class QuartoLuxoTriplo extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Luxo Triplo [ Quantidade de quartos diponiveis = " + Hotel.getQuartoLuxoTriplo() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Luxo Triplo [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+				+ super.toString() + " ]";
 	}
 	
 	/**

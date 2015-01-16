@@ -10,7 +10,7 @@ package classes;
 
 public class QuartoExecutivoSimples extends Quarto {
 	
-	private final double VALOR_DIARIA = 360;
+	private final double VALOR_DIARIA = 360.0;
 	private int camaExtra;
 	
 	/**
@@ -52,6 +52,19 @@ public class QuartoExecutivoSimples extends Quarto {
 	
 	/**
 	 * 
+	 * @param cama
+	 */
+	
+	public void setCamaExtra( int cama) {
+		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+			throw new IllegalArgumentException("Quantidade de camas extras invalida");
+		}
+		
+		this.camaExtra = cama;
+	}
+	
+	/**
+	 * 
 	 * @return
 	 */
 	
@@ -76,8 +89,8 @@ public class QuartoExecutivoSimples extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Executivo Simples [ Quantidade de quartos diponiveis = " + Hotel.getQuartoExecutivoSimples() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Executivo Simples [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+				+ super.toString() + ", Camas Extras = " + getCamaExtra() + " ]";
 	}
 	
 	/**

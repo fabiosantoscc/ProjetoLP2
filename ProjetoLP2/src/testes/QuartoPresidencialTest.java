@@ -7,7 +7,7 @@ import classes.QuartoPresidencial;
 
 /**
  * 
- * Como so podem ser criados 5 objetos de cada quarto, nao vou utilizar o before e testar
+ * Como so podem ser criados 5 objetos do quarto presidencial, nao vou utilizar o before e testar
  * tudo em um unico metodo.
  * 
  * @author Fabio Alexandre Santos Silva Junior
@@ -84,9 +84,9 @@ public class QuartoPresidencialTest {
 		//Test toString()
 		
 		Assert.assertEquals(quartoPresidencial.toString(), "Quarto Presidencial "
-				+ "[ Valor diaria = 1200.0, Quantidade De Pessoas = 4 ]");
+				+ "[ Valor diaria = R$ 1200.0, Quantidade De Pessoas = 4 ]");
 		Assert.assertEquals(outroQuartoPresidencial.toString(), "Quarto Presidencial "
-				+ "[ Valor diaria = 1200.0, Quantidade De Pessoas = 3 ]");
+				+ "[ Valor diaria = R$ 1200.0, Quantidade De Pessoas = 3 ]");
 		
 		//Test equals()
 		

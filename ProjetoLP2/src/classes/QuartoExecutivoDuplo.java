@@ -54,6 +54,19 @@ public class QuartoExecutivoDuplo extends Quarto {
 	
 	/**
 	 * 
+	 * @param cama
+	 */
+	
+	public void setCamaExtra( int cama) {
+		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+			throw new IllegalArgumentException("Quantidade de camas extras invalida");
+		}
+		
+		this.camaExtra = cama;
+	}
+	
+	/**
+	 * 
 	 */
 	
 	@Override
@@ -77,8 +90,8 @@ public class QuartoExecutivoDuplo extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Executivo Duplo [ Quantidade de quartos diponiveis = " + Hotel.getQuartoExecutivoDuplo() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Executivo Duplo [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+				+ super.toString() + ", Camas Extras = " + getCamaExtra() + " ]";
 	}
 	
 	/**

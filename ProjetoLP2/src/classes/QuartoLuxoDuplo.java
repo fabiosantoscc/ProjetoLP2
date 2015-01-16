@@ -76,8 +76,8 @@ public class QuartoLuxoDuplo extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Luxo Duplo [ Quantidade de quartos diponiveis = " + Hotel.getQuartoLuxoDuplo() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Luxo Duplo [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+				+ super.toString() + ", Camas Extras = " + getCamaExtra() + " ]";
 	}
 	
 	/**

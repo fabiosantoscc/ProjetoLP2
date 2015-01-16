@@ -11,7 +11,7 @@ package classes;
 
 public class QuartoExecutivoTriplo extends Quarto {
 
-	private final double VALOR_DIARIA = 440;
+	private final double VALOR_DIARIA = 440.0;
 	
 	/**
 	 * Construtor de um quarto executivo triplo.
@@ -61,8 +61,8 @@ public class QuartoExecutivoTriplo extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Executivo Triplo [ Quantidade de quartos diponiveis = " + Hotel.getQuartoExecutivoTriplo() 
-				+ ", Valor diaria = " + VALOR_DIARIA + ", " + super.toString() + " ]";
+		return "Quarto Executivo Triplo [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+				+ super.toString() + " ]";
 	}
 	
 	/**
