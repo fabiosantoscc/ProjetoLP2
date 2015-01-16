@@ -61,6 +61,8 @@ public class QuartoLuxoSimples extends Quarto {
 			throw new IllegalArgumentException("Quantidade de camas extras invalida");
 		}
 		
+		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
+		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
 		this.camaExtra = cama;
 	}
 	

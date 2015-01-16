@@ -11,7 +11,7 @@ package classes;
 
 public class QuartoLuxoTriplo extends Quarto {
 	
-	private final double VALOR_DIARIA = 620;
+	private final double VALOR_DIARIA = 620.0;
 	
 	/**
 	 * construtor de um quarto de luxo triplo

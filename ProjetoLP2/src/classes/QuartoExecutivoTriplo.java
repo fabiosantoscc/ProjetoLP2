@@ -28,7 +28,7 @@ public class QuartoExecutivoTriplo extends Quarto {
 			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
 		}
 
-		if ( Hotel.getQuartoExecutivoTriplo() - 1 < 0 ) {
+		if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
 			throw new IllegalArgumentException("Nao ha mais quartos livres");
 		}
 		

@@ -9,10 +9,13 @@ import javax.swing.JOptionPane;
 
 public class TelaInicial extends javax.swing.JFrame {
 
-   /**
+	private static final long serialVersionUID = 1L;
+
+	/**
     * Creates new form TelaInicial
     */
-   public TelaInicial() {
+   
+	public TelaInicial() {
        initComponents();
    }
 
@@ -105,7 +108,8 @@ public class TelaInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    @SuppressWarnings("deprecation")
+	private void entrarActionPerformed(java.awt.event.ActionEvent evt) {                                       
         if ( usuario.getText().equals("fabio") && senha.getText().equals("123"))
             JOptionPane.showMessageDialog(null, "Acesso Permitido");
         else {

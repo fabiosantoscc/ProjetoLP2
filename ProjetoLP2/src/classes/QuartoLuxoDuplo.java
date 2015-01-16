@@ -53,6 +53,21 @@ public class QuartoLuxoDuplo extends Quarto {
 	
 	/**
 	 * 
+	 * @param cama
+	 */
+	
+	public void setCamaExtra( int cama) {
+		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+			throw new IllegalArgumentException("Quantidade de camas extras invalida");
+		}
+		
+		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
+		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
+		this.camaExtra = cama;
+	}
+	
+	/**
+	 * 
 	 */
 	
 	@Override

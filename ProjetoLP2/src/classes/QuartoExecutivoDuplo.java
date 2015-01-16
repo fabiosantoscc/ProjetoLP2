@@ -11,7 +11,7 @@ package classes;
 
 public class QuartoExecutivoDuplo extends Quarto {
 	
-	private final double VALOR_DIARIA = 385;
+	private final double VALOR_DIARIA = 385.0;
 	private int camaExtra;
 	
 	/**
@@ -35,7 +35,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 		}
 		
 		
-		if ( Hotel.getQuartoExecutivoDuplo() - 1 < 0 ) {
+		if ( Hotel.getQuartoExecutivoDuplo() == 0 ) {
 			throw new IllegalArgumentException("Nao ha mais quartos livres");
 		}
 		
@@ -58,10 +58,12 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	
 	public void setCamaExtra( int cama) {
-		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+		if ( cama < 0 || cama > Hotel.getCamaExtra()) {
 			throw new IllegalArgumentException("Quantidade de camas extras invalida");
 		}
-		
+
+		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
+		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
 		this.camaExtra = cama;
 	}
 	
