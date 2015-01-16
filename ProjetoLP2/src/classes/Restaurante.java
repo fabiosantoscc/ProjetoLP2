@@ -29,15 +29,8 @@ public class Restaurante implements Servicos {
 			throw new Exception("Unidade do restaurante inválida!!");
 		}
 		consumoGeral += valor;
-		if (unidade.equals("Térreo")){
-			quantUsoUnidade1++;
-			consumoUnidade1 += valor;
-		}else if(unidade.equals("Cobertura")){
-			quantUsoUnidade2++;
-			consumoUnidade2 += valor;
-		}
-		
-		/*switch (unidade) {
+				
+		switch (unidade) {
 		case "Térreo":
 			quantUsoUnidade1++;
 			consumoUnidade1 += valor;
@@ -46,7 +39,7 @@ public class Restaurante implements Servicos {
 			quantUsoUnidade2++;
 			consumoUnidade2 += valor;
 			break;
-		}*/
+		}
 		
 	}
 	@Override

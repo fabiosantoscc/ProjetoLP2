@@ -1,6 +1,6 @@
 package testes;
 
-import classes.Opiniao;
+
 import classes.Restaurante;
 
 import org.junit.Assert;
