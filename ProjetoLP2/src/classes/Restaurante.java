@@ -22,11 +22,22 @@ public class Restaurante implements Servicos {
 	}
 	
 	public void AdicionaNovoConsumo(String unidade, double valor) throws Exception{
-		if (!(unidade.equals("Térreo")) || unidade.equals("Cobertura")){
+		if (valor <= 0){
+			throw new Exception("Valor inválido!!");
+		}
+		if (!((unidade.equals("Térreo")) || unidade.equals("Cobertura"))){
 			throw new Exception("Unidade do restaurante inválida!!");
 		}
 		consumoGeral += valor;
-		switch (unidade) {
+		if (unidade.equals("Térreo")){
+			quantUsoUnidade1++;
+			consumoUnidade1 += valor;
+		}else if(unidade.equals("Cobertura")){
+			quantUsoUnidade2++;
+			consumoUnidade2 += valor;
+		}
+		
+		/*switch (unidade) {
 		case "Térreo":
 			quantUsoUnidade1++;
 			consumoUnidade1 += valor;
@@ -35,7 +46,7 @@ public class Restaurante implements Servicos {
 			quantUsoUnidade2++;
 			consumoUnidade2 += valor;
 			break;
-		}
+		}*/
 		
 	}
 	@Override
@@ -43,7 +54,8 @@ public class Restaurante implements Servicos {
 		return consumoGeral;
 	}
 	
-	public String toStrig() {
+	@Override
+	public String toString() {
 		return "Restaurante:"
 				+ "\nUnidade 1 (Térreo)"
 				+ "     \n Quantidade de usos: "+quantUsoUnidade1
@@ -56,7 +68,7 @@ public class Restaurante implements Servicos {
 	
 	@Override
 	public boolean equals( Object obj ) {
-		if (obj instanceof Restaurante){
+		if (! (obj instanceof Restaurante)){
 			return false;
 		}
 		Restaurante novo = (Restaurante) obj;
