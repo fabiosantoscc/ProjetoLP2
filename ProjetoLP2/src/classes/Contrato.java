@@ -22,9 +22,8 @@ public class Contrato {
 	private double valorTotal;
 	
 	/**
-	 * Construtor de um contrato que não tem data de encerramento
+	 * Construtor de um contrato que nao tem data de encerramento
 	 * 
-	 * @param hospede Contem todos os dados referentes ao hospede
 	 * @param fechado Indica se o contrato ja foi ou nao pago, esta fechado ou aberto
 	 * @param inicioDoContrato Data do inicio do contrato
 	 * @param fimDoContrato Data do fim do contrato
@@ -38,6 +37,14 @@ public class Contrato {
 		this.fechado = false;
 		this.valorTotal = valorTotal;
 	}	
+	
+	/**
+	 * 
+	 */
+	
+	public void fechaContrato() {
+		
+	}
 	
 	public void adicionaServico( Servicos servico ) {
 		servicos.add(servico);

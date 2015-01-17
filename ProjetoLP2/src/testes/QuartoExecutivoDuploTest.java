@@ -1,148 +1,159 @@
 package testes;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
-
 import classes.Hotel;
 import classes.QuartoExecutivoDuplo;
 
-public class QuartoExecutivoDuploTest {
+/*
+ * Classe de testes de um quarto luxo duplo, sem uso do before porque a quantidade de
+ * criacao de objetos e limitada.
+ * 
+ * @author Fabio Alexandre Santos Silva Junior
+ *
+ */
 
+public class QuartoExecutivoDuploTest {
 	QuartoExecutivoDuplo q1;
 	QuartoExecutivoDuplo q2;
 	
-	@Before
-	public void criaObjetos() throws Exception {
-		q1 = new QuartoExecutivoDuplo(2, 0);
-	}
-	
 	@Test
-	public void testConstrutor() throws Exception {
-				
+	public void testaTudo() throws Exception {
+	
+		q1 = new QuartoExecutivoDuplo(2, 0);
+					
 		Assert.assertTrue(Hotel.getCamaExtra() == 10);
-		
+			
 		try {
 			new QuartoExecutivoDuplo(4, 1);
 			Assert.fail("Esperava excecao, pois a quantidade de pessoas e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de pessoas do quarto invalida", e.getMessage());
 		}
-		
+			
 		try {
 			new QuartoExecutivoDuplo(0, 2);
 			Assert.fail("Esperava excecao, o quarto esta vazio");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de pessoas do quarto invalida", e.getMessage());
 		}
-		
+			
 		try {
 			new QuartoExecutivoDuplo(-2, 0);
 			Assert.fail("Esperava excecao, pois a quantidade de pessoas e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de pessoas do quarto invalida", e.getMessage());
 		}
-		
+			
 		try {
 			new QuartoExecutivoDuplo(2, -2);
 			Assert.fail("Esperava excecao, pois a quantidade de quartos e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
-		
+			
 		try {
 			new QuartoExecutivoDuplo(2, 11);
 			Assert.fail("Esperava excecao, pois a quantidade de quartos e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
-		
+			
 		Assert.assertTrue(Hotel.getCamaExtra() == 10);
-	}
-		
-	@Test
-	public void testGetPreco() {
-		Assert.assertTrue(q1.getPreco() == 385.0);
-	}
-		
-	@Test
-	public void testGetQuantidadePessoas() {
-		Assert.assertTrue(q1.getQuantidadeDePessoas() == 2);
-	}
+			
+		// Test getPreco()
 	
-	@Test
-	public void testSetQuantidadePessoas() {
+		Assert.assertTrue(q1.getPreco() == 385.0);
+			
+		// Test getQuantidadeDePessoas()
+		
+		Assert.assertTrue(q1.getQuantidadeDePessoas() == 2);
+		
+		// Test setQuantidadeDePessoas()
+		
 		q1.setQuantidadeDePessoas(1);
 		Assert.assertTrue(q1.getQuantidadeDePessoas() == 1);
-		
+			
 		q1.setQuantidadeDePessoas(3);
 		Assert.assertTrue(q1.getQuantidadeDePessoas() == 3);
-	}
-	
-	@Test
-	public void testGetCamaExtra() {
+		
+		// Test getCama()
+		
 		Assert.assertTrue(q1.getCamaExtra() == 0);
-	}
+		
+		// Test setCama()
 	
-	@Test
-	public void testSetCamaExtra() {
 		try {
 			q1.setCamaExtra(-1);
 			Assert.fail("Esperava excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
-		
+			
 		try {
 			q1.setCamaExtra(11);
 			Assert.fail("Esperava excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
-		
+			
 		q1.setCamaExtra(2);
 		Assert.assertTrue(q1.getCamaExtra() == 2);
-	}
-	    
-	@Test
-	public void testToString() {
-		Assert.assertEquals(q1.toString(), "Quarto Executivo Duplo "
-			+ "[ Valor diaria = R$ 385.0, Quantidade De Pessoas = 2, Camas Extras = 0 ]");
-	}
+		    
+		// Test toString()
 		
-	@Test
-	public void testEquals() throws Exception {
-		QuartoExecutivoDuplo q2 = new QuartoExecutivoDuplo(3, 0);
+		Assert.assertEquals(q1.toString(), "Quarto Executivo Duplo "
+			+ "[ Valor diaria = R$ 385.0, Quantidade De Pessoas = 3, Camas Extras = 2 ]");
+			
+		// Test equals()
+		
+		q2 = new QuartoExecutivoDuplo(3, 0);
 		Assert.assertFalse(q1.equals(q2));
-		q2.setQuantidadeDePessoas(2);
+		q2.setCamaExtra(2);
 		Assert.assertTrue(q1.equals(q2));
-	}
 	
-//	@Test
-//	public void testImpossivelCriarMaisQuartos() throws Exception {
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 5);
-//		new QuartoExecutivoDuplo(3, 0);
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 4);
-//		new QuartoExecutivoDuplo(1, 0);
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 3);
-//		new QuartoExecutivoDuplo(2, 0);
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 2);
-//		new QuartoExecutivoDuplo(1, 0);
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 1);
-//		new QuartoExecutivoDuplo(1, 0);
-//		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 0);
-//	}
-	
-	@Test
-	public void testImpossivelCamaExtra() throws Exception {
-		Assert.assertTrue(Hotel.getCamaExtra() == 10);
-		q1.setCamaExtra(5);
+		// Test impossivelcriarquartos
+		
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 13);
+		new QuartoExecutivoDuplo(3, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 12);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 11);
+		new QuartoExecutivoDuplo(2, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 10);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 9);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 8);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 7);
+		new QuartoExecutivoDuplo(2, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 6);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 5);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 4);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 3);
+		new QuartoExecutivoDuplo(2, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 2);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 1);
+		new QuartoExecutivoDuplo(1, 0);
+		Assert.assertTrue(Hotel.getQuartoExecutivoDuplo() == 0);
 		
 		try {
-			q2 = new QuartoExecutivoDuplo(2, 6);
+			q1 = new QuartoExecutivoDuplo(2, 1);
+			Assert.fail("Deve lancar excecao, quantidade de quartos invalida");
+		} catch ( Exception e ) {
+			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
+		}
+		
+		try {
+			q1.setCamaExtra(q1.getCamaExtra() + 7);
 			Assert.fail("Deve lancar excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
-			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
+			Assert.assertEquals("Quantidade de camas extras invalida",e.getMessage());
 		}
 	}
-}	
+}

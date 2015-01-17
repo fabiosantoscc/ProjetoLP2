@@ -11,7 +11,7 @@ package classes;
 
 public class QuartoLuxoSimples extends Quarto {
 
-	private final double VALOR_DIARIA = 520;
+	private final double VALOR_DIARIA = 520.0;
 	private int camaExtra;
 	
 	/**
@@ -91,7 +91,7 @@ public class QuartoLuxoSimples extends Quarto {
 	
 	@Override
 	public String toString() {
-		return "Quarto Executivo Duplo [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
+		return "Quarto Luxo Simples [ Valor diaria = R$ " + VALOR_DIARIA + ", " 
 				+ super.toString() + ", Camas Extras = " + getCamaExtra() + " ]";
 	}
 

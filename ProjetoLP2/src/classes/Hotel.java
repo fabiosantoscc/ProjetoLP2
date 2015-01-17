@@ -19,16 +19,15 @@ public class Hotel {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	private List<Hospede> contratos = new ArrayList<Hospede>();
+	private List<Hospede> hospedes = new ArrayList<Hospede>();
 	
 	/**
 	 * 
 	 * @param contrato
 	 */
 	
-	
 	public void adicionaHospede( Hospede hospede ) {
-		contratos.add(hospede);
+		hospedes.add(hospede);
 	}
 	
 	public static int getCamaExtra() {
