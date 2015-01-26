@@ -21,10 +21,13 @@ public class Hotel {
 	private static int quartoLuxoTriplo = 20;
 	private List<Hospede> hospedes = new ArrayList<Hospede>();
 	
-	/**
-	 * 
-	 * @param contrato
-	 */
+	public void checkin() {
+		
+	}
+	
+	public void checkout() {
+		
+	}
 	
 	public void adicionaHospede( Hospede hospede ) {
 		hospedes.add(hospede);
