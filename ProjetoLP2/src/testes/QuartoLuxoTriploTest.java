@@ -5,11 +5,13 @@ import org.junit.Assert;
 import classes.QuartoLuxoTriplo;
 import org.junit.Before;
 import classes.Hotel;
+import excecoes.QuartoEsgotadoException;
 
-/**
+/*
  * Classe de testes da classe QuartoExecutivoTriplo
  * 
  * @author Fabio Alexandre Santos Silva Junior
+ * Ultima alteracao: 26/01/2015
  *
  */
 
@@ -105,7 +107,7 @@ public class QuartoLuxoTriploTest {
 		try {
 			new QuartoLuxoTriplo(2);
 			Assert.fail("Deveria lancar excecao, nao pode criar mais quartos");
-		} catch ( Exception e ) {
+		} catch ( QuartoEsgotadoException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 	}

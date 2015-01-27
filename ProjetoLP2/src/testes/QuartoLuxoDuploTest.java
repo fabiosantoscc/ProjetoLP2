@@ -1,6 +1,7 @@
 package testes;
 
 import org.junit.Test;
+import excecoes.QuartoEsgotadoException;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoLuxoDuplo;
@@ -10,7 +11,7 @@ import classes.QuartoLuxoDuplo;
  * criacao de objetos e limitada.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- *
+ * Ultima alteracao: 26/01/2015
  */
 
 public class QuartoLuxoDuploTest {
@@ -145,7 +146,7 @@ public class QuartoLuxoDuploTest {
 		try {
 			q1 = new QuartoLuxoDuplo(2, 1);
 			Assert.fail("Deve lancar excecao, quantidade de quartos invalida");
-		} catch ( Exception e ) {
+		} catch ( QuartoEsgotadoException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

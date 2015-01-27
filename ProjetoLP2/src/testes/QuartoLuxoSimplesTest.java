@@ -5,6 +5,15 @@ import org.junit.Assert;
 
 import classes.Hotel;
 import classes.QuartoLuxoSimples;
+import excecoes.QuartoEsgotadoException;
+
+/*
+ * Classe de teste da classe QuartoLuxoSimples
+ * 
+ * @author Fabio Alexandre Santos Silva junior
+ * Ultima alteracao: 26/02/2015
+ *
+ */
 
 public class QuartoLuxoSimplesTest {
 
@@ -51,7 +60,7 @@ public class QuartoLuxoSimplesTest {
 		
 		try {
 			new QuartoLuxoSimples(3, 0);
-		} catch ( Exception e ) {
+		} catch ( QuartoEsgotadoException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

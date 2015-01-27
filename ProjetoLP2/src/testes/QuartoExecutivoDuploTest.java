@@ -4,13 +4,14 @@ import org.junit.Test;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoExecutivoDuplo;
+import excecoes.QuartoEsgotadoException;
 
 /*
  * Classe de testes de um quarto luxo duplo, sem uso do before porque a quantidade de
  * criacao de objetos e limitada.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- *
+ * Ultima alteracao: 26/01/2015
  */
 
 public class QuartoExecutivoDuploTest {
@@ -145,7 +146,7 @@ public class QuartoExecutivoDuploTest {
 		try {
 			q1 = new QuartoExecutivoDuplo(2, 1);
 			Assert.fail("Deve lancar excecao, quantidade de quartos invalida");
-		} catch ( Exception e ) {
+		} catch ( QuartoEsgotadoException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

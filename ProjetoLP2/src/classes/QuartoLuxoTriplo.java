@@ -1,12 +1,14 @@
 package classes;
 
+import excecoes.QuartoEsgotadoException;
+
 /**
  * 
  * Classe que representa um Quarto de luxo triplo com capacidade para até 3 pessoas
  * sem cama extra.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
+ * Ultima atualizacao: 26/01/2015 / Fabio Alexandre
  */
 
 public class QuartoLuxoTriplo extends Quarto {
@@ -29,7 +31,7 @@ public class QuartoLuxoTriplo extends Quarto {
 		}
 		
 		if ( Hotel.getQuartoLuxoTriplo() - 1 < 0 ) {
-			throw new IllegalArgumentException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
 		}
 		
 		Hotel.setQuartoLuxoTriplo(Hotel.getQuartoLuxoTriplo() - 1);

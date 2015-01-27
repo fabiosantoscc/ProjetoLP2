@@ -1,5 +1,7 @@
 package classes;
 
+import excecoes.QuartoEsgotadoException;
+
 /**
  * Classe que representa um Quarto executivo simples com capacidade para até 3 pessoas
  * com cama extra.
@@ -34,7 +36,7 @@ public class QuartoExecutivoSimples extends Quarto {
 		}
 		
 		if ( Hotel.getQuartoExecutivoSimples() - 1 < 0 ) {
-			throw new IllegalArgumentException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
 		}
 		
 		this.camaExtra = camaExtra;

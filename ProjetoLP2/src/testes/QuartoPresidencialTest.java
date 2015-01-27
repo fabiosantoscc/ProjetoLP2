@@ -4,13 +4,16 @@ import org.junit.Test;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoPresidencial;
+import excecoes.QuartoEsgotadoException;
 
-/**
+/* Classe de testes da classe QuartoPresidencial
+ * 
  * 
  * Como so podem ser criados 5 objetos do quarto presidencial, nao vou utilizar o before e testar
  * tudo em um unico metodo.
  * 
  * @author Fabio Alexandre Santos Silva Junior
+ * Ultima alteracao: 26/01/2015
  *
  */
 
@@ -59,7 +62,7 @@ public class QuartoPresidencialTest {
 		
 		try {
 			new QuartoPresidencial(4);
-		} catch ( Exception e ) {
+		} catch ( QuartoEsgotadoException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		
