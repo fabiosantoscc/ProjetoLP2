@@ -1,9 +1,12 @@
 package testes;
 
+import excecoes.NotaInvalidaException;
 import classes.Opiniao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
+import excecoes.ComentarioNullException;
+import excecoes.ComentarioInvalidoException;
 
 /*
  * Testes da classe Opiniao
@@ -29,35 +32,35 @@ public class OpiniaoTest {
 		try {
 			op2 = new Opiniao("Belo hotel, grande acomodacao", 11.0);
 			Assert.fail("Esperava excecao, nota invalida");
-		} catch ( IllegalArgumentException e ) {
+		} catch ( NotaInvalidaException e ) {
 			Assert.assertEquals("Nota invalida", e.getMessage());
 		}
 		
 		try {
 			new Opiniao("Belo Hotel", -1.0);
 			Assert.fail("Esperava excecao, nota invalida");
-		} catch ( IllegalArgumentException e ) {
+		} catch ( NotaInvalidaException e ) {
 			Assert.assertEquals("Nota invalida", e.getMessage());
 		}
 		
 		try {
 			new Opiniao("", 10.0);
 			Assert.fail("Esperava excecao, comentario invalido");
-		} catch ( IllegalArgumentException e ) {
+		} catch ( ComentarioInvalidoException e ) {
 			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
 		
 		try {
 			new Opiniao(null, 9.0);
 			Assert.fail("Esperava excecao, comentario null");
-		} catch ( NullPointerException e ) {
+		} catch ( ComentarioNullException e ) {
 			Assert.assertEquals("Comentario nulo", e.getMessage());
 		}
 		
 		try {
 			new Opiniao("", 7.0);
 			Assert.fail("Esperava excecao, comentario vazio");
-		} catch ( IllegalArgumentException e ) {
+		} catch ( ComentarioInvalidoException e ) {
 			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
 		
@@ -68,7 +71,7 @@ public class OpiniaoTest {
 					+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassfasfsfdfdfdfdfdfd", 10.0);
 			
 			Assert.fail("Esperava excecao, comentario invalido");
-		} catch ( IllegalArgumentException e ) {
+		} catch ( ComentarioInvalidoException e ) {
 			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
 	}

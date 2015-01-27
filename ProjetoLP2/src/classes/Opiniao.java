@@ -1,5 +1,9 @@
 package classes;
 
+import excecoes.NotaInvalidaException;
+import excecoes.ComentarioInvalidoException;
+import excecoes.ComentarioNullException;
+
 /**
  * Classe criada para representar uma opiniao.
  * 
@@ -27,15 +31,15 @@ public class Opiniao {
 	public Opiniao( String comentario, double nota ) throws Exception {
 		
 		if ( nota < 0.0 || nota > 10.0 ) {
-			throw new IllegalArgumentException("Nota invalida");
+			throw new NotaInvalidaException("Nota invalida");
 		}
 		
 		if ( comentario == null ) {
-			throw new NullPointerException("Comentario nulo");
+			throw new ComentarioNullException("Comentario nulo");
 		}
 		
 		if ( comentario.length() > 100 || comentario.equals("") ) {
-			throw new IllegalArgumentException("Comentario invalido");
+			throw new ComentarioInvalidoException("Comentario invalido");
 		}
 		
 		this.comentario = comentario;
