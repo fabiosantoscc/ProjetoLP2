@@ -2,6 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 /**
  * 
@@ -19,18 +20,26 @@ public class Hotel {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	private List<Hospede> hospedes = new ArrayList<Hospede>();
+	
+	// map com um hospede como chave, e um List<Contrato> como valor
+	
+	HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
 	
 	public void checkin() {
-		
 	}
 	
 	public void checkout() {
-		
 	}
 	
-	public void adicionaHospede( Hospede hospede ) {
-		hospedes.add(hospede);
+	/**
+	 * Adiciona um hospede no hotel
+	 * 
+	 * @param hospede - Hospede a ser adicionado no hotel
+	 */
+	
+	public void addHospede( Hospede hospede ) {
+		List<Contrato> contratos = new ArrayList<Contrato>();
+		hospedes.put(hospede, contratos);
 	}
 	
 	public static int getCamaExtra() {
@@ -107,6 +116,8 @@ public class Hotel {
 		if ( !( obj instanceof Hotel ) ) {
 			return false;
 		}
+		
+		
 		
 		return true;
 	}
