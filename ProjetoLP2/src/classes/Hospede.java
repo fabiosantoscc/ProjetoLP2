@@ -7,12 +7,11 @@ import java.util.ArrayList;
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * �ltima revisao: 07/01/2015 / Fabio Alexandre
+ * última revisao: 07/01/2015 / Fabio Alexandre
  */
 
 public class Hospede {
 
-	private List<Contrato> contratos = new ArrayList<Contrato>();
 	private Endereco endereco;
 	private String nome;
 	private String cpf;
@@ -275,7 +274,7 @@ public class Hospede {
 	
 	/**
 	 * Recebe o objeto refente ao endereco do hospede
-	 * @param endereco Objeto contendo todas as informações do endereco do hospede
+	 * @param endereco Objeto contendo todas as informaÃ§Ãµes do endereco do hospede
 	 */
 	
 	public void setEndereco( Endereco endereco ) {
