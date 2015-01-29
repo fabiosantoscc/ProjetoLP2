@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * 
  * @author Fabio Alexandre Santos Silva Junior
- *
+ * Ultima alteracao: 29/01/2015 / Fabio Alexandre
  */
 
 public class Hotel {
@@ -50,66 +50,144 @@ public class Hotel {
 		Hotel.camaExtra = camaExtra;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoPresidencial() {
 		return quartoPresidencial;
 	}
 
+	/**
+	 * 
+	 * @param quartoPresidencial
+	 */
+	
 	public static void setQuartoPresidencial(int quartoPresidencial) {
 		Hotel.quartoPresidencial = quartoPresidencial;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoExecutivoSimples() {
 		return quartoExecutivoSimples;
 	}
 
+	/**
+	 * 
+	 * @param quartoExecutivoSimples
+	 */
+	
 	public static void setQuartoExecutivoSimples(int quartoExecutivoSimples) {
 		Hotel.quartoExecutivoSimples = quartoExecutivoSimples;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoExecutivoDuplo() {
 		return quartoExecutivoDuplo;
 	}
 
+	/**
+	 * 
+	 * @param quartoExecutivoDuplo
+	 */
+	
 	public static void setQuartoExecutivoDuplo(int quartoExecutivoDuplo) {
 		Hotel.quartoExecutivoDuplo = quartoExecutivoDuplo;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoExecutivoTriplo() {
 		return quartoExecutivoTriplo;
 	}
 
+	/**
+	 * 
+	 * @param quartoExecutivoTriplo
+	 */
+	
 	public static void setQuartoExecutivoTriplo(int quartoExecutivoTriplo) {
 		Hotel.quartoExecutivoTriplo = quartoExecutivoTriplo;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoLuxoSimples() {
 		return quartoLuxoSimples;
 	}
 
+	/**
+	 * 
+	 * @param quartoLuxoSimples
+	 */
+	
 	public static void setQuartoLuxoSimples(int quartoLuxoSimples) {
 		Hotel.quartoLuxoSimples = quartoLuxoSimples;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoLuxoDuplo() {
 		return quartoLuxoDuplo;
 	}
 
+	/**
+	 * 
+	 * @param quartoLuxoDuplo
+	 */
+	
 	public static void setQuartoLuxoDuplo(int quartoLuxoDuplo) {
 		Hotel.quartoLuxoDuplo = quartoLuxoDuplo;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	
 	public static int getQuartoLuxoTriplo() {
 		return quartoLuxoTriplo;
 	}
 
+	/**
+	 * 
+	 * @param quartoLuxoTriplo
+	 */
+	
 	public static void setQuartoLuxoTriplo(int quartoLuxoTriplo) {
 		Hotel.quartoLuxoTriplo = quartoLuxoTriplo;
 	}
 
+	/**
+	 * 
+	 */
+	
 	@Override
 	public String toString() {
 		return "";
 	}
+	
+	/**
+	 * 
+	 */
 	
 	@Override
 	public boolean equals( Object obj ) {

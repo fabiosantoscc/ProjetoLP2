@@ -1,5 +1,8 @@
 package classes;
 
+import excecoes.NumeroTelefoneInvalidoException;
+import excecoes.DddInvalidoException;
+
 /**
  * Classe que contem os dados referentes ao numedo do telefone do hospede
  * @author Ravi Leite
@@ -29,13 +32,13 @@ public class Telefone {
 	private void verificaNumero(long numero) throws Exception {
 		String numeroString = "" + numero;
 		if ( numeroString.length() > 9 || numeroString.length() < 8 )
-			throw new IllegalArgumentException ("Quantidade de digitos invalida.");
+			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
 	}
 	
 	private void verificaDDD(int ddd) throws Exception {
 		String dddString = "" + ddd;
 		if ( dddString.length() != 2 )
-			throw new IllegalArgumentException ("Quantidade de digitos invalida.");
+			throw new DddInvalidoException("Quantidade de digitos invalida.");
 	}
 	
 	/**
