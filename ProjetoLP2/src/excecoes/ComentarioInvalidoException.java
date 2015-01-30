@@ -1,6 +1,6 @@
 package excecoes;
 
-public class ComentarioInvalidoException extends Exception {
+public class ComentarioInvalidoException extends InputArgumentInvalidException {
 	
 	private static final long serialVersionUID = 1L;
 

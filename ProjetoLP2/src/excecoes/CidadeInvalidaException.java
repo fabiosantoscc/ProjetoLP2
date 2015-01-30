@@ -1,6 +1,6 @@
 package excecoes;
 
-public class CidadeInvalidaException extends Exception  {
+public class CidadeInvalidaException extends InputArgumentInvalidException {
 
 	private static final long serialVersionUID = 1L;
 

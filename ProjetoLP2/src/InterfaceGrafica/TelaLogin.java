@@ -15,7 +15,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class TelaInicial extends JFrame {
+public class TelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
@@ -27,7 +27,7 @@ public class TelaInicial extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial frame = new TelaInicial();
+					TelaLogin frame = new TelaLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class TelaInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaInicial() {
+	public TelaLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 781, 601);
 		contentPane = new JPanel();

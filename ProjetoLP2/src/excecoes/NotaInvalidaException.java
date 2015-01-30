@@ -1,6 +1,6 @@
 package excecoes;
 
-public class NotaInvalidaException extends Exception {
+public class NotaInvalidaException extends InputArgumentInvalidException {
 	
 	private static final long serialVersionUID = 1L;
 
