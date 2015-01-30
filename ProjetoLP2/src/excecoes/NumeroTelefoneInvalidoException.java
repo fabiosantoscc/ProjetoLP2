@@ -1,6 +1,6 @@
 package excecoes;
 
-public class NumeroTelefoneInvalidoException extends Exception {
+public class NumeroTelefoneInvalidoException extends InputArgumentInvalidException {
 
 	private static final long serialVersionUID = 1L;
 	

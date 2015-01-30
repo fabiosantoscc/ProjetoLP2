@@ -1,10 +1,10 @@
 package excecoes;
 
-public class BairroInvalidoException extends Exception {
-
-	private static final long serialVersionUID = 1L;
+public class BairroInvalidoException extends InputArgumentInvalidException {
 	
-    public BairroInvalidoException( String comentario ) {
+	private static final long serialVersionUID = 1L;
+
+	public BairroInvalidoException( String comentario ) {
     	super(comentario);
     }
 }

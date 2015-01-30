@@ -1,6 +1,6 @@
 package excecoes;
 
-public class RuaInvalidaException extends Exception {
+public class RuaInvalidaException extends InputArgumentInvalidException {
 
 	private static final long serialVersionUID = 1L;
 

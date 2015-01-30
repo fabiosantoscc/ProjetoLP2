@@ -1,6 +1,6 @@
 package excecoes;
 
-public class DddInvalidoException extends Exception {
+public class DddInvalidoException extends InputArgumentInvalidException {
 
 	private static final long serialVersionUID = 1L;
 	
