@@ -1,21 +1,22 @@
 package classes;
 
+import classes.BabySitter;
+
 /**
  * Classe que recebe a quantidade de horas contratadas da Baby Sitter e faz um balanço
  * geral da despesa com esse servico
  * @author Ravi Leite and Ronan Souza
  * @data 02/01/2015
+ * Atualiza��o 01/02/2015 Ravi Leite
  */
 
 public class BabySitter implements Servicos {
-	private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias(); 
+	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
-	private double despesaTotal;
-	private double despesaDiaria;
+	private double despesaDiaria, despesaTotal;
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;
 	private int horaInicial;
-
 	
 	/**
 	 * Construtor da classe Baby Sitter para agendamento do serviço
@@ -24,14 +25,14 @@ public class BabySitter implements Servicos {
 	 */
 	
 	public BabySitter(int quantidadeHoras, int horaInicial)throws Exception{
+		calendario = new CalendarioDeEstrategias(); 
 		checaHoras(quantidadeHoras);
 		checaHoraInicial(horaInicial);
-		checaHorasDobradas();
 		this.horaInicial = horaInicial;
 		this.quantidadeHoras = quantidadeHoras;
+		quantidadeHorasDobradas = 0;
 		despesaTotal = 0;
 		despesaDiaria = 0;
-		calculaTarifa();
 	}
 	
 	/**
@@ -39,17 +40,13 @@ public class BabySitter implements Servicos {
 	 */
 	
 	public BabySitter()throws Exception{
+		calendario = new CalendarioDeEstrategias(); 
 		despesaTotal = 0;
 		this.horaInicial = 0;
 		this.quantidadeHoras = 0;
-		despesaDiaria = 0;
+		quantidadeHorasDobradas = 0;
 	}
 	
-	/**
-	 * Checa se há valores válidos para a quantidade de horas
-	 * @param quantidadeHoras
-	 * @throws Exception Quantidades de horas inválidas
-	 */
 	
 	private void checaHoras(int quantidadeHoras)throws Exception{
 		if (quantidadeHoras <= 0){
@@ -57,11 +54,6 @@ public class BabySitter implements Servicos {
 		}
 	}
 	
-	/**
-	 * Checa se o horário inicial do atendimento é válido
-	 * @param horaInicial Horário que o serviço agendade deve iniciar
-	 * @throws Exception Hora inválida (Menor que 0 ou maior que 23)
-	 */
 	private void checaHoraInicial(int horaInicial) throws Exception{
 		if (horaInicial < 0 || horaInicial > 23){
 			throw new Exception("Hora inicial do serviço inválida.");
@@ -76,10 +68,14 @@ public class BabySitter implements Servicos {
 	 * @param mesSaida Dia final da solicitacao do servico
 	 */
 	
-	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida){
+	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida)throws Exception{
+		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
+		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
+		checaHorasDobradas(this.quantidadeHoras, this.horaInicial);
+		despesaDiaria = calculaTarifa(this.quantidadeHoras, this.quantidadeHorasDobradas);
 		for (int i = mesEntrada;i <= mesSaida;i++){
-			for (int j = diaEntrada; j <= diaEntrada; j++){
-				boolean dataValida = calendario.verificaDataValida(diaEntrada, mesEntrada);
+			for (int j = diaEntrada; j <= diaSaida; j++){
+				boolean dataValida = calendario.verificaDataValida(j,i);
 				if (! dataValida){
 					i = 1;
 					if (j == 12) {
@@ -88,8 +84,8 @@ public class BabySitter implements Servicos {
 					else j++;
 					break;
 				}
-			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-			despesaTotal += estrategia.calculaMontante(despesaDiaria);
+				estrategia = calendario.verificaEstrategia(j, i);
+				despesaTotal += estrategia.calculaMontante(despesaDiaria);
 			}
 		}
 	}
@@ -102,60 +98,88 @@ public class BabySitter implements Servicos {
 	 * @param mes Mes da solicitacao
 	 */
 	
-	public void horaExtra(int quantidadeHoras, int horaInicial, int dia, int mes) throws Exception{
-		calculaTarifa();
+	public void horaExtra(int qntHoras, int hrInicial, int dia, int mes) throws Exception{
 		if (!calendario.verificaDataValida(dia, mes)) throw new Exception ("O mes e o dia tem que ser valido.");
-		checaHoras(quantidadeHoras);
-		checaHoraInicial(horaInicial);
-		checaHorasDobradas();
+		checaHorasDobradas(qntHoras, hrInicial);
 		estrategia = calendario.verificaEstrategia(dia, mes);
-		despesaTotal += estrategia.calculaMontante(despesaDiaria);
+		despesaTotal += estrategia.calculaMontante(calculaTarifa(qntHoras, quantidadeHorasDobradas));
 	}
 	
 	/**
 	 * Verifica a quantidade de horas simples e dobradas em cada dia agendado ou de hora extra
 	 */
 	
-	private void checaHorasDobradas(){
+	public void checaHorasDobradas(int quantidadeHoras, int horaInicial){
 		int horas = horaInicial;
 		for (int i = 0; i < quantidadeHoras; i++){
-			if (horas == 24){ horas = 0;}
+			if (horas == 24) horas = 0;
 			if ((horas >= 18 && horas <= 23) || (horas >= 0 && horas < 7)){
 				quantidadeHorasDobradas++;
 			}
 			horas++;
 		}
-		
+	}
+	
+	/**
+	 * 
+	 * @return Valor da despesa diaria
+	 */
+	
+	public double getDespesaDiaria() {
+		return despesaDiaria;
+	}
+	
+	/**
+	 * 
+	 * @return Valor da despesa total no final do contrato
+	 */
+	public double getDespesaTotal() {
+		return despesaTotal;
 	}
 	
 	/**
 	 * 
 	 * @return Quantidade de horas contratadas
 	 */
+	
 	public int getQuantidadeHoras() {
 		return quantidadeHoras;
+	}
+	
+	/**
+	 * @return
+	 */
+	
+	public int getHoraInicial(){
+		return horaInicial;
 	}
 	
 	/**
 	 * 
 	 * @return Quantidade de horas que o valor cobrado será o dobro do normal
 	 */
+	
 	public int getQuantidadeHorasDobradas() {
 		return quantidadeHorasDobradas;
 	}
+	
+	/**
+	 * @return A despesa total da baby sitter em um determinado periodo
+	 */
 	
 	public double getPreco(){
 		return despesaTotal;
 	}
 	
-	
 	/**
 	 * Calcula a tarifa total utilizada por esse servico, metodo que pertence a interface servicos
 	 */
 	
-	private void calculaTarifa() {
-		despesaDiaria += quantidadeHoras * 25.00;
-		despesaDiaria += quantidadeHorasDobradas * 50.00;
+	private double calculaTarifa(int qntHoras, int horasDobradas) {
+		double despesa = 0;
+		despesa += (qntHoras - horasDobradas) * 25.00;
+		despesa += horasDobradas * 50.00;
+		return despesa;
 	}
 	
 	/**

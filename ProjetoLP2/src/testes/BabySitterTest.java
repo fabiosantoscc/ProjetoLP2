@@ -1,7 +1,5 @@
 package testes;
 
-import java.util.Date;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,12 +7,11 @@ import classes.BabySitter;
 
 public class BabySitterTest {
 	
-	BabySitter baby1, baby2, baby3, baby4, baby5;
+	BabySitter baby2, baby3, baby4, baby5;
 	
 	@Before
 	public void iniciaObjetos() throws Exception{
-		baby1 = new BabySitter(2, new Date());
-		baby2 = new BabySitter(10, 15);
+		baby2 = new BabySitter(6, 15);
 		baby3 = new BabySitter(9, 14);
 		baby4 = new BabySitter(16, 2);
 		baby5 = new BabySitter(16, 7);
@@ -23,26 +20,6 @@ public class BabySitterTest {
 	
 	@Test
 	public void testaConstrutor(){
-		try{
-			new BabySitter(-1, new Date());
-			Assert.fail("Deveria ocorrer uma exceção!!");
-		}catch(Exception e){
-			Assert.assertEquals("O numero de horas tem que ser maior que zero.", e.getMessage());	
-		}
-		
-		try{
-			new BabySitter(0, new Date());
-			Assert.fail("Deveria ocorrer uma exceção!!");
-		}catch(Exception e){
-			Assert.assertEquals("O numero de horas tem que ser maior que zero.", e.getMessage());	
-		}
-		
-		try{
-			new BabySitter(10, new Date());
-		}catch(Exception e){
-			//Assert.fail("Não deveria ocorrer erros");	
-		}
-		
 		try{
 			new BabySitter(0, 18);
 			Assert.fail("Deveria ocorrer uma exceção!!");
@@ -77,41 +54,52 @@ public class BabySitterTest {
 			Assert.fail("Não deveria ocorrer erros!!");	
 		}
 	}
+	
+	@Test
+	public void testaCalculoTotal()throws Exception{
+		baby2.calculaDespesaTotal(1, 1, 5, 1);
+		Assert.assertEquals(1372.5, baby2.getDespesaTotal(), 1);
+	}
+	
+	@Test
+	public void testaHoraExtra()throws Exception{
+		System.out.println(baby2.getDespesaTotal());
+		baby2.horaExtra(4, 16, 23, 6);
+		System.out.println(baby2.getDespesaTotal());
+		Assert.assertEquals(225.0, baby2.getDespesaTotal(), 1);
+	}
 
 	@Test
 	public void testaGets(){
-		Assert.assertEquals(2, baby1.getQuantidadeHoras());
-		Assert.assertEquals(10, baby2.getQuantidadeHoras());
+		baby2.checaHorasDobradas(baby2.getQuantidadeHoras(), baby2.getHoraInicial());
+		baby3.checaHorasDobradas(baby3.getQuantidadeHoras(), baby3.getHoraInicial());
+		baby4.checaHorasDobradas(baby4.getQuantidadeHoras(), baby4.getHoraInicial());
+		baby5.checaHorasDobradas(baby5.getQuantidadeHoras(), baby5.getHoraInicial());
+		Assert.assertEquals(6, baby2.getQuantidadeHoras());
 		Assert.assertEquals(9, baby3.getQuantidadeHoras());
 		Assert.assertEquals(16, baby4.getQuantidadeHoras());
 		Assert.assertEquals(16, baby5.getQuantidadeHoras());
-		Assert.assertEquals(7, baby2.getQuantidadeHorasDobradas());
+		Assert.assertEquals(3, baby2.getQuantidadeHorasDobradas());
 		Assert.assertEquals(5, baby3.getQuantidadeHorasDobradas());
 		Assert.assertEquals(5, baby4.getQuantidadeHorasDobradas());
 		Assert.assertEquals(5, baby5.getQuantidadeHorasDobradas());
 	}
 	
-	@Test
-	public void testaCalculaTarifa(){
-		Assert.assertTrue(600.0 == baby2.getPreco());
-		Assert.assertTrue(475.0 == baby3.getPreco());
-		Assert.assertTrue(650.0 == baby4.getPreco());
-	}
 	
 	@Test
 	public void testaToString(){
 		Assert.assertEquals("Baby Sitter \n"
 				+ "Horario de inicio do serviço: 15"
-				+"\nQuantidade de Horas Normais: 10"
-				+ "\nQuantidade de Horas Dobradas: 7", baby2.toString());
+				+"\nQuantidade de Horas Normais: 6"
+				+ "\nQuantidade de Horas Dobradas: 0", baby2.toString());
 		Assert.assertEquals("Baby Sitter \n"
 				+ "Horario de inicio do serviço: 14"
 				+"\nQuantidade de Horas Normais: 9"
-				+ "\nQuantidade de Horas Dobradas: 5", baby3.toString());
+				+ "\nQuantidade de Horas Dobradas: 0", baby3.toString());
 		Assert.assertEquals("Baby Sitter \n"
 				+ "Horario de inicio do serviço: 2"
 				+"\nQuantidade de Horas Normais: 16"
-				+ "\nQuantidade de Horas Dobradas: 5", baby4.toString());
+				+ "\nQuantidade de Horas Dobradas: 0", baby4.toString());
 	}
 	
 	@Test

@@ -1,14 +1,19 @@
 package classes;
 
+import classes.Quarto;
+
 /**
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
+ * Atualizacao: 14/01/2015 / Fabio Alexandre
+ * Ultima atualiza��o 02/02/2015 Ravi Leite
  */
 
 public abstract class Quarto implements Servicos {
-	
+	private EstrategiaDeCalculoDaMontante estrategia;
+	private CalendarioDeEstrategias calendario;
 	private int quantidadeDePessoas;
+	private double despesaTotal;
 	
 	/**
 	 * construtor de um quarto.
@@ -18,7 +23,37 @@ public abstract class Quarto implements Servicos {
 	 */
 	
 	public Quarto(int quantidadeDePessoas) throws Exception {
+		calendario = new CalendarioDeEstrategias(); 
 		this.quantidadeDePessoas = quantidadeDePessoas;
+	}
+	
+	public void calculaDespesaTotal(int diaEntrada, int diaSaida, int mesEntrada, int mesSaida, double despesaDiaria){
+		for (int i = mesEntrada; i <= mesSaida; i++){
+			for (int j = diaEntrada; j <= diaSaida; j ++){
+				boolean dataValida = calendario.verificaDataValida(j, i);
+				if (! dataValida){
+					i = 1;
+					if (j == 12) {
+						j = 1;
+					}
+					else j++;
+					break;
+				}
+			estrategia = calendario.verificaEstrategia(j, i);
+			despesaTotal += estrategia.calculaMontante(despesaDiaria);
+			System.out.println(despesaTotal);
+			}
+		}
+		despesaTotal *= quantidadeDePessoas;
+	}
+	
+	/**
+	 * 
+	 * @return Quantidade total da despesa durante o contrato por um quarto especifico
+	 */
+	
+	public double getDespesaTotal() {
+		return despesaTotal;
 	}
 
 	/**

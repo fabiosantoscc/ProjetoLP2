@@ -1,6 +1,7 @@
 package classes;
 
 
+
 public class EstrategiaSimples implements EstrategiaDeCalculoDaMontante{
 	
 	@Override
