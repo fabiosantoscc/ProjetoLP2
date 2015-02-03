@@ -5,8 +5,8 @@ import classes.Opiniao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-import excecoes.ComentarioNullException;
 import excecoes.ComentarioInvalidoException;
+import excecoes.InputArgumentInvalidException;
 
 /*
  * Testes da classe Opiniao
@@ -28,7 +28,7 @@ public class OpiniaoTest {
 	}
 	
 	@Test
-	public void testConstrutor() throws Exception {
+	public void testConstrutor() throws InputArgumentInvalidException {
 		try {
 			op2 = new Opiniao("Belo hotel, grande acomodacao", 11.0);
 			Assert.fail("Esperava excecao, nota invalida");
@@ -53,8 +53,8 @@ public class OpiniaoTest {
 		try {
 			new Opiniao(null, 9.0);
 			Assert.fail("Esperava excecao, comentario null");
-		} catch ( ComentarioNullException e ) {
-			Assert.assertEquals("Comentario nulo", e.getMessage());
+		} catch ( ComentarioInvalidoException e ) {
+			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
 		
 		try {
@@ -95,9 +95,9 @@ public class OpiniaoTest {
 	}
 	
 	@Test
-	public void testEquals() throws Exception {
+	public void testEquals() throws InputArgumentInvalidException {
 		Assert.assertFalse( op.equals(op2) );
-		Opiniao op3 = new Opiniao( "Bom Hotel", 10.0 );
+		Opiniao op3 = new Opiniao("Bom Hotel", 10.0);
 		Assert.assertTrue( op.equals(op3) );
 	}
 }

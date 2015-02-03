@@ -6,7 +6,7 @@ import classes.Quarto;
  * 
  * @author Fabio Alexandre Santos Silva Junior
  * Atualizacao: 14/01/2015 / Fabio Alexandre
- * Ultima atualiza��o 02/02/2015 Ravi Leite
+ * Ultima atualizacao 02/02/2015 Ravi Leite
  */
 
 public abstract class Quarto implements Servicos {

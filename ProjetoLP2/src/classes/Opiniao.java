@@ -2,7 +2,7 @@ package classes;
 
 import excecoes.NotaInvalidaException;
 import excecoes.ComentarioInvalidoException;
-import excecoes.ComentarioNullException;
+import excecoes.InputArgumentInvalidException;
 
 /**
  * Classe criada para representar uma opiniao.
@@ -11,7 +11,7 @@ import excecoes.ComentarioNullException;
  * @author Fabio Alexandre Santos Silva Junior
  * @version 1.0
  * @data 04/01/2015
- * ultima revisao: 06/01/2015 / Fabio Alexandre
+ * ultima revisao: 03/02/2015 / Fabio Alexandre
  * 
  */
 
@@ -28,18 +28,14 @@ public class Opiniao {
 	 * @throws Exception
 	 */
 	
-	public Opiniao( String comentario, double nota ) throws Exception {
+	public Opiniao( String comentario, double nota ) throws InputArgumentInvalidException {
+		
+		if ( comentario == null || comentario.length() > 100 || comentario.equals("") ) {
+			throw new ComentarioInvalidoException("Comentario invalido");
+		}
 		
 		if ( nota < 0.0 || nota > 10.0 ) {
 			throw new NotaInvalidaException("Nota invalida");
-		}
-		
-		if ( comentario == null ) {
-			throw new ComentarioNullException("Comentario nulo");
-		}
-		
-		if ( comentario.length() > 100 || comentario.equals("") ) {
-			throw new ComentarioInvalidoException("Comentario invalido");
 		}
 		
 		this.comentario = comentario;
@@ -77,7 +73,7 @@ public class Opiniao {
 		
 	/**
 	 * 
-	 * @return Verifica se duas opinioes sao iguais, para isso a nota e o comentario têm que ser iguais.
+	 * @return Verifica se duas opinioes sao iguais, para isso a nota e o comentario tï¿½m que ser iguais.
 	 * E retorna um valor valor booleano se as opinioes forem iguais ou nao.
 	 * 
 	 */
