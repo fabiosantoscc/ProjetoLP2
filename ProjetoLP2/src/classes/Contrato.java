@@ -1,6 +1,5 @@
 package classes;
 
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -12,14 +11,11 @@ import java.util.ArrayList;
  * Ultima alteracao: 16/01/2015 / Fabio Alexandre
  */
 
-// falta o arraylist de servicos
-
 public class Contrato {
 	
-	private GregorianCalendar inicioDoContrato, fimDoContrato;
 	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private boolean fechado;
-	private double valorTotal;
+	private double valorAPagar;
 	
 	/**
 	 * Construtor de um contrato que nao tem data de encerramento
@@ -29,41 +25,17 @@ public class Contrato {
 	 * @param fimDoContrato Data do fim do contrato
 	 */
 	
-	public Contrato( Hospede hospede, GregorianCalendar inicioDoContrato, GregorianCalendar fimDoContrato,
-			double valorTotal ) {
+	public Contrato( Hospede hospede ) {
 		
-		this.inicioDoContrato = inicioDoContrato;
-		this.fimDoContrato = fimDoContrato;
 		this.fechado = false;
-		this.valorTotal = valorTotal;
 	}	
 	
 	/**
 	 * 
 	 */
 	
-	public void fechaContrato() {
-		
-	}
-	
 	public void adicionaServico( Servicos servico ) {
 		servicos.add(servico);
-	}
-	
-	/**
-	 * @return A data do inicio do contrato
-	 */
-	
-	public GregorianCalendar getInicioDoContrato() {
-		return inicioDoContrato;
-	}
-	
-	/**
-	 * @return A data do fim do contrato
-	 */
-	
-	public GregorianCalendar getFimDoContrato() {
-		return fimDoContrato;
 	}
 
 	/**
@@ -86,8 +58,8 @@ public class Contrato {
 	 * @return Todo o valor gasto durante o periodo
 	 */
 	
-	public double getValorTotal(){
-		return valorTotal;
+	public double getValorAPagarl(){
+		return valorAPagar;
 	}
 	
 	/**
@@ -96,9 +68,7 @@ public class Contrato {
 	
 	@Override
 	public String toString() {
-		return "- Inicio do Contrato: " + inicioDoContrato + "\n" + " - Fim do Contrato: " + 
-				fimDoContrato + "\n" + " - Contrato fechado: " + fechado + "\n"
-				+ " - Valor Total: R$ " + valorTotal ;
+		return "";
 	}
 	
 	/**
@@ -112,8 +82,7 @@ public class Contrato {
 		
 		Contrato novoContrato = (Contrato)obj;
 		
-		return (inicioDoContrato.equals(novoContrato.getInicioDoContrato())
-				&& fimDoContrato.equals(novoContrato.getFimDoContrato()));
+		return true;
 	}
 }
 

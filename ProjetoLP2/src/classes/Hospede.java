@@ -1,5 +1,7 @@
 package classes;
 
+import excecoes.*;
+
 /**
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
@@ -12,7 +14,6 @@ public class Hospede {
 	private Endereco endereco;
 	private String nome;
 	private String cpf;
-	private String rg;
 	private Telefone telefone;
 	private String numeroDoCartao;
 	private String email;
@@ -28,45 +29,42 @@ public class Hospede {
 	 * @param email E mail para contato do hospede
 	 * @throws Exception
 	 */
-	
-	public Hospede( Endereco endereco, String nome, String cpf, String rg, Telefone telefone, String
-			cartao, String email ) throws Exception {
+
+	public Hospede( Endereco endereco, String nome, String cpf, Telefone telefone, String
+			cartao, String email ) throws InputArgumentInvalidException {
 		
 		verificaNome(nome);
 		verificaCpf(cpf);
-		verificaRG(rg);
 		verificaCartao(cartao);
 		verificaEmail(email);
 		
 		this.endereco = endereco;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.rg = rg;
 		this.telefone = telefone;
 		this.numeroDoCartao = cartao;
 		this.email = email;
 	}
-	
 	
 	/**
 	 * Metodo para verificação do CPF
 	 * @param cpf do cliente
 	 * @throws Exception
 	 */
-	private void verificaCpf(String cpf) throws Exception{
+	private void verificaCpf(String cpf) throws InputArgumentInvalidException{
 		if (cpf == null || cpf.equals(""))
-			throw new IllegalArgumentException("O campo do cpf nao pode ser null ou vazio.");
+			throw new CpfInvalidoException("O campo do cpf nao pode ser null ou vazio.");
 		
 		for (int i = 0; i < cpf.length(); i++){
 			if(!(Character.isDigit(cpf.charAt(i))))
-				throw new IllegalArgumentException("O cpf deve conter apenas numeros.");
+				throw new CpfInvalidoException("O cpf deve conter apenas numeros.");
 		}
 		
 		if (cpf.length() != 11)
-			throw new IllegalArgumentException("Quantidade de digitos do cpf invalida.");
+			throw new CpfInvalidoException("Quantidade de digitos do cpf invalida.");
 		
 		if ( ! (isCPF(cpf) ) )
-			throw new IllegalArgumentException("cpf invalido");
+			throw new CpfInvalidoException("cpf invalido");
 	}
 	
 	/**
@@ -85,7 +83,6 @@ public class Hospede {
 			return false;
 		
 		return true;
-		
 	}
 
 	/**
@@ -93,6 +90,7 @@ public class Hospede {
 	 * @param cpf do cliente
 	 * @return o 11° digito do CPF
 	 */
+	
 	private int calculaDigito11( String cpf ) {
 		int digito11, soma = 0, j = 0;
 		
@@ -115,6 +113,7 @@ public class Hospede {
 	 * @param cpf do cliente
 	 * @return o 10° digito do CPF
 	 */
+	
 	private int calculaDigito10( String cpf ) {
 		int digito10, soma = 0, j = 0;
 		
@@ -135,58 +134,46 @@ public class Hospede {
 	/**
 	 * Metodo para verificação do nome do cliente
 	 * @param nome do cliente
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
-	private void verificaNome( String nome ) throws Exception {
-		if ( nome == null || nome.equals("") ) {
-			throw new IllegalArgumentException ("O nome do hospede nao pode ser null ou vazio.");
-		}
-	}
 	
-	/**
-	 * Metodo para verificação do RG do cliente
-	 * @param rg do cliente
-	 * @throws Exception
-	 */
-	private void verificaRG( String rg ) throws Exception {
-		if ( rg == null || rg.equals("") )
-			throw new IllegalArgumentException ("O campo do rg nao pode ser null ou vazio.");
-		
-		for ( int i = 0; i < rg.length(); i++ ){
-			if ( !(Character.isDigit(rg.charAt(i))) )
-					throw new IllegalArgumentException ("O rg deve conter apenas numeros.");
+	private void verificaNome( String nome ) throws InputArgumentInvalidException {
+		if ( nome == null || nome.equals("") ) {
+			throw new NomeInvalidoException("O nome do hospede nao pode vazio.");
 		}
-		
-		if ( rg.length() < 7 || rg.length() > 9 )
-			throw new IllegalArgumentException("Quantidade de digitos do rg invalida.");
 	}
 	
 	/**
 	 * Metodo para verificação do cartão de credito do cliente
 	 * @param cartao numero do cartão de credito do cliente
-	 * @throws Exception 
+	 * @throws InputArgumentInvalidException  
+	 * @throws InputArgumentInvalidException
 	 */
-	private void verificaCartao(String cartao){
+	
+	private void verificaCartao(String cartao) throws InputArgumentInvalidException {
+		
 		if (cartao == null || cartao.equals(""))
-			throw new IllegalArgumentException("O campo NUMERO DO CARTAO nao pode ser null ou vazio.");
+			throw new NumeroCartaoInvalidoException("O campo NUMERO DO CARTAO nao pode ser vazio.");
 		
 		if (cartao.length() != 16)
-			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
+			throw new NumeroCartaoInvalidoException("Quantidade de digitos do cartao invalida.");
 		
 		for (int i = 0; i < 16; i++) {
 			if (!(Character.isDigit(cartao.charAt(i))))
-				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
+				throw new NumeroCartaoInvalidoException("O numero do cartao deve conter apenas numeros.");
 		}
 		
 		if (!(isCartao(cartao)))
-			throw new IllegalArgumentException("cartao invalido");
+			throw new NumeroCartaoInvalidoException("Numero do cartao invalido");
 	}
 	
 	/**
-	 * Metodo para testar se é um cartão de credito válido
-	 * @param cartao numero do cartao de credito
+	 * Metodo para testar se o numero do cartao informado e valido.
+	 * 
+	 * @param cartao Numero do cartao de credito do hospede.
 	 * @return verdadeiro se for um cartao valido
 	 */
+	
 	private boolean isCartao( String cartao ) {
 				
 		int somatorio = 0;
@@ -213,14 +200,15 @@ public class Hospede {
 	/**
 	 * Metodo para verificar email
 	 * @param email do cliente
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
-	private void verificaEmail( String email ) throws Exception {
+	
+	private void verificaEmail( String email ) throws InputArgumentInvalidException {
 		if ( email == null || email.equals("") )
-			throw new IllegalArgumentException ("O campo do email nao pode ser null ou vazio.");
+			throw new EmailInvalidoException("O campo do email nao pode ser vazio.");
 		
 		if ( email.indexOf("@") == -1 )
-			throw new IllegalArgumentException ("O campo do email deve ser preenchido no formato adequado com o @.");
+			throw new EmailInvalidoException("O campo do email deve ser preenchido no formato adequado com o @.");
 	}
 	
 	/**
@@ -234,45 +222,27 @@ public class Hospede {
 	/**
 	 * Recebe o numero do cartao de credito
 	 * @param numeroDoCartao Numero do cartao de credito
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setNumeroDoCartao( String numeroDoCartao ) throws Exception {
+	public void setNumeroDoCartao( String numeroDoCartao ) throws InputArgumentInvalidException {
+		
 		if ( numeroDoCartao == null || numeroDoCartao.equals("") )
-			throw new IllegalArgumentException("O campo do numero do cartao nao pode ser null ou vazio.");
+			throw new NumeroCartaoInvalidoException("O campo do numero do cartao nao pode ser vazio.");
 		
 		if ( numeroDoCartao.length() != 16 )
-			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
+			throw new NumeroCartaoInvalidoException("Quantidade de digitos do cartao invalida.");
 		
 		for ( int i = 0; i < 16; i++ ) {
 			if ( !(Character.isDigit(numeroDoCartao.charAt(i))) )
-				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
+				throw new NumeroCartaoInvalidoException("O numero do cartao deve conter apenas numeros.");
 		}
 		
 		if ( !(isCartao(numeroDoCartao)) ) {
-			throw new IllegalArgumentException("Cartao invalido");
+			throw new NumeroCartaoInvalidoException("Cartao invalido");
 		}
 		
 		this.numeroDoCartao = numeroDoCartao;
-	}
-	
-	/**
-	 * @return O numero do RG do hospede
-	 */
-	
-	public String getRg() {
-		return rg;
-	}
-	
-	/**
-	 * Recebe o numero do rg do hospede
-	 * @param rg Numero do rg do hospede
-	 * @throws Exception
-	 */
-	
-	public void setRg( String rg ) throws Exception {
-		verificaRG(rg);
-		this.rg = rg;
 	}
 	
 	/**
@@ -303,10 +273,10 @@ public class Hospede {
 	/**
 	 * Recebe o email do hospede
 	 * @param email Email para contato
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setEmail( String email ) throws Exception {
+	public void setEmail( String email ) throws InputArgumentInvalidException {
 		verificaEmail(email);
 		this.email = email;
 	}
@@ -320,8 +290,9 @@ public class Hospede {
 	}
 	
 	/**
-	 * Recebe o objeto refente ao endereco do hospede
-	 * @param endereco Objeto contendo todas as informaÃÂ§ÃÂµes do endereco do hospede
+	 * Atribui um novo endereco ao hospede.
+	 * 
+	 * @param endereco Todas as informacoes do endereco do hospede.
 	 */
 	
 	public void setEndereco( Endereco endereco ) {
@@ -339,10 +310,10 @@ public class Hospede {
 	/**
 	 * Recebe o nome do hospede
 	 * @param nome Nome do hospede
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setNome( String nome ) throws Exception {
+	public void setNome( String nome ) throws InputArgumentInvalidException {
 		verificaNome(nome);
 		this.nome = nome;
 	}
@@ -358,10 +329,10 @@ public class Hospede {
 	/**
 	 * Recebe o cpf do hospede
 	 * @param cpf Numero do Cpf do Hospede
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setCpf(String cpf) throws Exception {
+	public void setCpf(String cpf) throws InputArgumentInvalidException {
 		verificaCpf(cpf);
 		this.cpf = cpf;
 	}
@@ -374,7 +345,7 @@ public class Hospede {
 	@Override
 	public String toString() {
 		return " - Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
-				"\n" + "- RG: " + rg + "\n- Telefone: \n" + telefone + "\n" +
+				"\n" + "\n- Telefone: \n" + telefone + "\n" +
 				"- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
 	}
 	
