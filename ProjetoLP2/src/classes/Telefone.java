@@ -7,7 +7,7 @@ import excecoes.DddInvalidoException;
  * Classe que contem os dados referentes ao numedo do telefone do hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * Ultima alteracao: 07/01/2015 / Fabio Alexandre
+ * Ultima alteracao: 30/01/2015 / Jaaziel Moura
  */
 
 public class Telefone {
@@ -22,19 +22,32 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public Telefone(long numero, int ddd) throws Exception {
+	public Telefone(int ddd, long numero) throws Exception {
 		verificaNumero(numero);
 		verificaDDD(ddd);
+		
 		this.numero = numero;
 		this.ddd = ddd;
 	}
 	
+	/**
+	 * Metodo que verifica numero do telefone
+	 * @param numero do telefone
+	 * @throws Exception
+	 */
 	private void verificaNumero(long numero) throws Exception {
 		String numeroString = "" + numero;
 		if ( numeroString.length() > 9 || numeroString.length() < 8 )
 			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
+		if (numeroString.length() == 9 && numeroString.charAt(0) != '9' )
+			throw new NumeroTelefoneInvalidoException("Primeiro digito deve ser 9(nove).");
 	}
 	
+	/**
+	 * Metodo que verifica DDD
+	 * @param ddd numero do DDD
+	 * @throws Exception
+	 */
 	private void verificaDDD(int ddd) throws Exception {
 		String dddString = "" + ddd;
 		if ( dddString.length() != 2 )
@@ -84,8 +97,8 @@ public class Telefone {
 	 */
 	
 	@Override
-	public String toString() {
-		return "Numero: " + getDdd() + "-" + getNumero();
+	public String toString() { 
+		return "Numero: " + "(" + getDdd() + ") " + getNumero();
 	}
 	
 	/**

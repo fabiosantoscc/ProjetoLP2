@@ -6,7 +6,7 @@ import excecoes.*;
  * Classe que manipula dados referentes ao endereco do cliente.
  * @author Ravi Leite
  * @data 23/12/2014
- * Alteracoes: 29/01/2015 / Fabio Alexandre
+ * Alteracoes: 03/02/2015 / Jaaziel Levi
  */
 
 public class Endereco {
@@ -41,6 +41,7 @@ public class Endereco {
 		checaComplemento(complemento);
 		checaEstado(estado);
 		checaPais(pais);
+		
 		this.bairro = bairro;
 		this.cidade = cidade;
 		nomeDaRua = rua;
@@ -67,7 +68,7 @@ public class Endereco {
 	}
 	
 	private void checaComplemento( String complemento ) throws ComplementoInvalidoException {
-		if ( complemento == null )
+		if (complemento == null)
 			throw new ComplementoInvalidoException("Complemento invalido");
 	}
 	
@@ -103,9 +104,7 @@ public class Endereco {
 	 */
 	
 	public void setCidade(String cidade) throws Exception{
-		if (cidade == null || cidade.equals("")){
-			throw new Exception("Cidade nao pode ser null ou vazio!");
-		}
+		checaCidade(cidade);
 		this.cidade = cidade;
 	}
 
@@ -124,8 +123,7 @@ public class Endereco {
 	 */
 	
 	public void setBairro(String bairro) throws Exception{
-		if (bairro == null || bairro.equals(""))
-			throw new Exception ("Bairro nao pode ser null ou vazio!");
+		checaBairro(bairro);
 		this.bairro = bairro;
 	}
 	
@@ -144,8 +142,7 @@ public class Endereco {
 	 */
 	
 	public void setNomeDaRua(String nomeDaRua)throws Exception {
-		if (nomeDaRua == null || nomeDaRua.equals(""))
-			throw new Exception ("Nome da rua nao pode ser null ou vazio");
+		checaRua(nomeDaRua);
 		this.nomeDaRua = nomeDaRua;
 	}
 	
@@ -183,8 +180,7 @@ public class Endereco {
 	 */
 	
 	public void setComplemento(String complemento)throws Exception {
-		if (complemento == null || complemento.equals(""))
-			throw new Exception ("O complemento nao pode ser null ou vazio");
+		checaComplemento(complemento);
 		this.complemento = complemento;
 	}
 	
@@ -234,7 +230,8 @@ public class Endereco {
 	
 	@Override
 	public String toString() {
-		return "";
+		return "- Cidade: " + cidade + "\n- Bairro: " + bairro + "\n- Rua: " + nomeDaRua + "\n- Numero: " + numeroDaCasa
+				+ "\n- Complemento: " + complemento + "\n- Estado: " + estado + "\n- Pais: " + pais;
 	}
 	
 	/**

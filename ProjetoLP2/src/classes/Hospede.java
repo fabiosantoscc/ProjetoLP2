@@ -1,13 +1,10 @@
 package classes;
 
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  * Classe que manipula todos os dados referentes ao hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * última revisao: 07/01/2015 / Fabio Alexandre
+ * Ãºltima revisao: 30/01/2015 / Jaaziel Moura
  */
 
 public class Hospede {
@@ -36,8 +33,28 @@ public class Hospede {
 			cartao, String email ) throws Exception {
 		
 		verificaNome(nome);
+		verificaCpf(cpf);
+		verificaRG(rg);
+		verificaCartao(cartao);
+		verificaEmail(email);
 		
-		if ( cpf == null || cpf.equals("") )
+		this.endereco = endereco;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.telefone = telefone;
+		this.numeroDoCartao = cartao;
+		this.email = email;
+	}
+	
+	
+	/**
+	 * Metodo para verificação do CPF
+	 * @param cpf do cliente
+	 * @throws Exception
+	 */
+	private void verificaCpf(String cpf) throws Exception{
+		if (cpf == null || cpf.equals(""))
 			throw new IllegalArgumentException("O campo do cpf nao pode ser null ou vazio.");
 		
 		for (int i = 0; i < cpf.length(); i++){
@@ -50,34 +67,13 @@ public class Hospede {
 		
 		if ( ! (isCPF(cpf) ) )
 			throw new IllegalArgumentException("cpf invalido");
-		
-		verificaRG(rg);
-		
-		if ( cartao == null || cartao.equals("") )
-			throw new IllegalArgumentException("O campo do numero do cartao nao pode ser null ou vazio.");
-		
-		if ( cartao.length() != 16 )
-			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
-		
-		for ( int i = 0; i < 16; i++ ) {
-			if ( !(Character.isDigit(cartao.charAt(i))) )
-				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
-		}
-		
-		if ( ! (isCartao(cartao)) ) {
-			throw new IllegalArgumentException("cartao invalido");
-		}
-		
-		verificaEmail(email);
-		this.endereco = endereco;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.telefone = telefone;
-		this.numeroDoCartao = cartao;
-		this.email = email;
 	}
 	
+	/**
+	 * Metodo para testar se é um CPF válido
+	 * @param cpf do cliente
+	 * @return verdadeiro caso seja um CPF válido
+	 */
 	private boolean isCPF( String cpf ) {
 		
 		int digito10, digito11;
@@ -92,6 +88,11 @@ public class Hospede {
 		
 	}
 
+	/**
+	 * Metodo para calcular o 11° digito do CPF
+	 * @param cpf do cliente
+	 * @return o 11° digito do CPF
+	 */
 	private int calculaDigito11( String cpf ) {
 		int digito11, soma = 0, j = 0;
 		
@@ -109,6 +110,11 @@ public class Hospede {
 		return digito11;
 	}
 	
+	/**
+	 * Metodo para calcular o 10° digito do CPF
+	 * @param cpf do cliente
+	 * @return o 10° digito do CPF
+	 */
 	private int calculaDigito10( String cpf ) {
 		int digito10, soma = 0, j = 0;
 		
@@ -125,13 +131,23 @@ public class Hospede {
 		
 		return digito10;
 	}
-
+	
+	/**
+	 * Metodo para verificação do nome do cliente
+	 * @param nome do cliente
+	 * @throws Exception
+	 */
 	private void verificaNome( String nome ) throws Exception {
 		if ( nome == null || nome.equals("") ) {
 			throw new IllegalArgumentException ("O nome do hospede nao pode ser null ou vazio.");
 		}
 	}
 	
+	/**
+	 * Metodo para verificação do RG do cliente
+	 * @param rg do cliente
+	 * @throws Exception
+	 */
 	private void verificaRG( String rg ) throws Exception {
 		if ( rg == null || rg.equals("") )
 			throw new IllegalArgumentException ("O campo do rg nao pode ser null ou vazio.");
@@ -145,6 +161,32 @@ public class Hospede {
 			throw new IllegalArgumentException("Quantidade de digitos do rg invalida.");
 	}
 	
+	/**
+	 * Metodo para verificação do cartão de credito do cliente
+	 * @param cartao numero do cartão de credito do cliente
+	 * @throws Exception 
+	 */
+	private void verificaCartao(String cartao){
+		if (cartao == null || cartao.equals(""))
+			throw new IllegalArgumentException("O campo NUMERO DO CARTAO nao pode ser null ou vazio.");
+		
+		if (cartao.length() != 16)
+			throw new IllegalArgumentException("Quantidade de digitos do cartao invalida.");
+		
+		for (int i = 0; i < 16; i++) {
+			if (!(Character.isDigit(cartao.charAt(i))))
+				throw new IllegalArgumentException("O numero do cartao deve conter apenas numeros.");
+		}
+		
+		if (!(isCartao(cartao)))
+			throw new IllegalArgumentException("cartao invalido");
+	}
+	
+	/**
+	 * Metodo para testar se é um cartão de credito válido
+	 * @param cartao numero do cartao de credito
+	 * @return verdadeiro se for um cartao valido
+	 */
 	private boolean isCartao( String cartao ) {
 				
 		int somatorio = 0;
@@ -168,6 +210,11 @@ public class Hospede {
 		return true;
 	}
 	
+	/**
+	 * Metodo para verificar email
+	 * @param email do cliente
+	 * @throws Exception
+	 */
 	private void verificaEmail( String email ) throws Exception {
 		if ( email == null || email.equals("") )
 			throw new IllegalArgumentException ("O campo do email nao pode ser null ou vazio.");
@@ -233,7 +280,7 @@ public class Hospede {
 	 */
 	
 	public String getTelefone() {
-		return telefone.getDdd() + "-" + telefone.getNumero();
+		return telefone.toString();
 	}
 
 	/**
@@ -274,7 +321,7 @@ public class Hospede {
 	
 	/**
 	 * Recebe o objeto refente ao endereco do hospede
-	 * @param endereco Objeto contendo todas as informaÃ§Ãµes do endereco do hospede
+	 * @param endereco Objeto contendo todas as informaÃÂ§ÃÂµes do endereco do hospede
 	 */
 	
 	public void setEndereco( Endereco endereco ) {
@@ -314,22 +361,8 @@ public class Hospede {
 	 * @throws Exception
 	 */
 	
-	public void setCpf( String cpf ) throws Exception {
-		if ( cpf == null || cpf.equals("") )
-			throw new IllegalArgumentException("O campo do cpf nao pode ser null ou vazio.");
-		
-		for (int i = 0; i < cpf.length(); i++){
-			if(!(Character.isDigit(cpf.charAt(i))))
-				throw new IllegalArgumentException("O cpf deve conter apenas numeros.");
-		}
-		
-		if (cpf.length() != 11)
-			throw new IllegalArgumentException("Quantidade de digitos do cpf invalida.");
-		
-		if ( ! (isCPF(cpf)) ) {
-			throw new IllegalArgumentException ("cpf invalido");
-		}
-		
+	public void setCpf(String cpf) throws Exception {
+		verificaCpf(cpf);
 		this.cpf = cpf;
 	}
 	
