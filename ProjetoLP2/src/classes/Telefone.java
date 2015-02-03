@@ -7,22 +7,23 @@ import excecoes.DddInvalidoException;
  * Classe que contem os dados referentes ao numedo do telefone do hospede
  * @author Ravi Leite
  * @data 23/12/2014
- * Ultima alteracao: 30/01/2015 / Jaaziel Moura
+ * Ultima alteracao: 03/02/2015 / Fabio Alexandre
  */
 
 public class Telefone {
 	
-	long numero;
-	int ddd;
+	String numero;
+	String ddd;
 	
 	/**
 	 * Contrutor da classe Telefone
+	 * 
 	 * @param numero Numero do telefone
 	 * @param ddd DDD do telefone
 	 * @throws Exception
 	 */
 	
-	public Telefone(int ddd, long numero) throws Exception {
+	public Telefone(String ddd, String numero) throws Exception {
 		verificaNumero(numero);
 		verificaDDD(ddd);
 		
@@ -35,12 +36,12 @@ public class Telefone {
 	 * @param numero do telefone
 	 * @throws Exception
 	 */
-	private void verificaNumero(long numero) throws Exception {
-		String numeroString = "" + numero;
-		if ( numeroString.length() > 9 || numeroString.length() < 8 )
+	
+	private void verificaNumero(String numero) throws Exception {
+		if ( numero.length() > 9 || numero.length() < 8 )
 			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
-		if (numeroString.length() == 9 && numeroString.charAt(0) != '9' )
-			throw new NumeroTelefoneInvalidoException("Primeiro digito deve ser 9(nove).");
+		if ( numero.length() == 9 && numero.charAt(0) != '9' )
+			throw new NumeroTelefoneInvalidoException("Primeiro digito deve ser 9 (nove).");
 	}
 	
 	/**
@@ -48,9 +49,9 @@ public class Telefone {
 	 * @param ddd numero do DDD
 	 * @throws Exception
 	 */
-	private void verificaDDD(int ddd) throws Exception {
-		String dddString = "" + ddd;
-		if ( dddString.length() != 2 )
+	
+	private void verificaDDD( String ddd ) throws Exception {
+		if ( ddd.length() != 2 )
 			throw new DddInvalidoException("Quantidade de digitos invalida.");
 	}
 	
@@ -58,7 +59,7 @@ public class Telefone {
 	 * @return Retorna o numero do telefone do hospede
 	 */
 	
-	public long getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 	
@@ -68,7 +69,7 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public void setNumero(long numero) throws Exception {
+	public void setNumero( String numero ) throws Exception {
 		verificaNumero(numero);
 		this.numero = numero;
 	}
@@ -77,7 +78,7 @@ public class Telefone {
 	 * @return Retorna o ddd do telefone
 	 */
 	
-	public int getDdd() {
+	public String getDdd() {
 		return ddd;
 	}
 	
@@ -87,7 +88,7 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	public void setDdd(int ddd) throws Exception {
+	public void setDdd( String ddd ) throws Exception {
 		verificaDDD(ddd);
 		this.ddd = ddd;
 	}
