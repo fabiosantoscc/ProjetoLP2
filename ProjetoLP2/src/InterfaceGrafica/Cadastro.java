@@ -21,7 +21,7 @@ import classes.Telefone;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CadastrarCliente extends JFrame {
+public class Cadastro extends JFrame {
 
 	/**
 	 * Launch the application.
@@ -30,7 +30,7 @@ public class CadastrarCliente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastrarCliente frame = new CadastrarCliente();
+					Cadastro frame = new Cadastro();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class CadastrarCliente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CadastrarCliente() {
+	public Cadastro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 781, 601);
 		getContentPane().setLayout(null);
