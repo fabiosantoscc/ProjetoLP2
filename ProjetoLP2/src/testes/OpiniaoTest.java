@@ -13,7 +13,7 @@ import excecoes.InputArgumentInvalidException;
  * 
  * Autor: Fabio Alexandre Santos Silva Junior
  *
- * Ultima revisao: 06/01/2015
+ * Ultima revisao: 03/02/2015 / Jaaziel Moura
  */
 
 public class OpiniaoTest {
@@ -29,6 +29,12 @@ public class OpiniaoTest {
 	
 	@Test
 	public void testConstrutor() throws InputArgumentInvalidException {
+		try {
+			op2 = new Opiniao("Belo hotel, grande acomodacao", 10.0);
+		} catch ( NotaInvalidaException e ) {
+			Assert.assertEquals("Nao deve haver excecao, construtor correto", e.getMessage());
+		}
+		
 		try {
 			op2 = new Opiniao("Belo hotel, grande acomodacao", 11.0);
 			Assert.fail("Esperava excecao, nota invalida");
