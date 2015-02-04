@@ -14,6 +14,10 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TelaLogin extends JFrame {
 
@@ -76,11 +80,25 @@ public class TelaLogin extends JFrame {
 		contentPane.add(salvarSenha);
 		
 		JButton entrar = new JButton("Entrar");
+		entrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPrincipal menuFrame = new MenuPrincipal();
+				TelaLogin.this.dispose();
+				
+			}
+		});
 		entrar.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 16));
 		entrar.setBounds(453, 382, 117, 25);
 		contentPane.add(entrar);
 		
 		JLabel lblEsqueceuASenha = new JLabel("Esqueceu a Senha?");
+		lblEsqueceuASenha.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MenuPrincipal menuFrame = new MenuPrincipal();
+				TelaLogin.this.dispose();
+			}
+		});
 		lblEsqueceuASenha.setForeground(Color.BLUE);
 		lblEsqueceuASenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
 		lblEsqueceuASenha.setBounds(212, 428, 154, 25);
