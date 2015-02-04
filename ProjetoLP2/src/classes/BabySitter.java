@@ -7,10 +7,12 @@ import classes.BabySitter;
  * geral da despesa com esse servico
  * @author Ravi Leite and Ronan Souza
  * @data 02/01/2015
- * Atualiza��o 01/02/2015 Ravi Leite
+ * 
+ * Atualizacao 01/02/2015 Ravi Leite
  */
 
 public class BabySitter implements Servicos {
+	
 	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
 	private double despesaDiaria, despesaTotal;

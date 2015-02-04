@@ -1,11 +1,11 @@
 package classes;
 
-import excecoes.NumeroTelefoneInvalidoException;
-import excecoes.DddInvalidoException;
+import excecoes.*;
 
 /**
  * Classe que contem os dados referentes ao numedo do telefone do hospede
  * @author Ravi Leite
+ * 
  * @data 23/12/2014
  * Ultima alteracao: 03/02/2015 / Fabio Alexandre
  */
@@ -26,7 +26,6 @@ public class Telefone {
 	public Telefone(String ddd, String numero) throws Exception {
 		verificaNumero(numero);
 		verificaDDD(ddd);
-		
 		this.numero = numero;
 		this.ddd = ddd;
 	}
@@ -37,9 +36,18 @@ public class Telefone {
 	 * @throws Exception
 	 */
 	
-	private void verificaNumero(String numero) throws Exception {
+	private void verificaNumero( String numero ) throws Exception {
 		if ( numero.length() > 9 || numero.length() < 8 )
 			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
+		
+		if ( Integer.parseInt(numero) < 0 )
+			throw new NumeroTelefoneInvalidoException("Numero do telefone e um numero positivo.");
+		
+		for ( int i = 0; i < 9; i++ ) {
+			if ( !(Character.isDigit(numero.charAt(0)) ))
+				throw new NumeroTelefoneInvalidoException("O Numero do telefone deve conter apenas digitos.");
+		}
+		 
 		if ( numero.length() == 9 && numero.charAt(0) != '9' )
 			throw new NumeroTelefoneInvalidoException("Primeiro digito deve ser 9 (nove).");
 	}
@@ -53,6 +61,13 @@ public class Telefone {
 	private void verificaDDD( String ddd ) throws Exception {
 		if ( ddd.length() != 2 )
 			throw new DddInvalidoException("Quantidade de digitos invalida.");
+		
+		if ( Integer.parseInt(ddd) < 0 )
+			throw new DddInvalidoException("O DDD e um numero positivo.");
+		
+		if ( (! (Character.isDigit(ddd.charAt(0)))) || (! (Character.isDigit(ddd.charAt(1)))) )
+				throw new DddInvalidoException("DDD deve conter apenas digitos.");
+			
 	}
 	
 	/**
@@ -113,6 +128,6 @@ public class Telefone {
 		
 		Telefone novoTelefone = (Telefone) obj;
 		
-		return (ddd == novoTelefone.getDdd() && numero == novoTelefone.getNumero());
+		return (ddd.equals(novoTelefone.getDdd()) && numero.equals(novoTelefone.getNumero()));
 	}
 }

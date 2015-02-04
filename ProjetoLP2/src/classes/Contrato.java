@@ -26,9 +26,8 @@ public class Contrato {
 	 */
 	
 	public Contrato( Hospede hospede ) {
-		
 		this.fechado = false;
-	}	
+	}
 	
 	/**
 	 * 
