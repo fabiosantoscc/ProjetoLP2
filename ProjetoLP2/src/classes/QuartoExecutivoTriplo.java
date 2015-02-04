@@ -1,10 +1,11 @@
 package classes;
 
+import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoException;
 
 /**
  * 
- * Classe que representa um Quarto executivo triplo com capacidade para até 3 pessoas
+ * Classe que representa um Quarto executivo triplo com capacidade para atï¿½ 3 pessoas
  * sem cama extra.
  * 
  * @author Fabio Alexandre Santos Silva Junior
@@ -25,10 +26,7 @@ public class QuartoExecutivoTriplo extends Quarto {
 	public QuartoExecutivoTriplo( int quantidadeDePessoas ) throws Exception {
 		
 		super(quantidadeDePessoas);
-		
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
+		verificaQuantidadeDePessoas(quantidadeDePessoas);
 
 		if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
 			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
@@ -47,12 +45,15 @@ public class QuartoExecutivoTriplo extends Quarto {
 		return VALOR_DIARIA;
 	}
 	
-	public void setQuantidadeDePessoas(int pessoas) {
-		if ( pessoas <= 0 || pessoas > 3 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
-		
+	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
+		verificaQuantidadeDePessoas(pessoas);
 		super.setQuantidadeDePessoas(pessoas);
+	}
+	
+	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
+			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+		}
 	}
 	
 	/**

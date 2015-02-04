@@ -157,12 +157,4 @@ public class QuartoExecutivoDuploTest {
 			Assert.assertEquals("Quantidade de camas extras invalida",e.getMessage());
 		}
 	}
-	
-	@Test
-	public void testaCalculaDespesa()throws Exception{
-		q1 = new QuartoExecutivoDuplo(2, 0); 
-		
-		q1.calculaDespesaTotal(1, 5, 1,1, q1.getPreco());
-		Assert.assertEquals(4697.0, q1.getDespesaTotal(),1);
-	}
 }

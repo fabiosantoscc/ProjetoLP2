@@ -1,8 +1,10 @@
 package classes;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
+import excecoes.*;
 
 /**
  * Classe que manipula os dados referentes ao contrato do hospede
@@ -17,8 +19,18 @@ public class Contrato {
 	private boolean fechado;
 	private double valorAPagar;
 	private int numeroDeNoites;
+	private int diaInicial, mesInicial, anoInicial;
+	private EstrategiaDeCalculoDaMontante e;
 	
-	public Contrato( Hospede hospede ) {
+	public Contrato(Hospede hospede, int numeroDeNoites) throws NumeroDeNoitesInvalidoException {
+		Calendar c = Calendar.getInstance();
+		diaInicial = c.get(Calendar.DAY_OF_MONTH);
+		mesInicial = c.get(Calendar.MONTH) + 1;
+		anoInicial = c.get(Calendar.YEAR);
+		
+		if ( numeroDeNoites <= 0)
+			throw new NumeroDeNoitesInvalidoException("");
+		
 		this.fechado = false;
 	}
 	
@@ -34,12 +46,19 @@ public class Contrato {
 		this.fechado = fechado;
 	}
 	
+	public int getNumeroDeNoites() {
+		return numeroDeNoites;
+	}
+	
 	/**
 	 * @return Todo o valor gasto durante o periodo
 	 */
 	
 	public double getValorAPagar(){
 		return valorAPagar;
+	}
+	
+	public void calculaTotalAPagar() {
 	}
 	
 	@Override

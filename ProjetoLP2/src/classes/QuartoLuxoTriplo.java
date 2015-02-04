@@ -1,10 +1,11 @@
 package classes;
 
+import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoException;
 
 /**
  * 
- * Classe que representa um Quarto de luxo triplo com capacidade para até 3 pessoas
+ * Classe que representa um Quarto de luxo triplo com capacidade para atï¿½ 3 pessoas
  * sem cama extra.
  * 
  * @author Fabio Alexandre Santos Silva Junior
@@ -22,13 +23,10 @@ public class QuartoLuxoTriplo extends Quarto {
 	 * @throws Exception
 	 */
 	
-	public QuartoLuxoTriplo( int quantidadeDePessoas ) throws Exception {
+	public QuartoLuxoTriplo( int quantidadeDePessoas ) throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoException {
 		
 		super(quantidadeDePessoas);
-		
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
+		verificaQuantidadeDePessoas(quantidadeDePessoas);
 		
 		if ( Hotel.getQuartoLuxoTriplo() - 1 < 0 ) {
 			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
@@ -47,15 +45,19 @@ public class QuartoLuxoTriplo extends Quarto {
 	}
 	
 	/**
+	 * @throws QuantidadeDePessoasInvalidaException 
 	 * 
 	 */
 	
-	public void setQuantidadeDePessoas(int pessoas) {
-		if ( pessoas <= 0 || pessoas > 3 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
-		
+	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
+		verificaQuantidadeDePessoas(pessoas);
 		super.setQuantidadeDePessoas(pessoas);
+	}
+	
+	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
+			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+		}
 	}
 	
 	/**

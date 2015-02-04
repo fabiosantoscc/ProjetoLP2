@@ -1,14 +1,14 @@
 package classes;
 
-import excecoes.QuartoEsgotadoException;
+import excecoes.*;
 
 /**
  * 
- * Classe que representa um Quarto de luxo triplo com capacidade para até 4 pessoas
+ * Classe que representa um Quarto de luxo triplo com capacidade para ate 4 pessoas
  * sem cama extra.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
+ * Ultima atualizacao: 04/02/2015 / Fabio Alexandre
  */
 
 public class QuartoPresidencial extends Quarto {
@@ -22,13 +22,10 @@ public class QuartoPresidencial extends Quarto {
 	 * @throws Exception
 	 */
 	
-	public QuartoPresidencial( int quantidadeDePessoas ) throws Exception {
+	public QuartoPresidencial( int quantidadeDePessoas ) throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoException {
 		
 		super(quantidadeDePessoas);
-		
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
+		verificaQuantidadeDePessoas(quantidadeDePessoas);
 		
 		if ( Hotel.getQuartoPresidencial() == 0 ) {
 			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
@@ -52,16 +49,19 @@ public class QuartoPresidencial extends Quarto {
 	 * Altera a quantidade de pessoas do quarto presidencial.
 	 * 
 	 * @param pessoas - Quantidade de pessoas atual do quarto presidencial, deve ser entre 1 e 4.
+	 * @throws QuantidadeDePessoasInvalidaException 
 	 */
 	
-	public void setQuantidadeDePessoas(int pessoas) {
-		if ( pessoas <= 0 || pessoas > 4 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
-		
+	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
+		verificaQuantidadeDePessoas(pessoas);
 		super.setQuantidadeDePessoas(pessoas);
 	}
 	
+	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
+			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+		}
+	}
 	
 	/**
 	 * Metodo que retorna uma string para representacao de um quarto presidencial.

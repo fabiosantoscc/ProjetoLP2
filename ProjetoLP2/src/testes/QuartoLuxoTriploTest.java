@@ -2,9 +2,13 @@ package testes;
 
 import org.junit.Test;
 import org.junit.Assert;
+
 import classes.QuartoLuxoTriplo;
+
 import org.junit.Before;
+
 import classes.Hotel;
+import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoException;
 
 /*
@@ -66,7 +70,7 @@ public class QuartoLuxoTriploTest {
 	}
 	
 	@Test
-	public void testSetQuantidadePessoas() {
+	public void testSetQuantidadePessoas() throws QuantidadeDePessoasInvalidaException {
 		q1.setQuantidadeDePessoas(2);
 		Assert.assertTrue(q1.getQuantidadeDePessoas() == 2);
 		
@@ -83,7 +87,7 @@ public class QuartoLuxoTriploTest {
 	}
 		
 	@Test
-	public void testEquals() {
+	public void testEquals() throws QuantidadeDePessoasInvalidaException {
 		Assert.assertFalse(q1.equals(q2));
 		q2.setQuantidadeDePessoas(2);
 		Assert.assertTrue(q1.equals(q2));

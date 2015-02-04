@@ -24,8 +24,8 @@ public class Telefone {
 	 */
 	
 	public Telefone(String ddd, String numero) throws InputArgumentInvalidException {
-		verificaNumero(numero);
 		verificaDDD(ddd);
+		verificaNumero(numero);
 		this.numero = numero;
 		this.ddd = ddd;
 	}
@@ -40,7 +40,7 @@ public class Telefone {
 	private void verificaNumero( String numero ) throws InputArgumentInvalidException {
 		
 		if ( numero == null || numero.equals(""))
-			throw new NumeroTelefoneInvalidoException("Numero de telefone não pode ser vazio.");
+			throw new NumeroTelefoneInvalidoException("Numero de telefone nao pode ser vazio.");
 		
 		if ( Integer.parseInt(numero) < 0) {
 			throw new NumeroTelefoneInvalidoException("Numero de telefone tem que ser um numero positivo.");

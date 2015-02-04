@@ -1,6 +1,7 @@
 package classes;
 
 import classes.Quarto;
+import excecoes.QuantidadeDePessoasInvalidaException;
 
 /**
  * 
@@ -10,8 +11,6 @@ import classes.Quarto;
  */
 
 public abstract class Quarto implements Servicos {
-	private EstrategiaDeCalculoDaMontante estrategia;
-	private CalendarioDeEstrategias calendario;
 	private int quantidadeDePessoas;
 	private double despesaTotal;
 	
@@ -22,30 +21,29 @@ public abstract class Quarto implements Servicos {
 	 * @throws Exception
 	 */
 	
-	public Quarto(int quantidadeDePessoas) throws Exception {
-		calendario = new CalendarioDeEstrategias(); 
+	public Quarto(int quantidadeDePessoas) {
 		this.quantidadeDePessoas = quantidadeDePessoas;
 	}
 	
-	public void calculaDespesaTotal(int diaEntrada, int diaSaida, int mesEntrada, int mesSaida, double despesaDiaria){
-		for (int i = mesEntrada; i <= mesSaida; i++){
-			for (int j = diaEntrada; j <= diaSaida; j ++){
-				boolean dataValida = calendario.verificaDataValida(j, i);
-				if (! dataValida){
-					i = 1;
-					if (j == 12) {
-						j = 1;
-					}
-					else j++;
-					break;
-				}
-			estrategia = calendario.verificaEstrategia(j, i);
-			despesaTotal += estrategia.calculaMontante(despesaDiaria);
-			System.out.println(despesaTotal);
-			}
-		}
-		despesaTotal *= quantidadeDePessoas;
-	}
+//	public void calculaDespesaTotal(int diaEntrada, int diaSaida, int mesEntrada, int mesSaida, double despesaDiaria){
+//		for (int i = mesEntrada; i <= mesSaida; i++){
+//			for (int j = diaEntrada; j <= diaSaida; j ++){
+//				boolean dataValida = calendario.verificaDataValida(j, i);
+//				if (! dataValida){
+//					i = 1;
+//					if (j == 12) {
+//						j = 1;
+//					}
+//					else j++;
+//					break;
+//				}
+//			estrategia = calendario.verificaEstrategia(j, i);
+//			despesaTotal += estrategia.calculaMontante(despesaDiaria);
+//			System.out.println(despesaTotal);
+//			}
+//		}
+//		despesaTotal *= quantidadeDePessoas;
+//	}
 	
 	/**
 	 * 
@@ -64,8 +62,15 @@ public abstract class Quarto implements Servicos {
 		return quantidadeDePessoas;
 	}
 
-	public void setQuantidadeDePessoas(int pessoas) {
+	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
+		verificaQuantidadeDePessoas(pessoas);
 		this.quantidadeDePessoas = pessoas;
+	}
+	
+	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
+			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+		}
 	}
 	
 	/**
