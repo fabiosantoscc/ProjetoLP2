@@ -14,7 +14,7 @@ public class Endereco {
 	private String cidade;
 	private String bairro;
 	private String nomeDaRua;
-	private int numeroDaCasa;
+	private String numeroDaCasa;
 	private String complemento;
 	private String estado;
 	private String pais;
@@ -31,7 +31,7 @@ public class Endereco {
 	 * @throws Exception
 	 */
 	
-	public Endereco(String cidade, String bairro, String rua, int numero, String complemento, String estado, String pais) 
+	public Endereco(String cidade, String bairro, String rua, String numero, String complemento, String estado, String pais) 
 			throws Exception{
 		
 		checaCidade(cidade);
@@ -72,8 +72,8 @@ public class Endereco {
 			throw new ComplementoInvalidoException("Complemento invalido");
 	}
 	
-	private void checaNumero( int numero ) throws NumeroDaResidenciaInvalidoException {
-		if ( numero <= 0 ) {
+	private void checaNumero( String numero ) throws NumeroDaResidenciaInvalidoException {
+		if ( Integer.parseInt(numero) <= 0 ) {
 			throw new NumeroDaResidenciaInvalidoException ("Numero da residencia invalido");
 		}
 	}
@@ -150,7 +150,7 @@ public class Endereco {
 	 * @return O numero da residencia do cliente.
 	 */
 	
-	public int getNumeroDaCasa() {
+	public String getNumeroDaCasa() {
 		return numeroDaCasa;
 	}
 	
@@ -160,7 +160,7 @@ public class Endereco {
 	 * @throws Exception
 	 */
 	
-	public void setNumeroDaCasa(int numeroDaCasa) throws Exception {
+	public void setNumeroDaCasa(String numeroDaCasa) throws Exception {
 		checaNumero(numeroDaCasa);
 		this.numeroDaCasa = numeroDaCasa;
 	}
