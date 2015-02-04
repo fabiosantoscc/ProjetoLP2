@@ -368,8 +368,8 @@ public class Hospede {
 	
 	@Override
 	public String toString() {
-		return " - Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
-				"\n" + "\n- Telefone: \n" + telefone + "\n" +
+		return "- Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
+				"\n- Telefone: \n" + telefone + "\n" +
 				"- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
 	}
 	

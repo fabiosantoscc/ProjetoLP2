@@ -1,11 +1,13 @@
 package classes;
 
 /**
- * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
+ * Classe que recebe informacoes sobre o aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 
  * @author Ronan Souza
  * @date 12/01/2014
+ * Ultima revisao: 03/02/2015 / Fabio Alexandre
  */
+
 public class AluguelDeCarros implements Servicos {
 	private String tipoCarro;
 	private boolean tanqueCheio;
@@ -18,11 +20,11 @@ public class AluguelDeCarros implements Servicos {
 	 * Construtor da classe AluguelDeCarros
 	 * 
 	 * @param tipoCarro Modelo do Automovel desejado ( "Luxo" ou "Executivo")
-	 * @param tanqueCheio Veiculo já com tanque cheio
+	 * @param tanqueCheio Veiculo ja com tanque cheio
 	 * @param seguroAutomovel Seguro do automovel no periodo do aluguel 
-	 * @param quantidadeDias Quantidade de dias em que o automovel estará em uso do cliente
+	 * @param quantidadeDias Quantidade de dias em que o automovel estara em uso do cliente
 	 */
-	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel, int quantidadeDias) throws Exception{
+	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel, int quantidadeDias) throws Exception {
 		checaTipoCarro(tipoCarro);
 		checaquantidadeDias(quantidadeDias);
 		this.tipoCarro = tipoCarro;
@@ -33,7 +35,7 @@ public class AluguelDeCarros implements Servicos {
 		
 	}	
 	
-	private void checaTipoCarro(String tipo)throws Exception{
+	private void checaTipoCarro(String tipo) throws Exception {
 		if (!( tipo.equals("Executivo") ||  tipo.equals("Luxo"))) {
 			throw new Exception("Modelo de Automóvel Inválido (\"Luxo\" ou \"Executivo\")");
 		}
@@ -56,7 +58,7 @@ public class AluguelDeCarros implements Servicos {
 	
 	/**
 	 * 
-	 * @return Se o veículo já sai para o aluguel com o tanque de combustível cheio
+	 * @return Se o veiculo ja sai para o aluguel com o tanque de combustivel cheio
 	 */
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
@@ -64,14 +66,14 @@ public class AluguelDeCarros implements Servicos {
 
 	/**
 	 * 
-	 * @return Se o veículo será assegurado no periodo que estiver com o cliente
+	 * @return Se o veiculo sera assegurado no periodo que estiver com o cliente
 	 */
 	public boolean isSeguroDeAutomovel() {
 		return seguroDeAutomovel;
 	}
 
 	/**
-	 * Calcula o valor a ser pago pelo alugel do automóvel.
+	 * Calcula o valor a ser pago pelo alugel do automovel.
 	 * @return Valor a ser pago 
 	 */
 	private void calculaTarifa() {

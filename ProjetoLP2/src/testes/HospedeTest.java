@@ -261,7 +261,7 @@ public class HospedeTest {
 
 	@Test
 	public void testToString() {
-		Assert.assertEquals(hospede.toString(), " - Nome: Anisio\n- Endereco: \n- Cidade: Campina Grande"
+		Assert.assertEquals(hospede.toString(), "- Nome: Anisio\n- Endereco: \n- Cidade: Campina Grande"
 				+ "\n- Bairro: Bodocongo\n- Rua: Rodrigues Alves\n- Numero: 500\n- Complemento: "
 				+ "-\n- Estado: Paraiba\n- Pais: Brasil\n- CPF: 75265471855\n- Telefone: \n"
 				+ "Numero: (83) 99999999\n- Numero do Cartao: 4012888888881881\n- E-Mail: "
