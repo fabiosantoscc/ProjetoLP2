@@ -15,12 +15,6 @@ public class CalendarioDeEstrategias {
 			}
 		}
 		
-		else if(mes == 2){
-			if (dia >= 13 && dia <= 18){
-				estrategia = new EstrategiaCarnaval();
-			}
-		}
-		
 		else if (mes == 6){
 			if (dia == 23 || dia == 24 || dia == 25 || dia == 28 || dia == 29){
 				estrategia = new EstrategiaSaoJoaoEspecial();
