@@ -46,6 +46,7 @@ public class MenuPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 781, 601);
 		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 769, 540);
