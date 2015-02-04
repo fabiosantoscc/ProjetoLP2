@@ -30,8 +30,8 @@ public class Hospede {
 	 * @throws Exception
 	 */
 
-	public Hospede( Endereco endereco, String nome, String cpf, Telefone telefone, String
-			cartao, String email ) throws InputArgumentInvalidException {
+	public Hospede( String nome, String cpf, String
+			cartao, String email, Telefone telefone, Endereco endereco ) throws InputArgumentInvalidException {
 		
 		verificaNome(nome);
 		verificaCpf(cpf);
@@ -235,6 +235,14 @@ public class Hospede {
 		return "" + endereco.getNumeroDaCasa();
 	}
 	
+	public String getDDD() {
+		return telefone.getDdd();
+	}
+	
+	public String getNumeroTelefone() {
+		return telefone.getNumero();
+	}
+	  
 	/**
 	 * @return O numero do cartao de credito do hospede
 	 */

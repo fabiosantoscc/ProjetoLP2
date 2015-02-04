@@ -42,11 +42,12 @@ public class Telefone {
 		if ( numero == null || numero.equals(""))
 			throw new NumeroTelefoneInvalidoException("Numero de telefone não pode ser vazio.");
 		
-		if ( numero.length() > 9 || numero.length() < 8 )
-			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
+		if ( Integer.parseInt(numero) < 0) {
+			throw new NumeroTelefoneInvalidoException("Numero de telefone tem que ser um numero positivo");
+		}
 		
-		if ( Integer.parseInt(numero) < 0 )
-			throw new NumeroTelefoneInvalidoException("Numero do telefone e um numero positivo.");
+		if ( numero.length() > 9 || numero.length() < 8 )
+			throw new NumeroTelefoneInvalidoException("Quantidade de digitos do telefone invalida.");
 		
 		for ( int i = 0; i < 9; i++ ) {
 			if ( !(Character.isDigit(numero.charAt(0)) ))
@@ -54,7 +55,7 @@ public class Telefone {
 		}
 		 
 		if ( numero.length() == 9 && numero.charAt(0) != '9' )
-			throw new NumeroTelefoneInvalidoException("Primeiro digito deve ser 9 (nove).");
+			throw new NumeroTelefoneInvalidoException("Primeiro digito do telefone deve ser 9 (nove).");
 	}
 	
 	/**
@@ -69,11 +70,12 @@ public class Telefone {
 		if ( ddd == null || ddd.equals(""))
 			throw new DddInvalidoException("DDD nao pode ser vazio.");
 		
-		if ( ddd.length() != 2 )
-			throw new DddInvalidoException("Quantidade de digitos invalida.");
+		if ( Integer.parseInt(ddd) < 0 ) {
+			throw new DddInvalidoException("DDD tem que ser um numero positivo");
+		}
 		
-		if ( Integer.parseInt(ddd) < 0 )
-			throw new DddInvalidoException("O DDD e um numero positivo.");
+		if ( ddd.length() != 2 )
+			throw new DddInvalidoException("Quantidade de digitos do DDD invalida.");
 		
 		if ( (! (Character.isDigit(ddd.charAt(0)))) || (! (Character.isDigit(ddd.charAt(1)))) )
 				throw new DddInvalidoException("DDD deve conter apenas digitos.");

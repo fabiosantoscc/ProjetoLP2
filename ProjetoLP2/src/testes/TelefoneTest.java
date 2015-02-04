@@ -3,9 +3,6 @@ package testes;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-import excecoes.DddInvalidoException;
-import excecoes.NumeroTelefoneInvalidoException;
-
 import excecoes.*;
 import classes.Telefone;
 
@@ -44,28 +41,28 @@ public class TelefoneTest {
 			new Telefone("83", "0");
 			Assert.fail("Esperava excecao pois o numero de telefone esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do telefone invalida.", e.getMessage());
 		}
 		
 		try {
 			new Telefone("83", "1234567890");
 			Assert.fail("Esperava excecao pois o numero de telefone esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do telefone invalida.", e.getMessage());
 		}
 		
 		try {
 			new Telefone("0", "99999999");
 			Assert.fail("Esperava excecao pois o numero do ddd esta invalido.");
 		} catch ( DddInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do DDD invalida.", e.getMessage());
 		}
 		
 		try {
 			new Telefone("83", "199999999");
 			Assert.fail("Esperava excecao pois o primeiro digito esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Primeiro digito deve ser 9 (nove).", e.getMessage());
+			Assert.assertEquals("Primeiro digito do telefone deve ser 9 (nove).", e.getMessage());
 		}
 	}
 	
@@ -75,14 +72,14 @@ public class TelefoneTest {
 			telefone.setNumero("9999999");
 			Assert.fail("Esperava excecao pois o numero do telefone esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do telefone invalida.", e.getMessage());
 		}
 		
 		try {
 			telefone.setNumero("1234567890");
 			Assert.fail("Esperava excecao pois o numero do telefone esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do telefone invalida.", e.getMessage());
 		}
 		
 		try {
@@ -101,7 +98,7 @@ public class TelefoneTest {
 			telefone.setDdd("0");
 			Assert.fail("Esperava excecao pois o numero do ddd esta invalido.");
 		} catch ( DddInvalidoException e ) {
-			Assert.assertEquals("Quantidade de digitos invalida.", e.getMessage());
+			Assert.assertEquals("Quantidade de digitos do DDD invalida.", e.getMessage());
 		}
 		
 		try {

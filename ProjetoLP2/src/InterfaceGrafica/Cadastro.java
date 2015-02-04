@@ -197,7 +197,7 @@ public class Cadastro extends JFrame {
 				}
 				
 				try {
-					Hospede h = new Hospede(e, nome.getText(), cpf.getText(), t, cartao.getText(), email.getText());
+					Hospede h = new Hospede(nome.getText(), cpf.getText(), cartao.getText(), email.getText(), t, e);
 				} catch ( Exception s ) {
 					JOptionPane.showMessageDialog(null, s.getMessage());
 				}

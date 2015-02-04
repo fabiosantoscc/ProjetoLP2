@@ -28,111 +28,110 @@ public class HospedeTest {
 	public void criaObjetos() throws Exception {
 		endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil");
 		telefone = new Telefone ("83", "99999999");
-		hospede = new Hospede (endereco, "Anisio", "75265471855", telefone, "4012888888881881", 
-			"moral.legal@gmail.com");
+		hospede = new Hospede ("Anisio", "75265471855", "4012888888881881", "moral.legal@gmail.com", telefone, endereco);
 	}
 	
 	@Test
 	public void testaConstrutor() throws Exception {
 		try {
-			new Hospede(endereco, "Anisio", "75265471855", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede("Anisio", "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 		}catch(Exception e) {
 			Assert.assertEquals("Esse prompt nao deve aparecer caso o construtor esteja correto.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "", "75265471855", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("", "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o nome do hospede esta vazio.");
 		} catch (Exception e) {
 			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, null, "75265471855", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede (null, "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
 		} catch (Exception e) {
 			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
 		}
 		
 		try{
-			new Hospede (endereco, "Anisio", "", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("Anisio", "", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", null, telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("Anisio", null, "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta como null.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "123456789", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("Anisio", "123456789", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf esta com a quantidade de digitos invalida.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("Quantidade de digitos do cpf invalida.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "abc12345678", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("Anisio", "abc12345678", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf deve conter apenas numeros.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O cpf deve conter apenas numeros.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "75265471856", telefone, "4012888888881881", "seu.email@gmail.com");
+			new Hospede ("Anisio", "75265471856", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf nao possui digitos validados");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("cpf invalido", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "54797034807", telefone, "", "seu.email@gmail.com");
+			new Hospede ("Anisio", "54797034807", "", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta vazio.");
 		} catch (Exception e) {
 			Assert.assertEquals("O campo NUMERO DO CARTAO nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "11651145261", telefone, null, "seu.email@gmail.com");
+			new Hospede ("Anisio", "11651145261", null, "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o numero do cartao do hospede esta como null.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O campo NUMERO DO CARTAO nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "35764553709", telefone, "1234567890", "seu.email@gmail.com");
+			new Hospede ("Anisio", "35764553709", "1234567890", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o numero do cartao esta com a quantidade de digitos invalida.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("Quantidade de digitos do cartao invalida.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "37863877709", telefone, "11112222a3334444", "seu.email@gmail.com");
+			new Hospede ("Anisio", "37863877709", "11112222a3334444", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o numero do cartao deve conter apenas numeros.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O numero do cartao deve conter apenas numeros.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "37863877709", telefone, "4012888888881881", "");
+			new Hospede ("Anisio", "37863877709", "4012888888881881", "", telefone, endereco);
 			Assert.fail("Esperava excecao pois o e-mail do hospede esta vazio.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O campo do email nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
-			new Hospede (endereco, "Anisio", "87288982904", telefone, "5105105105105100", null);
+			new Hospede ("Anisio", "87288982904", "5105105105105100", null, telefone, endereco);
 			Assert.fail("Esperava excecao pois o e-mail do hospede esta como null.");
 		} catch (InputArgumentInvalidException e) {
 			Assert.assertEquals("O campo do email nao pode ser vazio.", e.getMessage());
 		}
 		
 		try{
-			new Hospede (endereco, "Anisio", "45622704545", telefone, "5105105105105100", "jose.silvagmail.com");
+			new Hospede ("Anisio", "45622704545", "5105105105105100", "jose.silvagmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o e-mail do hospede nao esta no formato correto.");
 		} catch (Exception e){
 			Assert.assertEquals("O campo do email deve ser preenchido no formato adequado com o @.", e.getMessage());
@@ -270,8 +269,8 @@ public class HospedeTest {
 	
 	@Test
 	public void testaEquals() throws Exception {
-		Hospede novoHospede = new Hospede (endereco, "Anisio", "65673434197", telefone, "4012888888881881", 
-				"moral.legal@gmail.com");
+		Hospede novoHospede = new Hospede ("Anisio", "65673434197", "4012888888881881", 
+				"moral.legal@gmail.com", telefone, endereco);
 		Assert.assertFalse(hospede.equals(novoHospede));
 		novoHospede.setCpf("75265471855");
 		Assert.assertTrue(hospede.equals(novoHospede));
