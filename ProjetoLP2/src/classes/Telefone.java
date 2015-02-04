@@ -43,7 +43,7 @@ public class Telefone {
 			throw new NumeroTelefoneInvalidoException("Numero de telefone não pode ser vazio.");
 		
 		if ( Integer.parseInt(numero) < 0) {
-			throw new NumeroTelefoneInvalidoException("Numero de telefone tem que ser um numero positivo");
+			throw new NumeroTelefoneInvalidoException("Numero de telefone tem que ser um numero positivo.");
 		}
 		
 		if ( numero.length() > 9 || numero.length() < 8 )
@@ -71,7 +71,7 @@ public class Telefone {
 			throw new DddInvalidoException("DDD nao pode ser vazio.");
 		
 		if ( Integer.parseInt(ddd) < 0 ) {
-			throw new DddInvalidoException("DDD tem que ser um numero positivo");
+			throw new DddInvalidoException("DDD tem que ser um numero positivo.");
 		}
 		
 		if ( ddd.length() != 2 )

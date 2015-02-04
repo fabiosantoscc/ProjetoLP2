@@ -52,7 +52,7 @@ public class TelefoneTest {
 		}
 		
 		try {
-			new Telefone("0", "99999999");
+			new Telefone("043", "99999999");
 			Assert.fail("Esperava excecao pois o numero do ddd esta invalido.");
 		} catch ( DddInvalidoException e ) {
 			Assert.assertEquals("Quantidade de digitos do DDD invalida.", e.getMessage());
@@ -63,6 +63,20 @@ public class TelefoneTest {
 			Assert.fail("Esperava excecao pois o primeiro digito esta invalido.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
 			Assert.assertEquals("Primeiro digito do telefone deve ser 9 (nove).", e.getMessage());
+		}
+		
+		try {
+			new Telefone("-3", "99999999");
+			Assert.fail("Esperava excecao pois o ddd eh negativo.");
+		} catch ( DddInvalidoException e ) {
+			Assert.assertEquals("DDD tem que ser um numero positivo.", e.getMessage());
+		}
+		
+		try {
+			new Telefone("73", "-9999999");
+			Assert.fail("Esperava excecao pois o numero do telefone eh negativo.");
+		} catch ( NumeroTelefoneInvalidoException e ) {
+			Assert.assertEquals("Numero de telefone tem que ser um numero positivo.", e.getMessage());
 		}
 	}
 	
@@ -95,6 +109,12 @@ public class TelefoneTest {
 		}
 		
 		try {
+			telefone.setNumero("-8888888");
+		} catch ( NumeroTelefoneInvalidoException e ) {
+			Assert.assertEquals("Numero de telefone tem que ser um numero positivo.", e.getMessage());
+		}
+		
+		try {
 			telefone.setDdd("0");
 			Assert.fail("Esperava excecao pois o numero do ddd esta invalido.");
 		} catch ( DddInvalidoException e ) {
@@ -103,8 +123,14 @@ public class TelefoneTest {
 		
 		try {
 			telefone.setDdd("83");
-		} catch ( InputArgumentInvalidException e ) {
+		} catch ( Exception e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu metodo esteja correto.", e.getMessage());
+		}
+		
+		try {
+			telefone.setDdd("-3");
+		} catch ( DddInvalidoException e ) {
+			Assert.assertEquals("DDD tem que ser um numero positivo.", e.getMessage());
 		}
 	}
 	
