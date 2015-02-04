@@ -86,6 +86,7 @@ public class BabySitter implements Servicos {
 					else j++;
 					break;
 				}
+				
 				estrategia = calendario.verificaEstrategia(j, i);
 				despesaTotal += estrategia.calculaMontante(despesaDiaria);
 			}

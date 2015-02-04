@@ -1,9 +1,10 @@
 package classes;
 
 public class CalendarioDeEstrategias {
+	
 	EstrategiaDeCalculoDaMontante estrategia;
 	
-	public EstrategiaDeCalculoDaMontante verificaEstrategia(int dia, int mes){
+	public EstrategiaDeCalculoDaMontante verificaEstrategia(int dia, int mes) {
 		
 		if (mes == 1){
 			if (dia == 1){

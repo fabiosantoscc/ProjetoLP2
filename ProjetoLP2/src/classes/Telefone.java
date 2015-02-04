@@ -7,7 +7,7 @@ import excecoes.*;
  * @author Ravi Leite
  * 
  * @data 23/12/2014
- * Ultima alteracao: 03/02/2015 / Fabio Alexandre
+ * Ultima alteracao: 04/02/2015 / Fabio Alexandre
  */
 
 public class Telefone {
@@ -20,10 +20,10 @@ public class Telefone {
 	 * 
 	 * @param numero Numero do telefone
 	 * @param ddd DDD do telefone
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public Telefone(String ddd, String numero) throws Exception {
+	public Telefone(String ddd, String numero) throws InputArgumentInvalidException {
 		verificaNumero(numero);
 		verificaDDD(ddd);
 		this.numero = numero;
@@ -32,11 +32,16 @@ public class Telefone {
 	
 	/**
 	 * Metodo que verifica numero do telefone
+	 * 
 	 * @param numero do telefone
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	private void verificaNumero( String numero ) throws Exception {
+	private void verificaNumero( String numero ) throws InputArgumentInvalidException {
+		
+		if ( numero == null || numero.equals(""))
+			throw new NumeroTelefoneInvalidoException("Numero de telefone não pode ser vazio.");
+		
 		if ( numero.length() > 9 || numero.length() < 8 )
 			throw new NumeroTelefoneInvalidoException("Quantidade de digitos invalida.");
 		
@@ -54,11 +59,16 @@ public class Telefone {
 	
 	/**
 	 * Metodo que verifica DDD
+	 * 
 	 * @param ddd numero do DDD
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	private void verificaDDD( String ddd ) throws Exception {
+	private void verificaDDD( String ddd ) throws InputArgumentInvalidException {
+		
+		if ( ddd == null || ddd.equals(""))
+			throw new DddInvalidoException("DDD nao pode ser vazio.");
+		
 		if ( ddd.length() != 2 )
 			throw new DddInvalidoException("Quantidade de digitos invalida.");
 		
@@ -71,6 +81,8 @@ public class Telefone {
 	}
 	
 	/**
+	 * Recupera o Numero do telefone.
+	 * 
 	 * @return Retorna o numero do telefone do hospede
 	 */
 	
@@ -79,17 +91,20 @@ public class Telefone {
 	}
 	
 	/**
-	 * Recebe o numero do telefone do hospede
+	 * Atribui um novo numero de telefone.
+	 * 
 	 * @param numero Numero do telefone
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setNumero( String numero ) throws Exception {
+	public void setNumero( String numero ) throws InputArgumentInvalidException {
 		verificaNumero(numero);
 		this.numero = numero;
 	}
 	
 	/**
+	 * recupera O DDD do telefone.
+	 * 
 	 * @return Retorna o ddd do telefone
 	 */
 	
@@ -98,18 +113,19 @@ public class Telefone {
 	}
 	
 	/**
-	 * Recebe o DDD to telefone
+	 * Atribui um novo DDD ao telefone.
+	 * 
 	 * @param ddd DDD do numero do telefone
-	 * @throws Exception
+	 * @throws InputArgumentInvalidException
 	 */
 	
-	public void setDdd( String ddd ) throws Exception {
+	public void setDdd( String ddd ) throws InputArgumentInvalidException {
 		verificaDDD(ddd);
 		this.ddd = ddd;
 	}
 	
 	/**
-	 * Retorna os atributos da classe telefone como uma string  em formato de lista
+	 * Retorna uma string de representacao do telefone.
 	 */
 	
 	@Override

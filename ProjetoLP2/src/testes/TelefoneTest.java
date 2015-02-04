@@ -6,6 +6,7 @@ import org.junit.Before;
 import excecoes.DddInvalidoException;
 import excecoes.NumeroTelefoneInvalidoException;
 
+import excecoes.*;
 import classes.Telefone;
 
 /** Classe de testes da classe telefone
@@ -21,21 +22,21 @@ public class TelefoneTest {
 	Telefone telefone;
 	
 	@Before
-	public void criaObjetos() throws Exception {
+	public void criaObjetos() throws InputArgumentInvalidException {
 		telefone = new Telefone("83", "99999999");
 	}
 	
 	@Test
-	public void testaConstrutor() throws Exception {
+	public void testaConstrutor() throws InputArgumentInvalidException {
 		try {
 			new Telefone("83", "99999999");
-		} catch ( Exception e ) {
+		} catch ( InputArgumentInvalidException e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu construtor esteja correto.", e.getMessage());
 		}
 		
 		try {
 			new Telefone("83", "999999999");
-		} catch ( Exception e ) {
+		} catch ( InputArgumentInvalidException e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu construtor esteja correto.", e.getMessage());
 		}
 		
@@ -63,13 +64,13 @@ public class TelefoneTest {
 		try {
 			new Telefone("83", "199999999");
 			Assert.fail("Esperava excecao pois o primeiro digito esta invalido.");
-		} catch ( Exception e ) {
-			Assert.assertEquals("Primeiro digito deve ser 9(nove).", e.getMessage());
+		} catch ( NumeroTelefoneInvalidoException e ) {
+			Assert.assertEquals("Primeiro digito deve ser 9 (nove).", e.getMessage());
 		}
 	}
 	
 	@Test
-	public void testaSetters() throws Exception {
+	public void testaSetters() throws InputArgumentInvalidException {
 		try {
 			telefone.setNumero("9999999");
 			Assert.fail("Esperava excecao pois o numero do telefone esta invalido.");
@@ -86,13 +87,13 @@ public class TelefoneTest {
 		
 		try {
 			telefone.setNumero("99999999");
-		} catch ( Exception e ) {
+		} catch ( InputArgumentInvalidException e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu construtor esteja correto.", e.getMessage());
 		}
 		
 		try {
 			telefone.setNumero("999999999");
-		} catch ( Exception e ) {
+		} catch ( InputArgumentInvalidException e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu metodo esteja correto.", e.getMessage());
 		}
 		
@@ -105,7 +106,7 @@ public class TelefoneTest {
 		
 		try {
 			telefone.setDdd("83");
-		} catch ( Exception e ) {
+		} catch ( InputArgumentInvalidException e ) {
 			Assert.assertEquals("Esse prompt nao deve ser mostrado caso seu metodo esteja correto.", e.getMessage());
 		}
 	}
@@ -119,12 +120,12 @@ public class TelefoneTest {
 	}
 	
 	@Test
-	public void testaToString(){
+	public void testaToString() {
 		Assert.assertEquals(telefone.toString(),"Numero: (83) 99999999");
 	}
 	
 	@Test
-	public void testaEquals() throws Exception {
+	public void testaEquals() throws InputArgumentInvalidException {
 		Telefone novoTelefone = new Telefone("83", "99999998");
 		Assert.assertFalse(telefone.equals(novoTelefone));
 		novoTelefone.setNumero("99999999");
