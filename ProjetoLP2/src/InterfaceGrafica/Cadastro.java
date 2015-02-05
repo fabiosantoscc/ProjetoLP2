@@ -186,17 +186,7 @@ public class Cadastro extends JFrame {
 				
 				try {
 					t = new Telefone(ddd.getText(), numeroTelefone.getText());
-				} catch ( Exception s ) {
-					JOptionPane.showMessageDialog(null, s.getMessage());
-				}
-					
-				try {
 					e = new Endereco("Casa", bairro.getText(), rua.getText(), numero.getText(), complemento.getText(), estado.getText(), pais.getText());
-				} catch ( Exception s ) {
-					JOptionPane.showMessageDialog(null, s.getMessage());
-				}
-				
-				try {
 					Hospede h = new Hospede(nome.getText(), cpf.getText(), cartao.getText(), email.getText(), t, e);
 				} catch ( Exception s ) {
 					JOptionPane.showMessageDialog(null, s.getMessage());
