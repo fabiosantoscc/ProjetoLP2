@@ -6,12 +6,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
-public class AdicionarHospede extends JPanel {
+public class BuscarHospede extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AdicionarHospede() {
+	public BuscarHospede() {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Buscar por nome");
