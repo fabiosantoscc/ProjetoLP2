@@ -7,17 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 public class TelaLogin extends JFrame {
 
@@ -60,6 +64,8 @@ public class TelaLogin extends JFrame {
 		passwordField.setBounds(305, 300, 178, 25);
 		contentPane.add(passwordField);
 		
+		
+		
 		JFormattedTextField loginField = new JFormattedTextField();
 		loginField.setBounds(305, 263, 178, 25);
 		contentPane.add(loginField);
@@ -82,10 +88,13 @@ public class TelaLogin extends JFrame {
 		JButton entrar = new JButton("Entrar");
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuPrincipal menuFrame = new MenuPrincipal();
-				TelaLogin.this.dispose();
-				
-				
+				if(loginField.getText().equals("admin") && isPasswordCorrect(passwordField.getPassword())){
+					MenuPrincipal menuFrame = new MenuPrincipal();
+					TelaLogin.this.dispose();
+				}
+				else{
+					
+				}
 			}
 		});
 		entrar.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 16));
@@ -104,4 +113,20 @@ public class TelaLogin extends JFrame {
 		lblEsqueceuASenha.setBounds(212, 428, 154, 25);
 		contentPane.add(lblEsqueceuASenha);
 	}
+	
+	private boolean isPasswordCorrect(char[] input) {
+        boolean isCorrect = true;
+        char[] correctPassword = { 'a', 'd', 'm', 'i', 'n'};
+ 
+        if (input.length != correctPassword.length) {
+            isCorrect = false;
+        } else {
+            isCorrect = Arrays.equals (input, correctPassword);
+        }
+ 
+        //Zero out the password.
+        Arrays.fill(correctPassword,'0');
+ 
+        return isCorrect;
+    }
 }

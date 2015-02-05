@@ -15,10 +15,11 @@ public class MenuPrincipal {
 
 	JFrame frame = new JFrame();
 	JPanel panel0 = new JPanel();
-	BuscarHospede panel1 = new BuscarHospede();
-	AdicionarHospede panel2 = new AdicionarHospede();
+	AdicionarHospede adicionarHospede = new AdicionarHospede();
+	BuscarHospede buscarHospede = new BuscarHospede();
 	CardLayout cl = new CardLayout();
 	private final JMenuBar menuBar = new JMenuBar();
+	private final JMenuItem mntmAtualizar = new JMenuItem("Atualizar ");
 
 	/**
 	 * Launch the application.
@@ -42,15 +43,18 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		initialize();
 		panel0.setLayout(cl);
-		panel0.add(panel1, "1");
-		panel0.add(panel2, "2");
+		panel0.add(adicionarHospede, "1");
+		panel0.add(buscarHospede, "2");
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
+		panel0.add(mntmNewMenuItem_2, "name_4226480899595");
 		
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("New menu");
+		JMenu mnNewMenu = new JMenu("Hospedes");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Buscar");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "2");
@@ -58,13 +62,15 @@ public class MenuPrincipal {
 		});
 		mnNewMenu.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Adicionar");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "1");
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		mnNewMenu.add(mntmAtualizar);
 		
 	}
 
@@ -77,5 +83,13 @@ public class MenuPrincipal {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
 		
+	}
+	private static class __Tmp {
+		private static void __tmp() {
+			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+			  
+			  javax.swing.JFrame frame_1 = new javax.swing.JFrame();
+			  __wbp_panel.add(frame_1);
+		}
 	}
 }
