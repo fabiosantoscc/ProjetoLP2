@@ -106,6 +106,7 @@ public class MenuPrincipal {
 		frame.setBounds(100, 100, 781, 601);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 		
 	}
 	private static class __Tmp {
