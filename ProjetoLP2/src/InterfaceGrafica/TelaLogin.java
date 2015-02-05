@@ -85,6 +85,7 @@ public class TelaLogin extends JFrame {
 				MenuPrincipal menuFrame = new MenuPrincipal();
 				TelaLogin.this.dispose();
 				
+				
 			}
 		});
 		entrar.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 16));

@@ -1,26 +1,24 @@
 package InterfaceGrafica;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JLabel;
+public class MenuPrincipal {
 
-public class MenuPrincipal extends JFrame {
+	JFrame frame = new JFrame();
+	JPanel panel0 = new JPanel();
+	BuscarHospede panel1 = new BuscarHospede();
+	AdicionarHospede panel2 = new AdicionarHospede();
+	CardLayout cl = new CardLayout();
+	private final JMenuBar menuBar = new JMenuBar();
 
 	/**
 	 * Launch the application.
@@ -29,8 +27,8 @@ public class MenuPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenuPrincipal frame = new MenuPrincipal();
-					frame.setVisible(true);
+					MenuPrincipal window = new MenuPrincipal();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,86 +37,45 @@ public class MenuPrincipal extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public MenuPrincipal() {
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 781, 601);
-		getContentPane().setLayout(null);
-		setVisible(true);
+		initialize();
+		panel0.setLayout(cl);
+		panel0.add(panel1, "1");
+		panel0.add(panel2, "2");
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 769, 540);
-		getContentPane().add(panel);
-		panel.setLayout(null);
+		frame.setJMenuBar(menuBar);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(330, 244, 70, 15);
-		panel.add(lblNewLabel);
+		JMenu mnNewMenu = new JMenu("New menu");
+		menuBar.add(mnNewMenu);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "2");
+			}
+		});
+		mnNewMenu.add(mntmNewMenuItem);
 		
-		JMenu mnHospedes = new JMenu("Hospedes");
-		menuBar.add(mnHospedes);
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Buscar");
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
+				cl.show(panel0, "1");
 			}
 		});
-		mnHospedes.add(mntmNewMenuItem_1);
+		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Adicionar ");
-		mnHospedes.add(mntmNewMenuItem);
-		
-		JMenuItem mntmRemover = new JMenuItem("Remover");
-		mnHospedes.add(mntmRemover);
-		
-		JMenuItem mntmEditar = new JMenuItem("Atualizar");
-		mnHospedes.add(mntmEditar);
-		
-		JMenu mnContratos = new JMenu("Contratos");
-		menuBar.add(mnContratos);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Buscar\n");
-		mnContratos.add(mntmNewMenuItem_2);
-		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Adicionar");
-		mnContratos.add(mntmNewMenuItem_3);
-		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Remover");
-		mnContratos.add(mntmNewMenuItem_4);
-		
-		JMenuItem mntmCheckOut = new JMenuItem("Check Out");
-		mnContratos.add(mntmCheckOut);
-		
-		JMenuItem mntmAtualizar = new JMenuItem("Atualizar");
-		mnContratos.add(mntmAtualizar);
-		
-		JMenu mnSer = new JMenu("Servirços");
-		menuBar.add(mnSer);
-		setVisible(true);
 	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame.getContentPane().add(panel0);
+		frame.setBounds(100, 100, 781, 601);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setVisible(true);
+		
 	}
 }
