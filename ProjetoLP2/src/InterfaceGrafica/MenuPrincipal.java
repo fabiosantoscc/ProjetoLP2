@@ -48,6 +48,7 @@ public class MenuPrincipal {
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
 		panel0.add(mntmNewMenuItem_2, "name_4226480899595");
+		frame.setResizable(false);
 		
 		frame.setJMenuBar(menuBar);
 		

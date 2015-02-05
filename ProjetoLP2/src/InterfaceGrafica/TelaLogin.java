@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
@@ -48,12 +49,14 @@ public class TelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLogin() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 781, 601);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		
 		JLabel lblNomeHotel = new JLabel("Hotel Riviera Campina");
 		lblNomeHotel.setFont(new Font("Liberation Sans Narrow", Font.PLAIN, 50));
@@ -93,6 +96,7 @@ public class TelaLogin extends JFrame {
 					TelaLogin.this.dispose();
 				}
 				else{
+					JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
 					
 				}
 			}
