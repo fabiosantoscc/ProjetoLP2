@@ -109,7 +109,7 @@ public class TelaLogin extends JFrame {
 		lblEsqueceuASenha.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				JOptionPane.showMessageDialog(null, "Entre em contato com os desenvolvedores!");
 			}
 		});
 		lblEsqueceuASenha.setForeground(Color.BLUE);

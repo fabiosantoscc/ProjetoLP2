@@ -10,16 +10,25 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MenuPrincipal {
 
 	JFrame frame = new JFrame();
 	JPanel panel0 = new JPanel();
+	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
 	CardLayout cl = new CardLayout();
 	private final JMenuBar menuBar = new JMenuBar();
-	private final JMenuItem mntmAtualizar = new JMenuItem("Atualizar ");
+	private final JMenu mnContratos = new JMenu("Contratos");
+	private final JMenuItem mntmNewMenuItem_3 = new JMenuItem("Check in");
+	private final JMenuItem mntmNewMenuItem_4 = new JMenuItem("Buscar");
+	private final JMenuItem mntmNewMenuItem_5 = new JMenuItem("Check out");
+	private final JMenuItem mntmAgendar = new JMenuItem("Agendar");
+	private final JLabel lblInicio = new JLabel("  Inicio   ");
 
 	/**
 	 * Launch the application.
@@ -43,14 +52,20 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		initialize();
 		panel0.setLayout(cl);
-		panel0.add(adicionarHospede, "1");
+		panel0.add(menuPadrao, "0");
 		panel0.add(buscarHospede, "2");
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
-		panel0.add(mntmNewMenuItem_2, "name_4226480899595");
+		panel0.add(adicionarHospede, "1");
 		frame.setResizable(false);
 		
 		frame.setJMenuBar(menuBar);
+		lblInicio.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cl.show(panel0, "0");
+			}
+		});
+		
+		menuBar.add(lblInicio);
 		
 		JMenu mnNewMenu = new JMenu("Hospedes");
 		menuBar.add(mnNewMenu);
@@ -71,7 +86,15 @@ public class MenuPrincipal {
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		mnNewMenu.add(mntmAtualizar);
+		menuBar.add(mnContratos);
+		
+		mnContratos.add(mntmNewMenuItem_4);
+		
+		mnContratos.add(mntmNewMenuItem_3);
+		
+		mnContratos.add(mntmNewMenuItem_5);
+		
+		mnContratos.add(mntmAgendar);
 		
 	}
 
