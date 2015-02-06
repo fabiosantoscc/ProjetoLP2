@@ -3,6 +3,8 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import java.util.Set;
+import excecoes.*;
 
 /**
  * 
@@ -27,25 +29,38 @@ public class Hotel {
 	// map com um hospede como chave, e um List<Contrato> como valor
 	
 	HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
-	
+		
 	/**
 	 * 
+	 * @param cpf
+	 * @return
+	 * @throws Exception
 	 */
 	
-	public void checkin() {
-	}
-	
-	/**
-	 * 
-	 */
-	
-	public void checkout() {
+	public Hospede pesquisaHospede( String cpf ) throws HospedeInvalidoException {
+		Hospede h = null;
+		Set <Hospede> meusHospedes = hospedes.keySet();
+		
+		if ( meusHospedes.size() == 0 )
+			throw new HospedeInvalidoException("Hospede nao existente no hotel");
+		
+		for ( Hospede umHospede : meusHospedes ) {
+			if ( umHospede.getCpf().equals(cpf) ) {
+				h = umHospede;
+			}
+		}
+		
+		if ( h == null )
+			throw new HospedeInvalidoException("Hospede nao existente no hotel.");
+		
+		return h;
 	}
 	
 	/**
 	 * Adiciona um hospede no hotel
 	 * 
 	 * @param hospede - Hospede a ser adicionado no hotel
+	 * @throws Exception 
 	 */
 	
 	public void addHospede( Hospede hospede ) {
@@ -62,12 +77,7 @@ public class Hotel {
 		return notaDeAceitacao;
 	}
 	
-	/**
-	 * 
-	 * @param opinioes
-	 */
-	
-	public void calculaNotaDeAceitacao( List<Opiniao> opinioes ) {
+	private void calculaNotaDeAceitacao( List<Opiniao> opinioes ) {
 		int soma = 0;
 		for ( int i = 0; i < opinioes.size(); i++) {
 			soma += opinioes.get(i).getNota();
@@ -79,11 +89,15 @@ public class Hotel {
 	
 	/**
 	 * 
-	 * @param umaOpiniao
+	 * Metodo que adiciona uma opiniao no hotel e toda vez que adiciona ja calcula a nota de aceitacao
+	 * baseada na ultima opiniao
+	 * 
+	 * @param umaOpiniao - Opiniao a ser adicionada oriunda de algum hospede
 	 */
 	
 	public void adicionaOpiniao( Opiniao umaOpiniao ) {
 		this.opinioes.add(umaOpiniao);
+		calculaNotaDeAceitacao(opinioes);
 	}
 	
 	/**
@@ -248,9 +262,6 @@ public class Hotel {
 		if ( !( obj instanceof Hotel ) ) {
 			return false;
 		}
-		
-		
-		
 		return true;
 	}
 }
