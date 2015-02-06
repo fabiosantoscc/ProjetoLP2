@@ -13,7 +13,6 @@ import classes.BabySitter;
 
 public class BabySitter implements Servicos {
 	
-	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
 	private double despesaDiaria, despesaTotal;
 	private int quantidadeHoras;
@@ -26,8 +25,7 @@ public class BabySitter implements Servicos {
 	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manhã)
 	 */
 	
-	public BabySitter(int quantidadeHoras, int horaInicial)throws Exception{
-		calendario = new CalendarioDeEstrategias(); 
+	public BabySitter(int quantidadeHoras, int horaInicial) throws Exception { 
 		checaHoras(quantidadeHoras);
 		checaHoraInicial(horaInicial);
 		this.horaInicial = horaInicial;
@@ -41,8 +39,7 @@ public class BabySitter implements Servicos {
 	 * Construtor da classe Baby Sitter sem agendamento de servico
 	 */
 	
-	public BabySitter()throws Exception{
-		calendario = new CalendarioDeEstrategias(); 
+	public BabySitter() throws Exception {
 		despesaTotal = 0;
 		this.horaInicial = 0;
 		this.quantidadeHoras = 0;
@@ -61,56 +58,6 @@ public class BabySitter implements Servicos {
 			throw new Exception("Hora inicial do serviço inválida.");
 		}
 	}
-	
-	/**
-	 * Metodo que calcula a despesa total deste servico
-	 * @param diaEntrada Dia inicial da solicitacao do servico
-	 * @param mesEntrada Mes inicial da solicitacao do servico
-	 * @param diaSaida Dia final da solicitacao do servico
-	 * @param mesSaida Dia final da solicitacao do servico
-	 */
-	
-	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida)throws Exception{
-		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
-		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
-		checaHorasDobradas(this.quantidadeHoras, this.horaInicial);
-		despesaDiaria = calculaTarifa(this.quantidadeHoras, this.quantidadeHorasDobradas);
-		for (int i = mesEntrada;i <= mesSaida;i++){
-			for (int j = diaEntrada; j <= diaSaida; j++){
-				boolean dataValida = calendario.verificaDataValida(j,i);
-				if (! dataValida){
-					i = 1;
-					if (j == 12) {
-						j = 1;
-					}
-					else j++;
-					break;
-				}
-				
-				estrategia = calendario.verificaEstrategia(j, i);
-				despesaTotal += estrategia.calculaMontante(despesaDiaria);
-			}
-		}
-	}
-	
-	/**
-	 * Metodo que calcula horas extras 
-	 * @param quantidadeHoras Quantidade de hroas no dia 
-	 * @param horaInicial Horas em que foi iniciado o servico
-	 * @param dia Dia da solicitacao
-	 * @param mes Mes da solicitacao
-	 */
-	
-	public void horaExtra(int qntHoras, int hrInicial, int dia, int mes) throws Exception{
-		if (!calendario.verificaDataValida(dia, mes)) throw new Exception ("O mes e o dia tem que ser valido.");
-		checaHorasDobradas(qntHoras, hrInicial);
-		estrategia = calendario.verificaEstrategia(dia, mes);
-		despesaTotal += estrategia.calculaMontante(calculaTarifa(qntHoras, quantidadeHorasDobradas));
-	}
-	
-	/**
-	 * Verifica a quantidade de horas simples e dobradas em cada dia agendado ou de hora extra
-	 */
 	
 	public void checaHorasDobradas(int quantidadeHoras, int horaInicial){
 		int horas = horaInicial;

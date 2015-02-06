@@ -54,21 +54,7 @@ public class BabySitterTest {
 			Assert.fail("Não deveria ocorrer erros!!");	
 		}
 	}
-	
-	@Test
-	public void testaCalculoTotal()throws Exception{
-		baby2.calculaDespesaTotal(1, 1, 5, 1);
-		Assert.assertEquals(1372.5, baby2.getDespesaTotal(), 1);
-	}
-	
-	@Test
-	public void testaHoraExtra()throws Exception{
-		System.out.println(baby2.getDespesaTotal());
-		baby2.horaExtra(4, 16, 23, 6);
-		System.out.println(baby2.getDespesaTotal());
-		Assert.assertEquals(225.0, baby2.getDespesaTotal(), 1);
-	}
-
+		
 	@Test
 	public void testaGets(){
 		baby2.checaHorasDobradas(baby2.getQuantidadeHoras(), baby2.getHoraInicial());
