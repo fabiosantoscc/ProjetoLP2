@@ -1,20 +1,28 @@
 package InterfaceGrafica;
 
 import javax.swing.JPanel;
+
+import java.awt.CardLayout;
 import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BuscarHospede extends JPanel {
+	
+	Hospede h = new Hospede();
 
 	/**
 	 * Create the panel.
 	 */
 	public BuscarHospede() {
 		setLayout(null);
-		
+						
 		JLabel lblNewLabel = new JLabel("Buscar por nome");
 		lblNewLabel.setBounds(41, 206, 161, 28);
 		add(lblNewLabel);
@@ -32,6 +40,11 @@ public class BuscarHospede extends JPanel {
 		add(textPane_1);
 		
 		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "8" );
+			}
+		});
 		btnNewButton.setBounds(399, 350, 117, 25);
 		add(btnNewButton);
 		

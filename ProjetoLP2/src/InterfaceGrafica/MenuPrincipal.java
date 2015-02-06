@@ -16,17 +16,20 @@ import java.awt.event.MouseEvent;
 
 public class MenuPrincipal {
 
+	static public CardLayout cl = new CardLayout();
 	JFrame frame = new JFrame();
-	JPanel panel0 = new JPanel();
+	static public JPanel panel0 = new JPanel();
 	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
+	
+	Hospede telaHospede = new Hospede();
 	AdicionarContrato adicionarContrato = new AdicionarContrato();
 	BuscarContrato buscarContrato = new BuscarContrato();
 	FecharContrato fecharContrato = new FecharContrato();
 	AgendarContrato agendarContrato = new AgendarContrato();
 	AtualizarHospede atualizarHospede = new AtualizarHospede();
-	CardLayout cl = new CardLayout();
+
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -67,7 +70,10 @@ public class MenuPrincipal {
 		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");
 		panel0.add(atualizarHospede, "7");
+		panel0.add(telaHospede, "8");
 		frame.setResizable(false);
+		
+		
 		
 		frame.setJMenuBar(menuBar);
 		lblInicio.addMouseListener(new MouseAdapter() {
