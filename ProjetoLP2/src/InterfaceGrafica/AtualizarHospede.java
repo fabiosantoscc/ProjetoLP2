@@ -1,27 +1,26 @@
 package InterfaceGrafica;
 
-import javax.swing.JPanel;
-
-import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.JLabel;
-import javax.swing.JFormattedTextField;
-import javax.swing.JSeparator;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
-public class AdicionarHospede extends JPanel {
+public class AtualizarHospede extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AdicionarHospede() {
+	public AtualizarHospede() {
+
 		setLayout(null);
 		
-		JLabel label = new JLabel("Cadastrar Cliente");
-		label.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
-		label.setBounds(12, 12, 287, 29);
-		add(label);
+		JLabel lblAtualizarCadastro = new JLabel("Atualizar Cadastro");
+		lblAtualizarCadastro.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
+		lblAtualizarCadastro.setBounds(12, 12, 287, 29);
+		add(lblAtualizarCadastro);
 		
 		JLabel label_1 = new JLabel("Dados Pessoais");
 		label_1.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
@@ -52,13 +51,9 @@ public class AdicionarHospede extends JPanel {
 		frmtdtxtfldRonanSouza.setBounds(119, 99, 440, 17);
 		add(frmtdtxtfldRonanSouza);
 		
-		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(119, 128, 158, 17);
-		add(formattedTextField_1);
-		
-		JFormattedTextField formattedTextField_2 = new JFormattedTextField();
-		formattedTextField_2.setBounds(119, 155, 323, 17);
-		add(formattedTextField_2);
+		JFormattedTextField frmtdtxtfldCpfFixo = new JFormattedTextField();
+		frmtdtxtfldCpfFixo.setBounds(119, 155, 264, 17);
+		add(frmtdtxtfldCpfFixo);
 		
 		JFormattedTextField formattedTextField_3 = new JFormattedTextField();
 		formattedTextField_3.setBounds(174, 182, 151, 17);
@@ -149,11 +144,13 @@ public class AdicionarHospede extends JPanel {
 		formattedTextField_12.setBounds(562, 329, 50, 17);
 		add(formattedTextField_12);
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
+		JButton btnCadastrar = new JButton("Atualizar");
 		btnCadastrar.setBounds(292, 479, 154, 23);
 		add(btnCadastrar);
 		
-	
-
+		JLabel lblNewLabel = new JLabel("CPF Fixo");
+		lblNewLabel.setBounds(142, 128, 70, 15);
+		add(lblNewLabel);
+		
 	}
 }

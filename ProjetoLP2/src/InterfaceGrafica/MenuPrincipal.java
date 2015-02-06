@@ -25,6 +25,7 @@ public class MenuPrincipal {
 	BuscarContrato buscarContrato = new BuscarContrato();
 	FecharContrato fecharContrato = new FecharContrato();
 	AgendarContrato agendarContrato = new AgendarContrato();
+	AtualizarHospede atualizarHospede = new AtualizarHospede();
 	CardLayout cl = new CardLayout();
 	
 	private final JMenuBar menuBar = new JMenuBar();
@@ -34,6 +35,7 @@ public class MenuPrincipal {
 	private final JMenuItem mntmNewMenuItem_5 = new JMenuItem("Check out");
 	private final JMenuItem mntmAgendar = new JMenuItem("Agendar");
 	private final JLabel lblInicio = new JLabel("  Inicio   ");
+	private final JMenuItem mntmNewMenuItem_2 = new JMenuItem("Atualizar");
 
 	/**
 	 * Launch the application.
@@ -64,6 +66,7 @@ public class MenuPrincipal {
 		panel0.add(buscarContrato, "4");
 		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");
+		panel0.add(atualizarHospede, "7");
 		frame.setResizable(false);
 		
 		frame.setJMenuBar(menuBar);
@@ -94,6 +97,13 @@ public class MenuPrincipal {
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "7");
+			}
+		});
+		
+		mnNewMenu.add(mntmNewMenuItem_2);
 		
 		menuBar.add(mnContratos);
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
