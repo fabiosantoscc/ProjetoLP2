@@ -15,8 +15,6 @@ import java.awt.event.ActionEvent;
 
 public class BuscarHospede extends JPanel {
 	
-	Hospede h = new Hospede();
-
 	/**
 	 * Create the panel.
 	 */

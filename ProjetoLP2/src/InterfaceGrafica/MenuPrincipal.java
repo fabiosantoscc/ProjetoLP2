@@ -23,7 +23,7 @@ public class MenuPrincipal {
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
 	
-	Hospede telaHospede = new Hospede();
+	PainelHospede telaHospede = new PainelHospede();
 	AdicionarContrato adicionarContrato = new AdicionarContrato();
 	BuscarContrato buscarContrato = new BuscarContrato();
 	FecharContrato fecharContrato = new FecharContrato();
