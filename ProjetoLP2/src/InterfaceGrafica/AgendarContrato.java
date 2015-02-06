@@ -2,12 +2,12 @@ package InterfaceGrafica;
 
 import javax.swing.JPanel;
 
-public class FecharContratos extends JPanel {
+public class AgendarContrato extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public FecharContratos() {
+	public AgendarContrato() {
 
 	}
 

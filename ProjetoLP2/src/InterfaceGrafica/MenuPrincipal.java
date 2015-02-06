@@ -21,7 +21,12 @@ public class MenuPrincipal {
 	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
+	AdicionarContrato adicionarContrato = new AdicionarContrato();
+	BuscarContrato buscarContrato = new BuscarContrato();
+	FecharContrato fecharContrato = new FecharContrato();
+	AgendarContrato agendarContrato = new AgendarContrato();
 	CardLayout cl = new CardLayout();
+	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
 	private final JMenuItem mntmNewMenuItem_3 = new JMenuItem("Check in");
@@ -55,6 +60,10 @@ public class MenuPrincipal {
 		panel0.add(menuPadrao, "0");
 		panel0.add(buscarHospede, "2");
 		panel0.add(adicionarHospede, "1");
+		panel0.add(adicionarContrato, "3");
+		panel0.add(buscarContrato, "4");
+		panel0.add(fecharContrato, "5");
+		panel0.add(agendarContrato, "6");
 		frame.setResizable(false);
 		
 		frame.setJMenuBar(menuBar);
@@ -87,12 +96,32 @@ public class MenuPrincipal {
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		menuBar.add(mnContratos);
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "4");
+			}
+		});
 		
 		mnContratos.add(mntmNewMenuItem_4);
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "3");
+			}
+		});
 		
 		mnContratos.add(mntmNewMenuItem_3);
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "5");
+			}
+		});
 		
 		mnContratos.add(mntmNewMenuItem_5);
+		mntmAgendar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "6");
+			}
+		});
 		
 		mnContratos.add(mntmAgendar);
 		
