@@ -11,6 +11,9 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.JComboBox;
 
 public class AdicionarContrato extends JPanel {
 	private JTextField textField;

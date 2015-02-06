@@ -31,7 +31,7 @@ public class MenuPrincipal {
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
 	private final JMenuItem mntmNewMenuItem_3 = new JMenuItem("Check in");
-	private final JMenuItem mntmNewMenuItem_4 = new JMenuItem("Buscar");
+	private final JMenuItem mntmNewMenuItem_4 = new JMenuItem("Pesquisar");
 	private final JMenuItem mntmNewMenuItem_5 = new JMenuItem("Check out");
 	private final JMenuItem mntmAgendar = new JMenuItem("Agendar");
 	private final JLabel lblInicio = new JLabel("  Inicio   ");
@@ -82,7 +82,7 @@ public class MenuPrincipal {
 		JMenu mnNewMenu = new JMenu("Hospedes");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Buscar");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Pesquisar");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "2");

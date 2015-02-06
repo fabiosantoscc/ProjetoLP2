@@ -56,7 +56,7 @@ public class AtualizarHospede extends JPanel {
 		add(frmtdtxtfldCpfFixo);
 		
 		JFormattedTextField formattedTextField_3 = new JFormattedTextField();
-		formattedTextField_3.setBounds(174, 182, 151, 17);
+		formattedTextField_3.setBounds(203, 182, 151, 17);
 		add(formattedTextField_3);
 		
 		JLabel label_6 = new JLabel("Telefone");
@@ -65,21 +65,21 @@ public class AtualizarHospede extends JPanel {
 		add(label_6);
 		
 		JFormattedTextField formattedTextField_4 = new JFormattedTextField();
-		formattedTextField_4.setBounds(376, 128, 44, 17);
+		formattedTextField_4.setBounds(388, 128, 44, 17);
 		add(formattedTextField_4);
 		
 		JFormattedTextField formattedTextField_5 = new JFormattedTextField();
-		formattedTextField_5.setBounds(432, 128, 114, 17);
+		formattedTextField_5.setBounds(445, 128, 114, 17);
 		add(formattedTextField_5);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(38, 240, 687, 2);
 		add(separator);
 		
-		JLabel label_8 = new JLabel("Endereço");
-		label_8.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		label_8.setBounds(38, 254, 80, 25);
-		add(label_8);
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
+		lblEndereo.setBounds(38, 254, 114, 25);
+		add(lblEndereo);
 		
 		JLabel label_9 = new JLabel("Logradouro");
 		label_9.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
@@ -106,30 +106,30 @@ public class AtualizarHospede extends JPanel {
 		add(formattedTextField_6);
 		
 		JFormattedTextField formattedTextField_7 = new JFormattedTextField();
-		formattedTextField_7.setBounds(144, 329, 323, 17);
+		formattedTextField_7.setBounds(167, 329, 299, 17);
 		add(formattedTextField_7);
 		
 		JFormattedTextField formattedTextField_8 = new JFormattedTextField();
-		formattedTextField_8.setBounds(105, 361, 138, 17);
+		formattedTextField_8.setBounds(119, 361, 138, 17);
 		add(formattedTextField_8);
 		
 		JFormattedTextField formattedTextField_9 = new JFormattedTextField();
-		formattedTextField_9.setBounds(105, 394, 138, 17);
+		formattedTextField_9.setBounds(119, 394, 138, 17);
 		add(formattedTextField_9);
 		
 		JFormattedTextField formattedTextField_10 = new JFormattedTextField();
-		formattedTextField_10.setBounds(436, 361, 138, 17);
+		formattedTextField_10.setBounds(376, 361, 198, 17);
 		add(formattedTextField_10);
 		
 		JLabel label_7 = new JLabel("Estado/Condado");
 		label_7.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
-		label_7.setBounds(292, 362, 126, 15);
+		label_7.setBounds(58, 420, 126, 15);
 		add(label_7);
 		
-		JLabel label_13 = new JLabel("CEP/ Zipe Code");
-		label_13.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
-		label_13.setBounds(292, 395, 126, 15);
-		add(label_13);
+		JLabel lblCepZipCode = new JLabel("CEP/ Zip Code");
+		lblCepZipCode.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		lblCepZipCode.setBounds(292, 395, 126, 15);
+		add(lblCepZipCode);
 		
 		JFormattedTextField formattedTextField_11 = new JFormattedTextField();
 		formattedTextField_11.setBounds(436, 393, 138, 17);
@@ -137,11 +137,11 @@ public class AtualizarHospede extends JPanel {
 		
 		JLabel label_14 = new JLabel("Numero");
 		label_14.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
-		label_14.setBounds(492, 331, 70, 15);
+		label_14.setBounds(476, 329, 70, 15);
 		add(label_14);
 		
 		JFormattedTextField formattedTextField_12 = new JFormattedTextField();
-		formattedTextField_12.setBounds(562, 329, 50, 17);
+		formattedTextField_12.setBounds(542, 329, 70, 17);
 		add(formattedTextField_12);
 		
 		JButton btnCadastrar = new JButton("Atualizar");
@@ -149,8 +149,17 @@ public class AtualizarHospede extends JPanel {
 		add(btnCadastrar);
 		
 		JLabel lblNewLabel = new JLabel("CPF Fixo");
-		lblNewLabel.setBounds(142, 128, 70, 15);
+		lblNewLabel.setBounds(142, 128, 138, 15);
 		add(lblNewLabel);
+		
+		JFormattedTextField formattedTextField = new JFormattedTextField();
+		formattedTextField.setBounds(203, 422, 180, 17);
+		add(formattedTextField);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblCidade.setBounds(292, 363, 70, 15);
+		add(lblCidade);
 		
 	}
 }
