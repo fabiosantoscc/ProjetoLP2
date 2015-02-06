@@ -17,11 +17,14 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 
+import com.sun.glass.events.WindowEvent;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
 import java.util.Arrays;
 
 public class TelaLogin extends JFrame {
@@ -57,7 +60,6 @@ public class TelaLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 		
 		JLabel lblNomeHotel = new JLabel("Hotel Riviera Campina");
 		lblNomeHotel.setFont(new Font("Liberation Sans Narrow", Font.PLAIN, 50));
