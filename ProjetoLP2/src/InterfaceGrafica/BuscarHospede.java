@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class BuscarHospede extends JPanel {
 
@@ -33,6 +34,11 @@ public class BuscarHospede extends JPanel {
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.setBounds(399, 350, 117, 25);
 		add(btnNewButton);
+		
+		JLabel lblBuscarHospode = new JLabel("Buscar Hospede ");
+		lblBuscarHospode.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblBuscarHospode.setBounds(41, 63, 241, 28);
+		add(lblBuscarHospode);
 		
 
 	}
