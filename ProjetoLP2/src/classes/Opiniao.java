@@ -70,7 +70,23 @@ public class Opiniao {
 	public String toString() {
 		return "Opiniao [ comentario = " + comentario + ", nota = " + nota + " ]";
 	}
-		
+	
+	/**
+	 * 
+	 */
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((comentario == null) ? 0 : comentario.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(nota);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	
 	/**
 	 * 
 	 * @return Verifica se duas opinioes sao iguais, para isso a nota e o comentario t�m que ser iguais.
