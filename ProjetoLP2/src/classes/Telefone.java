@@ -136,6 +136,19 @@ public class Telefone {
 	}
 	
 	/**
+	 * 
+	 */
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ddd == null) ? 0 : ddd.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		return result;
+	}
+	
+	/**
 	 * Verifica se dois telefone sao iguais, para isso o numero e o ddd precisam ser iguais
 	 */
 	
