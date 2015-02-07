@@ -9,7 +9,5 @@ public class Run {
 		hotel = new Hotel();
 		TelaLogin tela  = new TelaLogin();
 		tela.main(args);
-			
 	}
-
 }

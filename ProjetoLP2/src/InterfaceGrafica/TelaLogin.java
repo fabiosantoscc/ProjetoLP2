@@ -70,8 +70,6 @@ public class TelaLogin extends JFrame {
 		passwordField.setBounds(305, 300, 178, 25);
 		contentPane.add(passwordField);
 		
-		
-		
 		JFormattedTextField loginField = new JFormattedTextField();
 		loginField.setBounds(305, 263, 178, 25);
 		contentPane.add(loginField);
