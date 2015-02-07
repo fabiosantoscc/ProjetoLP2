@@ -57,6 +57,15 @@ public class Hotel {
 	}
 	
 	/**
+	 * 
+	 * @return
+	 */
+	
+	public HashMap<Hospede, List<Contrato>> getMapaDeHospedes() {
+		return hospedes;
+	}
+	
+	/**
 	 * Adiciona um hospede no hotel
 	 * 
 	 * @param hospede - Hospede a ser adicionado no hotel
