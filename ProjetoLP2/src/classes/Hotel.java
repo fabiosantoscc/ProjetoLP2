@@ -37,7 +37,7 @@ public class Hotel {
 	 * @throws Exception
 	 */
 	
-	public Hospede pesquisaHospede( String cpf ) throws HospedeInvalidoException {
+	public Hospede pesquisaHospede( String cpf, String nome ) throws HospedeInvalidoException {
 		Hospede h = null;
 		Set <Hospede> meusHospedes = hospedes.keySet();
 		
@@ -45,7 +45,7 @@ public class Hotel {
 			throw new HospedeInvalidoException("Hospede nao existente no hotel");
 		
 		for ( Hospede umHospede : meusHospedes ) {
-			if ( umHospede.getCpf().equals(cpf) ) {
+			if ( umHospede.getCpf().equals(cpf) || umHospede.getNome().equals(nome)) {
 				h = umHospede;
 			}
 		}

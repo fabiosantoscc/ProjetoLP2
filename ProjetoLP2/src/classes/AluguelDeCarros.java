@@ -9,6 +9,7 @@ package classes;
  */
 
 public class AluguelDeCarros implements Servicos {
+	
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;

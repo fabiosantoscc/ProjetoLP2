@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 
 public class MenuPrincipal {
 
-	static public CardLayout cl = new CardLayout();
+	public static CardLayout cl = new CardLayout();
 	JFrame frame = new JFrame();
 	static public JPanel panel0 = new JPanel();
 	DefaultMenu menuPadrao = new DefaultMenu();
@@ -43,6 +43,7 @@ public class MenuPrincipal {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

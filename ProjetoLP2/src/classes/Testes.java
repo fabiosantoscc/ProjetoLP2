@@ -11,7 +11,7 @@ public class Testes {
 		Hospede ho = new Hospede("Fabio", "14482680605","4745168764360175", "fabio@fabio", t, e);
 		h.addHospede(ho);
 		try {
-			Hospede ele = h.pesquisaHospede("24482680605");
+			Hospede ele = h.pesquisaHospede("24482680605", "Fabio");
 			ele.toString();
 		} catch ( Exception ec) {
 			JOptionPane.showMessageDialog( null,ec.getMessage() , "Alerta", 0, null);
