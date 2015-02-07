@@ -167,7 +167,7 @@ public class Endereco {
 	 * @throws Exception
 	 */
 	
-	public void setNumeroDaCasa(String numeroDaCasa) throws Exception {
+	public void setNumeroDaCasa(String numeroDaCasa) throws NumeroDaResidenciaInvalidoException {
 		checaNumero(numeroDaCasa);
 		this.numeroDaCasa = numeroDaCasa;
 	}

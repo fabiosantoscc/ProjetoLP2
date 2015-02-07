@@ -1,6 +1,5 @@
 package classes;
 
-import classes.*;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
@@ -114,6 +113,7 @@ public class Contrato {
 	 */
 	
 	public void calculaTotalAPagar() {
+		
 	}
 	
 	/**

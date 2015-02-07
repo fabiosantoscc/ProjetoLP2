@@ -31,11 +31,10 @@ public class ContratoTest {
 	
 	@Test
 	public void testaConstrutor() throws NumeroDeNoitesInvalidoException {
-		try{
+		try {
 			new Contrato(3);
-			}
-		catch (Exception e){
-			Assert.assertEquals("Esse prompt nao deve ser mostrado, construtor esta correto", e.getMessage());
+		} catch (NumeroDeNoitesInvalidoException e) {
+			Assert.assertEquals( e.getMessage(), "Esse prompt nao deve ser mostrado, construtor esta correto");
 		}
 		
 		try {
@@ -45,10 +44,10 @@ public class ContratoTest {
 			Assert.assertEquals("Numero de dias deve ser maior que zero", e.getMessage());
 		}
 		
-		try{
+		try {
 			new Contrato(-4);
 			Assert.fail("Esperava excecao pois numero de dias esta menor que zero.");
-		}catch (Exception e){
+		} catch (Exception e) {
 			Assert.assertEquals("Numero de dias deve ser maior que zero", e.getMessage());
 		}
 	}
@@ -86,7 +85,7 @@ public class ContratoTest {
 	}
 	
 	@Test
-	public void testaEquals()throws Exception{
+	public void testaEquals() {
 		contrato.setFechado(false);
 		novoContrato.setFechado(true);
 		Assert.assertFalse(contrato.equals(novoContrato));
@@ -95,4 +94,3 @@ public class ContratoTest {
 		Assert.assertTrue(contrato.equals(novoContrato));
 	}
 }
-

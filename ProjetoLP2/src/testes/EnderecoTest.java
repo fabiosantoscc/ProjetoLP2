@@ -18,7 +18,7 @@ public class EnderecoTest {
 	Endereco novoEndereco, outroEndereco;
 	
 	@Before
-	public void constroiObjetos()throws Exception{
+	public void constroiObjetos() throws Exception {
 		novoEndereco = new Endereco("Campina Grande", "Malvinas", "Rua das Umburanas", "66", "Perto da caixa d'agua", "Paraiba", "Brasil");
 		outroEndereco = new Endereco("Campina Grande", "Malvinas", "Rua das Umburanas", "6", "Perto da caixa d'agua", "Paraiba", "Brasil");
 	}
@@ -26,14 +26,14 @@ public class EnderecoTest {
 	@Test
 	public void testaConstrutor() throws Exception {
 		
-		try{
+		try {
 			new Endereco (null, "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
 			Assert.fail("Esperava excecao pois o campo de cidade esta como null.");
 		} catch (CidadeInvalidaException e) {
 			Assert.assertEquals("Nome da cidade invalido", e.getMessage());
 		}
 		
-		try{
+		try {
 			new Endereco("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
 			Assert.fail("Esse prompt nao deve ser mostrado se o construtor estiver correto");
 		} catch (Exception e) {
@@ -251,7 +251,7 @@ public class EnderecoTest {
 	}
 	
 	@Test
-	public void testaEquals()throws Exception{
+	public void testaEquals() throws NumeroDaResidenciaInvalidoException {
 		Assert.assertFalse(novoEndereco.equals(outroEndereco));
 		outroEndereco.setNumeroDaCasa("66");
 		Assert.assertTrue(novoEndereco.equals(outroEndereco));
