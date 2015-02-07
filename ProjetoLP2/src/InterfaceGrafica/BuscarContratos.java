@@ -16,19 +16,19 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
-public class BuscarHospede extends JPanel {
+public class BuscarContratos extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 
 	/**
 	 * Create the panel.
 	 */
-	public BuscarHospede() {
+	public BuscarContratos() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Pesquisar Hospede");
+		JLabel lblNovoContrato = new JLabel("Pesquisar Contratos");
 		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 266, 40);
+		lblNovoContrato.setBounds(38, 29, 277, 40);
 		add(lblNovoContrato);
 		
 		JLabel lblCpfDoHospede = new JLabel("Nome do Hospede");

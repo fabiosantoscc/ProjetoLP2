@@ -144,7 +144,7 @@ public class AdicionarHospede extends JPanel {
 		formattedTextField_12.setBounds(542, 329, 70, 17);
 		add(formattedTextField_12);
 		
-		JButton btnCadastrar = new JButton("Atualizar");
+		JButton btnCadastrar = new JButton("Criar");
 		btnCadastrar.setBounds(292, 479, 154, 23);
 		add(btnCadastrar);
 		

@@ -22,13 +22,16 @@ public class MenuPrincipal {
 	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
-	
 	PainelHospede telaHospede = new PainelHospede();
 	AdicionarContrato adicionarContrato = new AdicionarContrato();
-	BuscarContrato buscarContrato = new BuscarContrato();
+	BuscarContratos buscarContratos = new BuscarContratos();
 	FecharContrato fecharContrato = new FecharContrato();
 	AgendarContrato agendarContrato = new AgendarContrato();
 	AtualizarHospede atualizarHospede = new AtualizarHospede();
+	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
+	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
+	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
+	
 
 	
 	private final JMenuBar menuBar = new JMenuBar();
@@ -64,14 +67,17 @@ public class MenuPrincipal {
 		initialize();
 		panel0.setLayout(cl);
 		panel0.add(menuPadrao, "0");
-		panel0.add(buscarHospede, "2");
 		panel0.add(adicionarHospede, "1");
+		panel0.add(buscarHospede, "2");
 		panel0.add(adicionarContrato, "3");
-		panel0.add(buscarContrato, "4");
+		panel0.add(buscarContratos, "4");
 		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");
 		panel0.add(atualizarHospede, "7");
 		panel0.add(telaHospede, "8");
+		panel0.add(buscarHospedeAtualizar, "9");
+		panel0.add(buscarCheckIn, "10");
+		panel0.add(buscarCheckOut, "11");
 		frame.setResizable(false);
 		
 		
@@ -106,7 +112,7 @@ public class MenuPrincipal {
 		mnNewMenu.add(mntmNewMenuItem_1);
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "7");
+				cl.show(panel0, "9");
 			}
 		});
 		
@@ -122,14 +128,14 @@ public class MenuPrincipal {
 		mnContratos.add(mntmNewMenuItem_4);
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "3");
+				cl.show(panel0, "10");
 			}
 		});
 		
 		mnContratos.add(mntmNewMenuItem_3);
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "5");
+				cl.show(panel0, "11");
 			}
 		});
 		
