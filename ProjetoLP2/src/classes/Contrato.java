@@ -1,5 +1,6 @@
 package classes;
 
+import classes.*;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
@@ -7,10 +8,10 @@ import java.util.ArrayList;
 import excecoes.*;
 
 /**
- * Classe que manipula os dados referentes ao contrato do hospede
+ * Classe que manipula os dados referentes ao contrato do hospede.
  * @author Ravi Leite
  * @data 12/01/2015
- * Ultima alteracao: 05/02/2015 / Fabio Alexandre
+ * Ultima alteracao: 05/02/2015 / Jaaziel Moura
  */
 
 public class Contrato {
@@ -31,7 +32,7 @@ public class Contrato {
 		anoInicial = c.get(Calendar.YEAR);
 		
 		if ( numeroDeNoites <= 0)
-			throw new NumeroDeNoitesInvalidoException("");
+			throw new NumeroDeNoitesInvalidoException("Numero de dias deve ser maior que zero");
 		
 		this.numeroDeNoites = numeroDeNoites;
 		this.fechado = false;
