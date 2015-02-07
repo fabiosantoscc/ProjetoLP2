@@ -20,7 +20,7 @@ public class MenuPrincipal {
 	JFrame frame = new JFrame();
 	static public JPanel panel0 = new JPanel();
 	DefaultMenu menuPadrao = new DefaultMenu();
-	AdicionarHospede adicionarHospede = new AdicionarHospede();
+	AdicionaHospede adicionarHospede = new AdicionaHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
 	PainelHospede telaHospede = new PainelHospede();
 	AdicionarContrato adicionarContrato = new AdicionarContrato();

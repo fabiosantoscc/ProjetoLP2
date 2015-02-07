@@ -139,7 +139,7 @@ public class Hospede {
 	
 	private void verificaNome( String nome ) throws InputArgumentInvalidException {
 		if ( nome == null || nome.equals("") ) {
-			throw new NomeInvalidoException("O nome do hospede nao pode vazio.");
+			throw new NomeInvalidoException("O nome do hospede nao pode ser vazio.");
 		}
 	}
 	

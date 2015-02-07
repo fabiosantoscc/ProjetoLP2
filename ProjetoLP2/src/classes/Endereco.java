@@ -73,8 +73,15 @@ public class Endereco {
 	}
 	
 	private void checaNumero( String numero ) throws NumeroDaResidenciaInvalidoException {
+		// falta adicionar nos testes
+		for ( int i = 0; i < numero.length(); i++) {
+			if ( ! (Character.isDigit(numero.charAt(i))) ) {
+				throw new NumeroDaResidenciaInvalidoException("Numero da residencia deve ser um inteiro positivo");
+			}
+		}
+		
 		if ( Integer.parseInt(numero) <= 0 ) {
-			throw new NumeroDaResidenciaInvalidoException ("Numero da residencia invalido");
+			throw new NumeroDaResidenciaInvalidoException("Numero da residencia invalido");
 		}
 	}
 	

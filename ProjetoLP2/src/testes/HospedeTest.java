@@ -43,14 +43,14 @@ public class HospedeTest {
 			new Hospede ("", "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o nome do hospede esta vazio.");
 		} catch (Exception e) {
-			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
+			Assert.assertEquals("O nome do hospede nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
 			new Hospede (null, "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
 		} catch (Exception e) {
-			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
+			Assert.assertEquals("O nome do hospede nao pode ser vazio.", e.getMessage());
 		}
 		
 		try{
@@ -151,14 +151,14 @@ public class HospedeTest {
 			hospede.setNome("");
 			Assert.fail("Esperava excecao pois o nome do hospede esta vazio.");
 		} catch (InputArgumentInvalidException e) {
-			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
+			Assert.assertEquals("O nome do hospede nao pode ser vazio.", e.getMessage());
 		}
 				
 		try {
 			hospede.setNome(null);
 			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
 		} catch (InputArgumentInvalidException e) {
-			Assert.assertEquals("O nome do hospede nao pode vazio.", e.getMessage());
+			Assert.assertEquals("O nome do hospede nao pode ser vazio.", e.getMessage());
 		}
 		
 		hospede.setCpf("23714131272");
