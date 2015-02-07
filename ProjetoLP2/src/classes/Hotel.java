@@ -252,7 +252,11 @@ public class Hotel {
 	public static void setQuartoLuxoTriplo(int quartoLuxoTriplo) {
 		Hotel.quartoLuxoTriplo = quartoLuxoTriplo;
 	}
-
+	
+	public List<Opiniao> getListaOpinioes(){
+		return opinioes;
+	}
+	
 	/**
 	 * 
 	 */
