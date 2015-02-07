@@ -1,7 +1,7 @@
 package classes;
 
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 public class Testing {
 

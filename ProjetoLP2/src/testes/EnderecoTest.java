@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.Before;
 
 import classes.Endereco;
+import excecoes.*;
 
 /**
  * Classe de testes da classe Enderco
@@ -23,25 +24,25 @@ public class EnderecoTest {
 	}
 	
 	@Test
-	public void testaConstrutor()throws Exception{
+	public void testaConstrutor() throws Exception {
+		
+		try{
+			new Endereco (null, "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
+			Assert.fail("Esperava excecao pois o campo de cidade esta como null.");
+		} catch (CidadeInvalidaException e) {
+			Assert.assertEquals("Nome da cidade invalido", e.getMessage());
+		}
+		
 		try{
 			new Endereco("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
-			}
-		catch (Exception e){
-			Assert.assertEquals("Esse prompt nao deve ser mostrado se o construtor estiver correto", e.getMessage());
+			Assert.fail("Esse prompt nao deve ser mostrado se o construtor estiver correto");
+		} catch (Exception e) {
+			Assert.assertEquals(e.getMessage(), "Esse prompt nao deve ser mostrado se o construtor estiver correto");
 		}
 	
 		try{
 			new Endereco ("", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
 			Assert.fail("Esperava excecao pois o campo de cidade esta vazio.");
-			}
-		catch (Exception e){
-			Assert.assertEquals("Nome da cidade invalido", e.getMessage());
-		}
-		
-		try{
-			new Endereco (null, "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil");
-			Assert.fail("Esperava excecao pois o campo de cidade esta como null.");
 			}
 		catch (Exception e){
 			Assert.assertEquals("Nome da cidade invalido", e.getMessage());
@@ -227,20 +228,20 @@ public class EnderecoTest {
 	
 	@Test
 	public void testaGetters(){
-		Assert.assertTrue("Campina Grande" == novoEndereco.getCidade());
-		Assert.assertFalse("João Pessoa" == novoEndereco.getCidade());
-		Assert.assertTrue("Malvinas" == novoEndereco.getBairro());
-		Assert.assertFalse("Bodocongo" == novoEndereco.getBairro());
-		Assert.assertTrue("Rua das Umburanas" == novoEndereco.getNomeDaRua());
-		Assert.assertFalse("Rua Rodrigues Alves" == novoEndereco.getNomeDaRua());
+		Assert.assertTrue("Campina Grande".equals(novoEndereco.getCidade()));
+		Assert.assertFalse("Joao Pessoa".equals(novoEndereco.getCidade()));
+		Assert.assertTrue("Malvinas".equals(novoEndereco.getBairro()));
+		Assert.assertFalse("Bodocongo".equals(novoEndereco.getBairro()));
+		Assert.assertTrue("Rua das Umburanas".equals(novoEndereco.getNomeDaRua()));
+		Assert.assertFalse("Rua Rodrigues Alves".equals(novoEndereco.getNomeDaRua()));
 		Assert.assertTrue("66".equals(novoEndereco.getNumeroDaCasa()));
 		Assert.assertFalse("7".equals(novoEndereco.getNumeroDaCasa()));
-		Assert.assertTrue("Perto da caixa d'agua" == novoEndereco.getComplemento());
-		Assert.assertFalse("Perto da UFCG" == novoEndereco.getComplemento());
-		Assert.assertTrue("Paraiba" == novoEndereco.getEstado());
-		Assert.assertFalse("Pernanbuco" == novoEndereco.getEstado());
-		Assert.assertTrue("Brasil" == novoEndereco.getPais());
-		Assert.assertFalse("Argentina" == novoEndereco.getPais());
+		Assert.assertTrue("Perto da caixa d'agua".equals(novoEndereco.getComplemento()));
+		Assert.assertFalse("Perto da UFCG".equals(novoEndereco.getComplemento()));
+		Assert.assertTrue("Paraiba".equals(novoEndereco.getEstado()));
+		Assert.assertFalse("Pernanbuco".equals(novoEndereco.getEstado()));
+		Assert.assertTrue("Brasil".equals(novoEndereco.getPais()));
+		Assert.assertFalse("Argentina".equals(novoEndereco.getPais()));
 	}
 	
 	@Test

@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoPresidencial;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /* Classe de testes da classe QuartoPresidencial
  * 
@@ -62,7 +62,7 @@ public class QuartoPresidencialTest {
 		
 		try {
 			new QuartoPresidencial(4);
-		} catch ( QuartoEsgotadoException e ) {
+		} catch ( QuartoEsgotadoNoHotelException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

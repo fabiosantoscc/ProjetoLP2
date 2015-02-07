@@ -3,7 +3,7 @@ package testes;
 import org.junit.Test;
 
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -58,14 +58,14 @@ public class QuartoExecutivoTriploTest {
 		
 	@Test
 	public void testGetPreco() {
-		Assert.assertTrue(q1.getPreco() == 440.0);
-		Assert.assertTrue(q2.getPreco() == 440.0);
+		Assert.assertEquals(q1.getPreco(), 440.0, 0.001);
+		Assert.assertEquals(q2.getPreco(), 440.0, 0.001);
 	}
 		
 	@Test
 	public void testGetQuantidadePessoas() {
-		Assert.assertTrue(q1.getQuantidadeDePessoas() == 2);
-		Assert.assertTrue(q2.getQuantidadeDePessoas() == 3);
+		Assert.assertEquals(q1.getQuantidadeDePessoas(), 2);
+		Assert.assertEquals(q2.getQuantidadeDePessoas(), 3);
 	}
 	
 	@Test
@@ -110,7 +110,7 @@ public class QuartoExecutivoTriploTest {
 		try {
 			new QuartoExecutivoTriplo(2);
 			Assert.fail("Deveria lancar excecao, nao pode criar mais quartos");
-		} catch ( QuartoEsgotadoException e ) {
+		} catch ( QuartoEsgotadoNoHotelException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 	}

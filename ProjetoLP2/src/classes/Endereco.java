@@ -32,7 +32,7 @@ public class Endereco {
 	 */
 	
 	public Endereco(String cidade, String bairro, String rua, String numero, String complemento, String estado, String pais) 
-			throws Exception{
+			throws Exception {
 		
 		checaCidade(cidade);
 		checaBairro(bairro);
@@ -62,9 +62,9 @@ public class Endereco {
 			throw new BairroInvalidoException("Nome do bairro invalido");
 	}
 	
-	private void checaRua( String rua ) throws RuaInvalidaException {
+	private void checaRua( String rua ) throws NomeRuaInvalidaException {
 		if ( rua == null || rua.equals("") )
-			throw new RuaInvalidaException("Nome da rua invalido");
+			throw new NomeRuaInvalidaException("Nome da rua invalido");
 	}
 	
 	private void checaComplemento( String complemento ) throws ComplementoInvalidoException {
@@ -84,8 +84,8 @@ public class Endereco {
 		}
 	}
 	
-	private void checaPais( String pais ) throws PaisInvalidoException {
-		if ( pais == null || pais.equals(""))
+	private void checaPais( String meuPais ) throws PaisInvalidoException {
+		if ( meuPais == null || meuPais.equals(""))
 			throw new PaisInvalidoException("Nome do pais invalido");
 	}
 	
@@ -241,14 +241,14 @@ public class Endereco {
 	
 	@Override
 	public boolean equals( Object obj ) {
-		if (!(obj instanceof Endereco)) return false;
+		if (! (obj instanceof Endereco) ) {
+			return false;
+		}
 		
 		Endereco novoEndereco = (Endereco)obj;
-		
-		if (cidade.equals(novoEndereco.getCidade()) && bairro.equals(novoEndereco.getBairro()) 
+	
+		return (cidade.equals(novoEndereco.getCidade()) && bairro.equals(novoEndereco.getBairro()) 
 				&& nomeDaRua.equals(novoEndereco.getNomeDaRua()) 
-				&& numeroDaCasa == novoEndereco.getNumeroDaCasa()) 
-			return true;
-		return false;
+				&& numeroDaCasa == novoEndereco.getNumeroDaCasa());
 	}
 }

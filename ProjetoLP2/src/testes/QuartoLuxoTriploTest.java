@@ -9,7 +9,7 @@ import org.junit.Before;
 
 import classes.Hotel;
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /*
  * Classe de testes da classe QuartoExecutivoTriplo
@@ -111,7 +111,7 @@ public class QuartoLuxoTriploTest {
 		try {
 			new QuartoLuxoTriplo(2);
 			Assert.fail("Deveria lancar excecao, nao pode criar mais quartos");
-		} catch ( QuartoEsgotadoException e ) {
+		} catch ( QuartoEsgotadoNoHotelException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 	}

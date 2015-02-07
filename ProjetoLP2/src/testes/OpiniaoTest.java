@@ -29,15 +29,9 @@ public class OpiniaoTest {
 	
 	@Test
 	public void testConstrutor() throws InputArgumentInvalidException {
-		try {
-			op2 = new Opiniao("Belo hotel, grande acomodacao", 10.0);
-		} catch ( NotaInvalidaException e ) {
-			Assert.assertEquals("Nao deve haver excecao, construtor correto", e.getMessage());
-		}
 		
 		try {
-			op2 = new Opiniao("Belo hotel, grande acomodacao", 11.0);
-			Assert.fail("Esperava excecao, nota invalida");
+			Opiniao op = new Opiniao("Belo hotel, grande acomodacao", 11.0);
 		} catch ( NotaInvalidaException e ) {
 			Assert.assertEquals("Nota invalida", e.getMessage());
 		}
@@ -80,6 +74,12 @@ public class OpiniaoTest {
 		} catch ( ComentarioInvalidoException e ) {
 			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
+		
+		try {
+			new Opiniao("Belo hotel, grande acomodacao", 10.0);
+		} catch ( NotaInvalidaException e ) {
+			Assert.assertEquals(e.getMessage(), "Nao deve haver excecao, construtor correto");
+		}
 	}
 	
 	@Test
@@ -90,8 +90,8 @@ public class OpiniaoTest {
 	
 	@Test
 	public void testGetNota() {
-		Assert.assertTrue( op.getNota() == 10.0 );
-		Assert.assertTrue( op2.getNota() == 5.0 );
+		Assert.assertEquals( op.getNota(), 10.0, 0.001 );
+		Assert.assertEquals( op2.getNota(), 5.0, 0.001 );
 	}
 	
 	@Test

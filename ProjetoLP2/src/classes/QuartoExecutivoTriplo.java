@@ -1,7 +1,7 @@
 package classes;
 
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /**
  * 
@@ -29,7 +29,7 @@ public class QuartoExecutivoTriplo extends Quarto {
 		verificaQuantidadeDePessoas(quantidadeDePessoas);
 
 		if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
-			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);

@@ -2,7 +2,7 @@ package classes;
 
 import excecoes.CamaExtraEsgotadaException;
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /**
  * 
@@ -40,7 +40,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 		
 		
 		if ( Hotel.getQuartoExecutivoDuplo() == 0 ) {
-			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		this.camaExtra = camaExtra;

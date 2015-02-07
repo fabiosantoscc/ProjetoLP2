@@ -67,7 +67,7 @@ public class Telefone {
 	
 	private void verificaDDD( String ddd ) throws InputArgumentInvalidException {
 		
-		if ( ddd == null || ddd.equals(""))
+		if ( ddd == null )
 			throw new DddInvalidoException("DDD nao pode ser vazio.");
 		
 		if ( Integer.parseInt(ddd) < 0 ) {

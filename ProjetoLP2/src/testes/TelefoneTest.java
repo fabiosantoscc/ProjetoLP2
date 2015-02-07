@@ -136,10 +136,10 @@ public class TelefoneTest {
 	
 	@Test
 	public void testaGetters() {
-		Assert.assertTrue("83" == telefone.getDdd());
-		Assert.assertFalse("81" == telefone.getDdd());
-		Assert.assertTrue("99999999" == telefone.getNumero());
-		Assert.assertFalse("12345678" == telefone.getNumero());
+		Assert.assertTrue("83".equals(telefone.getDdd()));
+		Assert.assertFalse("81".equals(telefone.getDdd()));
+		Assert.assertTrue("99999999".equals(telefone.getNumero()));
+		Assert.assertFalse("12345678".equals(telefone.getNumero()));
 	}
 	
 	@Test

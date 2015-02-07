@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoExecutivoDuplo;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /*
  * Classe de testes de um quarto luxo duplo, sem uso do before porque a quantidade de
@@ -146,7 +146,7 @@ public class QuartoExecutivoDuploTest {
 		try {
 			q1 = new QuartoExecutivoDuplo(2, 1);
 			Assert.fail("Deve lancar excecao, quantidade de quartos invalida");
-		} catch ( QuartoEsgotadoException e ) {
+		} catch ( QuartoEsgotadoNoHotelException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

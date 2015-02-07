@@ -1,7 +1,7 @@
 package testes;
 
 import org.junit.Test;
-import excecoes.QuartoEsgotadoException;
+import excecoes.QuartoEsgotadoNoHotelException;
 import org.junit.Assert;
 import classes.Hotel;
 import classes.QuartoLuxoDuplo;
@@ -146,7 +146,7 @@ public class QuartoLuxoDuploTest {
 		try {
 			q1 = new QuartoLuxoDuplo(2, 1);
 			Assert.fail("Deve lancar excecao, quantidade de quartos invalida");
-		} catch ( QuartoEsgotadoException e ) {
+		} catch ( QuartoEsgotadoNoHotelException e ) {
 			Assert.assertEquals("Nao ha mais quartos livres", e.getMessage());
 		}
 		

@@ -31,7 +31,7 @@ public class QuartoLuxoSimples extends Quarto {
 		verificaCamaExtra(camaExtra);
 		
 		if ( Hotel.getQuartoLuxoSimples() - 1 < 0 ) {
-			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		this.camaExtra = camaExtra;

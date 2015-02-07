@@ -22,13 +22,13 @@ public class QuartoPresidencial extends Quarto {
 	 * @throws Exception
 	 */
 	
-	public QuartoPresidencial( int quantidadeDePessoas ) throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoException {
+	public QuartoPresidencial( int quantidadeDePessoas ) throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoNoHotelException {
 		
 		super(quantidadeDePessoas);
 		verificaQuantidadeDePessoas(quantidadeDePessoas);
 		
 		if ( Hotel.getQuartoPresidencial() == 0 ) {
-			throw new QuartoEsgotadoException("Nao ha mais quartos livres");
+			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		Hotel.setQuartoPresidencial(Hotel.getQuartoPresidencial() - 1);
