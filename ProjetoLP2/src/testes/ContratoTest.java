@@ -1,4 +1,4 @@
-package classes;
+package testes;
 
 import java.util.Calendar;
 
@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
+import classes.Contrato;
 import excecoes.NumeroDeNoitesInvalidoException;
 
 /**
