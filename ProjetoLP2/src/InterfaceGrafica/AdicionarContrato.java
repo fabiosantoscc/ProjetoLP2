@@ -24,5 +24,7 @@ public class AdicionarContrato extends JPanel {
 	public AdicionarContrato() {
 		setLayout(null);
 
+		
+		
 	}
 }
