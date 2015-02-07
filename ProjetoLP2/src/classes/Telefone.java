@@ -1,21 +1,24 @@
 package classes;
 
-import excecoes.*;
+import excecoes.DddInvalidoException;
+import excecoes.InputArgumentInvalidException;
+import excecoes.NumeroTelefoneInvalidoException;
 
-/**
- * Classe que contem os dados referentes ao numedo do telefone do hospede
- * @author Ravi Leite
+/**    Classe que contem os dados referentes ao numedo do telefone do hospede
  * 
- * @data 23/12/2014
- * Ultima alteracao: 04/02/2015 / Fabio Alexandre
+ *     @author Ravi Leite
+ * 
+ *     @data 23/12/2014
+ * 
+ *     Ultima alteracao: 07/02/2015 / Fabio Alexandre
  */
 
 public class Telefone {
-	
-	String numero;
-	String ddd;
-	
-	/**
+
+  private String numero;
+  private String ddd;
+
+    /**
 	 * Contrutor da classe Telefone
 	 * 
 	 * @param numero Numero do telefone
@@ -23,11 +26,11 @@ public class Telefone {
 	 * @throws InputArgumentInvalidException
 	 */
 	
-	public Telefone(String ddd, String numero) throws InputArgumentInvalidException {
-		verificaDDD(ddd);
-		verificaNumero(numero);
-		this.numero = numero;
-		this.ddd = ddd;
+  public Telefone(String ddd, String numero) throws InputArgumentInvalidException {
+    verificaDDD(ddd);
+    verificaNumero(numero);
+    this.numero = numero;
+    this.ddd = ddd;
 	}
 	
 	/**
@@ -110,8 +113,8 @@ public class Telefone {
 	 * @return Retorna o ddd do telefone
 	 */
 	
-	public String getDdd() {
-		return ddd;
+    public String getDdd() {
+        return ddd;
 	}
 	
 	/**
