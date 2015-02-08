@@ -21,9 +21,9 @@ public class QuartoExecutivoDuploTest {
 	@Test
 	public void testaTudo() throws Exception {
 	
-		q1 = new QuartoExecutivoDuplo(2, 0);
-					
-		Assert.assertTrue(Hotel.getCamaExtra() == 10);
+		q1 = new QuartoExecutivoDuplo(2, 1);
+		
+		Assert.assertTrue(Hotel.getCamaExtra() == 19);
 			
 		try {
 			new QuartoExecutivoDuplo(4, 1);
@@ -45,22 +45,25 @@ public class QuartoExecutivoDuploTest {
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de pessoas do quarto invalida", e.getMessage());
 		}
-			
+		
+		System.out.println(Hotel.getQuartoExecutivoDuplo());
+		System.out.println(Hotel.getCamaExtra());
+		
 		try {
 			new QuartoExecutivoDuplo(2, -2);
 			Assert.fail("Esperava excecao, pois a quantidade de quartos e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
-			
+		
 		try {
-			new QuartoExecutivoDuplo(2, 11);
+			new QuartoExecutivoDuplo(2, 20);
 			Assert.fail("Esperava excecao, pois a quantidade de quartos e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
 			
-		Assert.assertTrue(Hotel.getCamaExtra() == 10);
+		Assert.assertTrue(Hotel.getCamaExtra() == 19);
 			
 		// Test getPreco()
 	
@@ -80,7 +83,7 @@ public class QuartoExecutivoDuploTest {
 		
 		// Test getCama()
 		
-		Assert.assertTrue(q1.getCamaExtra() == 0);
+		Assert.assertTrue(q1.getCamaExtra() == 1);
 		
 		// Test setCama()
 	
@@ -92,7 +95,7 @@ public class QuartoExecutivoDuploTest {
 		}
 			
 		try {
-			q1.setCamaExtra(11);
+			q1.setCamaExtra(20);
 			Assert.fail("Esperava excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
@@ -151,7 +154,7 @@ public class QuartoExecutivoDuploTest {
 		}
 		
 		try {
-			q1.setCamaExtra(q1.getCamaExtra() + 7);
+			q1.setCamaExtra(17);
 			Assert.fail("Deve lancar excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida",e.getMessage());
