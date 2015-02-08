@@ -187,6 +187,7 @@ public class AtualizarHospede extends JPanel {
 				try{
 					hospedeAtual.setNome(frmtdtxtfldNome.getText());
 					hospedeAtual.setEmail(frmtdtxtfldEmail.getText());
+					hospedeAtual.setNumeroDoCartao(frmtdtxtfldCartaoCredito.getText());;
 					hospedeAtual.getTelefone().setDdd(frmtdtxtfldDdd.getText());
 					hospedeAtual.getTelefone().setNumero(frmtdtxtfldTelefone.getText());
 					hospedeAtual.getEndereco().setBairro(frmtdtxtfldBairro.getText());

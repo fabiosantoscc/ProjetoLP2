@@ -53,7 +53,7 @@ public class Hospede {
 	 */
 	private void verificaCpf(String cpf) throws InputArgumentInvalidException{
 		if (cpf == null || cpf.equals(""))
-			throw new CpfInvalidoException("O campo do cpf nao pode ser null ou vazio.");
+			throw new CpfInvalidoException("O campo do cpf nao pode ser vazio.");
 		
 		for (int i = 0; i < cpf.length(); i++){
 			if(!(Character.isDigit(cpf.charAt(i))))
@@ -138,8 +138,15 @@ public class Hospede {
 	 */
 	
 	private void verificaNome( String nome ) throws InputArgumentInvalidException {
+		
 		if ( nome == null || nome.equals("") ) {
 			throw new NomeInvalidoException("O nome do hospede nao pode ser vazio.");
+		}
+		
+		// falta testar isso em hotel test
+		for ( int i = 0; i < nome.length(); i++) {
+			if ((Character.isDigit(nome.charAt(i))))
+				throw new NomeInvalidoException("O nome do hospede deve conter apenas letras.");
 		}
 	}
 	

@@ -57,14 +57,14 @@ public class HospedeTest {
 			new Hospede ("Anisio", "", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
 		} catch ( CpfInvalidoException e ) {
-			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+			Assert.assertEquals("O campo do cpf nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
 			new Hospede ("Anisio", null, "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta como null.");
 		} catch ( CpfInvalidoException e ) {
-			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+			Assert.assertEquals("O campo do cpf nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
@@ -166,14 +166,14 @@ public class HospedeTest {
 			hospede.setCpf("");
 			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
 		} catch ( CpfInvalidoException e ) {
-			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+			Assert.assertEquals("O campo do cpf nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
 			hospede.setCpf(null);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta como null.");
 		} catch ( CpfInvalidoException e ) {
-			Assert.assertEquals("O campo do cpf nao pode ser null ou vazio.", e.getMessage());
+			Assert.assertEquals("O campo do cpf nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {

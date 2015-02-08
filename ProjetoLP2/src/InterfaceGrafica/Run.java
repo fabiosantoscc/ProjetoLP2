@@ -19,7 +19,7 @@ public class Run {
 		
 		tel = new Telefone("83","33811111");
 		end = new Endereco("a", "b", "c", "123", 
-		"", "a", "a", "b");
+		"", "a", "a", "12345678");
 		h = new Hospede("Ronan", "48058960942","4539361222510693", "aaaa@aa.com", tel, end);
 		hotel.addHospede(h);
 	}

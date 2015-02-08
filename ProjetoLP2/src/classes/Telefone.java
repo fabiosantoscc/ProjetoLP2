@@ -67,8 +67,9 @@ public class Telefone {
 		if ( numero == null || numero.equals(""))
 			throw new NumeroTelefoneInvalidoException("Numero de telefone nao pode ser vazio.");
 		
-		for ( int i = 0; i < 9; i++ ) {
-			if ( !(Character.isDigit(numero.charAt(0)) ))
+		// falta testar nos testes
+		for ( int i = 0; i < numero.length(); i++ ) {
+			if ( !(Character.isDigit(numero.charAt(i)) ))
 				throw new NumeroTelefoneInvalidoException("O Numero do telefone deve conter apenas digitos.");
 		}
 		
