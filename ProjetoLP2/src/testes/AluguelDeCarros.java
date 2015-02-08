@@ -1,12 +1,14 @@
 package classes;
 
+import excecoes.AluguelDeCarros;
+import excecoes.Servicos;
+
 /**
- * Classe que recebe informacoes a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
+ * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 
  * @author Ronan Souza
  * @date 12/01/2014
  */
-
 public class AluguelDeCarros implements Servicos {
 	private String tipoCarro;
 	private boolean tanqueCheio;
@@ -18,7 +20,7 @@ public class AluguelDeCarros implements Servicos {
 	 * Construtor da classe AluguelDeCarros
 	 * 
 	 * @param tipoCarro Modelo do Automovel desejado ( "Luxo" ou "Executivo")
-	 * @param tanqueCheio Veiculo ja com tanque cheio
+	 * @param tanqueCheio Veiculo já com tanque cheio
 	 * @param seguroAutomovel Seguro do automovel no periodo do aluguel 
 	 * @param quantidadeDias Quantidade de dias em que o automovel estará em uso do cliente
 	 */
@@ -32,7 +34,7 @@ public class AluguelDeCarros implements Servicos {
 	
 	private void checaTipoCarro(String tipo)throws Exception{
 		if (!( tipo.equals("Executivo") ||  tipo.equals("Luxo"))) {
-			throw new Exception("Modelo de Automovel Invalido (\"Luxo\" ou \"Executivo\")");
+			throw new Exception("Modelo de Automóvel Inválido (\"Luxo\" ou \"Executivo\")");
 		}
 	}
 	
@@ -48,7 +50,7 @@ public class AluguelDeCarros implements Servicos {
 	
 	/**
 	 * 
-	 * @return Se o veiculo ja sai para o aluguel com o tanque de combustivel cheio
+	 * @return Se o veículo já sai para o aluguel com o tanque de combustível cheio
 	 */
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
@@ -78,16 +80,57 @@ public class AluguelDeCarros implements Servicos {
 		if (tipoCarro.equals("Luxo")) valorDiaria = 100;
 		else if (tipoCarro.equals("Executivo")) valorDiaria = 60;
 	}
-			
+	
+	/**
+	 * Verifica quais os servicos adicionais
+	 * @param dia Dia do acesso aos servicos adicionais
+	 * @param mes Mes dos servicos adicionais
+	 */
+	
+//	public void acrescentaAdicionais(int dia, int mes)throws Exception{
+//		if (!(calendario.verificaDataValida(dia, mes))) throw new Exception ("Data invalida.");
+//		estrategia = calendario.verificaEstrategia(dia, mes);
+//		if (tanqueCheio) tarifaTotal += estrategia.calculaMontante(150);
+//		if (seguroDeAutomovel) tarifaTotal += estrategia.calculaMontante(100);
+//	}
+	
+	/**
+	 * Metodo que calcula a diaria do aluguel de acordo com a estrategia de cada dia
+	 * @param diaDeEntrada Dia de inicio do aluguel
+	 * @param mesDeEntrada Mes de inicio aluguel
+	 * @param diaDeSaida Dia de inicio do aluguel 
+	 * @param mesDeSaida Mes de saida do aluguel
+	 */
+	
+//	public void calculaGastoTotal(int diaDeEntrada, int mesDeEntrada, int diaDeSaida, int mesDeSaida)throws Exception{
+//		if (!(calendario.verificaDataValida(diaDeEntrada, mesDeEntrada))) throw new Exception ("Data invalida.");
+//		if (!(calendario.verificaDataValida(diaDeSaida, mesDeSaida))) throw new Exception ("Data invalida.");
+//		for (int i = mesDeEntrada;i <= mesDeSaida;i++){
+//			for (int j = diaDeEntrada; j <= diaDeSaida; j++){
+//				boolean dataValida = calendario.verificaDataValida(j,i);
+//				if (! dataValida){
+//					i = 1;
+//					if (j == 12) {
+//						j = 1;
+//					}
+//					else j++;
+//					break;
+//				}
+//				estrategia = calendario.verificaEstrategia(j, i);
+//				tarifaTotal += estrategia.calculaMontante(valorDiaria);
+//				}
+//			}
+//		}
+		
 	/**
 	 * Metodo que retorna uma String com os atributos da classe
 	 */
 	@Override
 	public String toString() {
 		return "AluguelDeCarros\n"
-				+ "Modelo do Automovel: "+tipoCarro 
+				+ "Modelo do Automóvel: "+tipoCarro 
 				+ "\nTanque Cheio: " + tanqueCheio + 
-						 "\nAutomovel Assegurado: " + seguroDeAutomovel ;
+						 "\nAutomóvel Assegurado: " + seguroDeAutomovel ;
 	}
 
 	@Override
