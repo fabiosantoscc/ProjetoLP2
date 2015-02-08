@@ -50,6 +50,11 @@ public class BuscarHospedeAtualizar extends JPanel {
 		add(textField_1);
 		
 		JButton button = new JButton("Buscar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
+			}
+		});
 		button.setBounds(454, 315, 89, 23);
 		add(button);
 

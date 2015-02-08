@@ -50,6 +50,10 @@ public class BuscarContratos extends JPanel {
 		add(textField_1);
 		
 		JButton button = new JButton("Buscar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		button.setBounds(454, 315, 89, 23);
 		add(button);
 

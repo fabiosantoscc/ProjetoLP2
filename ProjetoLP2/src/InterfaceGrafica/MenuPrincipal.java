@@ -22,7 +22,7 @@ public class MenuPrincipal {
 	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionaHospede adicionarHospede = new AdicionaHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
-	PainelHospede telaHospede = new PainelHospede();
+	static public PainelHospede telaHospede;
 	AdicionarContrato adicionarContrato = new AdicionarContrato();
 	BuscarContratos buscarContratos = new BuscarContratos();
 	FecharContrato fecharContrato = new FecharContrato();
@@ -31,6 +31,7 @@ public class MenuPrincipal {
 	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
 	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
 	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
+	
 	
 
 	
@@ -74,7 +75,7 @@ public class MenuPrincipal {
 		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");
 		panel0.add(atualizarHospede, "7");
-		panel0.add(telaHospede, "8");
+		
 		panel0.add(buscarHospedeAtualizar, "9");
 		panel0.add(buscarCheckIn, "10");
 		panel0.add(buscarCheckOut, "11");

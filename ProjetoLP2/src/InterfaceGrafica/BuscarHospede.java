@@ -59,6 +59,9 @@ public class BuscarHospede extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
+					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.telaHospede, "8");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "8");
 				} catch (HospedeInvalidoException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
