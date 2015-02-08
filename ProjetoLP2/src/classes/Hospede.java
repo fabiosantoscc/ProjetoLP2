@@ -164,7 +164,7 @@ public class Hospede {
 		}
 		
 		if (!(isCartao(cartao)))
-			throw new NumeroCartaoInvalidoException("Numero do cartao invalido");
+			throw new NumeroCartaoInvalidoException("Numero do cartao invalido.");
 	}
 	
 	/**
@@ -233,22 +233,7 @@ public class Hospede {
 	 */
 	
 	public void setNumeroDoCartao( String numeroDoCartao ) throws InputArgumentInvalidException {
-		
-		if ( numeroDoCartao == null || numeroDoCartao.equals("") )
-			throw new NumeroCartaoInvalidoException("O campo do numero do cartao nao pode ser vazio.");
-		
-		if ( numeroDoCartao.length() != 16 )
-			throw new NumeroCartaoInvalidoException("Quantidade de digitos do cartao invalida.");
-		
-		for ( int i = 0; i < 16; i++ ) {
-			if ( !(Character.isDigit(numeroDoCartao.charAt(i))) )
-				throw new NumeroCartaoInvalidoException("O numero do cartao deve conter apenas numeros.");
-		}
-		
-		if ( !(isCartao(numeroDoCartao)) ) {
-			throw new NumeroCartaoInvalidoException("Cartao invalido");
-		}
-		
+		verificaCartao(numeroDoCartao);
 		this.numeroDoCartao = numeroDoCartao;
 	}
 
@@ -344,7 +329,7 @@ public class Hospede {
 	@Override
 	public String toString() {
 		return "- Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"  + "- CPF: " + cpf +
-				"\n- Telefone: \n" + telefone + "\n" +
+				"\n- Telefone: " + telefone + "\n" +
 				"- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
 	}
 	

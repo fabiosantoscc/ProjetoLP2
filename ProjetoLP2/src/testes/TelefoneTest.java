@@ -69,14 +69,14 @@ public class TelefoneTest {
 			new Telefone("-3", "99999999");
 			Assert.fail("Esperava excecao pois o ddd eh negativo.");
 		} catch ( DddInvalidoException e ) {
-			Assert.assertEquals("DDD tem que ser um numero positivo.", e.getMessage());
+			Assert.assertEquals("DDD deve conter apenas digitos.", e.getMessage());
 		}
 		
 		try {
 			new Telefone("73", "-9999999");
 			Assert.fail("Esperava excecao pois o numero do telefone eh negativo.");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Numero de telefone tem que ser um numero positivo.", e.getMessage());
+			Assert.assertEquals("O Numero do telefone deve conter apenas digitos.", e.getMessage());
 		}
 	}
 	
@@ -111,7 +111,7 @@ public class TelefoneTest {
 		try {
 			telefone.setNumero("-8888888");
 		} catch ( NumeroTelefoneInvalidoException e ) {
-			Assert.assertEquals("Numero de telefone tem que ser um numero positivo.", e.getMessage());
+			Assert.assertEquals("O Numero do telefone deve conter apenas digitos.", e.getMessage());
 		}
 		
 		try {
@@ -130,7 +130,7 @@ public class TelefoneTest {
 		try {
 			telefone.setDdd("-3");
 		} catch ( DddInvalidoException e ) {
-			Assert.assertEquals("DDD tem que ser um numero positivo.", e.getMessage());
+			Assert.assertEquals("DDD deve conter apenas digitos.", e.getMessage());
 		}
 	}
 	
@@ -144,7 +144,7 @@ public class TelefoneTest {
 	
 	@Test
 	public void testaToString() {
-		Assert.assertEquals(telefone.toString(),"Numero: (83) 99999999");
+		Assert.assertEquals(telefone.toString(),"(83) 99999999");
 	}
 	
 	@Test

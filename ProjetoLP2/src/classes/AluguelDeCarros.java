@@ -1,5 +1,6 @@
 package classes;
 
+
 /**
  * Classe que recebe informacoes sobre o aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 

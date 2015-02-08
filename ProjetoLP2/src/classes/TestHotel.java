@@ -7,7 +7,7 @@ public class TestHotel {
 		Hotel h = new Hotel();
 		
 		try {
-			Endereco endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil");
+			Endereco endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil", "32134321");
 			Telefone telefone = new Telefone ("83", "99999999");
 			Hospede hospede = new Hospede ("Anisio", "75265471855", "4012888888881881", "moral.legal@gmail.com", telefone, endereco);
 			
