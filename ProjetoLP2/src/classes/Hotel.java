@@ -10,7 +10,7 @@ import excecoes.*;
 /**
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima alteracao: 29/01/2015 / Fabio Alexandre
+ * Ultima alteracao: 08/02/2015 / Fabio Alexandre
  */
 
 public class Hotel {
@@ -55,6 +55,29 @@ public class Hotel {
 			throw new HospedeInvalidoException("Hospede nao existente no hotel.");
 		
 		return h;
+	}
+	
+	/**
+	 * 
+	 * @param esseHospede
+	 * @param umServico
+	 * @throws ContratoAbertoException 
+	 */
+	
+	public void adicionaServico( Hospede esseHospede, Servicos umServico ) throws ContratoAbertoException {
+		boolean isContratoAberto = false;
+		
+		List<Contrato> contratos = this.hospedes.get(esseHospede);
+		for ( Contrato c : contratos ) {
+			if ( c.isAberto() ) {
+				c.adicionaServico(umServico);
+				isContratoAberto = true;
+			}
+		}
+		
+		if ( !(isContratoAberto) ) {
+			throw new ContratoAbertoException("Impossivel adicionar um servico\nO hospede nao possui nenhum contrato aberto.");
+		}
 	}
 	
 	// metodo que cria um contrato sem nenhum servico para o hospede

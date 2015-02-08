@@ -17,6 +17,10 @@ public class Run {
 		hotel = new Hotel();
 		TelaLogin.main(args);
 		
+		String t = "5";
+		int f = Integer.parseInt(t);
+		System.out.println(f);
+		
 		tel = new Telefone("83","33811111");
 		end = new Endereco("a", "b", "c", "123", 
 		"", "a", "a", "12345678");
