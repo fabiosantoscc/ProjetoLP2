@@ -1,5 +1,14 @@
 package classes;
 
+/**
+ * Classe que representa um contrato
+ * 
+ * @author Fabio Alexandre Santos Silva Júnior
+ * @date 02/02/2015
+ * Ultima alteracao: 08/02/2015
+ * 
+ */
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
@@ -16,7 +25,7 @@ import excecoes.*;
 public class Contrato {
 	
 	private List<Servicos> servicos = new ArrayList<Servicos>();
-	private boolean fechado;
+	private boolean aberto;
 	private double valorAPagar;
 	private int numeroDeNoites;
 	private int diaInicial, mesInicial, anoInicial;
@@ -31,10 +40,10 @@ public class Contrato {
 		anoInicial = c.get(Calendar.YEAR);
 		
 		if ( numeroDeNoites <= 0)
-			throw new NumeroDeNoitesInvalidoException("Numero de dias deve ser maior que zero");
+			throw new NumeroDeNoitesInvalidoException("Numero de dias deve ser maior que zero.");
 		
 		this.numeroDeNoites = numeroDeNoites;
-		this.fechado = false;
+		this.aberto = true;
 	}
 	
 	/**
@@ -78,8 +87,8 @@ public class Contrato {
 	 * @return
 	 */
 	
-	public boolean isFechado() {
-		return fechado;
+	public boolean isAberto() {
+		return aberto;
 	}
 	
 	/**
@@ -87,8 +96,8 @@ public class Contrato {
 	 * @param fechado
 	 */
 	
-	public void setFechado(boolean fechado) {
-		this.fechado = fechado;
+	public void setAberto(boolean aberto) {
+		this.aberto = aberto;
 	}
 	
 	/**
@@ -113,7 +122,6 @@ public class Contrato {
 	 */
 	
 	public void calculaTotalAPagar() {
-		
 	}
 	
 	/**
@@ -126,10 +134,10 @@ public class Contrato {
 				getAnoInicial() + " as " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE)
 				+ ":" + data.get(Calendar.SECOND);
 		
-		if ( isFechado() )
-			representacao += "\nContrato fechado";
-		else {
+		if ( isAberto() )
 			representacao += "\nContrato aberto";
+		else {
+			representacao += "\nContrato fechado";
 		}
 		
 		representacao += ", Noites de hospedagem: " + getNumeroDeNoites() + " ]";
@@ -150,6 +158,6 @@ public class Contrato {
 		
 		return getNumeroDeNoites() == c.getNumeroDeNoites() && getDiaInicial() == c.getDiaInicial()
 				&& getMesInicial() == c.getMesInicial() && getAnoInicial() == c.getAnoInicial()
-				&& getValorAPagar() == c.getValorAPagar() && isFechado() == c.isFechado();			
+				&& getValorAPagar() == c.getValorAPagar() && isAberto() == c.isAberto();			
 	}
 }

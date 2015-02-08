@@ -12,13 +12,14 @@ public class TestHotel {
 			Hospede hospede = new Hospede ("Anisio", "75265471855", "4012888888881881", "moral.legal@gmail.com", telefone, endereco);
 			
 			h.addHospede(hospede);
-			h.pesquisaHospede("75265471855", "Anisio").setNome("chupa cabra");;
-			
-			System.out.println(h.pesquisaHospede("", "chupa cabra").toString());
-			
-			
+//			h.pesquisaHospede("75265471855", "Anisio").setNome("chupa cabra");;
+//			
+//			System.out.println(h.pesquisaHospede("", "chupa cabra").toString());
+		
+//			h.criaContrato("75265471855", "Fabio", 7);
+			h.criaContrato("75265471855", "", -4);
 		} catch ( Exception e ) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 	}
 }

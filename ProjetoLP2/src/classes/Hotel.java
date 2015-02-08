@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Set;
+
 import excecoes.*;
 
 /**
@@ -54,6 +55,34 @@ public class Hotel {
 			throw new HospedeInvalidoException("Hospede nao existente no hotel.");
 		
 		return h;
+	}
+	
+	// metodo que cria um contrato sem nenhum servico para o hospede
+	
+	public void criaContrato( String cpf, String nome, int noites ) throws Exception {
+		Set <Hospede> meusHospedes = hospedes.keySet();
+		boolean hospedeEncontrado = false;
+		
+		if ( meusHospedes.size() == 0 )
+			throw new HospedeInvalidoException("Para criar um contrato eh necessario\nque exista hospede no hotel.");
+
+		for ( Hospede umHospede :  meusHospedes ) {
+			if ( umHospede.getCpf().equals(cpf) || umHospede.getNome().equals(nome) ) {
+				List<Contrato> contratos = hospedes.get(umHospede);
+				for ( Contrato contrato : contratos ) {
+					if ( contrato.isAberto())
+						throw new ContratoAbertoException("Impossivel abrir outro contrato para o cliente\nJá existe um contrato em aberto");
+				}
+				
+				Contrato umContrato = new Contrato(noites);
+				contratos.add(umContrato);
+				hospedeEncontrado = true;
+			}
+			
+			if ( !(hospedeEncontrado) ) {
+				throw new HospedeInvalidoException("Hospede nao existente no hotel");
+			}
+		}
 	}
 	
 	/**

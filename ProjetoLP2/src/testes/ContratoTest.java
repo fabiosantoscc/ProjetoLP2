@@ -41,23 +41,23 @@ public class ContratoTest {
 			new Contrato(0);
 			Assert.fail("Esperava excecao pois numero de dias esta igual a zero.");
 		} catch ( NumeroDeNoitesInvalidoException e) {
-			Assert.assertEquals("Numero de dias deve ser maior que zero", e.getMessage());
+			Assert.assertEquals("Numero de dias deve ser maior que zero.", e.getMessage());
 		}
 		
 		try {
 			new Contrato(-4);
 			Assert.fail("Esperava excecao pois numero de dias esta menor que zero.");
 		} catch (Exception e) {
-			Assert.assertEquals("Numero de dias deve ser maior que zero", e.getMessage());
+			Assert.assertEquals("Numero de dias deve ser maior que zero.", e.getMessage());
 		}
 	}
 	
 	@Test
-	public void testaGettersAndSetters()throws Exception{
-		contrato.setFechado(true);
-		Assert.assertEquals(true, contrato.isFechado());
-		contrato.setFechado(false);
-		Assert.assertEquals(false, contrato.isFechado());
+	public void testaGettersAndSetters() throws Exception {
+		contrato.setAberto(true);
+		Assert.assertEquals(true, contrato.isAberto());
+		contrato.setAberto(false);
+		Assert.assertEquals(false, contrato.isAberto());
 		
 		Assert.assertEquals(contrato.getDiaInicial(), c.get(Calendar.DAY_OF_MONTH));
 		Assert.assertEquals(contrato.getMesInicial(), c.get(Calendar.MONTH) + 1);
@@ -71,26 +71,26 @@ public class ContratoTest {
 	
 	@Test
 	public void testaToString(){
-		contrato.setFechado(true);
-		Assert.assertEquals(contrato.toString(), "Contrato [ Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
-				+ (c.get(Calendar.MONTH) + 1) + "/" +  c.get(Calendar.YEAR) + " as " + data.get(Calendar.HOUR_OF_DAY)
-				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + "\nContrato fechado"
-				+ ", Noites de hospedagem: " + 3 + " ]");
-		
-		contrato.setFechado(false);
+		contrato.setAberto(true);
 		Assert.assertEquals(contrato.toString(), "Contrato [ Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
 				+ (c.get(Calendar.MONTH) + 1) + "/" +  c.get(Calendar.YEAR) + " as " + data.get(Calendar.HOUR_OF_DAY)
 				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + "\nContrato aberto"
+				+ ", Noites de hospedagem: " + 3 + " ]");
+		
+		contrato.setAberto(false);
+		Assert.assertEquals(contrato.toString(), "Contrato [ Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
+				+ (c.get(Calendar.MONTH) + 1) + "/" +  c.get(Calendar.YEAR) + " as " + data.get(Calendar.HOUR_OF_DAY)
+				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + "\nContrato fechado"
 				+ ", Noites de hospedagem: " + 3 + " ]");
 	}
 	
 	@Test
 	public void testaEquals() {
-		contrato.setFechado(false);
-		novoContrato.setFechado(true);
+		contrato.setAberto(false);
+		novoContrato.setAberto(true);
 		Assert.assertFalse(contrato.equals(novoContrato));
-		contrato.setFechado(true);
-		novoContrato.setFechado(true);
+		contrato.setAberto(true);
+		novoContrato.setAberto(true);
 		Assert.assertTrue(contrato.equals(novoContrato));
 	}
 }
