@@ -8,10 +8,12 @@ package classes;
  */
 
 public class Restaurante implements Servicos {
-	
+	//private EstrategiaDeCalculoDaMontante estrategia;
+	//private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias();
 	private double consumoDiario, consumoUnidade1, consumoUnidade2, consumoGeral;
 	private int quantUsoUnidade1, quantUsoUnidade2;
 	
+
 	public  double getConsumoUnidade1(){
 		return consumoUnidade1;
 	}
@@ -50,6 +52,18 @@ public class Restaurante implements Servicos {
 		}
 		
 	}
+	
+	/**
+	 * Adiciona ao valor geral o consumo diario de acordo com a estrategia usada naquele dia
+	 * @param dia Dia do consumo
+	 * @param mes Mes do consumo
+	 */
+	
+//	public void adicionaAoConsumoGeral(int dia, int mes)throws Exception{
+	//	 if (!(calendario.verificaDataValida(dia, mes))) throw new Exception ("Data invalida.");
+		// estrategia = calendario.verificaEstrategia(dia, mes);
+		 //consumoGeral += estrategia.calculaMontante(consumoDiario);
+	//}
 	
 	@Override
 	public double getPreco() {

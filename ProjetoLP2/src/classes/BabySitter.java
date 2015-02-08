@@ -13,7 +13,7 @@ import classes.BabySitter;
 
 public class BabySitter implements Servicos {
 	
-	private  EstrategiaDeCalculoDaMontante estrategia;
+	//private  EstrategiaDeCalculoDaMontante estrategia;
 	private double despesaDiaria, despesaTotal;
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;
@@ -124,14 +124,14 @@ public class BabySitter implements Servicos {
 	/**
 	 * Calcula a tarifa total utilizada por esse servico, metodo que pertence a interface servicos
 	 */
-	
+	/*
 	private double calculaTarifa(int qntHoras, int horasDobradas) {
 		double despesa = 0;
 		despesa += (qntHoras - horasDobradas) * 25.00;
 		despesa += horasDobradas * 50.00;
 		return despesa;
 	}
-	
+	*/
 	/**
 	 * Metodo que retorna uma String com os atributos da classe
 	 */

@@ -7,6 +7,8 @@ package classes;
  * @date 12/01/2014
  */
 public class AluguelDeCarros implements Servicos {
+	//private EstrategiaDeCalculoDaMontante estrategia;
+	//private CalendarioDeEstrategias calendario;
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
@@ -22,6 +24,7 @@ public class AluguelDeCarros implements Servicos {
 	 * @param quantidadeDias Quantidade de dias em que o automovel estará em uso do cliente
 	 */
 	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) throws Exception{
+		//calendario = new CalendarioDeEstrategias();
 		checaTipoCarro(tipoCarro);
 		this.tipoCarro = tipoCarro;
 		this.tanqueCheio = tanqueCheio;
@@ -77,7 +80,47 @@ public class AluguelDeCarros implements Servicos {
 		if (tipoCarro.equals("Luxo")) valorDiaria = 100;
 		else if (tipoCarro.equals("Executivo")) valorDiaria = 60;
 	}
-			
+	
+	/**
+	 * Verifica quais os servicos adicionais
+	 * @param dia Dia do acesso aos servicos adicionais
+	 * @param mes Mes dos servicos adicionais
+	 */
+	/*
+	public void acrescentaAdicionais(int dia, int mes)throws Exception{
+		if (tanqueCheio) tarifaTotal += 150;
+		if (seguroDeAutomovel) tarifaTotal += 100;
+	}
+	*/
+	/**
+	 * Metodo que calcula a diaria do aluguel de acordo com a estrategia de cada dia
+	 * @param diaDeEntrada Dia de inicio do aluguel
+	 * @param mesDeEntrada Mes de inicio aluguel
+	 * @param diaDeSaida Dia de inicio do aluguel 
+	 * @param mesDeSaida Mes de saida do aluguel
+	 */
+/*
+	public void calculaGastoTotal(int diaDeEntrada, int mesDeEntrada, int diaDeSaida, int mesDeSaida)throws Exception{
+		if (!(calendario.verificaDataValida(diaDeEntrada, mesDeEntrada))) throw new Exception ("Data invalida.");
+		if (!(calendario.verificaDataValida(diaDeSaida, mesDeSaida))) throw new Exception ("Data invalida.");
+		for (int i = mesDeEntrada;i <= mesDeSaida;i++){
+			for (int j = diaDeEntrada; j <= diaDeSaida; j++){
+				boolean dataValida = calendario.verificaDataValida(j,i);
+				if (! dataValida){
+					i = 1;
+					if (j == 12) {
+						j = 1;
+					}
+					else j++;
+					break;
+				}
+				estrategia = calendario.verificaEstrategia(j, i);
+				tarifaTotal += estrategia.calculaMontante(valorDiaria);
+				}
+			}
+		}
+	*/
+		
 	/**
 	 * Metodo que retorna uma String com os atributos da classe
 	 */
