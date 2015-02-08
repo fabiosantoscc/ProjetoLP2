@@ -82,7 +82,7 @@ public class PainelHospede extends JPanel {
 		add(frmtdtxtfldDdd);
 		
 		JFormattedTextField frmtdtxtfldTelefone = new JFormattedTextField();
-		frmtdtxtfldTelefone.setText(hospedeAtual.getTelefone());
+		frmtdtxtfldTelefone.setText(hospedeAtual.getNumeroTelefone());
 		frmtdtxtfldTelefone.setEditable(false);
 		frmtdtxtfldTelefone.setBounds(445, 128, 114, 17);
 		add(frmtdtxtfldTelefone);

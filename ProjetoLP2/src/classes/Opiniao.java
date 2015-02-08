@@ -79,8 +79,7 @@ public class Opiniao {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((comentario == null) ? 0 : comentario.hashCode());
+		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(nota);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -102,6 +101,9 @@ public class Opiniao {
 		
 		Opiniao opiniao = (Opiniao) obj;
 		
-		return opiniao.getNota() == getNota() && opiniao.getComentario().equals(getComentario());
+		if ( getNota() == opiniao.getNota() && getComentario().equals(opiniao.getComentario()))
+			return true;
+		
+		return false;
 	}
 }

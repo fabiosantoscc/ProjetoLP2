@@ -141,8 +141,8 @@ public class HospedeTest {
 	@Test
 	public void testaSettersEGetters() throws Exception {
 		
-		hospede.setTelefone(telefone);
-		Assert.assertEquals("Numero: (83) 99999999", hospede.getTelefone());
+//		hospede.setTelefone(telefone);
+//		Assert.assertEquals("Numero: (83) 99999999", hospede.getTelefone());
 		
 		hospede.setNome("Fabio");
 		Assert.assertEquals("Fabio", hospede.getNome());

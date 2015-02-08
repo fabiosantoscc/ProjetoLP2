@@ -276,14 +276,6 @@ public class Hospede {
 		
 		this.numeroDoCartao = numeroDoCartao;
 	}
-	
-	/**
-	 * @return O telefone do hospede com o dd e o numero
-	 */
-	
-	public String getTelefone() {
-		return telefone.toString();
-	}
 
 	/**
 	 * Recebe o objeto que contem o numero de telefone do hospede

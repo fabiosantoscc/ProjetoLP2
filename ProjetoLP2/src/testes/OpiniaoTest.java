@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.Before;
 import excecoes.ComentarioInvalidoException;
 import excecoes.InputArgumentInvalidException;
+import classes.Telefone;
 
 /*
  * Testes da classe Opiniao
@@ -28,10 +29,17 @@ public class OpiniaoTest {
 	}
 	
 	@Test
-	public void testConstrutor() throws InputArgumentInvalidException {
+	public void testConstrutor() throws Exception {
 		
 		try {
-			Opiniao op = new Opiniao("Belo hotel, grande acomodacao", 11.0);
+			new Opiniao(null, 9.0);
+			Assert.fail("Esperava excecao, comentario null");
+		} catch ( ComentarioInvalidoException e ) {
+			Assert.assertEquals("Comentario invalido", e.getMessage());
+		}
+		
+		try {
+			new Opiniao("Belo hotel, grande acomodacao", 11.0);
 		} catch ( NotaInvalidaException e ) {
 			Assert.assertEquals("Nota invalida", e.getMessage());
 		}
@@ -50,12 +58,6 @@ public class OpiniaoTest {
 			Assert.assertEquals("Comentario invalido", e.getMessage());
 		}
 		
-		try {
-			new Opiniao(null, 9.0);
-			Assert.fail("Esperava excecao, comentario null");
-		} catch ( ComentarioInvalidoException e ) {
-			Assert.assertEquals("Comentario invalido", e.getMessage());
-		}
 		
 		try {
 			new Opiniao("", 7.0);
@@ -101,9 +103,18 @@ public class OpiniaoTest {
 	}
 	
 	@Test
-	public void testEquals() throws InputArgumentInvalidException {
-		Assert.assertFalse( op.equals(op2) );
+	public void testHashCode() throws InputArgumentInvalidException {
 		Opiniao op3 = new Opiniao("Bom Hotel", 10.0);
-		Assert.assertTrue( op.equals(op3) );
+		Assert.assertEquals(op.hashCode(), op3.hashCode());
+	}
+	
+	@Test
+	public void testEquals() throws InputArgumentInvalidException {
+		Telefone t = new Telefone("83", "88888888");
+		Assert.assertFalse(t.equals(op));
+		Assert.assertFalse(t.equals(op2));
+		Assert.assertFalse(op.equals(op2));
+		Opiniao op3 = new Opiniao("Bom Hotel", 10.0);
+		Assert.assertTrue(op.equals(op3));
 	}
 }
