@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 
 import classes.Hospede;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PainelHospede extends JPanel {
 
@@ -171,8 +173,12 @@ public class PainelHospede extends JPanel {
 		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
 		add(frmtdtxtfldNumero);
 		
-		JButton btnCadastrar = new JButton("");
-		btnCadastrar.setBounds(292, 479, 154, 23);
+		JButton btnCadastrar = new JButton("Visualizar Contratos");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCadastrar.setBounds(392, 479, 154, 23);
 		add(btnCadastrar);
 		
 		JFormattedTextField frmtdtxtfldEstado = new JFormattedTextField();
@@ -191,6 +197,9 @@ public class PainelHospede extends JPanel {
 		frmtdtxtfldCpf.setEditable(false);
 		frmtdtxtfldCpf.setBounds(119, 127, 151, 17);
 		add(frmtdtxtfldCpf);
+		
+		JButton btnAtualizarContrato = new JButton("Atualizar Cadastro");
+		btnAtualizarContrato.setBounds(119, 479, 154, 23);
+		add(btnAtualizarContrato);
 	}
-
 }

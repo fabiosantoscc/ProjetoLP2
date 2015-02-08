@@ -8,14 +8,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import classes.Hospede;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class AtualizarHospede extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AtualizarHospede() {
+	Hospede hospedeAtual;
+	public AtualizarHospede(Hospede hospedeAtual) {
 
 		setLayout(null);
+		this.hospedeAtual = hospedeAtual;
 		
 		JLabel lblAtualizarCadastro = new JLabel("Atualizar Cadastro");
 		lblAtualizarCadastro.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
@@ -47,30 +53,35 @@ public class AtualizarHospede extends JPanel {
 		label_5.setBounds(68, 182, 158, 15);
 		add(label_5);
 		
-		JFormattedTextField frmtdtxtfldRonanSouza = new JFormattedTextField();
-		frmtdtxtfldRonanSouza.setBounds(119, 99, 440, 17);
-		add(frmtdtxtfldRonanSouza);
+		JFormattedTextField frmtdtxtfldNome = new JFormattedTextField();
+		frmtdtxtfldNome.setText(hospedeAtual.getNome());
+		frmtdtxtfldNome.setBounds(119, 99, 440, 17);
+		add(frmtdtxtfldNome);
 		
-		JFormattedTextField frmtdtxtfldCpfFixo = new JFormattedTextField();
-		frmtdtxtfldCpfFixo.setBounds(119, 155, 264, 17);
-		add(frmtdtxtfldCpfFixo);
+		JFormattedTextField frmtdtxtfldEmail = new JFormattedTextField();
+		frmtdtxtfldEmail.setText(hospedeAtual.getEmail());
+		frmtdtxtfldEmail.setBounds(119, 155, 264, 17);
+		add(frmtdtxtfldEmail);
 		
-		JFormattedTextField formattedTextField_3 = new JFormattedTextField();
-		formattedTextField_3.setBounds(203, 182, 151, 17);
-		add(formattedTextField_3);
+		JFormattedTextField frmtdtxtfldCartaoCredito = new JFormattedTextField();
+		frmtdtxtfldCartaoCredito.setText(hospedeAtual.getNumeroDoCartao());
+		frmtdtxtfldCartaoCredito.setBounds(203, 182, 151, 17);
+		add(frmtdtxtfldCartaoCredito);
 		
 		JLabel label_6 = new JLabel("Telefone");
 		label_6.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
 		label_6.setBounds(313, 129, 70, 15);
 		add(label_6);
 		
-		JFormattedTextField formattedTextField_4 = new JFormattedTextField();
-		formattedTextField_4.setBounds(388, 128, 44, 17);
-		add(formattedTextField_4);
+		JFormattedTextField frmtdtxtfldDdd = new JFormattedTextField();
+		frmtdtxtfldDdd.setText(hospedeAtual.getDDD());
+		frmtdtxtfldDdd.setBounds(388, 128, 44, 17);
+		add(frmtdtxtfldDdd);
 		
-		JFormattedTextField formattedTextField_5 = new JFormattedTextField();
-		formattedTextField_5.setBounds(445, 128, 114, 17);
-		add(formattedTextField_5);
+		JFormattedTextField frmtdtxtfldTelefone = new JFormattedTextField();
+		frmtdtxtfldTelefone.setText(hospedeAtual.getNumeroTelefone());
+		frmtdtxtfldTelefone.setBounds(445, 128, 114, 17);
+		add(frmtdtxtfldTelefone);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(38, 240, 687, 2);
@@ -101,25 +112,30 @@ public class AtualizarHospede extends JPanel {
 		label_12.setBounds(58, 394, 70, 15);
 		add(label_12);
 		
-		JFormattedTextField formattedTextField_6 = new JFormattedTextField();
-		formattedTextField_6.setBounds(144, 302, 468, 17);
-		add(formattedTextField_6);
+		JFormattedTextField frmtdtxtfldRua = new JFormattedTextField();
+		frmtdtxtfldRua.setText(hospedeAtual.getNomeDaRua());
+		frmtdtxtfldRua.setBounds(144, 302, 468, 17);
+		add(frmtdtxtfldRua);
 		
-		JFormattedTextField formattedTextField_7 = new JFormattedTextField();
-		formattedTextField_7.setBounds(167, 329, 299, 17);
-		add(formattedTextField_7);
+		JFormattedTextField frmtdtxtfldComplemento = new JFormattedTextField();
+		frmtdtxtfldComplemento.setText(hospedeAtual.getComplemento());
+		frmtdtxtfldComplemento.setBounds(167, 329, 299, 17);
+		add(frmtdtxtfldComplemento);
 		
-		JFormattedTextField formattedTextField_8 = new JFormattedTextField();
-		formattedTextField_8.setBounds(119, 361, 138, 17);
-		add(formattedTextField_8);
+		JFormattedTextField frmtdtxtfldBairro = new JFormattedTextField();
+		frmtdtxtfldBairro.setText(hospedeAtual.getBairro());
+		frmtdtxtfldBairro.setBounds(119, 361, 138, 17);
+		add(frmtdtxtfldBairro);
 		
-		JFormattedTextField formattedTextField_9 = new JFormattedTextField();
-		formattedTextField_9.setBounds(119, 394, 138, 17);
-		add(formattedTextField_9);
+		JFormattedTextField frmtdtxtfldPais = new JFormattedTextField();
+		frmtdtxtfldPais.setText(hospedeAtual.getPais());
+		frmtdtxtfldPais.setBounds(119, 394, 138, 17);
+		add(frmtdtxtfldPais);
 		
-		JFormattedTextField formattedTextField_10 = new JFormattedTextField();
-		formattedTextField_10.setBounds(376, 361, 198, 17);
-		add(formattedTextField_10);
+		JFormattedTextField frmtdtxtfldCidade = new JFormattedTextField();
+		frmtdtxtfldCidade.setText(hospedeAtual.getCidade());
+		frmtdtxtfldCidade.setBounds(376, 361, 198, 17);
+		add(frmtdtxtfldCidade);
 		
 		JLabel label_7 = new JLabel("Estado/Condado");
 		label_7.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
@@ -131,26 +147,33 @@ public class AtualizarHospede extends JPanel {
 		lblCepZipCode.setBounds(292, 395, 126, 15);
 		add(lblCepZipCode);
 		
-		JFormattedTextField formattedTextField_11 = new JFormattedTextField();
-		formattedTextField_11.setBounds(436, 393, 138, 17);
-		add(formattedTextField_11);
+		JFormattedTextField frmtdtxtfldCep = new JFormattedTextField();
+		frmtdtxtfldCep.setText("cep");
+		frmtdtxtfldCep.setBounds(436, 393, 138, 17);
+		add(frmtdtxtfldCep);
 		
 		JLabel label_14 = new JLabel("Numero");
 		label_14.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
 		label_14.setBounds(476, 329, 70, 15);
 		add(label_14);
 		
-		JFormattedTextField formattedTextField_12 = new JFormattedTextField();
-		formattedTextField_12.setBounds(542, 329, 70, 17);
-		add(formattedTextField_12);
+		JFormattedTextField frmtdtxtfldNumero = new JFormattedTextField();
+		frmtdtxtfldNumero.setText(hospedeAtual.getNumeroDaCasa());
+		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
+		add(frmtdtxtfldNumero);
 		
 		JButton btnCadastrar = new JButton("Atualizar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					
+				}catch (Exception c){
+					
+				}
+			}
+		});
 		btnCadastrar.setBounds(292, 479, 154, 23);
 		add(btnCadastrar);
-		
-		JLabel lblNewLabel = new JLabel("CPF Fixo");
-		lblNewLabel.setBounds(142, 128, 138, 15);
-		add(lblNewLabel);
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
 		formattedTextField.setBounds(203, 422, 180, 17);
@@ -160,6 +183,12 @@ public class AtualizarHospede extends JPanel {
 		lblCidade.setFont(new Font("Dialog", Font.BOLD, 14));
 		lblCidade.setBounds(292, 363, 70, 15);
 		add(lblCidade);
+		
+		JFormattedTextField frmtdtxtfldCpf = new JFormattedTextField();
+		frmtdtxtfldCpf.setEditable(false);
+		frmtdtxtfldCpf.setText("cpf");
+		frmtdtxtfldCpf.setBounds(119, 127, 158, 17);
+		add(frmtdtxtfldCpf);
 		
 	}
 }
