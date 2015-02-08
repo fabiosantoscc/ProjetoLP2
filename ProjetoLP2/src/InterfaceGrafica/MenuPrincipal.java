@@ -44,6 +44,11 @@ public class MenuPrincipal {
 	private final JMenuItem mntmAgendar = new JMenuItem("Agendar");
 	private final JLabel lblInicio = new JLabel("  Inicio   ");
 	private final JMenuItem mntmNewMenuItem_2 = new JMenuItem("Atualizar");
+	private final JMenu mnServios = new JMenu("Servi\u00E7os");
+	private final JMenuItem mntmBabySitter = new JMenuItem("Baby Sitter");
+	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
+	private final JMenuItem mntmCamas = new JMenuItem("Camas");
+	private final JMenuItem mntmAluguelDeVeculo = new JMenuItem("Aluguel de Ve\u00EDculo");
 
 	/**
 	 * Launch the application.
@@ -146,6 +151,16 @@ public class MenuPrincipal {
 		});
 		
 		mnContratos.add(mntmAgendar);
+		
+		menuBar.add(mnServios);
+		
+		mnServios.add(mntmBabySitter);
+		
+		mnServios.add(mntmQuartos);
+		
+		mnServios.add(mntmCamas);
+		
+		mnServios.add(mntmAluguelDeVeculo);
 		
 	}
 

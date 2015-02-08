@@ -71,21 +71,14 @@ public class AdicionarContrato extends JPanel {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Criar Contrato");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(447, 413, 135, 38);
+		btnNewButton.setBounds(448, 353, 135, 38);
 		add(btnNewButton);
-		
-		JCheckBox chckbxAluguelDeVeculo = new JCheckBox("Aluguel de Ve\u00EDculo");
-		chckbxAluguelDeVeculo.setBounds(55, 299, 124, 23);
-		add(chckbxAluguelDeVeculo);
-		
-		JCheckBox chckbxBabySitter = new JCheckBox("Baby Sitter");
-		chckbxBabySitter.setBounds(55, 338, 124, 23);
-		add(chckbxBabySitter);
-		
-		JButton btnAdicionarServios = new JButton("Adicionar Servi\u00E7os");
-		btnAdicionarServios.setBounds(155, 368, 124, 23);
-		add(btnAdicionarServios);
 
 		
 		
