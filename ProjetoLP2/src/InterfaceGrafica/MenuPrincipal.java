@@ -23,7 +23,7 @@ public class MenuPrincipal {
 	AdicionaHospede adicionarHospede = new AdicionaHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
 	public static PainelHospede telaHospede;
-	AdicionarContrato adicionarContrato = new AdicionarContrato();
+	public static AdicionarContrato adicionarContrato;
 	BuscarContratos buscarContratos = new BuscarContratos();
 	FecharContrato fecharContrato = new FecharContrato();
 	AgendarContrato agendarContrato = new AgendarContrato();
@@ -71,7 +71,6 @@ public class MenuPrincipal {
 		panel0.add(menuPadrao, "0");
 		panel0.add(adicionarHospede, "1");
 		panel0.add(buscarHospede, "2");
-		panel0.add(adicionarContrato, "3");
 		panel0.add(buscarContratos, "4");
 		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");

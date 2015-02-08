@@ -17,8 +17,8 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 
 public class BuscarCheckIn extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField nomeAPesquisar;
+	private JTextField cpfAPesquisar;
 
 	/**
 	 * Create the panel.
@@ -35,21 +35,35 @@ public class BuscarCheckIn extends JPanel {
 		lblCpfDoHospede.setBounds(50, 123, 114, 21);
 		add(lblCpfDoHospede);
 		
-		textField = new JTextField();
-		textField.setBounds(190, 123, 114, 20);
-		add(textField);
-		textField.setColumns(10);
+		nomeAPesquisar = new JTextField();
+		nomeAPesquisar.setBounds(190, 123, 114, 20);
+		add(nomeAPesquisar);
+		nomeAPesquisar.setColumns(10);
 		
 		JLabel label = new JLabel("CPF do Hospede");
 		label.setBounds(50, 190, 95, 21);
 		add(label);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(190, 190, 114, 20);
-		add(textField_1);
+		cpfAPesquisar = new JTextField();
+		cpfAPesquisar.setColumns(10);
+		cpfAPesquisar.setBounds(190, 190, 114, 20);
+		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+				Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
+				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "3");
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "3");
+				nomeAPesquisar.setText("");
+				cpfAPesquisar.setText("");
+				}catch(Exception c){
+					
+				}
+			}
+		});
 		button.setBounds(454, 315, 89, 23);
 		add(button);
 
