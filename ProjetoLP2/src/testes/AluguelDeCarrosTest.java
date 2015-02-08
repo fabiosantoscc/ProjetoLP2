@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import InterfaceGrafica.MenuPrincipal;
 import classes.AluguelDeCarros;
 
 public class AluguelDeCarrosTest {
@@ -12,71 +11,57 @@ public class AluguelDeCarrosTest {
 	
 	@Before
 	public void CriaObjetos() throws Exception{
-		carro1 = new AluguelDeCarros("Luxo", true, false, 10);
-		carro2 = new AluguelDeCarros("Executivo", false, true, 5);
-		carro3 = new AluguelDeCarros("Luxo", true, false, 20);
+		carro1 = new AluguelDeCarros("Luxo", true, false);
+		carro2 = new AluguelDeCarros("Executivo", false, true);
+		carro3 = new AluguelDeCarros("Luxo", true, false);
 	}
 	
 	@Test
 	public void tse(){
 		try{
-			new AluguelDeCarros("Executivo", true, true, 10);
+			new AluguelDeCarros("Executivo", true, true);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 	}
 	
 	@Test
 	public void testaConstrutor(){
 		try{
-			new AluguelDeCarros("Executivo", true, true, 10);
+			new AluguelDeCarros("Executivo", true, true);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 		
 		try{
-			new AluguelDeCarros("Luxo", true, true, 1);
+			new AluguelDeCarros("Luxo", true, true);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 		
 		try{
-			new AluguelDeCarros("Luxo", false, true, 1);
+			new AluguelDeCarros("Luxo", false, true);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 		
 		try{
-			new AluguelDeCarros("Executivo", true, false, 200);
+			new AluguelDeCarros("Executivo", true, false);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 		
 		try{
-			new AluguelDeCarros("Executivo", false, false, 365);
+			new AluguelDeCarros("Executivo", false, false);
 		}catch(Exception e){
-			Assert.fail("Não deveria ocorrer erros!!");
+			Assert.fail("N�o deveria ocorrer erros!!");
 		}
 		
 		try{
-			new AluguelDeCarros("Outro Tipo", true, true, 1);
-			Assert.fail("Deveria ocorrer uma exceção nesse momento!!");
+			new AluguelDeCarros("Outro Tipo", true, true);
+			Assert.fail("Deveria ocorrer uma exce��o nesse momento!!");
 		}catch(Exception e){
-			Assert.assertEquals("Modelo de Automóvel Inválido (\"Luxo\" ou \"Executivo\")", e.getMessage());
-		}
-		
-		try{
-			new AluguelDeCarros("Executivo", true, true, -1);
-			Assert.fail("Deveria ocorrer uma exceção nesse momento!!");
-		}catch(Exception e){
-			Assert.assertEquals("O número de dias deve ser maior que zero", e.getMessage());
-		}
-		
-		try{
-			new AluguelDeCarros("Luxo", true, true, 0);
-			Assert.fail("Deveria ocorrer uma exceção nesse momento!!");
-		}catch(Exception e){
-			Assert.assertEquals("O número de dias deve ser maior que zero", e.getMessage());
+			Assert.assertEquals("Modelo de Autom�vel Inv�lido (\"Luxo\" ou \"Executivo\")", e.getMessage());
 		}
 	}
 
@@ -88,25 +73,22 @@ public class AluguelDeCarrosTest {
 		Assert.assertEquals(false, carro1.isSeguroDeAutomovel());
 		Assert.assertEquals(false, carro2.isTanqueCheio());
 		Assert.assertEquals(true, carro2.isSeguroDeAutomovel());
-		
-		
 	}
 	
 	@Test
-	public void testaCalculaTarifa(){
-		Assert.assertEquals(carro1.getPreco(), 1150, 1);
-		Assert.assertEquals(carro2.getPreco(), 400.0, 1);
-		Assert.assertEquals(carro3.getPreco(), 2150.0, 1);
+	public void testaVerificaTipo(){
+		carro1.verificaTipo();
+		Assert.assertEquals(100, carro1.getValorDiaria(), 1);
 	}
 	
 	@Test
 	public void testaToString(){
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Luxo\nTanque Cheio: true\n"
-						+ "Automóvel Assegurado: false\nQuantidade de dias do aluguel: 10", carro1.toString());
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Executivo\nTanque Cheio: false\n"
-				+ "Automóvel Assegurado: true\nQuantidade de dias do aluguel: 5", carro2.toString());
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Luxo\nTanque Cheio: true\n"
-				+ "Automóvel Assegurado: false\nQuantidade de dias do aluguel: 20", carro3.toString());
+		Assert.assertEquals("AluguelDeCarros\nModelo do Autom�vel: Luxo\nTanque Cheio: true\n"
+						+ "Autom�vel Assegurado: false", carro1.toString());
+		Assert.assertEquals("AluguelDeCarros\nModelo do Autom�vel: Executivo\nTanque Cheio: false\n"
+				+ "Autom�vel Assegurado: true", carro2.toString());
+		Assert.assertEquals("AluguelDeCarros\nModelo do Autom�vel: Luxo\nTanque Cheio: true\n"
+				+ "Autom�vel Assegurado: false", carro3.toString());
 	}
 	
 	@Test
@@ -117,5 +99,4 @@ public class AluguelDeCarrosTest {
 		Assert.assertFalse(carro2.equals(carro3));
 		Assert.assertTrue(carro3.equals(carro1));
 	}
-	
 }
