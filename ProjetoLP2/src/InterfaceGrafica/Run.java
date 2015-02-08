@@ -21,7 +21,6 @@ public class Run {
 		end = new Endereco("a", "b", "c", "123", 
 		"", "a", "a");
 		h = new Hospede("Ronan", "48058960942","4539361222510693", "aaaa@aa.com", tel, end);
-		
 		hotel.addHospede(h);
 	}
 }
