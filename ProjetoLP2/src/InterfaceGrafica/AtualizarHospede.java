@@ -23,6 +23,8 @@ public class AtualizarHospede extends JPanel {
 		setLayout(null);
 		this.hospedeAtual = hospedeAtual;
 		
+		
+		
 		JLabel lblAtualizarCadastro = new JLabel("Atualizar Cadastro");
 		lblAtualizarCadastro.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
 		lblAtualizarCadastro.setBounds(12, 12, 287, 29);
