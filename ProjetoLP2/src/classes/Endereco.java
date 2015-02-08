@@ -18,6 +18,7 @@ public class Endereco {
 	private String complemento;
 	private String estado;
 	private String pais;
+	private String cep;
 	
 	/**
 	 * 
@@ -31,7 +32,7 @@ public class Endereco {
 	 * @throws Exception
 	 */
 	
-	public Endereco(String cidade, String bairro, String rua, String numero, String complemento, String estado, String pais) 
+	public Endereco(String cidade, String bairro, String rua, String numero, String complemento, String estado, String pais, String cep) 
 			throws Exception {
 		
 		checaCidade(cidade);
@@ -49,6 +50,7 @@ public class Endereco {
 		this.complemento = complemento;
 		this.estado = estado;
 		this.pais = pais;
+		this.cep = cep;
 	}
 	
 	private void checaCidade( String cidade ) throws CidadeInvalidaException {
@@ -159,6 +161,14 @@ public class Endereco {
 	
 	public String getNumeroDaCasa() {
 		return numeroDaCasa;
+	}
+	
+	public String getCep(){
+		return cep;
+	}
+	
+	public void setCep(String cep){
+		this.cep = cep;		
 	}
 	
 	/**

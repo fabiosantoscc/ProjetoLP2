@@ -55,11 +55,13 @@ public class BuscarHospedeAtualizar extends JPanel {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
+
 					Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
 					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.atualizarHospede, "7");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
+					nomeAPesquisar.setText("");
+					cpfAPesquisar.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}

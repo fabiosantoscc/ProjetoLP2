@@ -211,38 +211,13 @@ public class Hospede {
 			throw new EmailInvalidoException("O campo do email deve ser preenchido no formato adequado com o @.");
 	}
 	
-	public String getNomeDaRua() {
-		return endereco.getNomeDaRua();
-	}
+
 	
-	public String getBairro() {
-		return endereco.getBairro();
-	}
-	
-	public String getCidade() {
-		return endereco.getCidade();
-	}
-	
-	public String getComplemento() {
-		return endereco.getComplemento();
-	}
-	
-	public String getPais() {
-		return endereco.getPais();
-	}
-	
-	public String getNumeroDaCasa() {
-		return "" + endereco.getNumeroDaCasa();
-	}
-	
-	public String getDDD() {
-		return telefone.getDdd();
-	}
-	
-	public String getNumeroTelefone() {
-		return telefone.getNumero();
+	public Telefone getTelefone(){
+		return telefone;
 	}
 	  
+
 	/**
 	 * @return O numero do cartao de credito do hospede
 	 */

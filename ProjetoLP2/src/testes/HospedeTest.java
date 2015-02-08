@@ -26,7 +26,7 @@ public class HospedeTest {
 	
 	@Before
 	public void criaObjetos() throws Exception {
-		endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil");
+		endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil", "a");
 		telefone = new Telefone ("83", "99999999");
 		hospede = new Hospede ("Anisio", "75265471855", "4012888888881881", "moral.legal@gmail.com", telefone, endereco);
 	}

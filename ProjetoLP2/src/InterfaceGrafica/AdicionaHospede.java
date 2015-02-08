@@ -174,7 +174,7 @@ public class AdicionaHospede extends JPanel {
 				try {
 					Telefone tel = new Telefone(dddHospede.getText(), numeroHospede.getText());
 					Endereco end = new Endereco(cidadeHospede.getText(), bairroHospede.getText(), ruaHospede.getText(), numeroCasaHospede.getText(), 
-					complementoHospede.getText(), estadoHospede.getText(), paisHospede.getText());
+					complementoHospede.getText(), estadoHospede.getText(), paisHospede.getText(), cepHospede.getText());
 					Hospede h = new Hospede(nomeHospede.getText(), cpfHospede.getText(), cartaoHospede.getText(), emailHospede.getText(), tel, end);
 					Run.hotel.addHospede(h);
 					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");

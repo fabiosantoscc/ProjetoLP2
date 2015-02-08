@@ -4,11 +4,13 @@ import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 
 import classes.Hospede;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -76,13 +78,13 @@ public class PainelHospede extends JPanel {
 		add(label_6);
 		
 		JFormattedTextField frmtdtxtfldDdd = new JFormattedTextField();
-		frmtdtxtfldDdd.setText(hospedeAtual.getDDD());
+		frmtdtxtfldDdd.setText(hospedeAtual.getTelefone().getDdd());
 		frmtdtxtfldDdd.setEditable(false);
 		frmtdtxtfldDdd.setBounds(388, 128, 44, 17);
 		add(frmtdtxtfldDdd);
 		
 		JFormattedTextField frmtdtxtfldTelefone = new JFormattedTextField();
-		frmtdtxtfldTelefone.setText(hospedeAtual.getNumeroTelefone());
+		frmtdtxtfldTelefone.setText(hospedeAtual.getTelefone().getNumero());
 		frmtdtxtfldTelefone.setEditable(false);
 		frmtdtxtfldTelefone.setBounds(445, 128, 114, 17);
 		add(frmtdtxtfldTelefone);
@@ -117,31 +119,31 @@ public class PainelHospede extends JPanel {
 		add(label_12);
 		
 		JFormattedTextField frmtdtxtfldRua = new JFormattedTextField();
-		frmtdtxtfldRua.setText(hospedeAtual.getNomeDaRua());
+		frmtdtxtfldRua.setText(hospedeAtual.getEndereco().getNomeDaRua());
 		frmtdtxtfldRua.setEditable(false);
 		frmtdtxtfldRua.setBounds(144, 302, 468, 17);
 		add(frmtdtxtfldRua);
 		
 		JFormattedTextField frmtdtxtfldComplemento = new JFormattedTextField();
-		frmtdtxtfldComplemento.setText(hospedeAtual.getComplemento());
+		frmtdtxtfldComplemento.setText(hospedeAtual.getEndereco().getComplemento());
 		frmtdtxtfldComplemento.setEditable(false);
 		frmtdtxtfldComplemento.setBounds(167, 329, 299, 17);
 		add(frmtdtxtfldComplemento);
 		
 		JFormattedTextField frmtdtxtfldBairro = new JFormattedTextField();
-		frmtdtxtfldBairro.setText(hospedeAtual.getBairro());
+		frmtdtxtfldBairro.setText(hospedeAtual.getEndereco().getBairro());
 		frmtdtxtfldBairro.setEditable(false);
 		frmtdtxtfldBairro.setBounds(119, 361, 138, 17);
 		add(frmtdtxtfldBairro);
 		
 		JFormattedTextField frmtdtxtfldPais = new JFormattedTextField();
-		frmtdtxtfldPais.setText(hospedeAtual.getPais());
+		frmtdtxtfldPais.setText(hospedeAtual.getEndereco().getPais());
 		frmtdtxtfldPais.setEditable(false);
 		frmtdtxtfldPais.setBounds(119, 394, 138, 17);
 		add(frmtdtxtfldPais);
 		
 		JFormattedTextField frmtdtxtfldCidade = new JFormattedTextField();
-		frmtdtxtfldCidade.setText(hospedeAtual.getCidade());
+		frmtdtxtfldCidade.setText(hospedeAtual.getEndereco().getCidade());
 		frmtdtxtfldCidade.setEditable(false);
 		frmtdtxtfldCidade.setBounds(376, 361, 198, 17);
 		add(frmtdtxtfldCidade);
@@ -168,7 +170,7 @@ public class PainelHospede extends JPanel {
 		add(label_14);
 		
 		JFormattedTextField frmtdtxtfldNumero = new JFormattedTextField();
-		frmtdtxtfldNumero.setText(hospedeAtual.getNumeroDaCasa());
+		frmtdtxtfldNumero.setText(hospedeAtual.getEndereco().getNumeroDaCasa());
 		frmtdtxtfldNumero.setEditable(false);
 		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
 		add(frmtdtxtfldNumero);
@@ -182,7 +184,7 @@ public class PainelHospede extends JPanel {
 		add(btnCadastrar);
 		
 		JFormattedTextField frmtdtxtfldEstado = new JFormattedTextField();
-		frmtdtxtfldEstado.setText("estado");
+		frmtdtxtfldEstado.setText(hospedeAtual.getEndereco().getEstado());
 		frmtdtxtfldEstado.setEditable(false);
 		frmtdtxtfldEstado.setBounds(203, 422, 180, 17);
 		add(frmtdtxtfldEstado);
@@ -199,6 +201,21 @@ public class PainelHospede extends JPanel {
 		add(frmtdtxtfldCpf);
 		
 		JButton btnAtualizarContrato = new JButton("Atualizar Cadastro");
+		btnAtualizarContrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText());
+					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.atualizarHospede, "7");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
+				}catch(Exception c){
+					JOptionPane.showMessageDialog(null, c.getMessage());
+				
+				}
+				
+			}
+		});
+
 		btnAtualizarContrato.setBounds(119, 479, 154, 23);
 		add(btnAtualizarContrato);
 	}

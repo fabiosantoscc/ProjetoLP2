@@ -5,10 +5,13 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import classes.Hospede;
+import classes.Telefone;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -17,14 +20,11 @@ public class AtualizarHospede extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	Hospede hospedeAtual;
+
 	public AtualizarHospede(Hospede hospedeAtual) {
 
 		setLayout(null);
-		this.hospedeAtual = hospedeAtual;
-		
-		
-		
+						
 		JLabel lblAtualizarCadastro = new JLabel("Atualizar Cadastro");
 		lblAtualizarCadastro.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
 		lblAtualizarCadastro.setBounds(12, 12, 287, 29);
@@ -76,12 +76,12 @@ public class AtualizarHospede extends JPanel {
 		add(label_6);
 		
 		JFormattedTextField frmtdtxtfldDdd = new JFormattedTextField();
-		frmtdtxtfldDdd.setText(hospedeAtual.getDDD());
+		frmtdtxtfldDdd.setText(hospedeAtual.getTelefone().getDdd());
 		frmtdtxtfldDdd.setBounds(388, 128, 44, 17);
 		add(frmtdtxtfldDdd);
 		
 		JFormattedTextField frmtdtxtfldTelefone = new JFormattedTextField();
-		frmtdtxtfldTelefone.setText(hospedeAtual.getNumeroTelefone());
+		frmtdtxtfldTelefone.setText(hospedeAtual.getTelefone().getNumero());
 		frmtdtxtfldTelefone.setBounds(445, 128, 114, 17);
 		add(frmtdtxtfldTelefone);
 		
@@ -115,27 +115,27 @@ public class AtualizarHospede extends JPanel {
 		add(label_12);
 		
 		JFormattedTextField frmtdtxtfldRua = new JFormattedTextField();
-		frmtdtxtfldRua.setText(hospedeAtual.getNomeDaRua());
+		frmtdtxtfldRua.setText(hospedeAtual.getEndereco().getNomeDaRua());
 		frmtdtxtfldRua.setBounds(144, 302, 468, 17);
 		add(frmtdtxtfldRua);
 		
 		JFormattedTextField frmtdtxtfldComplemento = new JFormattedTextField();
-		frmtdtxtfldComplemento.setText(hospedeAtual.getComplemento());
+		frmtdtxtfldComplemento.setText(hospedeAtual.getEndereco().getComplemento());
 		frmtdtxtfldComplemento.setBounds(167, 329, 299, 17);
 		add(frmtdtxtfldComplemento);
 		
 		JFormattedTextField frmtdtxtfldBairro = new JFormattedTextField();
-		frmtdtxtfldBairro.setText(hospedeAtual.getBairro());
+		frmtdtxtfldBairro.setText(hospedeAtual.getEndereco().getBairro());
 		frmtdtxtfldBairro.setBounds(119, 361, 138, 17);
 		add(frmtdtxtfldBairro);
 		
 		JFormattedTextField frmtdtxtfldPais = new JFormattedTextField();
-		frmtdtxtfldPais.setText(hospedeAtual.getPais());
+		frmtdtxtfldPais.setText(hospedeAtual.getEndereco().getPais());
 		frmtdtxtfldPais.setBounds(119, 394, 138, 17);
 		add(frmtdtxtfldPais);
 		
 		JFormattedTextField frmtdtxtfldCidade = new JFormattedTextField();
-		frmtdtxtfldCidade.setText(hospedeAtual.getCidade());
+		frmtdtxtfldCidade.setText(hospedeAtual.getEndereco().getCidade());
 		frmtdtxtfldCidade.setBounds(376, 361, 198, 17);
 		add(frmtdtxtfldCidade);
 		
@@ -150,7 +150,7 @@ public class AtualizarHospede extends JPanel {
 		add(lblCepZipCode);
 		
 		JFormattedTextField frmtdtxtfldCep = new JFormattedTextField();
-		frmtdtxtfldCep.setText("cep");
+		frmtdtxtfldCep.setText(hospedeAtual.getEndereco().getCep());
 		frmtdtxtfldCep.setBounds(436, 393, 138, 17);
 		add(frmtdtxtfldCep);
 		
@@ -160,26 +160,14 @@ public class AtualizarHospede extends JPanel {
 		add(label_14);
 		
 		JFormattedTextField frmtdtxtfldNumero = new JFormattedTextField();
-		frmtdtxtfldNumero.setText(hospedeAtual.getNumeroDaCasa());
+		frmtdtxtfldNumero.setText(hospedeAtual.getEndereco().getNumeroDaCasa());
 		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
 		add(frmtdtxtfldNumero);
 		
-		JButton btnCadastrar = new JButton("Atualizar");
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try{
-					
-				}catch (Exception c){
-					
-				}
-			}
-		});
-		btnCadastrar.setBounds(292, 479, 154, 23);
-		add(btnCadastrar);
-		
-		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(203, 422, 180, 17);
-		add(formattedTextField);
+		JFormattedTextField frmtdtxtfldEstado = new JFormattedTextField();
+		frmtdtxtfldEstado.setText(hospedeAtual.getEndereco().getEstado());
+		frmtdtxtfldEstado.setBounds(203, 422, 180, 17);
+		add(frmtdtxtfldEstado);
 		
 		JLabel lblCidade = new JLabel("Cidade");
 		lblCidade.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -188,9 +176,37 @@ public class AtualizarHospede extends JPanel {
 		
 		JFormattedTextField frmtdtxtfldCpf = new JFormattedTextField();
 		frmtdtxtfldCpf.setEditable(false);
-		frmtdtxtfldCpf.setText("cpf");
+		frmtdtxtfldCpf.setText(hospedeAtual.getCpf());
 		frmtdtxtfldCpf.setBounds(119, 127, 158, 17);
 		add(frmtdtxtfldCpf);
 		
+		
+		JButton btnCadastrar = new JButton("Atualizar");
+		btnCadastrar.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e){
+				try{
+					hospedeAtual.setNome(frmtdtxtfldNome.getText());
+					hospedeAtual.setEmail(frmtdtxtfldEmail.getText());
+					hospedeAtual.getTelefone().setDdd(frmtdtxtfldDdd.getText());
+					hospedeAtual.getTelefone().setNumero(frmtdtxtfldTelefone.getText());
+					hospedeAtual.getEndereco().setBairro(frmtdtxtfldBairro.getText());
+					hospedeAtual.getEndereco().setCidade(frmtdtxtfldCidade.getText());
+					hospedeAtual.getEndereco().setEstado(frmtdtxtfldEstado.getText());
+					hospedeAtual.getEndereco().setComplemento(frmtdtxtfldComplemento.getText());
+					hospedeAtual.getEndereco().setNomeDaRua(frmtdtxtfldRua.getText());
+					hospedeAtual.getEndereco().setNumeroDaCasa(frmtdtxtfldNumero.getText());
+					hospedeAtual.getEndereco().setPais(frmtdtxtfldPais.getText());
+					hospedeAtual.getEndereco().setCep(frmtdtxtfldCep.getText());
+					JOptionPane.showMessageDialog(null, "Hospede Atualizado com sucesso!");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+				}catch (Exception c){
+					JOptionPane.showMessageDialog(null, c.getMessage());
+				}
+			}
+		});
+		btnCadastrar.setBounds(292, 479, 154, 23);
+		add(btnCadastrar);
+		
+
 	}
 }
