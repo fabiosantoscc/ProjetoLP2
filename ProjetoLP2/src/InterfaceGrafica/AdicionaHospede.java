@@ -52,6 +52,7 @@ public class AdicionaHospede extends JPanel {
 		label_4.setBounds(68, 155, 70, 15);
 		add(label_4);
 		
+		
 		JLabel label_5 = new JLabel("Cartao de credito");
 		label_5.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
 		label_5.setBounds(68, 182, 158, 15);
