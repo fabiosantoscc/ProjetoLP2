@@ -29,7 +29,7 @@ public class ContratosDoHospede extends JPanel {
 		add(lblListaDeContratos);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 158, 585, 40);
+		comboBox.setBounds(10, 174, 585, 40);
 		add(comboBox);
 		for(int i = 0; i < contratosAtuais.size(); i++){
 			comboBox.addItem(contratosAtuais.get(i));
