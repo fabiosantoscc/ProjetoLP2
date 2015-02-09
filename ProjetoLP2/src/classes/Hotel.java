@@ -85,9 +85,7 @@ public class Hotel implements Serializable {
 		}
 	}
 	
-	// metodo que cria um contrato sem nenhum servico para o hospede
-	
-	public void criaContrato( String cpf, String nome, int noites ) throws Exception {
+	public void verificaContratoAberto( Hospede hospede ) throws HospedeInvalidoException, ContratoAbertoException {
 		Set <Hospede> meusHospedes = hospedes.keySet();
 		boolean hospedeEncontrado = false;
 		
@@ -95,15 +93,14 @@ public class Hotel implements Serializable {
 			throw new HospedeInvalidoException("Para criar um contrato eh necessario\nque exista hospede no hotel.");
 
 		for ( Hospede umHospede :  meusHospedes ) {
-			if ( umHospede.getCpf().equals(cpf) || umHospede.getNome().equals(nome) ) {
+			
+			if ( umHospede.getCpf().equals(hospede.getCpf()) || umHospede.getNome().equals(hospede.getNome()) ) {
 				List<Contrato> contratos = hospedes.get(umHospede);
 				for ( Contrato contrato : contratos ) {
 					if ( contrato.isAberto())
 						throw new ContratoAbertoException("Impossivel abrir outro contrato para o cliente\nJá existe um contrato em aberto");
 				}
-				
-				Contrato umContrato = new Contrato(noites);
-				contratos.add(umContrato);
+		
 				hospedeEncontrado = true;
 			}
 			
@@ -111,6 +108,10 @@ public class Hotel implements Serializable {
 				throw new HospedeInvalidoException("Hospede nao existente no hotel");
 			}
 		}
+	}
+	
+	// metodo que cria um contrato sem nenhum servico para o hospede
+	public void criaContrato( String cpf, String nome, int noites ) throws Exception {
 	}
 	
 	/**
