@@ -30,7 +30,7 @@ public class BuscarQuartoAtualizar extends JPanel {
 		
 		JLabel lblNovoContrato = new JLabel("Atualizar Quartos do Hospede");
 		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 236, 40);
+		lblNovoContrato.setBounds(38, 29, 329, 40);
 		add(lblNovoContrato);
 		
 		JLabel lblCpfDoHospede = new JLabel("Nome do Hospede");
@@ -55,7 +55,6 @@ public class BuscarQuartoAtualizar extends JPanel {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
 					Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
 					MenuPrincipal.listaQuartosAtualizar = new ListaQuartos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.listaQuartosAtualizar, "22");

@@ -62,9 +62,9 @@ public class MenuPrincipal {
 	private final JMenuItem mntmAluguelDeCarro = new JMenuItem("Aluguel de Ve\u00EDculo");
 	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
 	private final JMenu mnAtualizar = new JMenu("Atualizar");
-	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 	private final JMenuItem mntmQuartos_2 = new JMenuItem("Quartos");
 	private final JMenuItem mntmPesquisar = new JMenuItem("Pesquisar");
+	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 
 	/**
 	 * Launch the application.
