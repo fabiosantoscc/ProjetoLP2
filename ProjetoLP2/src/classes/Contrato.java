@@ -144,17 +144,17 @@ public class Contrato implements Serializable {
 	
 	@Override
 	public String toString() {
-		String representacao = "Contrato [ Criado em " + getDiaInicial() + "/" + getMesInicial() + "/" +
+		String representacao = "Contrato - Criado em " + getDiaInicial() + "/" + getMesInicial() + "/" +
 				getAnoInicial() + " as " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE)
 				+ ":" + data.get(Calendar.SECOND);
 		
 		if ( isAberto() )
-			representacao += "\nContrato aberto";
+			representacao += ", Contrato aberto";
 		else {
-			representacao += "\nContrato fechado";
+			representacao += ", Contrato fechado";
 		}
 		
-		representacao += ", Noites de hospedagem: " + getNumeroDeNoites() + " ]";
+		representacao += ", Noites de hospedagem: " + getNumeroDeNoites();
 		
 		return representacao;
 	}
