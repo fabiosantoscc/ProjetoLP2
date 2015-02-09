@@ -38,6 +38,7 @@ public class MenuPrincipal {
 	public static AdicionarBabySitter painelBabySitter;
 	public static AdicionarQuartos adcquartos;
 	public static AdicionarAlugueldeCarros adcAluguelDeCarros;
+	public static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
 
 	
 	private final JMenuBar menuBar = new JMenuBar();

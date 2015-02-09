@@ -37,7 +37,7 @@ import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
-public class AdicionarQuartos extends JPanel {
+public class AdicionarQuartoObrigatorio extends JPanel {
 
 	/**
 	 * Create the panel.
@@ -45,7 +45,7 @@ public class AdicionarQuartos extends JPanel {
 	
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	
-	public AdicionarQuartos(Hospede hospedeAtual) {
+	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoites) {
 		setLayout(null);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
@@ -193,8 +193,23 @@ public class AdicionarQuartos extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 89, 23);
+		btnAdicionar.setBounds(468, 406, 123, 23);
 		add(btnAdicionar);
+		
+		JButton btnCriarContrato = new JButton("Criar Contrato");
+		btnCriarContrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Run.hotel.criaContrato(hospedeAtual.getCpf(), hospedeAtual.getNome(), numNoites);
+					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+			}
+		});
+		btnCriarContrato.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnCriarContrato.setBounds(468, 458, 123, 45);
+		add(btnCriarContrato);
 		
 
 		for(int i = 0; i < quartos.size(); i++){
