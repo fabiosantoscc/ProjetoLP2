@@ -135,7 +135,7 @@ public class Hotel implements Serializable {
 	// metodo que cria um contrato sem nenhum servico para o hospede
 	public void criaContrato( Hospede hospede, Contrato contrato ) throws Exception {
 
-		if (contrato.getServicos().size() == 0){
+		if (contrato.getServicos().size() == 0) {
 			throw new Exception("É necessário adicionar um quarto no Contrato");
 		}
 		List<Contrato> contratos = hospedes.get(hospede);
