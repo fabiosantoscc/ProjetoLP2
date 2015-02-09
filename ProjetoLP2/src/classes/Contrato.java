@@ -50,6 +50,15 @@ public class Contrato implements Serializable {
 	
 	/**
 	 * 
+	 * @param meusServicos
+	 */
+	
+	public void servicosContrato( List<Servicos> meusServicos ) {
+		servicos.addAll(meusServicos);
+	}
+	
+	/**
+	 * 
 	 * @param servico
 	 */
 	

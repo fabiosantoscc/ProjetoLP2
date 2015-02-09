@@ -1,6 +1,5 @@
 package classes;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +62,27 @@ public class Hotel implements Serializable {
 	public List<Contrato> pesquisarContratos(Hospede hospedeAtual){
 		return hospedes.get(hospedeAtual);
 	}
+	
+	/**
+	 * 
+	 * @param hospede
+	 * @param meusServicos
+	 * @throws ContratoAbertoException 
+	 * @throws HospedeInvalidoException 
+	 */
+	
+	public void adicionaVariosServicos(Hospede hospede, List<Servicos> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
+		
+		verificaContratoAberto(hospede);
+		List<Contrato> contratos =  hospedes.get(hospede);
+		
+		for ( Contrato meuContrato : contratos ) {
+			if ( meuContrato.isAberto() ) {
+				meuContrato.servicosContrato(meusServicos);
+			}
+		}
+	}
+	
 	/**
 	 * 
 	 * @param esseHospede
