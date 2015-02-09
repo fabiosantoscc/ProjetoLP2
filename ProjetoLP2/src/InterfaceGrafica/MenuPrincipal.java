@@ -20,7 +20,7 @@ public class MenuPrincipal {
 	JFrame frame = new JFrame();
 	static public JPanel panel0 = new JPanel();
 	DefaultMenu menuPadrao = new DefaultMenu();
-	AdicionaHospede adicionarHospede = new AdicionaHospede();
+	AdicionarHospede adicionarHospede = new AdicionarHospede();
 	BuscarHospede buscarHospede = new BuscarHospede();
 	public static PainelHospede telaHospede;
 	public static AdicionarContrato adicionarContrato;
@@ -35,9 +35,9 @@ public class MenuPrincipal {
 	BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
 	BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
 	BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
-	public static PainelBabySitter painelBabySitter;
+	public static AdicionarBabySitter painelBabySitter;
 	public static AdicionarQuartos adcquartos;
-	
+	public static AdicionarAlugueldeCarros adcAluguelDeCarros;
 
 	
 	private final JMenuBar menuBar = new JMenuBar();

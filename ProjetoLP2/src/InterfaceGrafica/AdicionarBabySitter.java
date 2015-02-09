@@ -15,14 +15,14 @@ import classes.Hospede;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PainelBabySitter extends JPanel {
+public class AdicionarBabySitter extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 
 	/**
 	 * Create the panel.
 	 */
-	public PainelBabySitter(Hospede hospedeAtual) {
+	public AdicionarBabySitter(Hospede hospedeAtual) {
 		setLayout(null);
 		
 		JLabel lblBabySitter = new JLabel("Baby Sitter");

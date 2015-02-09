@@ -54,7 +54,7 @@ public class BuscarAdcBabySitter extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
-				MenuPrincipal.painelBabySitter = new PainelBabySitter(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+				MenuPrincipal.painelBabySitter = new AdicionarBabySitter(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.painelBabySitter, "17");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "17");
 				nomeAPesquisar.setText("");

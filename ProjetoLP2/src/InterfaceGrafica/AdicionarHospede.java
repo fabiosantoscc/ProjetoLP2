@@ -18,12 +18,12 @@ import excecoes.InputArgumentInvalidException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AdicionaHospede extends JPanel {
+public class AdicionarHospede extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AdicionaHospede() {
+	public AdicionarHospede() {
 
 		setLayout(null);
 		
