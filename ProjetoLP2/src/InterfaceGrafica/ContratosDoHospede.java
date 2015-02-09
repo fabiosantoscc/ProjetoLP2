@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import classes.Contrato;
 import classes.Hospede;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 
@@ -20,16 +21,19 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+
 public class ContratosDoHospede extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
 	
-	
 	public ContratosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
 		ArrayList<java.util.List<Contrato>> contratosAtuais = new ArrayList<>(Arrays.asList(Run.hotel.pesquisarContratos(hospedeAtual)));
+		DefaultListModel modeling = new DefaultListModel();
 		
 		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");
 		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -58,8 +62,20 @@ public class ContratosDoHospede extends JPanel {
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
 			}
 		});
-		btnVisualizarServios.setBounds(428, 318, 141, 23);
+		btnVisualizarServios.setBounds(512, 425, 141, 23);
 		add(btnVisualizarServios);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(44, 274, 551, 112);
+		add(scrollPane);
+		
+		JList list = new JList<>(modeling);
+		scrollPane.setViewportView(list);
+		for ( int i = 0; i < contratosAtuais.size(); i++) {
+			modeling.addElement(contratosAtuais.get(i).toString());
+		}
+		
+		
 		for(int i = 0; i < contratosAtuais.size(); i++){
 			comboBox.addItem(contratosAtuais.get(i).toString());
 		}
