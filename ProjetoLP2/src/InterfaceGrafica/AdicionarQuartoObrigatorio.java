@@ -210,7 +210,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					}
 					else{
-						JOptionPane.showMessageDialog(null, "aa");
+						JOptionPane.showMessageDialog(null, "O contrato de ter pelo menos um quarto!");
 					}
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());

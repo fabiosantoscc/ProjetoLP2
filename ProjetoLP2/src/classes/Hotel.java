@@ -116,18 +116,15 @@ public class Hotel implements Serializable {
 		for ( Hospede umHospede :  meusHospedes ) {
 			
 			if ( umHospede.getCpf().equals(hospede.getCpf()) || umHospede.getNome().equals(hospede.getNome()) ) {
+				hospedeEncontrado = true;
 				List<Contrato> contratos = hospedes.get(umHospede);
 				for ( Contrato contrato : contratos ) {
 					if ( contrato.isAberto())
 						throw new ContratoAbertoException("Impossivel abrir outro contrato para o cliente\nJá existe um contrato em aberto");
 				}
+
+			}
 		
-				hospedeEncontrado = true;
-			}
-			
-			if ( !(hospedeEncontrado) ) {
-				throw new HospedeInvalidoException("Hospede nao existente no hotel");
-			}
 		}
 	}
 	
@@ -147,6 +144,7 @@ public class Hotel implements Serializable {
 	public HashMap<Hospede, List<Contrato>> getMapaDeHospedes() {
 		return hospedes;
 	}
+	
 	
 	public List<Servicos> getServicosHospede( Hospede hospede ) throws Exception {
 		boolean isContratoAberto = false;

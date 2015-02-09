@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Servicos;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.JScrollBar;
 
 public class ServicosDoHospede extends JPanel {
 
@@ -22,6 +25,7 @@ public class ServicosDoHospede extends JPanel {
 	 * Create the panel.
 	 */
 	ArrayList<java.util.List<Servicos>> servicosAtuais;
+	ArrayList<String> nomeServiços = new ArrayList<String>();
 	public ServicosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
 		
@@ -42,7 +46,8 @@ public class ServicosDoHospede extends JPanel {
 		
 		add(comboBox);
 		for(int i = 0; i < servicosAtuais.size(); i++){
-			comboBox.addItem(servicosAtuais.get(i).toString());
+			nomeServiços.add(servicosAtuais.get(i).toString());
+			comboBox.addItem(nomeServiços.get(i));
 		}
 
 		JLabel lblHospede = new JLabel("Hospede:");
@@ -67,5 +72,4 @@ public class ServicosDoHospede extends JPanel {
 	
 
 	}
-
 }

@@ -34,6 +34,7 @@ public class AdicionarContrato extends JPanel {
 	private JTextField textField;
 	private Contrato contratoAtual;
 	private static Calendar calendario; 
+	private JTextField textField_1;
 
 	/**
 	 * Create the panel.
@@ -86,6 +87,12 @@ public class AdicionarContrato extends JPanel {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(483, 396, 135, 38);
 		add(btnNewButton);
+		
+		textField_1 = new JTextField();
+		textField_1.setText(Run.hotel.getMapaDeHospedes().size() + "");
+		textField_1.setBounds(103, 255, 86, 20);
+		add(textField_1);
+		textField_1.setColumns(10);
 
 		
 		

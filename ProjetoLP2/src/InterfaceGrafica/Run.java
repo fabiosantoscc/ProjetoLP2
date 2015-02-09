@@ -26,5 +26,6 @@ public class Run {
 		"", "a", "a", "12345678");
 		h = new Hospede("Ronan", "48058960942","4539361222510693", "aaaa@aa.com", tel, end);
 		hotel.addHospede(h);
+		
 	}
 }

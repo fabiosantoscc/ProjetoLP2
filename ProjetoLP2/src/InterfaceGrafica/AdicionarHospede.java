@@ -193,6 +193,7 @@ public class AdicionarHospede extends JPanel {
 					cartaoHospede.setText("");
 					dddHospede.setText("");
 					numeroHospede.setText("");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

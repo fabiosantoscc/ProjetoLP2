@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.JScrollBar;
 import java.awt.event.AdjustmentListener;
 import java.awt.event.AdjustmentEvent;
+import javax.swing.JButton;
 
 
 public class TesteJComboBox extends JFrame {
@@ -23,6 +24,7 @@ public class TesteJComboBox extends JFrame {
 	ArrayList<String> list = new ArrayList<String>();
 	private JPanel contentPane;
 	private JTextField texto;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -95,6 +97,21 @@ public class TesteJComboBox extends JFrame {
 		texto.setBounds(175, 135, 86, 20);
 		contentPane.add(texto);
 		texto.setColumns(10);
+		
+		textField = new JTextField();
+		textField.setBounds(148, 197, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//list.add(textField.getText());
+				comboBox.addItem(textField.getText());
+			}
+		});
+		btnNewButton.setBounds(273, 208, 89, 23);
+		contentPane.add(btnNewButton);
 		comboBox.removeAllItems();
 		for(int i = 0; i < list.size(); i++){
 			comboBox.addItem(list.get(i));
