@@ -62,15 +62,15 @@ public class AdicionarContrato extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Criar Contrato");
+		JButton btnNewButton = new JButton("Prosseguir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Run.hotel.criaContrato(hospedeAtual.getCpf(), hospedeAtual.getNome(), Integer.parseInt(textField.getText()));
-					JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
-				} catch (NumberFormatException
-						| NumeroDeNoitesInvalidoException e1) {
+					MenuPrincipal.adcQuartoObrigatorio = new AdicionarQuartoObrigatorio(hospedeAtual, Integer.parseInt(textField.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.adcQuartoObrigatorio, "21");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "21");
+					JOptionPane.showMessageDialog(null, "Para criar um contrato, é necessário adicionar um quarto.");
+				} catch (NumberFormatException e1) {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
