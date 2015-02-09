@@ -63,7 +63,6 @@ public class Endereco implements Serializable {
 			throw new CidadeInvalidaException("Nome da cidade invalido.");
 		}
 		
-		// falta testar nos testes
 		for (int i = 0; i < cidade.length(); i++ ) {
 			if ( Character.isDigit(cidade.charAt(i)))
 				throw new CidadeInvalidaException("Nome da cidade deve conter apenas letras.");
@@ -75,7 +74,6 @@ public class Endereco implements Serializable {
 		if ( bairro == null || bairro.equals("") )
 			throw new BairroInvalidoException("Nome do bairro invalido.");
 		
-		// falta testar nos testes
 		for ( int i = 0; i < bairro.length(); i++ ) {
 			if ( Character.isDigit(bairro.charAt(i)) ) {
 				throw new BairroInvalidoException("Nome do bairro deve conter apenas letras.");
@@ -87,7 +85,6 @@ public class Endereco implements Serializable {
 		if ( rua == null || rua.equals("") )
 			throw new NomeRuaInvalidaException("Nome da rua invalido.");
 		
-		// falta testar nos testes
 		for ( int i = 0; i < rua.length(); i++ ) {
 			if ( Character.isDigit(rua.charAt(i)))
 				throw new NomeRuaInvalidaException("Nome da rua deve conter apenas letras.");
@@ -104,7 +101,6 @@ public class Endereco implements Serializable {
 		if ( numero == null || numero.equals(""))
 			throw new NumeroDaResidenciaInvalidoException("Numero da residencia nao pode ser vazio.");
 		
-		// falta testar nos testes
 		for ( int i = 0; i < numero.length(); i++) {
 			if ( ! (Character.isDigit(numero.charAt(i))) ) {
 				throw new NumeroDaResidenciaInvalidoException("Numero da residencia deve ser um inteiro positivo.");
@@ -121,7 +117,6 @@ public class Endereco implements Serializable {
 			throw new EstadoInvalidoException("Nome do estado invalido.");
 		}
 		
-		// falta testar nos testes
 		for ( int i = 0; i < estado.length(); i++ ) {
 			if ( Character.isDigit(estado.charAt(i)) )
 				throw new EstadoInvalidoException("Nome do estado deve conter apenas letras.");
@@ -132,7 +127,6 @@ public class Endereco implements Serializable {
 		if ( meuPais == null || meuPais.equals(""))
 			throw new PaisInvalidoException("Nome do pais invalido.");
 		
-		// falta testar nos testes
 		for ( int i = 0; i < meuPais.length(); i++ ) {
 			if ( Character.isDigit(meuPais.charAt(i)) )
 				throw new PaisInvalidoException("Nome do pais deve conter apenas letras.");
@@ -147,7 +141,6 @@ public class Endereco implements Serializable {
 		if ( cep.length() != 8 )
 			throw new CepInvalidoException("Quantidade de digitos do cep invalida.");
 			
-		// falta testar nos testes.
 		for ( int i = 0; i < cep.length(); i++ ) {
 			if ( ! (Character.isDigit(cep.charAt(i))) )
 					throw new CepInvalidoException("Cep deve conter apenas digitos.");

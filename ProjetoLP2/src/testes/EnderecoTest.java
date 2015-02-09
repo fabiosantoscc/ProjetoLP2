@@ -54,6 +54,13 @@ public class EnderecoTest {
 		}
 		
 		try {
+			new Endereco ("123456", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil", "33445632");
+			Assert.fail("Esperava excecao pois o campo de cidade esta como null.");
+		} catch ( CidadeInvalidaException e ) {
+			Assert.assertEquals("Nome da cidade deve conter apenas letras.", e.getMessage());
+		}
+		
+		try {
 			new Endereco ("", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil", "23423423");
 			Assert.fail("Esperava excecao pois o campo de cidade esta vazio.");
 		} catch ( CidadeInvalidaException e ) {
@@ -75,6 +82,13 @@ public class EnderecoTest {
 		}
 		
 		try {
+			new Endereco ("Campina Grande", "123456", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil", "42344213");
+			Assert.fail("Esperava excecao pois o campo de bairro esta como null.");
+		} catch ( BairroInvalidoException e ) {
+			Assert.assertEquals("Nome do bairro deve conter apenas letras.", e.getMessage());
+		}
+		
+		try {
 			new Endereco ("Campina Grande", "Bodocongo", "", "7", "Perto da UFCG", "Paraiba", "Brasil", "42313412");
 			Assert.fail("Esperava excecao pois o campo de rua esta vazio.");
 		} catch ( NomeRuaInvalidaException e ) {
@@ -89,7 +103,21 @@ public class EnderecoTest {
 		}
 		
 		try {
+			new Endereco ("Campina Grande", "Bodocongo", "123456", "7", "Perto da UFCG", "Paraiba", "Brasil", "32424252");
+			Assert.fail("Esperava excecao pois o campo de rua como null.");
+		} catch ( NomeRuaInvalidaException e ) {
+			Assert.assertEquals("Nome da rua deve conter apenas letras.", e.getMessage());
+		}
+		
+		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "0", "Perto da UFCG", "Paraiba", "Brasil", "56745323");
+			Assert.fail("Esperava excecao pois o campo de numero eh zero.");
+		} catch ( NumeroDaResidenciaInvalidoException e ) {
+			Assert.assertEquals("Numero da residencia deve ser um inteiro positivo.", e.getMessage());
+		}
+		
+		try {
+			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "-5", "Perto da UFCG", "Paraiba", "Brasil", "56745323");
 			Assert.fail("Esperava excecao pois o campo de numero eh zero.");
 		} catch ( NumeroDaResidenciaInvalidoException e ) {
 			Assert.assertEquals("Numero da residencia deve ser um inteiro positivo.", e.getMessage());
@@ -140,6 +168,13 @@ public class EnderecoTest {
 		}
 		
 		try {
+			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "123456", "Brasil", "34212122");
+			Assert.fail("Esperava excecao pois o campo de estado esta como null");
+		} catch (Exception e) {
+			Assert.assertEquals("Nome do estado deve conter apenas letras.", e.getMessage());
+		}
+		
+		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "", "87463273");
 			Assert.fail("Esperava excecao pois o campo de pais esta vazio");
 		} catch (Exception e) {
@@ -151,6 +186,13 @@ public class EnderecoTest {
 			Assert.fail("Esperava excecao pois o campo de pais esta vazio");
 		} catch (Exception e) {
 			Assert.assertEquals("Nome do pais invalido.", e.getMessage());
+		}
+		
+		try {
+			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "1234156", "98345678");
+			Assert.fail("Esperava excecao pois o campo de pais esta vazio");
+		} catch (Exception e) {
+			Assert.assertEquals("Nome do pais deve conter apenas letras.", e.getMessage());
 		}
 		
 		try {
