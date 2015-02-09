@@ -57,6 +57,9 @@ public class Hotel {
 		return h;
 	}
 	
+	public List<Contrato> pesquisarContratos(Hospede hospedeAtual){
+		return hospedes.get(hospedeAtual);
+	}
 	/**
 	 * 
 	 * @param esseHospede

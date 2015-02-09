@@ -18,19 +18,28 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
+import classes.Contrato;
 import classes.Hospede;
 
 import java.util.Date;
 import java.util.Calendar;
+
 import javax.swing.JCheckBox;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SpinnerListModel;
+
+import excecoes.NumeroDeNoitesInvalidoException;
 
 public class AdicionarContrato extends JPanel {
 	private JTextField textField;
+	private Contrato contratoAtual;
+	private static Calendar calendario; 
 
 	/**
 	 * Create the panel.
 	 */
 	public AdicionarContrato(Hospede hospedeAtual) {
+		
 		setLayout(null);
 		
 		JLabel lblNovoContrato = new JLabel("Novo Contrato");
@@ -43,36 +52,32 @@ public class AdicionarContrato extends JPanel {
 		lblHospede.setBounds(55, 78, 333, 23);
 		add(lblHospede);
 		
-		JLabel lblDataDeEntrada = new JLabel("Data de Entrada");
-		lblDataDeEntrada.setBounds(55, 134, 90, 23);
-		add(lblDataDeEntrada);
-		
-		JLabel lblDataDeSada = new JLabel("Data de Sa\u00EDda");
-		lblDataDeSada.setBounds(55, 168, 90, 14);
-		add(lblDataDeSada);
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerDateModel(new Date(1423360800000L), null, null, Calendar.DAY_OF_YEAR));
-		spinner.setBounds(155, 137, 112, 20);
-		add(spinner);
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerDateModel(new Date(1423360800000L), null, null, Calendar.DAY_OF_YEAR));
-		spinner_1.setBounds(155, 165, 112, 20);
-		add(spinner_1);
-		
 		JLabel lblNumeroDeNoites = new JLabel("Numero de Noites");
-		lblNumeroDeNoites.setBounds(55, 221, 104, 14);
+		lblNumeroDeNoites.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNumeroDeNoites.setBounds(55, 152, 115, 14);
 		add(lblNumeroDeNoites);
 		
 		textField = new JTextField();
-		textField.setBounds(155, 219, 56, 17);
+		textField.setBounds(180, 152, 56, 17);
 		add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Criar Contrato");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Run.hotel.criaContrato(hospedeAtual.getCpf(), hospedeAtual.getNome(), Integer.parseInt(textField.getText()));
+					
+				} catch (NumberFormatException
+						| NumeroDeNoitesInvalidoException e1) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+				//hospedeAtual.
+				catch (Exception e1) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
 				
 			}
 		});

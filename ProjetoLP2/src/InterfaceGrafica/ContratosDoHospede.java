@@ -1,74 +1,40 @@
 package InterfaceGrafica;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.List;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JToggleButton;
+
+import classes.Contrato;
+import classes.Hospede;
+
+import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JScrollBar;
-import java.awt.event.AdjustmentListener;
-import java.awt.event.AdjustmentEvent;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
-public class ContratosDoHospede extends JFrame {
-
-	ArrayList<String> list = new ArrayList<String>();
-	private JPanel contentPane;
-	private JTextField texto;
+public class ContratosDoHospede extends JPanel {
 
 	/**
-	 * Launch the application.
+	 * Create the panel.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TesteJComboBox frame = new TesteJComboBox();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public ContratosDoHospede() {
 	
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	
+	public ContratosDoHospede(Hospede hospedeAtual) {
+		setLayout(null);
+		ArrayList<java.util.List<Contrato>> contratosAtuais = new ArrayList<>(Arrays.asList(Run.hotel.pesquisarContratos(hospedeAtual)));
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String c = (String) comboBox.getSelectedItem();
-				texto.setText(c);
-			}
-		});
-		comboBox.setBounds(40, 58, 354, 20);
-		contentPane.add(comboBox);
+		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");
+		lblListaDeContratos.setBounds(44, 49, 184, 31);
+		add(lblListaDeContratos);
 		
-		texto = new JTextField();
-		texto.setBounds(175, 135, 86, 20);
-		contentPane.add(texto);
-		texto.setColumns(10);
-		comboBox.removeAllItems();
-		for(int i = 0; i < list.size(); i++){
-			comboBox.addItem(list.get(i));
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(10, 158, 585, 40);
+		add(comboBox);
+		for(int i = 0; i < contratosAtuais.size(); i++){
+			comboBox.addItem(contratosAtuais.get(i));
 		}
+
 	}
+
 }

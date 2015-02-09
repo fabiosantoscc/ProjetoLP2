@@ -8,21 +8,34 @@ package InterfaceGrafica;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import classes.Hospede;
+import classes.Quarto;
 import classes.QuartoExecutivoDuplo;
+import classes.QuartoExecutivoSimples;
+import classes.QuartoExecutivoTriplo;
+import classes.QuartoLuxoDuplo;
+import classes.QuartoLuxoSimples;
+import classes.QuartoLuxoTriplo;
+import classes.QuartoPresidencial;
 
 import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+
+import excecoes.ContratoAbertoException;
+import excecoes.QuantidadeDePessoasInvalidaException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 public class AdicionarQuartos extends JPanel {
 
@@ -80,7 +93,95 @@ public class AdicionarQuartos extends JPanel {
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+				switch ((String) comboBox.getSelectedItem()) {
+				case "Presidencial":
+					try {
+						QuartoPresidencial quartoAtual = new QuartoPresidencial(2);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (ContratoAbertoException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Luxo Simples":
+					try {
+						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(2, 1);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Luxo Duplo":
+					try {
+						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(2, 1);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Luxo Triplo":
+					try {
+						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(2);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Executivo Simples":
+					try {
+						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(2, 1);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Executivo Duplo":
+					try {
+						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(2, 1);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				case "Executivo Triplo":
+					try {
+						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(2);
+						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+					} catch (QuantidadeDePessoasInvalidaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+					break;
+				default:
+					JOptionPane.showMessageDialog(null, "Erro?");
+					break;
+				}
 			}
 		});
 		btnAdicionar.setBounds(481, 439, 89, 23);
