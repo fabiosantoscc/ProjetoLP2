@@ -39,7 +39,8 @@ public class MenuPrincipal {
 	public static AdicionarQuartos adcquartos;
 	public static AdicionarAlugueldeCarros adcAluguelDeCarros;
 	public static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
-
+	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
+	public static ListaQuartos listaQuartosAtualizar;
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -95,6 +96,7 @@ public class MenuPrincipal {
 		panel0.add(buscarAdcQuarto, "14");
 		panel0.add(buscarAluguelDeCarros, "15");
 		panel0.add(buscarBabySitter, "16");
+		panel0.add(buscarQuartoAtualizar, "21");
 		frame.setResizable(false);
 		
 		
@@ -179,6 +181,11 @@ public class MenuPrincipal {
 		mnAdicionar.add(mntmAluguelDeVeculo);
 		
 		mnServios.add(mnAtualizar);
+		mntmQuartos_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "21");
+			}
+		});
 		
 		mnAtualizar.add(mntmQuartos_1);
 		

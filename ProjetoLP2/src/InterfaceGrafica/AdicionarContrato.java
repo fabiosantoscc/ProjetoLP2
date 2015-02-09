@@ -67,7 +67,8 @@ public class AdicionarContrato extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Run.hotel.verificaContratoAberto(hospedeAtual);
-					MenuPrincipal.adcQuartoObrigatorio = new AdicionarQuartoObrigatorio(hospedeAtual, new Contrato(Integer.parseInt(textField.getText())));
+					//Contrato contratoAtual = new Contrato(Integer.parseInt(textField.getText()));
+					MenuPrincipal.adcQuartoObrigatorio = new AdicionarQuartoObrigatorio(hospedeAtual, contratoAtual);
 					MenuPrincipal.panel0.add(MenuPrincipal.adcQuartoObrigatorio, "21");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "21");
 					JOptionPane.showMessageDialog(null, "Para criar um contrato, é necessário adicionar um quarto.");

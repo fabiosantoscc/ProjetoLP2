@@ -23,6 +23,7 @@ import classes.QuartoLuxoDuplo;
 import classes.QuartoLuxoSimples;
 import classes.QuartoLuxoTriplo;
 import classes.QuartoPresidencial;
+import classes.Servicos;
 
 import javax.swing.JLabel;
 
@@ -33,6 +34,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+
+import jdk.nashorn.internal.scripts.JO;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
@@ -45,10 +50,10 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	 */
 	
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
-	
+	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
+	Quarto quartoAtual;
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, Contrato contratoAtual) {
 		setLayout(null);
-		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
 		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
@@ -98,23 +103,19 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Presidencial":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoPresidencial quartoAtual = new QuartoPresidencial(pessoas);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoPresidencial(pessoas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
-						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
-						JOptionPane.showMessageDialog(null, e1.getMessage());
-					} catch (ContratoAbertoException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					}
 					break;
 				case "Luxo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(pessoas, 1);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoLuxoSimples(pessoas, 1);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -126,8 +127,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Luxo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -139,8 +140,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Luxo Triplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(pessoas);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoLuxoTriplo(pessoas);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -152,8 +153,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Executivo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -165,8 +166,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Executivo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -178,8 +179,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Executivo Triplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(pessoas);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						quartoAtual = new QuartoExecutivoTriplo(pessoas);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -192,6 +193,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					JOptionPane.showMessageDialog(null, "Erro?");
 					break;
 				}
+				servicos.add(quartoAtual);
 			}
 		});
 		btnAdicionar.setBounds(468, 406, 123, 23);
@@ -201,8 +203,15 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		btnCriarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Run.hotel.criaContrato(hospedeAtual, contratoAtual);
-					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");
+					if (servicos.size() > 0){
+						Run.hotel.criaContrato(hospedeAtual, contratoAtual);
+						Run.hotel.adicionaVariosServicos(hospedeAtual, servicos);
+						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Não foi possivel criar o contrato, é necessário pelo \n"
+								+ "menos um quarto");
+					}
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());
 				}
