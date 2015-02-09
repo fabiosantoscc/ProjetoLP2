@@ -96,7 +96,8 @@ public class AdicionarQuartos extends JPanel {
 				switch ((String) comboBox.getSelectedItem()) {
 				case "Presidencial":
 					try {
-						QuartoPresidencial quartoAtual = new QuartoPresidencial(2);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoPresidencial quartoAtual = new QuartoPresidencial(pessoas);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -108,7 +109,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Luxo Simples":
 					try {
-						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(2, 1);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(pessoas, 1);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -120,7 +122,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Luxo Duplo":
 					try {
-						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(2, 1);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -132,7 +135,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Luxo Triplo":
 					try {
-						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(2);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(pessoas);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -144,7 +148,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Executivo Simples":
 					try {
-						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(2, 1);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -156,7 +161,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Executivo Duplo":
 					try {
-						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(2, 1);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -168,7 +174,8 @@ public class AdicionarQuartos extends JPanel {
 					break;
 				case "Executivo Triplo":
 					try {
-						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(2);
+						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(pessoas);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -188,12 +195,8 @@ public class AdicionarQuartos extends JPanel {
 		add(btnAdicionar);
 		
 
-		
-
-		
 		for(int i = 0; i < quartos.size(); i++){
 			comboBox.addItem(quartos.get(i));
 		}
-
 	}
 }
