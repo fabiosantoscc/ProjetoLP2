@@ -42,6 +42,8 @@ public class MenuPrincipal {
 	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
 	public static ListaQuartos listaQuartosAtualizar;
 	public static ServicosDoHospede servicosDoHospede;
+	BuscarServicos buscarServicos = new BuscarServicos();
+	
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -61,6 +63,8 @@ public class MenuPrincipal {
 	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
 	private final JMenu mnAtualizar = new JMenu("Atualizar");
 	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
+	private final JMenuItem mntmQuartos_2 = new JMenuItem("Quartos");
+	private final JMenuItem mntmPesquisar = new JMenuItem("Pesquisar");
 
 	/**
 	 * Launch the application.
@@ -98,6 +102,7 @@ public class MenuPrincipal {
 		panel0.add(buscarAluguelDeCarros, "15");
 		panel0.add(buscarBabySitter, "16");
 		panel0.add(buscarQuartoAtualizar, "21");
+		panel0.add(buscarServicos, "23");
 		frame.setResizable(false);
 		
 		
@@ -169,6 +174,13 @@ public class MenuPrincipal {
 		mnContratos.add(mntmAgendar);
 		
 		menuBar.add(mnServios);
+		mntmPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			cl.show(panel0, "23");	
+			}
+		});
+		
+		mnServios.add(mntmPesquisar);
 		
 		mnServios.add(mnAdicionar);
 		mnAdicionar.add(mntmBabySitter);
@@ -193,6 +205,8 @@ public class MenuPrincipal {
 		mnServios.add(mnRemover);
 		
 		mnRemover.add(mntmBabysitter);
+		
+		mnRemover.add(mntmQuartos_2);
 		
 		mnRemover.add(mntmAluguelDeCarro);
 		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
