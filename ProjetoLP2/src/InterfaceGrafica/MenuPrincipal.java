@@ -41,6 +41,7 @@ public class MenuPrincipal {
 	public static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
 	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
 	public static ListaQuartos listaQuartosAtualizar;
+	public static ServicosDoHospede servicosDoHospede;
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
