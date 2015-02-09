@@ -99,6 +99,8 @@ public class AdicionarQuartos extends JPanel {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						QuartoPresidencial quartoAtual = new QuartoPresidencial(pessoas);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {

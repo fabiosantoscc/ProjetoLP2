@@ -67,7 +67,8 @@ public class AdicionarContrato extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Run.hotel.criaContrato(hospedeAtual.getCpf(), hospedeAtual.getNome(), Integer.parseInt(textField.getText()));
-					
+					JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				} catch (NumberFormatException
 						| NumeroDeNoitesInvalidoException e1) {
 					// TODO Auto-generated catch block
