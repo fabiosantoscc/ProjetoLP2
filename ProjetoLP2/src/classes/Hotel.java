@@ -40,7 +40,6 @@ public class Hotel implements Serializable {
 	 * @return
 	 * @throws Exception
 	 */
-	
 	public Hospede pesquisaHospede( String cpf, String nome ) throws HospedeInvalidoException {
 		Hospede h = null;
 		Set <Hospede> meusHospedes = hospedes.keySet();
