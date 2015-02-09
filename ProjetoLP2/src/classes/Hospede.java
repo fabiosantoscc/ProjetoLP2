@@ -146,7 +146,6 @@ public class Hospede implements Serializable {
 			throw new NomeInvalidoException("O nome do hospede nao pode ser vazio.");
 		}
 		
-		// falta testar isso em hotel test
 		for ( int i = 0; i < nome.length(); i++) {
 			if ((Character.isDigit(nome.charAt(i))))
 				throw new NomeInvalidoException("O nome do hospede deve conter apenas letras.");

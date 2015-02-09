@@ -53,6 +53,13 @@ public class HospedeTest {
 			Assert.assertEquals("O nome do hospede nao pode ser vazio.", e.getMessage());
 		}
 		
+		try {
+			new Hospede ("An1s1o", "75265471855", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
+			Assert.fail("Esperava excecao pois o nome do hospede esta como null.");
+		} catch ( NomeInvalidoException e ) {
+			Assert.assertEquals("O nome do hospede deve conter apenas letras.", e.getMessage());
+		}
+		
 		try{
 			new Hospede ("Anisio", "", "4012888888881881", "seu.email@gmail.com", telefone, endereco);
 			Assert.fail("Esperava excecao pois o cpf do hospede esta vazio.");
