@@ -42,7 +42,7 @@ public class Contrato implements Serializable {
 		anoInicial = c.get(Calendar.YEAR);
 		
 		if ( numeroDeNoites <= 0)
-			throw new NumeroDeNoitesInvalidoException("Numero de dias deve ser maior que zero.");
+			throw new NumeroDeNoitesInvalidoException("Numero de noites deve ser maior que zero.");
 		
 		this.numeroDeNoites = numeroDeNoites;
 		this.aberto = true;
