@@ -184,7 +184,7 @@ public class AdicionarQuartos extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(481, 439, 89, 23);
+		btnAdicionar.setBounds(482, 439, 89, 23);
 		add(btnAdicionar);
 		
 

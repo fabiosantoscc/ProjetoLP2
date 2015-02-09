@@ -82,7 +82,7 @@ public class AdicionarContrato extends JPanel {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(448, 353, 135, 38);
+		btnNewButton.setBounds(483, 396, 135, 38);
 		add(btnNewButton);
 
 		

@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 
 import classes.Hospede;
+import excecoes.HospedeInvalidoException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -175,14 +176,6 @@ public class PainelHospede extends JPanel {
 		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
 		add(frmtdtxtfldNumero);
 		
-		JButton btnCadastrar = new JButton("Visualizar Contratos");
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnCadastrar.setBounds(392, 479, 154, 23);
-		add(btnCadastrar);
-		
 		JFormattedTextField frmtdtxtfldEstado = new JFormattedTextField();
 		frmtdtxtfldEstado.setText(hospedeAtual.getEndereco().getEstado());
 		frmtdtxtfldEstado.setEditable(false);
@@ -200,6 +193,26 @@ public class PainelHospede extends JPanel {
 		frmtdtxtfldCpf.setBounds(119, 127, 151, 17);
 		add(frmtdtxtfldCpf);
 		
+		
+		JButton btnCadastrar = new JButton("Visualizar Contratos");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText());
+					MenuPrincipal.contratosDoHospede = new ContratosDoHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.contratosDoHospede, "19");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "19");
+					frmtdtxtfldNome.setText("");
+					frmtdtxtfldCpf.setText("");
+				} catch (HospedeInvalidoException e) {
+					JOptionPane.showMessageDialog(null, e);
+				}
+			}
+		});
+		
+		btnCadastrar.setBounds(392, 479, 154, 23);
+		add(btnCadastrar);
+
 		JButton btnAtualizarContrato = new JButton("Atualizar Cadastro");
 		btnAtualizarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
