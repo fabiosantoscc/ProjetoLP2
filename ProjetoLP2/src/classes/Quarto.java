@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Calendar;
+
 import classes.Quarto;
 import excecoes.QuantidadeDePessoasInvalidaException;
 
@@ -13,6 +15,7 @@ import excecoes.QuantidadeDePessoasInvalidaException;
 public abstract class Quarto implements Servicos {
 	private int quantidadeDePessoas;
 	private double despesaTotal;
+	private int diaInicial, mesInicial, anoInicial;
 	
 	/**
 	 * construtor de um quarto.
@@ -22,6 +25,10 @@ public abstract class Quarto implements Servicos {
 	 */
 	
 	public Quarto(int quantidadeDePessoas) {
+		Calendar c = Calendar.getInstance();
+		diaInicial = c.get(Calendar.DAY_OF_MONTH);
+		mesInicial = c.get(Calendar.MONTH) + 1;
+		anoInicial = c.get(Calendar.YEAR);
 		this.quantidadeDePessoas = quantidadeDePessoas;
 	}
 	
@@ -44,6 +51,28 @@ public abstract class Quarto implements Servicos {
 //		}
 //		despesaTotal *= quantidadeDePessoas;
 //	}
+	
+	public int getDiaInicial() {
+		return diaInicial;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public int getMesInicial() {
+		return mesInicial;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public int getAnoInicial() {
+		return anoInicial;
+	}
 	
 	/**
 	 * 
