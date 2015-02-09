@@ -52,7 +52,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
 	Quarto quartoAtual;
-	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, Contrato contratoAtual) {
+	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
 		setLayout(null);
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
 		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -204,13 +204,13 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if (servicos.size() > 0){
-						Run.hotel.criaContrato(hospedeAtual, contratoAtual);
+						Run.hotel.criaContrato(hospedeAtual, numNoitesAtual);
 						Run.hotel.adicionaVariosServicos(hospedeAtual, servicos);
 						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
+						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					}
 					else{
-						JOptionPane.showMessageDialog(null, "Não foi possivel criar o contrato, é necessário pelo \n"
-								+ "menos um quarto");
+						JOptionPane.showMessageDialog(null, "aa");
 					}
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());

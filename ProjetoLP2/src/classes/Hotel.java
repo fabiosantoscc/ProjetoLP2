@@ -74,7 +74,6 @@ public class Hotel implements Serializable {
 	
 	public void adicionaVariosServicos(Hospede hospede, List<Servicos> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
 		
-		verificaContratoAberto(hospede);
 		List<Contrato> contratos =  hospedes.get(hospede);
 		
 		for ( Contrato meuContrato : contratos ) {
@@ -147,6 +146,25 @@ public class Hotel implements Serializable {
 	
 	public HashMap<Hospede, List<Contrato>> getMapaDeHospedes() {
 		return hospedes;
+	}
+	
+	public List<Servicos> getServicosHospede( Hospede hospede ) throws Exception {
+		boolean isContratoAberto = false;
+		List <Contrato> meusContratos = hospedes.get(hospede);
+		List<Servicos> servicos = null;
+		
+		for ( Contrato meuContrato : meusContratos ) {
+			if ( meuContrato.isAberto() ) {
+				servicos = meuContrato.getServicos();
+				isContratoAberto = true;
+			}
+		}
+		
+		if ( isContratoAberto == false ) {
+			throw new Exception("Não existe nenhum contrato aberto.");
+		}
+		
+		return servicos;
 	}
 	
 	/**
