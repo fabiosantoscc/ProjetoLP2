@@ -32,7 +32,11 @@ public class MenuPrincipal {
 	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
 	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
 	public static ContratosDoHospede contratosDoHospede;
-	
+	BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
+	BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
+	BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
+	public static PainelBabySitter painelBabySitter;
+	public static AdicionarQuartos adcquartos;
 	
 
 	
@@ -46,9 +50,14 @@ public class MenuPrincipal {
 	private final JMenuItem mntmNewMenuItem_2 = new JMenuItem("Atualizar");
 	private final JMenu mnServios = new JMenu("Servi\u00E7os");
 	private final JMenuItem mntmBabySitter = new JMenuItem("Baby Sitter");
-	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
-	private final JMenuItem mntmCamas = new JMenuItem("Camas");
 	private final JMenuItem mntmAluguelDeVeculo = new JMenuItem("Aluguel de Ve\u00EDculo");
+	private final JMenu mnAdicionar = new JMenu("Adicionar");
+	private final JMenu mnRemover = new JMenu("Remover");
+	private final JMenuItem mntmBabysitter = new JMenuItem("BabySitter");
+	private final JMenuItem mntmAluguelDeCarro = new JMenuItem("Aluguel de Ve\u00EDculo");
+	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
+	private final JMenu mnAtualizar = new JMenu("Atualizar");
+	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 
 	/**
 	 * Launch the application.
@@ -82,6 +91,9 @@ public class MenuPrincipal {
 		panel0.add(buscarHospedeAtualizar, "9");
 		panel0.add(buscarCheckIn, "10");
 		panel0.add(buscarCheckOut, "11");
+		panel0.add(buscarAdcQuarto, "14");
+		panel0.add(buscarAluguelDeCarros, "15");
+		panel0.add(buscarBabySitter, "16");
 		frame.setResizable(false);
 		
 		
@@ -154,13 +166,36 @@ public class MenuPrincipal {
 		
 		menuBar.add(mnServios);
 		
-		mnServios.add(mntmBabySitter);
+		mnServios.add(mnAdicionar);
+		mnAdicionar.add(mntmBabySitter);
+		mntmQuartos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "14");	
+			}
+		});
 		
-		mnServios.add(mntmQuartos);
+		mnAdicionar.add(mntmQuartos);
+		mnAdicionar.add(mntmAluguelDeVeculo);
 		
-		mnServios.add(mntmCamas);
+		mnServios.add(mnAtualizar);
 		
-		mnServios.add(mntmAluguelDeVeculo);
+		mnAtualizar.add(mntmQuartos_1);
+		
+		mnServios.add(mnRemover);
+		
+		mnRemover.add(mntmBabysitter);
+		
+		mnRemover.add(mntmAluguelDeCarro);
+		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "15");
+			}
+		});
+		mntmBabySitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "16");
+			}
+		});
 		
 	}
 

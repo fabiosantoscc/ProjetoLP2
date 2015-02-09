@@ -16,17 +16,17 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
-public class BuscarAdcQuarto extends JPanel {
+public class BuscarAdcQuartos extends JPanel {
 	private JTextField nomeAPesquisar;
 	private JTextField cpfAPesquisar;
 
 	/**
 	 * Create the panel.
 	 */
-	public BuscarAdcQuarto() {
+	public BuscarAdcQuartos() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Check in");
+		JLabel lblNovoContrato = new JLabel("Adicionar Quartos");
 		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNovoContrato.setBounds(38, 29, 175, 40);
 		add(lblNovoContrato);
@@ -54,9 +54,9 @@ public class BuscarAdcQuarto extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
-				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
-				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "3");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "3");
+				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+				MenuPrincipal.panel0.add(MenuPrincipal.adcquartos, "18");
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "18");
 				nomeAPesquisar.setText("");
 				cpfAPesquisar.setText("");
 				}catch(Exception c){
