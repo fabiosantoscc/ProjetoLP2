@@ -101,7 +101,7 @@ public class MenuPrincipal {
 		panel0.add(buscarAdcQuarto, "14");
 		panel0.add(buscarAluguelDeCarros, "15");
 		panel0.add(buscarBabySitter, "16");
-		panel0.add(buscarQuartoAtualizar, "21");
+		panel0.add(buscarQuartoAtualizar, "25");
 		panel0.add(buscarServicos, "23");
 		frame.setResizable(false);
 		
@@ -196,7 +196,7 @@ public class MenuPrincipal {
 		mnServios.add(mnAtualizar);
 		mntmQuartos_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "21");
+				cl.show(panel0, "25");
 			}
 		});
 		
