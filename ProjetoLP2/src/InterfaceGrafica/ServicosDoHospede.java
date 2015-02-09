@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -15,9 +16,11 @@ import javax.swing.JPanel;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Servicos;
+
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class ServicosDoHospede extends JPanel {
 
@@ -25,7 +28,8 @@ public class ServicosDoHospede extends JPanel {
 	 * Create the panel.
 	 */
 	ArrayList<java.util.List<Servicos>> servicosAtuais;
-	ArrayList<String> nomeServiços = new ArrayList<String>();
+	ArrayList<String> nomeServicos = new ArrayList<String>();
+	DefaultListModel listaServicos = new DefaultListModel();;
 	public ServicosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
 		
@@ -46,8 +50,8 @@ public class ServicosDoHospede extends JPanel {
 		
 		add(comboBox);
 		for(int i = 0; i < servicosAtuais.size(); i++){
-			nomeServiços.add(servicosAtuais.get(i).toString());
-			comboBox.addItem(nomeServiços.get(i));
+			nomeServicos.add(servicosAtuais.get(i).toString());
+			comboBox.addItem(nomeServicos.get(i));
 		}
 
 		JLabel lblHospede = new JLabel("Hospede:");
@@ -60,15 +64,16 @@ public class ServicosDoHospede extends JPanel {
 		label.setBounds(139, 124, 243, 14);
 		add(label);
 		
-		JButton btnVisualizarServios = new JButton("Visualizar Servi\u00E7os");
-		btnVisualizarServios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-								
-			}
-		});
-		btnVisualizarServios.setBounds(428, 318, 141, 23);
-		add(btnVisualizarServios);
-
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(44, 241, 529, 223);
+		add(scrollPane);
+		
+		JList list = new JList(listaServicos);
+		scrollPane.setViewportView(list);
+		
+		for(int i = 0; i < servicosAtuais.size(); i++){
+			listaServicos.addElement(servicosAtuais.get(i).toString());
+		}
 	
 
 	}
