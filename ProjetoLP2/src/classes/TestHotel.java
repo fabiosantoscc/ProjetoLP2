@@ -2,9 +2,10 @@ package classes;
 
 public class TestHotel {
 
+	static Hotel h = new Hotel();
+	
 	public static void main(String[] args) throws Exception {
 		
-		Hotel h = new Hotel();
 //		Hotel hot = new Hotel();
 //		Hotel hot2 = new Hotel();
 		
