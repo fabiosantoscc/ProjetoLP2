@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 import excecoes.*;
 
 /**
@@ -9,8 +11,9 @@ import excecoes.*;
  * Ãºltima revisao: 30/01/2015 / Jaaziel Moura
  */
 
-public class Hospede {
+public class Hospede implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Endereco endereco;
 	private String nome;
 	private String cpf;

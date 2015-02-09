@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 import excecoes.*;
 
 /**
@@ -9,8 +11,9 @@ import excecoes.*;
  * Alteracoes: 08/02/2015 / Fabio Alexandre
  */
 
-public class Endereco {
+public class Endereco implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String cidade;
 	private String bairro;
 	private String nomeDaRua;

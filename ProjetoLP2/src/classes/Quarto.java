@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import classes.Quarto;
@@ -12,7 +13,9 @@ import excecoes.QuantidadeDePessoasInvalidaException;
  * Ultima atualizacao 02/02/2015 Ravi Leite
  */
 
-public abstract class Quarto implements Servicos {
+public abstract class Quarto implements Servicos, Serializable  {
+
+	private static final long serialVersionUID = 1L;
 	private int quantidadeDePessoas;
 	private double despesaTotal;
 	private int diaInicial, mesInicial, anoInicial;

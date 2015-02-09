@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa um restaurante
  * 
@@ -7,7 +9,9 @@ package classes;
  * Ultima atualizacao 14/01/2015 / Fabio Alexandre
  */
 
-public class Restaurante implements Servicos {
+public class Restaurante implements Servicos, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	//private EstrategiaDeCalculoDaMontante estrategia;
 	//private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias();
 	private double consumoDiario, consumoUnidade1, consumoUnidade2, consumoGeral;
