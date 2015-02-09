@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 import classes.BabySitter;
 
 /**
@@ -11,7 +13,7 @@ import classes.BabySitter;
  * Atualizacao 01/02/2015 Ravi Leite
  */
 
-public class BabySitter implements Servicos {
+public class BabySitter implements Servicos, Serializable {
 	
 	//private  EstrategiaDeCalculoDaMontante estrategia;
 	private double despesaDiaria, despesaTotal;

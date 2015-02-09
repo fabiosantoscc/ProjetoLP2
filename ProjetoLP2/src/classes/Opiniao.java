@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 import excecoes.NotaInvalidaException;
 import excecoes.ComentarioInvalidoException;
 import excecoes.InputArgumentInvalidException;
@@ -15,8 +17,9 @@ import excecoes.InputArgumentInvalidException;
  * 
  */
 
-public class Opiniao {
+public class Opiniao implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String comentario;
 	private double nota;
 	

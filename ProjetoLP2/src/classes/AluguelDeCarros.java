@@ -1,12 +1,17 @@
 package classes;
 
+import java.io.Serializable;
+
 /**
  * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 
  * @author Ronan Souza
  * @date 12/01/2014
  */
-public class AluguelDeCarros implements Servicos {
+
+public class AluguelDeCarros implements Servicos, Serializable {
+
+	private static final long serialVersionUID = 1L;
 	//private EstrategiaDeCalculoDaMontante estrategia;
 	//private CalendarioDeEstrategias calendario;
 	private String tipoCarro;

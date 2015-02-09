@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.Serializable;
+
 import excecoes.DddInvalidoException;
 import excecoes.InputArgumentInvalidException;
 import excecoes.NumeroTelefoneInvalidoException;
@@ -13,10 +15,11 @@ import excecoes.NumeroTelefoneInvalidoException;
  *     Ultima alteracao: 07/02/2015 / Fabio Alexandre
  */
 
-public class Telefone {
+public class Telefone implements Serializable {
 
-  private String numero;
-  private String ddd;
+	private static final long serialVersionUID = 1L;
+	private String numero;
+    private String ddd;
 
     /**
 	 * Contrutor da classe Telefone

@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -13,8 +14,9 @@ import excecoes.*;
  * Ultima alteracao: 08/02/2015 / Fabio Alexandre
  */
 
-public class Hotel {
+public class Hotel implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private double notaDeAceitacao = 0;
 	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;

@@ -9,6 +9,7 @@ package classes;
  * 
  */
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
@@ -22,8 +23,9 @@ import excecoes.*;
  * Ultima alteracao: 05/02/2015 / Jaaziel Moura
  */
 
-public class Contrato {
+public class Contrato implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private boolean aberto;
 	private double valorAPagar;
