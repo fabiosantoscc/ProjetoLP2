@@ -66,6 +66,5 @@ public class BuscarAdcQuartos extends JPanel {
 		});
 		button.setBounds(454, 315, 89, 23);
 		add(button);
-
 	}
 }
