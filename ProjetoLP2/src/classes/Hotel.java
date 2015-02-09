@@ -112,7 +112,12 @@ public class Hotel implements Serializable {
 	}
 	
 	// metodo que cria um contrato sem nenhum servico para o hospede
-	public void criaContrato( String cpf, String nome, int noites ) throws Exception {
+	public void criaContrato( Hospede hospede, int noites ) throws Exception {
+		
+		List<Contrato> contratos = hospedes.get(hospede);
+		
+		Contrato meuContrato = new Contrato(noites);
+		contratos.add(meuContrato);
 	}
 	
 	/**
