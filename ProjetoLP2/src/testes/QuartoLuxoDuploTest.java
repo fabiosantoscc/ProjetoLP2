@@ -1,8 +1,11 @@
 package testes;
 
 import org.junit.Test;
+
 import excecoes.QuartoEsgotadoNoHotelException;
+
 import org.junit.Assert;
+
 import classes.Hotel;
 import classes.QuartoLuxoDuplo;
 
@@ -23,7 +26,7 @@ public class QuartoLuxoDuploTest {
 	
 		q1 = new QuartoLuxoDuplo(2, 0);
 					
-		Assert.assertTrue(Hotel.getCamaExtra() == 10);
+		Assert.assertTrue(Hotel.getCamaExtra() == 20);
 			
 		try {
 			new QuartoLuxoDuplo(4, 1);
@@ -54,13 +57,13 @@ public class QuartoLuxoDuploTest {
 		}
 			
 		try {
-			new QuartoLuxoDuplo(2, 11);
+			new QuartoLuxoDuplo(2, 21);
 			Assert.fail("Esperava excecao, pois a quantidade de quartos e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
 			
-		Assert.assertTrue(Hotel.getCamaExtra() == 10);
+		Assert.assertTrue(Hotel.getCamaExtra() == 20);
 			
 		// Test getPreco()
 	
@@ -92,7 +95,7 @@ public class QuartoLuxoDuploTest {
 		}
 			
 		try {
-			q1.setCamaExtra(11);
+			q1.setCamaExtra(21);
 			Assert.fail("Esperava excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
@@ -151,7 +154,7 @@ public class QuartoLuxoDuploTest {
 		}
 		
 		try {
-			q1.setCamaExtra(q1.getCamaExtra() + 7);
+			q1.setCamaExtra(17);
 			Assert.fail("Deve lancar excecao, quantidade de camas invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida",e.getMessage());

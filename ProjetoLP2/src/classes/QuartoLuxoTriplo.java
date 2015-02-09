@@ -55,7 +55,7 @@ public class QuartoLuxoTriplo extends Quarto {
 	}
 	
 	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
+		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
 			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
 		}
 	}
