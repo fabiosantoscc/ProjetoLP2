@@ -15,7 +15,7 @@ import excecoes.QuartoEsgotadoNoHotelException;
  * Classe de testes da classe QuartoExecutivoTriplo
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima alteracao: 26/01/2015
+ * Ultima alteracao: 08/02/2015 / Fabio Alexandre
  *
  */
 
@@ -32,7 +32,7 @@ public class QuartoLuxoTriploTest {
 	
 	@Test
 	public void testConstrutor() throws Exception {
-				
+
 		try {
 			new QuartoLuxoTriplo(4);
 			Assert.fail("Esperava excecao, pois a quantidade de pessoas e invalida");

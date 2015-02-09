@@ -95,7 +95,7 @@ public class QuartoLuxoSimplesTest {
 	    Assert.assertTrue(q1.getCamaExtra() == 5);
 	    
 	    try {
-	    	q1.setCamaExtra(6);
+	    	q1.setCamaExtra(8);
 	    	Assert.fail("Deveria lancar excecao, quantidade de camas extras invalida");
 	    } catch ( Exception e ) {
 	    	Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());

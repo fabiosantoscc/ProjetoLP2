@@ -56,14 +56,14 @@ public class QuartoExecutivoSimplesTest {
 		}
 		
 		try {
-			new QuartoExecutivoSimples(2, 11);
+			new QuartoExecutivoSimples(2, 18);
 			Assert.fail("Esperava excecao, pois a quantidade de cama e invalida");
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida", e.getMessage());
 		}
 		
 		new QuartoExecutivoSimples(2, 1);
-		Assert.assertTrue(Hotel.getCamaExtra() == 6);
+		Assert.assertTrue(Hotel.getCamaExtra() == 16);
 		
 		try {
 			new QuartoExecutivoSimples(2, 7);

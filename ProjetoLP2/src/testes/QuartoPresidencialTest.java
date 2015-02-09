@@ -2,6 +2,7 @@ package testes;
 
 import org.junit.Test;
 import org.junit.Assert;
+
 import classes.Hotel;
 import classes.QuartoPresidencial;
 import excecoes.QuartoEsgotadoNoHotelException;

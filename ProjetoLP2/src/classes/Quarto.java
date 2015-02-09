@@ -63,14 +63,7 @@ public abstract class Quarto implements Servicos {
 	}
 
 	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
 		this.quantidadeDePessoas = pessoas;
-	}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
 	}
 	
 	/**
