@@ -84,6 +84,9 @@ public class Contrato implements Serializable {
 		return anoInicial;
 	}
 	
+	public List<Servicos> getServicos(){
+		return servicos;
+	}
 	/**
 	 * 
 	 * @return

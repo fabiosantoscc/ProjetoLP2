@@ -60,7 +60,8 @@ public class BuscarCheckIn extends JPanel {
 				nomeAPesquisar.setText("");
 				cpfAPesquisar.setText("");
 				}catch(Exception c){
-					
+					JOptionPane.showMessageDialog(null, c.getMessage());
+	
 				}
 			}
 		});

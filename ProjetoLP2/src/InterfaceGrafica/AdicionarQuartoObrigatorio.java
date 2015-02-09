@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import classes.Contrato;
 import classes.Hospede;
 import classes.Quarto;
 import classes.QuartoExecutivoDuplo;
@@ -45,7 +46,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	
-	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoites) {
+	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, Contrato contratoAtual) {
 		setLayout(null);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
@@ -200,7 +201,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		btnCriarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Run.hotel.criaContrato(hospedeAtual.getCpf(), hospedeAtual.getNome(), numNoites);
+					Run.hotel.criaContrato(hospedeAtual, contratoAtual);
 					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());

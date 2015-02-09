@@ -62,8 +62,7 @@ public class BuscarContratos extends JPanel {
 					nomeAPesquisar.setText("");
 					cpfAPesquisar.setText("");
 				} catch (HospedeInvalidoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				
 				
