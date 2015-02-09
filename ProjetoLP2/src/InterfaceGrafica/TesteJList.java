@@ -65,6 +65,8 @@ public class TesteJList {
 		nomes.add("Fabio");
 		nomes.add("Fabio");
 		
+		System.out.println(nomes.toString());
+		
 		for ( String nome : nomes ) {
 			modeling.addElement(nome);
 		}

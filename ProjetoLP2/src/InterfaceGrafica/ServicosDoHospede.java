@@ -29,7 +29,9 @@ public class ServicosDoHospede extends JPanel {
 	 */
 	ArrayList<java.util.List<Servicos>> servicosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
-	DefaultListModel listaServicos = new DefaultListModel();;
+	ArrayList<String> minhasStrings = new ArrayList<String>();
+	JList meuList;
+	private DefaultListModel modeling = new DefaultListModel();
 	public ServicosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
 		
@@ -68,13 +70,18 @@ public class ServicosDoHospede extends JPanel {
 		scrollPane.setBounds(44, 241, 529, 223);
 		add(scrollPane);
 		
-		JList list = new JList(listaServicos);
-		scrollPane.setViewportView(list);
+		meuList = new JList(modeling);
+		scrollPane.setViewportView(meuList);
 		
-		for(int i = 0; i < servicosAtuais.size(); i++){
-			listaServicos.addElement(servicosAtuais.get(i).toString());
+		System.out.println(servicosAtuais.size());
+		
+		for (int i = 0; i < servicosAtuais.size(); i++){
+			minhasStrings.add(servicosAtuais.get(i).get(i).toString());
 		}
-	
-
+		
+		for ( String s : minhasStrings) {
+			System.out.println(s);
+			modeling.addElement(s);
+		}
 	}
 }
