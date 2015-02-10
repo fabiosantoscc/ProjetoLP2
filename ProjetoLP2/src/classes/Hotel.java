@@ -52,6 +52,18 @@ public class Hotel implements Serializable {
 		}
 	}
 	
+	public Contrato getContratoAberto(Hospede hospede) throws Exception{
+		List<Contrato> contratos =  hospedes.get(hospede);
+		for ( Contrato contrato : contratos ) {
+			if ( contrato.isAberto() == true ) {
+				return contrato;
+			}
+		}
+		
+		throw new Exception("Não existe nenhum contrato aberto");
+			
+	}
+	
 	/**
 	 * 
 	 * @param cpf
