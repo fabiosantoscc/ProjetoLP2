@@ -45,6 +45,7 @@ public class MenuPrincipal {
 	BuscarServicos buscarServicos = new BuscarServicos();
 	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
 	public static RemoverServicos removerServicos;
+	BuscarRestauranteAtualizar buscarRestauranteAtualizar = new BuscarRestauranteAtualizar();
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -63,6 +64,7 @@ public class MenuPrincipal {
 	private final JMenuItem mntmPesquisar = new JMenuItem("Pesquisar");
 	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 	private final JMenuItem mntmRemover = new JMenuItem("Remover");
+	private final JMenuItem mntmRestaurante = new JMenuItem("Restaurante");
 
 	/**
 	 * Launch the application.
@@ -102,6 +104,7 @@ public class MenuPrincipal {
 		panel0.add(buscarQuartoAtualizar, "25");
 		panel0.add(buscarServicos, "23");
 		panel0.add(buscarRemoverServicos, "26");
+		panel0.add(buscarRestauranteAtualizar, "27");
 		frame.setResizable(false);
 		
 		
@@ -200,6 +203,13 @@ public class MenuPrincipal {
 		});
 		
 		mnAtualizar.add(mntmQuartos_1);
+		mntmRestaurante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cl.show(panel0, "27");
+			}
+		});
+		
+		mnAtualizar.add(mntmRestaurante);
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "26");	
