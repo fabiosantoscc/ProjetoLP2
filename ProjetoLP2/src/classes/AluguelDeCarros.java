@@ -148,8 +148,8 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	@Override
 	public String toString() {
 		String string;
-		string = "AluguelDeCarros - Data: " + diaInicial + "/" + mesInicial + "/" + anoInicial + "" + 
-		data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MONTH) + ":" + data.get(Calendar.YEAR) + ", Tipo do Automóvel: " + tipoCarro;
+		string = "AluguelDeCarros - "+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 		
 		if ( tanqueCheio ) {
 			string += ", Tanque cheio";

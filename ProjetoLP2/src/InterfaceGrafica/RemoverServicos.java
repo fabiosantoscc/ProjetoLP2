@@ -22,6 +22,7 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 public class RemoverServicos extends JPanel {
 
@@ -33,6 +34,7 @@ public class RemoverServicos extends JPanel {
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;
 	private DefaultListModel modeling = new DefaultListModel();
+	private JTextField textField;
 	public RemoverServicos(Hospede hospedeAtual) {
 		setLayout(null);
 		
@@ -65,6 +67,7 @@ public class RemoverServicos extends JPanel {
 		meuList = new JList(modeling);
 		scrollPane.setViewportView(meuList);
 		
+		
 		JButton btnNewButton = new JButton("Remover");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -74,6 +77,11 @@ public class RemoverServicos extends JPanel {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(523, 469, 127, 31);
 		add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(44, 442, 586, 20);
+		add(textField);
+		textField.setColumns(10);
 		
 		System.out.println(servicosAtuais.size());
 		

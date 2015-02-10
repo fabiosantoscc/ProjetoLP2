@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Calendar;
+
 import classes.BabySitter;
 
 /**
@@ -19,6 +21,7 @@ public class BabySitter implements Servicos {
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;
 	private int horaInicial;
+	Calendar data;
 	
 	/**
 	 * Construtor da classe Baby Sitter para agendamento do serviço
@@ -27,6 +30,7 @@ public class BabySitter implements Servicos {
 	 */
 	
 	public BabySitter(int quantidadeHoras, int horaInicial)throws Exception{
+		data = Calendar.getInstance();
 		calendario = new CalendarioDeEstrategias(); 
 		checaHoras(quantidadeHoras);
 		checaHoraInicial(horaInicial);
@@ -194,7 +198,9 @@ public class BabySitter implements Servicos {
 		return "Baby Sitter \n"
 				+ "Horario de inicio do serviço: "+horaInicial
 				+"\nQuantidade de Horas Normais: " + quantidadeHoras + "\n"
-				+ "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas;
+				+ "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
+				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
 	
 	/**
