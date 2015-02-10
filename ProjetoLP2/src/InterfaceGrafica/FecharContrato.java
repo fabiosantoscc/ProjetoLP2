@@ -20,8 +20,5 @@ public class FecharContrato extends JPanel {
 	 */
 	public FecharContrato() {
 		setLayout(null);
-		
-		
-
 	}
 }

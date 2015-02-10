@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Quarto;
@@ -215,6 +216,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					else{
 						JOptionPane.showMessageDialog(null, "O contrato de ter pelo menos um quarto!");
 					}
+					Arquivos.salvaHotel(Run.hotel);
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());
 				}
@@ -224,7 +226,6 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		btnCriarContrato.setBounds(468, 458, 123, 45);
 		add(btnCriarContrato);
 		
-
 		for(int i = 0; i < quartos.size(); i++){
 			comboBox.addItem(quartos.get(i));
 		}

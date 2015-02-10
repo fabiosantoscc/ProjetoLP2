@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.BabySitter;
 import classes.Hospede;
 
@@ -55,6 +56,7 @@ public class AdicionarBabySitter extends JPanel {
 				try {
 					BabySitter babyAtual = new BabySitter(Integer.parseInt(textField.getText()), Integer.parseInt(textField_1.getText()));
 					Run.hotel.adicionaServico(hospedeAtual, babyAtual);
+					Arquivos.salvaHotel(Run.hotel);
 					JOptionPane.showMessageDialog(null, "Baby Sitter adicionado com Sucesso!");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				} catch (Exception e1) {
@@ -64,6 +66,5 @@ public class AdicionarBabySitter extends JPanel {
 		});
 		btnNewButton.setBounds(306, 245, 89, 23);
 		add(btnNewButton);
-
 	}
 }

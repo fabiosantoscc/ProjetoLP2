@@ -41,10 +41,6 @@ public class ContratosDoHospede extends JPanel {
 		lblListaDeContratos.setBounds(44, 49, 184, 31);
 		add(lblListaDeContratos);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(44, 197, 551, 23);
-		add(comboBox);
-		
 		JLabel lblHospede = new JLabel("Hospede:");
 		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblHospede.setBounds(47, 122, 82, 14);
@@ -67,7 +63,7 @@ public class ContratosDoHospede extends JPanel {
 		add(btnVisualizarServios);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(44, 274, 551, 112);
+		scrollPane.setBounds(44, 185, 551, 201);
 		add(scrollPane);
 		
 		JList list = new JList<>(modeling);
@@ -75,11 +71,5 @@ public class ContratosDoHospede extends JPanel {
 		for ( int i = 0; i < contratosAtuais.size(); i++) {
 			modeling.addElement(contratosAtuais.get(i).toString());
 		}
-		
-		
-		for(int i = 0; i < contratosAtuais.size(); i++){
-			comboBox.addItem(contratosAtuais.get(i).toString());
-		}
-
 	}
 }

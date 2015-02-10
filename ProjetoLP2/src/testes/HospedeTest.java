@@ -3,7 +3,6 @@ package testes;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-
 import classes.Endereco;
 import classes.Telefone;
 import classes.Hospede;
@@ -23,7 +22,6 @@ public class HospedeTest {
 	Telefone telefone;
 	Hospede hospede;
 		
-	
 	@Before
 	public void criaObjetos() throws InputArgumentInvalidException {
 		endereco = new Endereco("Campina Grande", "Bodocongo", "Rodrigues Alves", "500", "-", "Paraiba", "Brasil", "54232323");

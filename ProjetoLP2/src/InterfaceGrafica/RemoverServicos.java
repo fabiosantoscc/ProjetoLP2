@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Servicos;
@@ -75,6 +76,11 @@ public class RemoverServicos extends JPanel {
 				for ( Servicos servico : servicosAtuais ) {
 					if ( ((String) meuList.getSelectedValue()).equals(servico.toString()) ) {
 						servicosAtuais.remove(servico);
+						try {
+							Arquivos.salvaHotel(Run.hotel);
+						} catch (Exception e1) {
+							e1.getMessage();
+						}
 					}
 				}
 				

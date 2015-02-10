@@ -1,24 +1,18 @@
 package InterfaceGrafica;
 
 import javax.swing.JPanel;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.AncestorEvent;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
-
 import Executar.Run;
 import classes.AluguelDeCarros;
-import classes.BabySitter;
+import classes.Arquivos;
 import classes.Hospede;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 import javax.swing.JButton;
-
 import java.awt.Font;
 
 public class AdicionarAlugueldeCarros extends JPanel {
@@ -26,11 +20,11 @@ public class AdicionarAlugueldeCarros extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	boolean isTanqueCheio = false;
 	boolean isSeguro= false;
 	public AdicionarAlugueldeCarros(Hospede hospedeAtual) {
 		setLayout(null);
-		
 		
 		JLabel lblAlugarVeculo = new JLabel("Alugar Ve\u00EDculo");
 		lblAlugarVeculo.setBounds(38, 43, 67, 14);
@@ -84,6 +78,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					Arquivos.salvaHotel(Run.hotel);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -92,7 +87,5 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		btnAdicionarServio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAdicionarServio.setBounds(437, 389, 152, 46);
 		add(btnAdicionarServio);
-
-
 	}
 }

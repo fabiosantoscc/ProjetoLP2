@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Hospede;
 import classes.Quarto;
 import classes.QuartoExecutivoDuplo;
@@ -102,12 +103,14 @@ public class AdicionarQuartos extends JPanel {
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (ContratoAbertoException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (Exception e1) {
 					}
 					break;
 				case "Luxo Simples":
@@ -116,6 +119,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -130,6 +134,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -144,6 +149,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(pessoas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -158,6 +164,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -172,6 +179,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -186,6 +194,7 @@ public class AdicionarQuartos extends JPanel {
 						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(pessoas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -203,7 +212,6 @@ public class AdicionarQuartos extends JPanel {
 		btnAdicionar.setBounds(482, 439, 89, 23);
 		add(btnAdicionar);
 		
-
 		for(int i = 0; i < quartos.size(); i++){
 			comboBox.addItem(quartos.get(i));
 		}

@@ -12,6 +12,7 @@ public class CheckOut extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public CheckOut(Hospede hospedeAtual) {
 		setLayout(null);
 		

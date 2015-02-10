@@ -11,6 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Hospede;
 import classes.Restaurante;
 import classes.Servicos;
@@ -63,6 +64,7 @@ public class AtualizarRestaurante extends JPanel {
 					Run.hotel.getRestaurante(hospedeAtual).AdicionaNovoConsumo((String)comboBox.getSelectedItem(), Double.parseDouble(textField.getText()));
 					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					Arquivos.salvaHotel(Run.hotel);
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (Exception e1) {
@@ -73,8 +75,5 @@ public class AtualizarRestaurante extends JPanel {
 		});
 		btnAtualizarRestaurante.setBounds(409, 403, 146, 44);
 		add(btnAtualizarRestaurante);
-		
-
-
 	}
 }

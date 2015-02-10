@@ -38,7 +38,6 @@ public class ListaQuartos extends JPanel {
 	public ListaQuartos(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		
 		try {
 			servicosAtuais = Run.hotel.getServicosHospede(hospedeAtual);
 		} catch (Exception e) {

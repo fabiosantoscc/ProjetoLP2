@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Endereco;
 import classes.Hospede;
 import classes.Telefone;
@@ -179,6 +180,7 @@ public class AdicionarHospede extends JPanel {
 					complementoHospede.getText(), estadoHospede.getText(), paisHospede.getText(), cepHospede.getText());
 					Hospede h = new Hospede(nomeHospede.getText(), cpfHospede.getText(), cartaoHospede.getText(), emailHospede.getText(), tel, end);
 					Run.hotel.addHospede(h);
+					Arquivos.salvaHotel(Run.hotel);
 					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");
 					ruaHospede.setText("");
 					complementoHospede.setText("");

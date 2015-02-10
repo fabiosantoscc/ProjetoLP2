@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import Executar.Run;
+import classes.Arquivos;
 import classes.Hospede;
 import classes.Telefone;
 
@@ -198,7 +200,8 @@ public class AtualizarHospede extends JPanel {
 					hospedeAtual.getEndereco().setNumeroDaCasa(frmtdtxtfldNumero.getText());
 					hospedeAtual.getEndereco().setPais(frmtdtxtfldPais.getText());
 					hospedeAtual.getEndereco().setCep(frmtdtxtfldCep.getText());
-					JOptionPane.showMessageDialog(null, "Hospede Atualizado com sucesso!");
+					JOptionPane.showMessageDialog(null, "Hospede atualizado com sucesso!");
+					Arquivos.salvaHotel(Run.hotel);
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				}catch (Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());

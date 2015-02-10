@@ -161,7 +161,7 @@ public class PainelHospede extends JPanel {
 		add(lblCepZipCode);
 		
 		JFormattedTextField frmtdtxtfldCep = new JFormattedTextField();
-		frmtdtxtfldCep.setText("cep");
+		frmtdtxtfldCep.setText(hospedeAtual.getEndereco().getCep());
 		frmtdtxtfldCep.setEditable(false);
 		frmtdtxtfldCep.setBounds(436, 393, 138, 17);
 		add(frmtdtxtfldCep);
