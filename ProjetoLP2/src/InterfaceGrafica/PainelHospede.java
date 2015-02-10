@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 
+import Executar.Run;
 import classes.Hospede;
 import excecoes.HospedeInvalidoException;
 

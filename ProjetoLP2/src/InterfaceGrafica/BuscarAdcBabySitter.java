@@ -16,6 +16,8 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
+import Executar.Run;
+
 public class BuscarAdcBabySitter extends JPanel {
 	private JTextField nomeAPesquisar;
 	private JTextField cpfAPesquisar;

@@ -16,6 +16,7 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
+import Executar.Run;
 import excecoes.HospedeInvalidoException;
 
 public class BuscarHospedeAtualizar extends JPanel {

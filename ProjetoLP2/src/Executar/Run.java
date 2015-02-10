@@ -1,5 +1,6 @@
-package InterfaceGrafica;
+package Executar;
 
+import InterfaceGrafica.TelaLogin;
 import classes.Endereco;
 import classes.Hospede;
 import classes.Hotel;

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import Executar.Run;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Quarto;

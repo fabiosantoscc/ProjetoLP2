@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
+import Executar.Run;
 import classes.Hospede;
 
 public class CheckOut extends JPanel {
