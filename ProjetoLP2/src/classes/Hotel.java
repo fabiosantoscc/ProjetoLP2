@@ -33,7 +33,25 @@ public class Hotel implements Serializable {
 	// map com um hospede como chave, e um List<Contrato> como valor
 	
 	HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
+	
+	// CHECKOUT
+	
+	public void realizaCheckout( Hospede hospede ) throws Exception {
+		List<Contrato> contratos =  hospedes.get(hospede);
+		boolean existeContratoAberto = false;
 		
+		for ( Contrato contrato : contratos ) {
+			if ( contrato.isAberto() == true ) {
+				contrato.setAberto(false);
+				existeContratoAberto = true;
+			}
+		}
+		
+		if ( !(existeContratoAberto) ) {
+			throw new Exception("Não existe nenhum contrato aberto, impossivel remover contrato");
+		}
+	}
+	
 	/**
 	 * 
 	 * @param cpf
