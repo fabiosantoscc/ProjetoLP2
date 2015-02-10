@@ -10,15 +10,17 @@ import excecoes.*;
 
 
 /**
+ * Classe que representa um hotel.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima alteracao: 08/02/2015 / Fabio Alexandre
+ * Ultima alteracao: 10/02/2015 / Fabio Alexandre
+ * 
  */
 
 public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private double notaDeAceitacao = 0;
+	
 	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
@@ -27,14 +29,18 @@ public class Hotel implements Serializable {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	
+	private double notaDeAceitacao = 0;
 	private List<Opiniao> opinioes = new ArrayList<Opiniao>();
 	
 	// map com um hospede como chave, e um List<Contrato> como valor
-	
 	HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
 	
-	// CHECKOUT
+	/**
+	 * Realiza o checkout de um método, ou seja, deixa ele como fechado.
+	 * 
+	 * @param hospede - Hospede do qual vai se fazer o checkout.
+	 * @throws Exception
+	 */
 	
 	public void realizaCheckout( Hospede hospede ) throws Exception {
 		List<Contrato> contratos =  hospedes.get(hospede);
@@ -52,7 +58,15 @@ public class Hotel implements Serializable {
 		}
 	}
 	
-	public Contrato getContratoAberto(Hospede hospede) throws Exception{
+	/**
+	 * Recupera o contrato aberto de determinado hospede.
+	 * 
+	 * @param hospede - Hospede do qual vai se fazer a busca.
+	 * @return Contrato - Contrato aberto do hospede.
+	 * @throws Exception
+	 */
+	
+	public Contrato getContratoAberto(Hospede hospede) throws Exception {
 		List<Contrato> contratos =  hospedes.get(hospede);
 		for ( Contrato contrato : contratos ) {
 			if ( contrato.isAberto() == true ) {
@@ -61,15 +75,16 @@ public class Hotel implements Serializable {
 		}
 		
 		throw new Exception("Não existe nenhum contrato aberto");
-			
 	}
 	
 	/**
+	 * Recupera algum hospede no hotel, de acordo com o cpf ou o nome.
 	 * 
-	 * @param cpf
-	 * @return
-	 * @throws Exception
+	 * @param cpf - cpf do hospede a ser pesquisado.
+	 * @return Hospede - Hospede pesquisado, se existir.
+	 * @throws HospedeInvalidoException
 	 */
+	
 	public Hospede pesquisaHospede( String cpf, String nome ) throws HospedeInvalidoException {
 		Hospede h = null;
 		Set <Hospede> meusHospedes = hospedes.keySet();
@@ -89,14 +104,22 @@ public class Hotel implements Serializable {
 		return h;
 	}
 	
+	/**
+	 * Recupera a lista de contratos do hospede.
+	 * 
+	 * @param hospedeAtual - Hospede do qual se vai buscar os contratos.
+	 * @return Contrato - Todos os contratos do hospede, seja ele aberto ou fechado.
+	 */
+	
 	public List<Contrato> pesquisarContratos(Hospede hospedeAtual){
 		return hospedes.get(hospedeAtual);
 	}
 	
 	/**
+	 * Adiciona varios servicos a determinado hospede.
 	 * 
-	 * @param hospede
-	 * @param meusServicos
+	 * @param hospede - Hosped onde vai se adicionar os servicos.
+	 * @param meusServicos - Todos os servicos a serem adicionados con contrato.
 	 * @throws ContratoAbertoException 
 	 * @throws HospedeInvalidoException 
 	 */
@@ -104,18 +127,25 @@ public class Hotel implements Serializable {
 	public void adicionaVariosServicos(Hospede hospede, List<Servicos> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
 		
 		List<Contrato> contratos =  hospedes.get(hospede);
+		boolean contratoAberto = false;
 		
 		for ( Contrato meuContrato : contratos ) {
 			if ( meuContrato.isAberto() ) {
 				meuContrato.servicosContrato(meusServicos);
+				contratoAberto = true;
 			}
+		}
+		
+		if ( contratoAberto == false ) {
+			throw new ContratoAbertoException("Nenhum contrato aberto para o hospede");
 		}
 	}
 	
 	/**
+	 * Retorna o restaurante da lista de servicos.
 	 * 
-	 * @param hospede
-	 * @return
+	 * @param Hospede - Hospede do qual vai se fazer a pesquisa.
+	 * @return - O restaurante do contrato
 	 * @throws Exception
 	 */
 	
@@ -150,6 +180,7 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Adiciona um servico ao contrato aberto do hospede, se existir.
 	 * 
 	 * @param esseHospede
 	 * @param umServico
@@ -172,9 +203,15 @@ public class Hotel implements Serializable {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param hospede
+	 * @throws HospedeInvalidoException
+	 * @throws ContratoAbertoException
+	 */
+	
 	public void verificaContratoAberto( Hospede hospede ) throws HospedeInvalidoException, ContratoAbertoException {
 		Set <Hospede> meusHospedes = hospedes.keySet();
-		boolean hospedeEncontrado = false;
 		
 		if ( meusHospedes.size() == 0 )
 			throw new HospedeInvalidoException("Para criar um contrato eh necessario\nque exista hospede no hotel.");
@@ -182,19 +219,23 @@ public class Hotel implements Serializable {
 		for ( Hospede umHospede :  meusHospedes ) {
 			
 			if ( umHospede.getCpf().equals(hospede.getCpf()) || umHospede.getNome().equals(hospede.getNome()) ) {
-				hospedeEncontrado = true;
 				List<Contrato> contratos = hospedes.get(umHospede);
 				for ( Contrato contrato : contratos ) {
 					if ( contrato.isAberto())
 						throw new ContratoAbertoException("Impossivel abrir outro contrato para o cliente\nJá existe um contrato em aberto");
 				}
-
 			}
-		
 		}
 	}
 	
-	// metodo que cria um contrato sem nenhum servico para o hospede
+	/**
+	 * Cria um contrato para o hospede, checkin.
+	 * 
+	 * @param hospede - Hospede do qual vai se criar cum contrato.
+	 * @param noites - Noite de estadia no hotel.
+	 * @throws Exception
+	 */
+	
 	public void criaContrato( Hospede hospede, int noites ) throws Exception {
 
 		Contrato addContrato = new Contrato(noites);
@@ -203,14 +244,22 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Retorna o HashMap Hospede : Contratos do hotel.
 	 * 
-	 * @return
+	 * @return O HashMap com essas infromacoes.
 	 */
 	
 	public HashMap<Hospede, List<Contrato>> getMapaDeHospedes() {
 		return hospedes;
 	}
 	
+	/**
+	 * Recupera a lista de serviços de determinado hospede.
+	 * 
+	 * @param hospede - Hospede do qual deseja-se pesquisar a lista de servicos.
+	 * @return - Todos os servicos do hospede.
+	 * @throws Exception
+	 */
 	
 	public List<Servicos> getServicosHospede( Hospede hospede ) throws Exception {
 		boolean isContratoAberto = false;
@@ -244,8 +293,9 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Recupera a nota de aceitacao do hotel.
 	 * 
-	 * @return
+	 * @return NotaDeAceitacao - A nota de aceitacao do hotel.
 	 */
 	
 	public double getNotaDeAceitacao() {
@@ -276,8 +326,9 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Recupera a quantidade de cama extra do hotel.
 	 * 
-	 * @return
+	 * @return - Cama extra - A quantidade de camas extra do hotel.
 	 */
 	
 	public static int getCamaExtra() {
@@ -285,8 +336,9 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Atribui uma nova quantidade de cama extra.
 	 * 
-	 * @param camaExtra
+	 * @param camaExtra - Nova quantidade a ser atribuida.
 	 */
 	
 	public static void setCamaExtra(int camaExtra) {
@@ -294,8 +346,9 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Recupera a quantidade de quarto presidencial do hotel.
 	 * 
-	 * @return
+	 * @return - Quantidade de Quarto Presidencial do hotel.
 	 */
 	
 	public static int getQuartoPresidencial() {
