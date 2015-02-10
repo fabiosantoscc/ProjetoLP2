@@ -102,52 +102,14 @@ public class RestauranteTest {
 	public void testaGets(){
 		Assert.assertEquals(rest1.getConsumoUnidade1(), 80.0, 2);
 		Assert.assertEquals(rest1.getConsumoUnidade2(), 500.0, 2);
-		Assert.assertEquals(rest1.getCondumoDiario(), 580.0, 2);
 		Assert.assertEquals(rest2.getConsumoUnidade1(), 0.0, 2);
 		Assert.assertEquals(rest2.getConsumoUnidade2(), 700.55, 2);
-		Assert.assertEquals(rest2.getCondumoDiario(), 700.55, 2);
 		Assert.assertEquals(rest3.getConsumoUnidade1(), 45.80, 2);
 		Assert.assertEquals(rest3.getConsumoUnidade2(), 0.0, 2);
-		Assert.assertEquals(rest3.getCondumoDiario(), 45.80, 2);
 		Assert.assertEquals(rest4.getConsumoUnidade1(), 80.0, 2);
 		Assert.assertEquals(rest4.getConsumoUnidade2(), 500.0, 2);
-		Assert.assertEquals(rest4.getCondumoDiario(), 580.0, 2);
-	}
-
-	@Test
-	public void testaToString(){
-		Assert.assertEquals("Restaurante:"
-				+ "\nUnidade 1 (Terreo)"
-				+ "     \n Quantidade de usos: 1"
-				+ "     \n Valor consumido: 80.0" 
-				+ "\nUnidade 2 (Cobertura)"
-				+ "     \n Quantidade de usos: 1"
-				+ "     \n Valor consumido: 500.0" 
-				+ "\n\nValor total: 0.0", rest1.toString());
-		
-		Assert.assertEquals("Restaurante:"
-				+ "\nUnidade 1 (Terreo)"
-				+ "     \n Quantidade de usos: 0"
-				+ "     \n Valor consumido: 0.0" 
-				+ "\nUnidade 2 (Cobertura)"
-				+ "     \n Quantidade de usos: 1"
-				+ "     \n Valor consumido: 700.55" 
-				+ "\n\nValor total: 0.0", rest2.toString());
-		
-		Assert.assertEquals("Restaurante:"
-				+ "\nUnidade 1 (Terreo)"
-				+ "     \n Quantidade de usos: 1"
-				+ "     \n Valor consumido: 45.8" 
-				+ "\nUnidade 2 (Cobertura)"
-				+ "     \n Quantidade de usos: 0"
-				+ "     \n Valor consumido: 0.0" 
-				+ "\n\nValor total: 0.0", rest3.toString());
 	}
 	
-	@Test
-	public void testaAdicionaNovoConsumo() throws Exception {
-		Assert.assertEquals(870, rest1.getPreco(), 1);
-	}
 	
 	@Test
 	public void testaEquals(){
@@ -160,5 +122,12 @@ public class RestauranteTest {
 		Assert.assertTrue(rest1.equals(rest4));
 		Assert.assertTrue(rest4.equals(rest1));
 		
+	}
+	
+	@Test
+	public void testaGetPreco()throws Exception{
+		Assert.assertEquals(580.0, rest1.getPreco(), 1);
+		rest1.AdicionaNovoConsumo("Terreo", 350);
+		Assert.assertEquals(930, rest1.getPreco(), 1);
 	}
 }

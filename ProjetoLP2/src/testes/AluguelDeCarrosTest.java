@@ -61,7 +61,7 @@ public class AluguelDeCarrosTest {
 			new AluguelDeCarros("Outro Tipo", true, true);
 			Assert.fail("Deveria ocorrer uma exceção nesse momento!!");
 		}catch(Exception e){
-			Assert.assertEquals("Modelo de Automóvel Inválido (\"Luxo\" ou \"Executivo\")", e.getMessage());
+			Assert.assertEquals("Modelo de Automóvel Invalido", e.getMessage());
 		}
 	}
 
@@ -79,16 +79,6 @@ public class AluguelDeCarrosTest {
 	public void testaVerificaTipo(){
 		carro1.verificaTipo();
 		Assert.assertEquals(100, carro1.getValorDiaria(), 1);
-	}
-	
-	@Test
-	public void testaToString(){
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Luxo\nTanque Cheio: true\n"
-						+ "Automóvel Assegurado: false", carro1.toString());
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Executivo\nTanque Cheio: false\n"
-				+ "Automóvel Assegurado: true", carro2.toString());
-		Assert.assertEquals("AluguelDeCarros\nModelo do Automóvel: Luxo\nTanque Cheio: true\n"
-				+ "Automóvel Assegurado: false", carro3.toString());
 	}
 	
 	@Test

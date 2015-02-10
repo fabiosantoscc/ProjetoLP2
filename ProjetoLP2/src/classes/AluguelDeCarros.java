@@ -105,7 +105,7 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	 * @param mes Mes dos servicos adicionais
 	 */
 	
-	public void acrescentaAdicionais(int dia, int mes) throws Exception {
+	public void acrescentaAdicionais() throws Exception {
 		if (tanqueCheio)
 			tarifaTotal += 150;
 		if (seguroDeAutomovel)
@@ -149,7 +149,7 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	public String toString() {
 		String string;
 		string = "AluguelDeCarros - Data: " + diaInicial + "/" + mesInicial + "/" + anoInicial + "" + 
-		data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MONTH) + ":" + data.get(Calendar.YEAR) + ", tipo do Automóvel: " + tipoCarro;
+		data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MONTH) + ":" + data.get(Calendar.YEAR) + ", Tipo do Automóvel: " + tipoCarro;
 		
 		if ( tanqueCheio ) {
 			string += ", Tanque cheio";
@@ -158,9 +158,9 @@ public class AluguelDeCarros implements Servicos, Serializable {
 		}
 		
 		if ( seguroDeAutomovel ) {
-			string += ", Carro com seguro";
+			string += ", Carro com seguro.";
 		} else {
-			string += ", Carro sem seguro";
+			string += ", Carro sem seguro.";
 		}
 		
 		return string;
