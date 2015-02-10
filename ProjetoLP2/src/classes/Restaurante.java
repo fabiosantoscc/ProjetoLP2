@@ -11,10 +11,10 @@ import java.util.Calendar;
  */
 
 public class Restaurante implements Servicos, Serializable {
-
+	private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias();
 	private static final long serialVersionUID = 1L;
 	private EstrategiaDeCalculoDaMontante estrategia;
-	private double consumoDiario, consumoUnidade1, consumoUnidade2, consumoGeral;
+	private double consumoRefeicao, consumoUnidade1, consumoUnidade2, consumoGeral;
 	private int quantUsoUnidade1, quantUsoUnidade2;
 	
 	public  double getConsumoUnidade1(){
@@ -25,10 +25,7 @@ public class Restaurante implements Servicos, Serializable {
 		return consumoUnidade2;
 	}
 	
-	public double getCondumoDiario(){
-		return  consumoDiario;
-	}
-	
+
 	/**
 	 * Adiciona ao valor diario e ao determinado tipo de unidade um valor de consumo
 	 * @param unidade Tipo da unidade onde foi feito o consumo
@@ -43,7 +40,8 @@ public class Restaurante implements Servicos, Serializable {
 			throw new Exception("Unidade do restaurante invalida!!");
 		}
 		
-		consumoDiario += valor;
+		consumoRefeicao = valor;
+		adicionaAoConsumoGeral();
 		
 		if (unidade.equals("Terreo")){
 			quantUsoUnidade1++; 
@@ -61,14 +59,11 @@ public class Restaurante implements Servicos, Serializable {
 	 * @param mes Mes do consumo
 	 */
 	
-//	public void adicionaAoConsumoGeral() throws Exception {
-//		private Calendar data; 
-//		if (!(calendario.verificaDataValida(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.get(Calendar.MONTH)) + 1)))
-//			throw new Exception ("Data invalida.");
-//		
-//		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH, data.get(Calendar.get(Calendar.MONTH)) + 1);
-//		consumoGeral += estrategia.calculaMontante(consumoDiario);
-//	}
+	private void adicionaAoConsumoGeral(){
+		Calendar data = Calendar.getInstance(); 
+		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
+		consumoGeral += estrategia.calculaMontante(consumoRefeicao);
+	}
 	
 	@Override
 	public double getPreco() {
