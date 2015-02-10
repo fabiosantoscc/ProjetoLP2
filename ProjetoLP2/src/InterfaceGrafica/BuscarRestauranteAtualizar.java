@@ -9,8 +9,11 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import classes.Servicos;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 
 public class BuscarRestauranteAtualizar extends JPanel {
@@ -20,6 +23,7 @@ public class BuscarRestauranteAtualizar extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	List<Servicos> servicosAtuais = null;
 	public BuscarRestauranteAtualizar() {
 		setLayout(null);
 		
@@ -50,14 +54,13 @@ public class BuscarRestauranteAtualizar extends JPanel {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText());
-				MenuPrincipal.adcAluguelDeCarros = new AdicionarAlugueldeCarros(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
-				MenuPrincipal.panel0.add(MenuPrincipal.adcAluguelDeCarros, "20");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "20");
-				nomeAPesquisar.setText("");
-				cpfAPesquisar.setText("");
+					MenuPrincipal.atualizarRestaurante = new AtualizarRestaurante(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.atualizarRestaurante, "28");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "28");
+					nomeAPesquisar.setText("");
+					cpfAPesquisar.setText("");
 				}catch(Exception c){
-					JOptionPane.showMessageDialog(null, c.getMessage());
+					JOptionPane.showMessageDialog(null, "AA");
 				}
 			}
 		});

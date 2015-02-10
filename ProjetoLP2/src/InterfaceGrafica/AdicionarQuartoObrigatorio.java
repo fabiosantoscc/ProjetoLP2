@@ -23,6 +23,7 @@ import classes.QuartoLuxoDuplo;
 import classes.QuartoLuxoSimples;
 import classes.QuartoLuxoTriplo;
 import classes.QuartoPresidencial;
+import classes.Restaurante;
 import classes.Servicos;
 
 import javax.swing.JLabel;
@@ -68,9 +69,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboBox.getSelectedItem();
-				//textField.setText(c);
-
-				
+			
 			}
 		});
 		
@@ -208,7 +207,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						for ( Servicos s : servicos ) {
 							Run.hotel.adicionaServico(hospedeAtual, s);
 						}
-						
+						Run.hotel.adicionaServico(hospedeAtual, new Restaurante());
 						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					}

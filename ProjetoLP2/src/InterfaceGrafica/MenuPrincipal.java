@@ -8,9 +8,14 @@ import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
+
+import classes.Hospede;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -46,6 +51,7 @@ public class MenuPrincipal {
 	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
 	public static RemoverServicos removerServicos;
 	BuscarRestauranteAtualizar buscarRestauranteAtualizar = new BuscarRestauranteAtualizar();
+	public static AtualizarRestaurante atualizarRestaurante;
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -249,4 +255,5 @@ public class MenuPrincipal {
 			  __wbp_panel.add(frame_1);
 		}
 	}
+
 }

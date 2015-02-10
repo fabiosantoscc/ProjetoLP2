@@ -1,5 +1,6 @@
 package InterfaceGrafica;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -9,13 +10,21 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
+import classes.Hospede;
+import classes.Restaurante;
+import classes.Servicos;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.util.List;
+
 public class AtualizarRestaurante extends JPanel {
 	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public AtualizarRestaurante() {
+	public AtualizarRestaurante(Hospede hospedeAtual) {
 		setLayout(null);
 		
 		JLabel lblAdicionarConsumo = new JLabel("Adicionar Consumo");
@@ -27,6 +36,11 @@ public class AtualizarRestaurante extends JPanel {
 		add(lblUnidade);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String c = (String) comboBox.getSelectedItem();
+			}
+		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Terreo", "Cobertura"}));
 		comboBox.setBounds(99, 105, 112, 20);
 		add(comboBox);
@@ -40,9 +54,26 @@ public class AtualizarRestaurante extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
+		
 		JButton btnAtualizarRestaurante = new JButton("Atualizar Restaurante");
+		btnAtualizarRestaurante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				try {
+					Run.hotel.getRestaurante(hospedeAtual).AdicionaNovoConsumo((String)comboBox.getSelectedItem(), Double.parseDouble(textField.getText()));
+					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+				} catch (NumberFormatException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+							
+			}
+		});
 		btnAtualizarRestaurante.setBounds(409, 403, 146, 44);
 		add(btnAtualizarRestaurante);
+		
+
 
 	}
 }
