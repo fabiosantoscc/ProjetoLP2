@@ -53,6 +53,7 @@ public class MenuPrincipal {
 	BuscarRestauranteAtualizar buscarRestauranteAtualizar = new BuscarRestauranteAtualizar();
 	public static AtualizarRestaurante atualizarRestaurante;
 	public static CheckOut checkOut;
+	public static AtualizarQuarto atualizarQuarto;
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");

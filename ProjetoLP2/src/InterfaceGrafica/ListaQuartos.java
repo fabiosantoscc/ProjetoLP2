@@ -31,6 +31,7 @@ public class ListaQuartos extends JPanel {
 	 * Create the panel.
 	 */
 	List<Servicos> servicosAtuais;
+	List<Quarto> quartosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;
@@ -61,11 +62,27 @@ public class ListaQuartos extends JPanel {
 		add(label);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(44, 241, 606, 223);
+		scrollPane.setBounds(44, 241, 606, 202);
 		add(scrollPane);
 		
 		meuList = new JList(modeling);
 		scrollPane.setViewportView(meuList);
+		
+		JButton btnAtualizarQuarto = new JButton("Atualizar Quarto");
+		btnAtualizarQuarto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				for ( Servicos servico : servicosAtuais ) {
+					if ( ((String) meuList.getSelectedValue()).equals(servico.toString()) ) {
+						MenuPrincipal.atualizarQuarto = new AtualizarQuarto((Quarto) servico);
+						MenuPrincipal.panel0.add(MenuPrincipal.atualizarQuarto, "30");
+						MenuPrincipal.cl.show(MenuPrincipal.panel0, "30");
+					}
+				}
+				
+			}
+		});
+		btnAtualizarQuarto.setBounds(531, 486, 119, 41);
+		add(btnAtualizarQuarto);
 		
 		System.out.println(servicosAtuais.size());
 		

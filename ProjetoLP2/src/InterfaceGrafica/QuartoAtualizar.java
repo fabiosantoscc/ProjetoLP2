@@ -33,7 +33,7 @@ import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
-public class AdicionarQuartos extends JPanel {
+public class QuartoAtualizar extends JPanel {
 
 	/**
 	 * Create the panel.
@@ -41,7 +41,7 @@ public class AdicionarQuartos extends JPanel {
 	
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	
-	public AdicionarQuartos(Hospede hospedeAtual) {
+	public QuartoAtualizar(Hospede hospedeAtual) {
 		setLayout(null);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
