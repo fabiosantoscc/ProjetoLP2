@@ -1,6 +1,7 @@
 package InterfaceGrafica;
 
 import java.awt.Font;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class ServicosDoHospede extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	ArrayList<java.util.List<Servicos>> servicosAtuais;
+	List<Servicos> servicosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;
@@ -37,7 +38,7 @@ public class ServicosDoHospede extends JPanel {
 		
 		
 		try {
-			servicosAtuais = new ArrayList<>(Arrays.asList(Run.hotel.getServicosHospede(hospedeAtual)));
+			servicosAtuais = Run.hotel.getServicosHospede(hospedeAtual);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -76,7 +77,7 @@ public class ServicosDoHospede extends JPanel {
 		System.out.println(servicosAtuais.size());
 		
 		for (int i = 0; i < servicosAtuais.size(); i++){
-			minhasStrings.add(servicosAtuais.get(i).get(i).toString());
+			minhasStrings.add(servicosAtuais.get(i).toString());
 		}
 		
 		for ( String s : minhasStrings) {

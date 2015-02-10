@@ -205,7 +205,10 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				try {
 					if (servicos.size() > 0){
 						Run.hotel.criaContrato(hospedeAtual, numNoitesAtual);
-						Run.hotel.adicionaVariosServicos(hospedeAtual, servicos);
+						for ( Servicos s : servicos ) {
+							Run.hotel.adicionaServico(hospedeAtual, s);
+						}
+						
 						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					}
