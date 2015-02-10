@@ -14,17 +14,18 @@ import classes.BabySitter;
  */
 
 public class BabySitter implements Servicos, Serializable {
-	
-	//private  EstrategiaDeCalculoDaMontante estrategia;
+
+	private static final long serialVersionUID = 1L;
 	private double despesaDiaria, despesaTotal;
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;
 	private int horaInicial;
 	
 	/**
-	 * Construtor da classe Baby Sitter para agendamento do serviço
-	 * @param quantidadedeHoras Horas normais (entre as 7h da manhã ate as 18h)
-	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manhã)
+	 * Construtor da classe Baby Sitter para agendamento do servico
+	 * 
+	 * @param quantidadedeHoras Horas normais (entre as 7h da manha ate as 18h)
+	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manha)
 	 */
 	
 	public BabySitter(int quantidadeHoras, int horaInicial) throws Exception { 

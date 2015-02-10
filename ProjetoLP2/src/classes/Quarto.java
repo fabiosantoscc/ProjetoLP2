@@ -16,6 +16,7 @@ import excecoes.QuantidadeDePessoasInvalidaException;
 public abstract class Quarto implements Servicos, Serializable  {
 
 	private static final long serialVersionUID = 1L;
+	private Calendar data;
 	private int quantidadeDePessoas;
 	private double despesaTotal;
 	private int diaInicial, mesInicial, anoInicial;
@@ -29,6 +30,7 @@ public abstract class Quarto implements Servicos, Serializable  {
 	
 	public Quarto(int quantidadeDePessoas) {
 		Calendar c = Calendar.getInstance();
+		data = c;
 		diaInicial = c.get(Calendar.DAY_OF_MONTH);
 		mesInicial = c.get(Calendar.MONTH) + 1;
 		anoInicial = c.get(Calendar.YEAR);
@@ -106,7 +108,8 @@ public abstract class Quarto implements Servicos, Serializable  {
 	
 	@Override
 	public String toString() {
-		return "Quantidade De Pessoas = " + quantidadeDePessoas;
+		return "Quantidade De Pessoas = " + quantidadeDePessoas + ", Data: " + getDiaInicial() + "/" + getMesInicial() + "/"
+				+ getAnoInicial() + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
 	
 	/**

@@ -1,6 +1,7 @@
 package classes;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Classe que representa um restaurante
@@ -10,14 +11,12 @@ import java.io.Serializable;
  */
 
 public class Restaurante implements Servicos, Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	//private EstrategiaDeCalculoDaMontante estrategia;
-	//private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias();
+	private EstrategiaDeCalculoDaMontante estrategia;
 	private double consumoDiario, consumoUnidade1, consumoUnidade2, consumoGeral;
 	private int quantUsoUnidade1, quantUsoUnidade2;
 	
-
 	public  double getConsumoUnidade1(){
 		return consumoUnidade1;
 	}
@@ -54,7 +53,6 @@ public class Restaurante implements Servicos, Serializable {
 			quantUsoUnidade2++;
 			consumoUnidade2 += valor;
 		}
-		
 	}
 	
 	/**
@@ -63,11 +61,14 @@ public class Restaurante implements Servicos, Serializable {
 	 * @param mes Mes do consumo
 	 */
 	
-//	public void adicionaAoConsumoGeral(int dia, int mes)throws Exception{
-	//	 if (!(calendario.verificaDataValida(dia, mes))) throw new Exception ("Data invalida.");
-		// estrategia = calendario.verificaEstrategia(dia, mes);
-		 //consumoGeral += estrategia.calculaMontante(consumoDiario);
-	//}
+//	public void adicionaAoConsumoGeral() throws Exception {
+//		private Calendar data; 
+//		if (!(calendario.verificaDataValida(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.get(Calendar.MONTH)) + 1)))
+//			throw new Exception ("Data invalida.");
+//		
+//		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH, data.get(Calendar.get(Calendar.MONTH)) + 1);
+//		consumoGeral += estrategia.calculaMontante(consumoDiario);
+//	}
 	
 	@Override
 	public double getPreco() {
@@ -83,7 +84,7 @@ public class Restaurante implements Servicos, Serializable {
 				+ "\nUnidade 2 (Cobertura)"
 				+ "     \n Quantidade de usos: "+quantUsoUnidade2
 				+ "     \n Valor consumido: "+ consumoUnidade2
-				+ "\n\nValor total: "+consumoGeral;
+				+ "\n\nValor total: "+ consumoGeral;
 	} 
 	
 	@Override
