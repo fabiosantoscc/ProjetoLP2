@@ -82,6 +82,13 @@ public class Hotel implements Serializable {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param hospede
+	 * @return
+	 * @throws Exception
+	 */
+	
 	public Restaurante getRestaurante( Hospede hospede ) throws Exception {
 		Set <Hospede> meusHospedes = hospedes.keySet();
 		boolean restauranteEncontrado = false;
