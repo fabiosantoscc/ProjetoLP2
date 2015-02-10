@@ -10,7 +10,7 @@ import classes.BabySitter;
  * @author Ravi Leite and Ronan Souza
  * @data 02/01/2015
  * 
- * Atualizacao 01/02/2015 Ravi Leite
+ * Atualizacao 10/02/2015
  */
 
 public class BabySitter implements Servicos, Serializable {

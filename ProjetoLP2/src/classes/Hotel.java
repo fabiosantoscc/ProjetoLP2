@@ -82,6 +82,36 @@ public class Hotel implements Serializable {
 		}
 	}
 	
+	public Restaurante getRestaurante( Hospede hospede ) throws Exception {
+		Set <Hospede> meusHospedes = hospedes.keySet();
+		boolean restauranteEncontrado = false;
+		
+		if ( meusHospedes.size() == 0 )
+			throw new HospedeInvalidoException("Nao existe hospedes no hotel.");
+
+		for ( Hospede umHospede :  meusHospedes ) {
+			
+			if ( umHospede.getCpf().equals(hospede.getCpf()) || umHospede.getNome().equals(hospede.getNome()) ) {
+				List<Contrato> contratos = hospedes.get(umHospede);
+				for ( Contrato contrato : contratos ) {
+					if ( contrato.isAberto()) {
+						List<Servicos> servicos = contrato.getServicos();
+						for ( Servicos servico : servicos ) {
+							if ( servico instanceof Restaurante )
+								return (Restaurante) servico;
+						}
+					}	
+				}
+			}
+		}
+		
+		if ( restauranteEncontrado == false ) {
+			throw new Exception("Restaurante inexistente");
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @param esseHospede
