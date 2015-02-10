@@ -71,6 +71,11 @@ public class RemoverServicos extends JPanel {
 		JButton btnNewButton = new JButton("Remover");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				for ( Servicos servico : servicosAtuais ) {
+					if ( ((String) meuList.getSelectedValue()).equals(servico.toString()) ) {
+						servicosAtuais.remove(servico);
+					}
+				}
 				
 			}
 		});
