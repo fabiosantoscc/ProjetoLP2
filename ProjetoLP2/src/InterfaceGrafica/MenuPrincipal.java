@@ -43,7 +43,9 @@ public class MenuPrincipal {
 	public static ListaQuartos listaQuartosAtualizar;
 	public static ServicosDoHospede servicosDoHospede;
 	BuscarServicos buscarServicos = new BuscarServicos();
-	
+	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
+	public static RemoverServicos removerServicos;
+	BuscarRestauranteAtualizar buscarRestauranteAtualizar = new BuscarRestauranteAtualizar();
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -57,14 +59,12 @@ public class MenuPrincipal {
 	private final JMenuItem mntmBabySitter = new JMenuItem("Baby Sitter");
 	private final JMenuItem mntmAluguelDeVeculo = new JMenuItem("Aluguel de Ve\u00EDculo");
 	private final JMenu mnAdicionar = new JMenu("Adicionar");
-	private final JMenu mnRemover = new JMenu("Remover");
-	private final JMenuItem mntmBabysitter = new JMenuItem("BabySitter");
-	private final JMenuItem mntmAluguelDeCarro = new JMenuItem("Aluguel de Ve\u00EDculo");
 	private final JMenuItem mntmQuartos = new JMenuItem("Quartos");
 	private final JMenu mnAtualizar = new JMenu("Atualizar");
-	private final JMenuItem mntmQuartos_2 = new JMenuItem("Quartos");
 	private final JMenuItem mntmPesquisar = new JMenuItem("Pesquisar");
 	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
+	private final JMenuItem mntmRemover = new JMenuItem("Remover");
+	private final JMenuItem mntmRestaurante = new JMenuItem("Restaurante");
 
 	/**
 	 * Launch the application.
@@ -103,6 +103,8 @@ public class MenuPrincipal {
 		panel0.add(buscarBabySitter, "16");
 		panel0.add(buscarQuartoAtualizar, "25");
 		panel0.add(buscarServicos, "23");
+		panel0.add(buscarRemoverServicos, "26");
+		panel0.add(buscarRestauranteAtualizar, "27");
 		frame.setResizable(false);
 		
 		
@@ -201,14 +203,20 @@ public class MenuPrincipal {
 		});
 		
 		mnAtualizar.add(mntmQuartos_1);
+		mntmRestaurante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cl.show(panel0, "27");
+			}
+		});
 		
-		mnServios.add(mnRemover);
+		mnAtualizar.add(mntmRestaurante);
+		mntmRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "26");	
+			}
+		});
 		
-		mnRemover.add(mntmBabysitter);
-		
-		mnRemover.add(mntmQuartos_2);
-		
-		mnRemover.add(mntmAluguelDeCarro);
+		mnServios.add(mntmRemover);
 		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "15");
