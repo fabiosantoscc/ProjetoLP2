@@ -57,7 +57,7 @@ public class AdicionarBabySitter extends JPanel {
 					BabySitter babyAtual = new BabySitter(Integer.parseInt(textField.getText()), Integer.parseInt(textField_1.getText()));
 					Run.hotel.adicionaServico(hospedeAtual, babyAtual);
 					Arquivos.salvaHotel(Run.hotel);
-					JOptionPane.showMessageDialog(null, "Baby Sitter adicionado com Sucesso!");
+					JOptionPane.showMessageDialog(null, "Baby Sitter adicionado com sucesso!");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());

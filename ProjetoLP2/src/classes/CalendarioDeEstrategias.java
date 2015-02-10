@@ -1,7 +1,10 @@
 package classes;
 
-public class CalendarioDeEstrategias {
+import java.io.Serializable;
+
+public class CalendarioDeEstrategias implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	EstrategiaDeCalculoDaMontante estrategia;
 	
 	public EstrategiaDeCalculoDaMontante verificaEstrategia(int dia, int mes) {

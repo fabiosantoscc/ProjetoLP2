@@ -16,6 +16,7 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
+import classes.Arquivos;
 import Executar.Run;
 
 public class BuscarCheckOut extends JPanel {
@@ -25,6 +26,7 @@ public class BuscarCheckOut extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public BuscarCheckOut() {
 		setLayout(null);
 		
@@ -58,6 +60,7 @@ public class BuscarCheckOut extends JPanel {
 					
 					Run.hotel.getContratoAberto(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText())).setAberto(false);
 					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
+					Arquivos.salvaHotel(Run.hotel);
 					nomeAPesquisar.setText("");
 					cpfAPesquisar.setText("");
 					}catch(Exception c){
