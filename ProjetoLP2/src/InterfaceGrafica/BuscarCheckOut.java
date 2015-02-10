@@ -50,6 +50,10 @@ public class BuscarCheckOut extends JPanel {
 		add(textField_1);
 		
 		JButton button = new JButton("Buscar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button.setBounds(454, 315, 89, 23);
 		add(button);
 
