@@ -65,7 +65,6 @@ public class BuscarQuartoAtualizar extends JPanel {
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
-
 			}
 		});
 		button.setBounds(454, 315, 89, 23);

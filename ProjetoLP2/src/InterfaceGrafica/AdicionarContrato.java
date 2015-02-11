@@ -68,6 +68,10 @@ public class AdicionarContrato extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Run.hotel.verificaContratoAberto(hospedeAtual);
+					if ( Integer.parseInt(textField.getText()) == 0 ) {
+						throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
+					}
+					
 					for ( int i = 0; i < textField.getText().length(); i++ ) {
 						if ( !(Character.isDigit(textField.getText().charAt(i))) ) {
 							throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
