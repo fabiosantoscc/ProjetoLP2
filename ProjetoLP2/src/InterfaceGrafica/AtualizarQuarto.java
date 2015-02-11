@@ -82,7 +82,7 @@ public class AtualizarQuarto extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					quartoAtual.setQuantidadeDePessoas(Integer.parseInt(spinner.getValue().toString()));
-					JOptionPane.showMessageDialog(null, "HospedeAtualizado com Sucesso");
+					JOptionPane.showMessageDialog(null, "Hospede Atualizado com Sucesso");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());

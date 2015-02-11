@@ -115,7 +115,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Luxo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						quartoAtual = new QuartoLuxoSimples(pessoas, 1);
+						int camas = Integer.parseInt(spinner_1.getValue().toString());
+						quartoAtual = new QuartoLuxoSimples(pessoas, camas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -128,7 +129,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Luxo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
+						int camas = Integer.parseInt(spinner_1.getValue().toString());
+						quartoAtual = new QuartoLuxoDuplo(pessoas, camas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -154,7 +156,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Executivo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
+						int camas = Integer.parseInt(spinner_1.getValue().toString());
+						quartoAtual = new QuartoExecutivoSimples(pessoas, camas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -167,7 +170,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				case "Executivo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
-						quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
+						int camas = Integer.parseInt(spinner_1.getValue().toString());
+						quartoAtual = new QuartoExecutivoDuplo(pessoas, camas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
