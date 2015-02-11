@@ -67,7 +67,6 @@ public class AdicionarContrato extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Run.hotel.verificaContratoAberto(hospedeAtual);
 					if ( Integer.parseInt(textField.getText()) == 0 ) {
 						throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
 					}
@@ -76,15 +75,13 @@ public class AdicionarContrato extends JPanel {
 						if ( !(Character.isDigit(textField.getText().charAt(i))) ) {
 							throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
 						}
-					}	
+					}
+					
 					MenuPrincipal.adcQuartoObrigatorio = new AdicionarQuartoObrigatorio(hospedeAtual, Integer.parseInt(textField.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.adcQuartoObrigatorio, "21");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "21");
 					JOptionPane.showMessageDialog(null, "Para criar um contrato, é necessário adicionar um quarto.");
-				} catch (NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, e1.getMessage());
-				}
-				catch (Exception e1) {
+				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 			}

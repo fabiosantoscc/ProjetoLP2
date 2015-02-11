@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import Executar.Run;
+import classes.Arquivos;
 import classes.Hospede;
 import classes.Quarto;
 import classes.QuartoExecutivoDuplo;
@@ -88,6 +89,8 @@ public class AtualizarQuarto extends JPanel {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (QuantidadeDePessoasInvalidaException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (Exception e1) {
+					e1.getMessage();
 				}
 			}
 		});
