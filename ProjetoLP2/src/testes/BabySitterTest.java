@@ -22,30 +22,30 @@ public class BabySitterTest {
 	public void testaConstrutor(){
 		try{
 			new BabySitter(0, 18);
-			Assert.fail("Deveria ocorrer uma exceção!!");
+			Assert.fail("Deveria ocorrer uma excecao!!");
 		}catch(Exception e){
 			Assert.assertEquals("O numero de horas tem que ser maior que zero.", e.getMessage());	
 		}
 		
 		try{
 			new BabySitter(-1, 16);
-			Assert.fail("Deveria ocorrer uma exceção!!");
+			Assert.fail("Deveria ocorrer uma excecao!!");
 		}catch(Exception e){
 			Assert.assertEquals("O numero de horas tem que ser maior que zero.", e.getMessage());	
 		}
 		
 		try{
 			new BabySitter(4, -1);
-			Assert.fail("Deveria ocorrer uma exceção!!");
+			Assert.fail("Deveria ocorrer uma excecao!!");
 		}catch(Exception e){
-			Assert.assertEquals("Hora inicial do serviço inválida.", e.getMessage());	
+			Assert.assertEquals("Hora inicial do servico invalida.", e.getMessage());	
 		}	
 		
 		try{
 			new BabySitter(4, 24);
-			Assert.fail("Deveria ocorrer uma exceção!!");
+			Assert.fail("Deveria ocorrer uma excecao!!");
 		}catch(Exception e){
-			Assert.assertEquals("Hora inicial do serviço inválida.", e.getMessage());	
+			Assert.assertEquals("Hora inicial do servico invalida.", e.getMessage());	
 		}
 	
 		try{
@@ -71,22 +71,7 @@ public class BabySitterTest {
 		Assert.assertEquals(5, baby5.getQuantidadeHorasDobradas());
 	}
 	
-	
-	@Test
-	public void testaToString(){
-		Assert.assertEquals("Baby Sitter \n"
-				+ "Horario de inicio do serviço: 15"
-				+"\nQuantidade de Horas Normais: 6"
-				+ "\nQuantidade de Horas Dobradas: 0", baby2.toString());
-		Assert.assertEquals("Baby Sitter \n"
-				+ "Horario de inicio do serviço: 14"
-				+"\nQuantidade de Horas Normais: 9"
-				+ "\nQuantidade de Horas Dobradas: 0", baby3.toString());
-		Assert.assertEquals("Baby Sitter \n"
-				+ "Horario de inicio do serviço: 2"
-				+"\nQuantidade de Horas Normais: 16"
-				+ "\nQuantidade de Horas Dobradas: 0", baby4.toString());
-	}
+	// Test toString()IMPOSSIVEL TESTAR TO STRING, POIS ELE TEM A DATA COMPLETA, ATE OS SEGUNDOS.
 	
 	@Test
 	public void testaEquals(){
@@ -98,8 +83,5 @@ public class BabySitterTest {
 		Assert.assertFalse(baby4.equals(baby3));
 		Assert.assertTrue(baby4.equals(baby5));
 		Assert.assertTrue(baby5.equals(baby4));
-		
-		
-		
 	}
 }

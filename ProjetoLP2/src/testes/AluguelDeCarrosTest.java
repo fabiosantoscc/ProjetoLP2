@@ -81,6 +81,8 @@ public class AluguelDeCarrosTest {
 		Assert.assertEquals(100, carro1.getValorDiaria(), 1);
 	}
 	
+	// Test toString()IMPOSSIVEL TESTAR TO STRING, POIS ELE TEM A DATA COMPLETA, ATE OS SEGUNDOS.
+	
 	@Test
 	public void testaEquals(){
 		Assert.assertFalse(carro1.equals(carro2));

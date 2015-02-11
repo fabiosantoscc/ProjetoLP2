@@ -110,7 +110,6 @@ public class RestauranteTest {
 		Assert.assertEquals(rest4.getConsumoUnidade2(), 500.0, 2);
 	}
 	
-	
 	@Test
 	public void testaEquals(){
 		Assert.assertFalse(rest1.equals(rest2));

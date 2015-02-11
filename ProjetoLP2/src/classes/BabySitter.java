@@ -62,7 +62,7 @@ public class BabySitter implements Servicos {
 	
 	private void checaHoraInicial(int horaInicial) throws Exception{
 		if (horaInicial < 0 || horaInicial > 23){
-			throw new Exception("Hora inicial do serviço inválida.");
+			throw new Exception("Hora inicial do servico invalida.");
 		}
 	}
 	
