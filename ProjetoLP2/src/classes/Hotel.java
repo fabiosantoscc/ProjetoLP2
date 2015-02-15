@@ -284,10 +284,18 @@ public class Hotel implements Serializable {
 	 * Adiciona um hospede no hotel
 	 * 
 	 * @param hospede - Hospede a ser adicionado no hotel
-	 * @throws Exception 
+	 * @throws HospedeInvalidoException 
 	 */
 	
-	public void addHospede( Hospede hospede ) {
+	public void addHospede( Hospede hospede ) throws HospedeInvalidoException {
+		Set <Hospede> meusHospedes = hospedes.keySet();
+		
+		for ( Hospede esseHospede: meusHospedes ) {
+			if ( esseHospede.getCpf().equals(hospede.getCpf()) || esseHospede.getNome().equals(hospede.getNome()) ) {
+				throw new HospedeInvalidoException("Esse hospede ja esta cadastrado no hotel.");
+			}
+		}
+		
 		List<Contrato> contratos = new ArrayList<Contrato>();
 		hospedes.put(hospede, contratos);
 	}

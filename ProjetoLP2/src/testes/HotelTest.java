@@ -31,7 +31,7 @@ public class HotelTest {
 	}
 	
 	@Test
-	public void testaAdicionaHospede(){
+	public void testaAdicionaHospede() throws HospedeInvalidoException{
 		Assert.assertEquals(0, h1.getMapaDeHospedes().size());
 		h1.addHospede(hospede);
 		Assert.assertEquals(1, h1.getMapaDeHospedes().size());

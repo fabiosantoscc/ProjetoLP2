@@ -161,7 +161,7 @@ public class CasoDeUso1Test {
 	}
 
 	@Test
-	public void testaAdcHospede() {
+	public void testaAdcHospede() throws HospedeInvalidoException {
 		Assert.assertEquals(0, hotel.getMapaDeHospedes().size());
 		hotel.addHospede(hospede);
 		Assert.assertEquals(1, hotel.getMapaDeHospedes().size());
