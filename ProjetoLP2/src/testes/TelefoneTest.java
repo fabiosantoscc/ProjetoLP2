@@ -3,8 +3,10 @@ package testes;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-import excecoes.*;
 import classes.Telefone;
+import excecoes.DddInvalidoException;
+import excecoes.InputArgumentInvalidException;
+import excecoes.NumeroTelefoneInvalidoException;
 
 /** Classe de testes da classe telefone
  *
@@ -75,7 +77,7 @@ public class TelefoneTest {
 		try {
 			new Telefone("73", "-9999999");
 			Assert.fail("Esperava excecao pois o numero do telefone eh negativo.");
-		} catch ( NumeroTelefoneInvalidoException e ) {
+		} catch ( Exception e ) {
 			Assert.assertEquals("O Numero do telefone deve conter apenas digitos.", e.getMessage());
 		}
 	}
