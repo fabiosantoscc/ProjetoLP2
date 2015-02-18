@@ -55,6 +55,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
 	Quarto quartoAtual;
+	
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
 		setLayout(null);
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
@@ -105,7 +106,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						quartoAtual = new QuartoPresidencial(pessoas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -117,7 +118,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						int camas = Integer.parseInt(spinner_1.getValue().toString());
 						quartoAtual = new QuartoLuxoSimples(pessoas, camas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -131,7 +132,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						int camas = Integer.parseInt(spinner_1.getValue().toString());
 						quartoAtual = new QuartoLuxoDuplo(pessoas, camas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -144,7 +145,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						quartoAtual = new QuartoLuxoTriplo(pessoas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -158,7 +159,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						int camas = Integer.parseInt(spinner_1.getValue().toString());
 						quartoAtual = new QuartoExecutivoSimples(pessoas, camas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -172,7 +173,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						int camas = Integer.parseInt(spinner_1.getValue().toString());
 						quartoAtual = new QuartoExecutivoDuplo(pessoas, camas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
@@ -185,7 +186,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					try {
 						int pessoas = Integer.parseInt(spinner.getValue().toString());
 						quartoAtual = new QuartoExecutivoTriplo(pessoas);
-						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
+						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} catch (QuartoEsgotadoNoHotelException e1) {
