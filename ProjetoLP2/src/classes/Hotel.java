@@ -238,6 +238,7 @@ public class Hotel implements Serializable {
 	
 	public void criaContrato( Hospede hospede, int noites ) throws Exception {
 
+		verificaContratoAberto(hospede);
 		Contrato addContrato = new Contrato(noites);
 		List<Contrato> contratos = hospedes.get(hospede);
 		contratos.add(addContrato);
