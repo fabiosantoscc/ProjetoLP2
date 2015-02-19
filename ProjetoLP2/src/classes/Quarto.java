@@ -37,25 +37,26 @@ public abstract class Quarto implements Servicos, Serializable  {
 		this.quantidadeDePessoas = quantidadeDePessoas;
 	}
 	
-//	public void calculaDespesaTotal(int diaEntrada, int diaSaida, int mesEntrada, int mesSaida, double despesaDiaria){
-//		for (int i = mesEntrada; i <= mesSaida; i++){
-//			for (int j = diaEntrada; j <= diaSaida; j ++){
-//				boolean dataValida = calendario.verificaDataValida(j, i);
-//				if (! dataValida){
-//					i = 1;
-//					if (j == 12) {
-//						j = 1;
-//					}
-//					else j++;
-//					break;
-//				}
-//			estrategia = calendario.verificaEstrategia(j, i);
-//			despesaTotal += estrategia.calculaMontante(despesaDiaria);
-//			System.out.println(despesaTotal);
-//			}
-//		}
-//		despesaTotal *= quantidadeDePessoas;
-//	}
+	public void calculaDespesaTotal(int diaEntrada, int diaSaida, int mesEntrada, int mesSaida, double despesaDiaria){
+		for (int i = mesEntrada; i <= mesSaida; i++){
+			for (int j = diaEntrada; j <= diaSaida; j ++){
+				boolean dataValida = calendario.verificaDataValida(j, i);
+				if (! dataValida){
+					i = 1;
+					if (j == 12) {
+						j = 1;
+					}
+					}
+					else j++;
+					break;
+				}
+			estrategia = calendario.verificaEstrategia(j, i);
+			despesaTotal += estrategia.calculaMontante(despesaDiaria);
+			System.out.println(despesaTotal);
+			}
+		despesaTotal *= quantidadeDePessoas;
+		
+		}
 	
 	public int getDiaInicial() {
 		return diaInicial;
