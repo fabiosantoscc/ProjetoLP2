@@ -1,8 +1,8 @@
 package excecoes;
 
 public class ComentarioInvalidoException extends InputArgumentInvalidException {
-	
-	public ComentarioInvalidoException(String comentario) {
-		super(comentario);
-	}
+
+  public ComentarioInvalidoException(String comentario) {
+    super(comentario);
+  }
 }

@@ -2,7 +2,7 @@ package excecoes;
 
 public class NomeInvalidoException extends InputArgumentInvalidException {
 
-	public NomeInvalidoException(String comentario) {
-		super(comentario);
-	}
+  public NomeInvalidoException(String comentario) {
+    super(comentario);
+  }
 }
