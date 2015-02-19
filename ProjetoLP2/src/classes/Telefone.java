@@ -7,7 +7,7 @@ import excecoes.NumeroTelefoneInvalidoException;
 import java.io.Serializable;
 
 /**
-*     Classe que contem os dados referentes ao numedo do telefone do hospede
+*     Classe que contem os dados referentes ao numedo do telefone do hospede.
 * 
 *     @author Ravi Leite
 * 
@@ -70,7 +70,7 @@ public class Telefone implements Serializable {
 
   private void verificaNumero( String numero ) throws InputArgumentInvalidException {
 
-    if ( numero == null || numero.equals("")) {
+    if ( numero == null || numero.equals("") ) {
       throw new NumeroTelefoneInvalidoException("Numero de telefone nao pode ser vazio.");
     }
 
@@ -143,7 +143,7 @@ public class Telefone implements Serializable {
     return "(" + getDdd() + ") " + getNumero();
   }
   
-  /**
+  /** hash.
   * 
   */
 
