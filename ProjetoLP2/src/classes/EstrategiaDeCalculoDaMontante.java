@@ -2,5 +2,5 @@ package classes;
 
 public interface EstrategiaDeCalculoDaMontante {
 
-	public double calculaMontante(double total);
+  public double calculaMontante(double total);
 }

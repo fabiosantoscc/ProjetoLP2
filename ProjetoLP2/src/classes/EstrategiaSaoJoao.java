@@ -7,15 +7,15 @@ package classes;
  * @author Ravi Leite
  */
 
-public class EstrategiaSaoJoao implements EstrategiaDeCalculoDaMontante{
-	
-	/**
-	 * Calcula o montante naquele dia e mes, multiplicando o total por um valor pre-determinado pelo hotel
-	 */
-	
-	
-	@Override
-	public double calculaMontante(double total) {
-		return total *= 1.30;
-	}
+public class EstrategiaSaoJoao implements EstrategiaDeCalculoDaMontante {
+
+  /**
+  * Calcula o montante naquele dia e mes, multiplicando o total por um valor 
+  * pre-determinado pelo hotel
+  */
+
+  @Override
+  public double calculaMontante(double total) {
+    return total *= 1.30;
+  }
 }

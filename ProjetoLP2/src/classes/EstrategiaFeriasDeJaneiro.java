@@ -7,16 +7,16 @@ package classes;
  * @author Ravi Leite
  */
 
-public class EstrategiaFeriasDeJaneiro implements EstrategiaDeCalculoDaMontante{
-	
-	/**
-	 * Calcula o montante naquele dia e mes, multiplicando o total por um valor pre-determinado pelo hotel
-	 */
-	
-	
-	@Override
-	public double calculaMontante(double total) {
-		return total *= 1.20;
-	}
+public class EstrategiaFeriasDeJaneiro implements EstrategiaDeCalculoDaMontante {
+
+  /**
+  * Calcula o montante naquele dia e mes, multiplicando o total por um valor
+  * pre-determinado pelo hotel
+  */
+
+  @Override
+  public double calculaMontante(double total) {
+    return total *= 1.20;
+  }
 }
 
