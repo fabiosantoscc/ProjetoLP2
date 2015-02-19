@@ -29,7 +29,7 @@ public class TelefoneTest {
   public void testaConstrutor() throws InputArgumentInvalidException {
     
     try {
-      telefone = new Telefone("83", "99999999");
+      new Telefone("83", "99999999");
     } catch ( InputArgumentInvalidException e ) {
       Assert.assertEquals(e.getMessage(), "Esse prompt nao deve ser mostrado "
             + "caso seu construtor esteja correto.");
@@ -43,33 +43,33 @@ public class TelefoneTest {
     }
 
     try {
-      telefone = new Telefone(null, "999999999");
+      new Telefone(null, "999999999");
     } catch ( InputArgumentInvalidException e ) {
       Assert.assertEquals("DDD nao pode ser vazio.", e.getMessage());
     }
     
     try {
-      telefone = new Telefone("", "999999999");
+      new Telefone("", "999999999");
     } catch ( InputArgumentInvalidException e ) {
       Assert.assertEquals("DDD nao pode ser vazio.", e.getMessage());
     }
     
     try {
-      telefone = new Telefone("83", null);
+      new Telefone("83", null);
       Assert.fail("Esperava excecao pois o numero de telefone esta invalido.");
     } catch ( NumeroTelefoneInvalidoException e ) {
       Assert.assertEquals("Numero de telefone nao pode ser vazio.", e.getMessage());
     }
     
     try {
-      telefone = new Telefone("83", "");
+      new Telefone("83", "");
       Assert.fail("Esperava excecao pois o numero de telefone esta invalido.");
     } catch ( NumeroTelefoneInvalidoException e ) {
       Assert.assertEquals("Numero de telefone nao pode ser vazio.", e.getMessage());
     }
         
     try {
-      telefone = new Telefone("83", "0");
+      new Telefone("83", "0");
       Assert.fail("Esperava excecao pois o numero de telefone esta invalido.");
     } catch ( NumeroTelefoneInvalidoException e ) {
       Assert.assertEquals("Quantidade de digitos do telefone invalida.", e.getMessage());
@@ -182,6 +182,14 @@ public class TelefoneTest {
     Assert.assertEquals(telefone.toString(),"(83) 99999999");
   }
 
+  @Test
+  public void testaHashCode() throws InputArgumentInvalidException {
+	Telefone novoTelefone = new Telefone("83", "99999998");
+	Assert.assertFalse(telefone.hashCode() == novoTelefone.hashCode());
+    novoTelefone.setNumero("99999999");
+    Assert.assertTrue(telefone.hashCode() == novoTelefone.hashCode());
+  }
+  
   @Test
   public void testaEquals() throws InputArgumentInvalidException, QuartoEsgotadoNoHotelException {
     QuartoPresidencial qp = new QuartoPresidencial(2);
