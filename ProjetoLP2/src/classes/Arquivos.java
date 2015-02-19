@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
 /**
  * Classe que serve para salvar, ler e verificar se existe um arquivo salvo.
  * 
@@ -18,64 +17,70 @@ import java.io.ObjectOutputStream;
  */
 
 public class Arquivos {
-	
-	private final static String DIR = "hotel";
 
-	/**
-	 * Metodo que salva um onjeto do tipo hotel.
-	 * 
-	 * @param hotel
-	 * @throws Exception
-	 */
-	
-	public static void salvaHotel(Hotel hotel) throws Exception {
-		File file = new File(DIR);
-		ObjectOutputStream out = null;
-		try {
-			if ( file.canRead() == true ) {
-				out = new ObjectOutputStream(new BufferedOutputStream(
-					new FileOutputStream(DIR)));
-				 out.writeObject(hotel);
-			}  else {
-				file.createNewFile();
-				out = new ObjectOutputStream(new FileOutputStream(file));
-				out.writeObject(hotel);
-			}
-		} finally {
-        out.close();
-        }
-	}
-	
-	/**
-	 * Metodo que ler um onjeto do tipo hotel.
-	 * 
-	 * @return Hotel - O HOtel lido.
-	 * @throws Exception
-	 */
-	
-	public static Hotel lerHotel() throws Exception {
-		ObjectInputStream in = null;
-		try {
-			in = new ObjectInputStream(new BufferedInputStream(
-					new FileInputStream(DIR)));
+  private final static String DESTINO = "hotel";
 
-			Hotel h = (Hotel) in.readObject();
-			return h;
-		} catch (EOFException e) {
-		} finally {
-			in.close();
-		}
-		return null;
-	}
-	
-	/**
-	 * Metodo que verifica se existe um hotel salvo.
-	 * 
-	 * @return
-	 */
-	
-	public static boolean existeHotel() {
-		File file = new File(DIR);
-		return file.exists();
-	}
+  /**
+  * Metodo que salva um onjeto do tipo hotel.
+  * 
+  * @param hotel
+  * @throws Exception
+  */
+
+  public static void salvaHotel(Hotel hotel) throws Exception {
+    
+    File file = new File(DESTINO);
+    ObjectOutputStream output = null;
+    
+    try {
+      if ( file.canRead() == true ) {
+        output = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(DESTINO)));
+        output.writeObject(hotel);
+      
+      } else {
+        file.createNewFile();
+        output = new ObjectOutputStream(new FileOutputStream(file));
+        output.writeObject(hotel);
+      }
+    } finally {
+      output.close();
+    }
+  }
+
+  /**
+  * Metodo que ler um onjeto do tipo hotel.
+  * 
+  * @return Hotel - O HOtel lido.
+  * @throws Exception
+  */
+
+  public static Hotel lerHotel() throws Exception {
+    
+    ObjectInputStream input = null;
+    
+    try {
+      input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(DESTINO)));
+
+      Hotel h = (Hotel) input.readObject();
+      return h;
+    } catch (EOFException e) {
+      e.getMessage();
+    } finally {
+      input.close();
+    }
+    
+    return null;
+    
+  }
+
+  /**
+  * Metodo que verifica se existe um hotel salvo.
+  * 
+  * @return
+  */
+
+  public static boolean existeHotel() {
+    File file = new File(DESTINO);
+    return file.exists();
+  }
 }
