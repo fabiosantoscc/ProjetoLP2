@@ -104,6 +104,5 @@ public class Opiniao implements Serializable {
     Opiniao opiniao = (Opiniao) obj;
 
     return ( getNota() == opiniao.getNota() && getComentario().equals(opiniao.getComentario()) );
-
   }
 }

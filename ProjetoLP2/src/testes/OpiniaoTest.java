@@ -2,11 +2,15 @@ package testes;
 
 import excecoes.NotaInvalidaException;
 import classes.Opiniao;
+import classes.QuartoPresidencial;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
+
 import excecoes.ComentarioInvalidoException;
 import excecoes.InputArgumentInvalidException;
+import excecoes.QuartoEsgotadoNoHotelException;
 import classes.Telefone;
 
 /*
@@ -109,12 +113,14 @@ public class OpiniaoTest {
 	}
 	
 	@Test
-	public void testEquals() throws InputArgumentInvalidException {
+	public void testEquals() throws InputArgumentInvalidException, QuartoEsgotadoNoHotelException {
 		Telefone t = new Telefone("83", "88888888");
+		QuartoPresidencial qp = new QuartoPresidencial(4);
 		Assert.assertFalse(t.equals(op));
 		Assert.assertFalse(t.equals(op2));
 		Assert.assertFalse(op.equals(op2));
 		Opiniao op3 = new Opiniao("Bom Hotel", 10.0);
 		Assert.assertTrue(op.equals(op3));
+        Assert.assertFalse(op.equals(qp));
 	}
 }
