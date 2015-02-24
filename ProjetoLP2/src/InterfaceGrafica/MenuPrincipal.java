@@ -54,6 +54,7 @@ public class MenuPrincipal {
 	public static AtualizarRestaurante atualizarRestaurante;
 	public static CheckOut checkOut;
 	public static AtualizarQuarto atualizarQuarto;
+	public static NotaEComentario notaEComentario = new NotaEComentario();
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -73,6 +74,9 @@ public class MenuPrincipal {
 	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 	private final JMenuItem mntmRemover = new JMenuItem("Remover");
 	private final JMenuItem mntmRestaurante = new JMenuItem("Restaurante");
+	private final JMenu mnNewMenu_1 = new JMenu("Mais Op\u00E7\u00F5es");
+	private final JMenuItem mntmNewMenuItem_6 = new JMenuItem("Sobre");
+	private final JMenuItem mntmNotaDeAceitao = new JMenuItem("Nota de Aceita\u00E7\u00E3o e Coment\u00E1rios");
 
 	/**
 	 * Launch the application.
@@ -113,6 +117,7 @@ public class MenuPrincipal {
 		panel0.add(buscarServicos, "23");
 		panel0.add(buscarRemoverServicos, "26");
 		panel0.add(buscarRestauranteAtualizar, "27");
+		panel0.add(notaEComentario, "30");
 		frame.setResizable(false);
 		
 		
@@ -225,6 +230,17 @@ public class MenuPrincipal {
 		});
 		
 		mnServios.add(mntmRemover);
+		
+		menuBar.add(mnNewMenu_1);
+		
+		mnNewMenu_1.add(mntmNewMenuItem_6);
+		mntmNotaDeAceitao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cl.show(panel0, "30");
+			}
+		});
+		
+		mnNewMenu_1.add(mntmNotaDeAceitao);
 		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "15");
@@ -257,5 +273,4 @@ public class MenuPrincipal {
 			  __wbp_panel.add(frame_1);
 		}
 	}
-
 }
