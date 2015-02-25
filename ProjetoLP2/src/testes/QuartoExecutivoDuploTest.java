@@ -15,9 +15,18 @@ import excecoes.QuartoEsgotadoNoHotelException;
  */
 
 public class QuartoExecutivoDuploTest {
-	QuartoExecutivoDuplo q1;
-	QuartoExecutivoDuplo q2;
+	QuartoExecutivoDuplo q1, q2, q3;
 	
+	@Test
+	public void testaCalculo()throws Exception{
+		q3 = new QuartoExecutivoDuplo(3,0);
+		q3.setValorDiario(385.0);
+		q3.calculaDespesaTotal(1,1, 5, 2, 2015, 2015);
+		System.out.println(q3.getDespesaTotal());
+		Assert.assertEquals(16285.5, q3.getDespesaTotal() ,1);
+		System.out.println(q3.calculaDespesaTotal(1, 1, 1, 2, 2015, 2016));
+	}
+	/*
 	@Test
 	public void testaTudo() throws Exception {
 	
@@ -153,5 +162,5 @@ public class QuartoExecutivoDuploTest {
 		} catch ( Exception e ) {
 			Assert.assertEquals("Quantidade de camas extras invalida",e.getMessage());
 		}
-	}
+	}*/
 }
