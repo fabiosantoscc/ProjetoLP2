@@ -67,7 +67,8 @@ public abstract class Quarto implements Servicos, Serializable  {
 			System.out.println(despesaTotal);
 			diaEntrada++;
 		}
-		return contador;
+		return contador; 
+		
 	}
 	
   public void setValorDiario(double diaria){
