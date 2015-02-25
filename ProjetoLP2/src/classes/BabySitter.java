@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import classes.BabySitter;
@@ -13,8 +14,9 @@ import classes.BabySitter;
  * Atualizacao 10/02/2015
  */
 
-public class BabySitter implements Servicos {
+public class BabySitter implements Servicos, Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
 	private double despesaDiaria, despesaTotal;

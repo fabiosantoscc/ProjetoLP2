@@ -13,6 +13,7 @@ import excecoes.*;
 
 public class QuartoLuxoSimples extends Quarto {
 
+	private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 520.0;
 	private int camaExtra;
 	

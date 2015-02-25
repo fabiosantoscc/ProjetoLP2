@@ -14,6 +14,7 @@ import excecoes.QuartoEsgotadoNoHotelException;
 
 public class QuartoExecutivoTriplo extends Quarto {
 
+	private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 440.0;
 	
 	/**
