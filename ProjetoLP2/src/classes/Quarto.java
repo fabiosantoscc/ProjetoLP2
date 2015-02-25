@@ -1,6 +1,7 @@
 package classes;
 
 import classes.Quarto;
+import excecoes.CamaExtraEsgotadaException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 
 import java.io.Serializable;
@@ -14,9 +15,8 @@ import java.util.Calendar;
  */
 
 public abstract class Quarto implements Servicos, Serializable  {
-  
-  private int camasExtra;
-  private double valorDiario;
+ 
+  private double valorDiaria;
   private EstrategiaDeCalculoDaMontante estrategia;
   private CalendarioDeEstrategias calendario;
   private static final long serialVersionUID = 1L;
@@ -31,20 +31,21 @@ public abstract class Quarto implements Servicos, Serializable  {
   * construtor de um quarto.
   * 
   * @param quantidadeDePessoas - Quantidade De Pessoas a se hospedarem no quarto.
+ * @throws CamaExtraEsgotadaException 
   * @throws Exception
   */
 
-  public Quarto(int quantidadeDePessoas) {
+  public Quarto( int quantidadeDePessoas ) {
     Calendar date = Calendar.getInstance();
     calendario = new CalendarioDeEstrategias();
     data = date;
     diaInicial = date.get(Calendar.DAY_OF_MONTH);
     mesInicial = date.get(Calendar.MONTH) + 1;
     anoInicial = date.get(Calendar.YEAR);
+    valorDiaria = 0.0;
     this.quantidadeDePessoas = quantidadeDePessoas;
-    camasExtra = 0;
   }
-
+  
 	public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
 			int anoSaida)throws Exception{
 		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
@@ -63,19 +64,23 @@ public abstract class Quarto implements Servicos, Serializable  {
 			}
 			contador++;
 			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-			despesaTotal += estrategia.calculaMontante(valorDiario);
+			despesaTotal += estrategia.calculaMontante(valorDiaria);
 			System.out.println(despesaTotal);
 			diaEntrada++;
 		}
 		return contador; 
 	}
-	
-  public void setValorDiario(double diaria){
-	  valorDiario = diaria;
+
+  public void setCamaExtra() {
+	  
+  }
+
+  public void setValorDiario(double diaria) {
+	  valorDiaria = diaria;
   }
 	
-  public double getValorDiqario(){
-	  return valorDiario;
+  public double getValorDiaria() {
+	  return valorDiaria;
   }
 
   public int getDiaInicial() {

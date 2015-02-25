@@ -60,17 +60,7 @@ public class QuartoExecutivoSimples extends Quarto {
 		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
 		this.camaExtra = cama;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	
-	@Override
-	public double getPreco() {
-		return VALOR_DIARIA;
-	}
-	
+		
 	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
 		verificaQuantidadeDePessoas(pessoas);
 		super.setQuantidadeDePessoas(pessoas);
@@ -113,7 +103,6 @@ public class QuartoExecutivoSimples extends Quarto {
 		
 		QuartoExecutivoSimples qes = (QuartoExecutivoSimples) obj;
 		
-		return super.equals(qes) && qes.getPreco() == VALOR_DIARIA &&
-			   qes.getCamaExtra() == getCamaExtra();
+		return super.equals(qes) && qes.getCamaExtra() == getCamaExtra();
 	}
 }

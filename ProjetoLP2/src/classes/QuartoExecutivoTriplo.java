@@ -34,17 +34,7 @@ public class QuartoExecutivoTriplo extends Quarto {
 		
 		Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	
-	@Override
-	public double getPreco() {
-		return VALOR_DIARIA;
-	}
-	
+		
 	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
 		verificaQuantidadeDePessoas(pessoas);
 		super.setQuantidadeDePessoas(pessoas);
@@ -81,6 +71,6 @@ public class QuartoExecutivoTriplo extends Quarto {
 		
 		QuartoExecutivoTriplo qet = (QuartoExecutivoTriplo) obj;
 		
-		return super.equals(qet) && qet.getPreco() == VALOR_DIARIA;
+		return super.equals(qet);
 	}
 }

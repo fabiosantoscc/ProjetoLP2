@@ -13,7 +13,8 @@ import excecoes.QuartoEsgotadoNoHotelException;
  */
 
 public class QuartoLuxoTriplo extends Quarto {
-	
+
+    private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 620.0;
 	
 	/**
@@ -33,15 +34,6 @@ public class QuartoLuxoTriplo extends Quarto {
 		}
 		
 		Hotel.setQuartoLuxoTriplo(Hotel.getQuartoLuxoTriplo() - 1);
-	}
-	
-	/**
-	 * 
-	 */
-	
-	@Override
-	public double getPreco() {
-		return VALOR_DIARIA;
 	}
 	
 	/**
@@ -85,6 +77,6 @@ public class QuartoLuxoTriplo extends Quarto {
 		
 		QuartoLuxoTriplo qlt = (QuartoLuxoTriplo) obj;
 		
-		return super.equals(qlt) && qlt.getPreco() == VALOR_DIARIA;
+		return super.equals(qlt);
 	}
 }

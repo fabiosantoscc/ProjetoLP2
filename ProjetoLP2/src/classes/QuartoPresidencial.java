@@ -35,17 +35,6 @@ public class QuartoPresidencial extends Quarto {
 	}
 	
 	/**
-	 * Recupera o preco da diaria de um quarto presidencial.
-	 * 
-	 * @return
-	 */
-	
-	@Override
-	public double getPreco() {
-		return VALOR_DIARIA;
-	}
-	
-	/**
 	 * Altera a quantidade de pessoas do quarto presidencial.
 	 * 
 	 * @param pessoas - Quantidade de pessoas atual do quarto presidencial, deve ser entre 1 e 4.
@@ -88,6 +77,6 @@ public class QuartoPresidencial extends Quarto {
 		
 		QuartoPresidencial qp = (QuartoPresidencial) obj;
 		
-		return super.equals(qp) && qp.getPreco() == VALOR_DIARIA;
+		return super.equals(qp);
 	}
 }

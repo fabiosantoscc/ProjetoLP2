@@ -66,7 +66,7 @@ public class Restaurante implements Servicos, Serializable {
 	}
 	
 	@Override
-	public double getPreco() {
+	public double getDespesaTotal() {
 		return consumoGeral;
 	}
 	
@@ -90,7 +90,7 @@ public class Restaurante implements Servicos, Serializable {
 		Restaurante novo = (Restaurante) obj;
 		
 		if (novo.getConsumoUnidade1() == consumoUnidade1 &&
-				novo.getConsumoUnidade2() == consumoUnidade2 && novo.getPreco() == consumoGeral){
+				novo.getConsumoUnidade2() == consumoUnidade2 && novo.getDespesaTotal() == consumoGeral){
 			return true;
 		}
 		return false;

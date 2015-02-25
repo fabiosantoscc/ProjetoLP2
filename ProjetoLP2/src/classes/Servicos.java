@@ -10,7 +10,7 @@ package classes;
 
 public interface Servicos {
 
-	public double getPreco();
+	public double getDespesaTotal();
 	
 	public String toString();
 }

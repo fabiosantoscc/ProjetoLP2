@@ -13,6 +13,7 @@ import excecoes.*;
 
 public class QuartoLuxoDuplo extends Quarto {
 
+	private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 570.0;
 	private int camaExtra;
 	
@@ -40,17 +41,19 @@ public class QuartoLuxoDuplo extends Quarto {
 		Hotel.setQuartoLuxoDuplo(Hotel.getQuartoLuxoDuplo() - 1);
 	}
 	
+    private void verificaCamaExtra(int camaExtra) throws CamaExtraEsgotadaException {
+			if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+				throw new CamaExtraEsgotadaException("Quantidade de camas extras invalida");
+			}
+		}
+	
 	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
 		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
 			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
 		}
 	}
 
-	private void verificaCamaExtra(int camaExtra) throws CamaExtraEsgotadaException {
-		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
-			throw new CamaExtraEsgotadaException("Quantidade de camas extras invalida");
-		}
-	}
+	
 
 	/**
 	 * @return - A quantidade de camas extras do quarto.
@@ -73,16 +76,7 @@ public class QuartoLuxoDuplo extends Quarto {
 		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
 		this.camaExtra = cama;
 	}
-	
-	/**
-	 * 
-	 */
-	
-	@Override
-	public double getPreco() {
-		return VALOR_DIARIA;
-	}
-	
+		
 	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
 		verificaQuantidadeDePessoas(pessoas);
 		
@@ -114,7 +108,6 @@ public class QuartoLuxoDuplo extends Quarto {
 		
 		QuartoLuxoDuplo qld = (QuartoLuxoDuplo) obj;
 		
-		return super.equals(qld) && qld.getPreco() == VALOR_DIARIA &&
-				qld.getCamaExtra() == getCamaExtra();
+		return super.equals(qld) && qld.getCamaExtra() == getCamaExtra();
 	}
 }
