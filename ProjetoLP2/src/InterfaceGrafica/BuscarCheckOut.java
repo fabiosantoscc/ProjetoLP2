@@ -56,18 +56,15 @@ public class BuscarCheckOut extends JPanel {
 		JButton button = new JButton("Buscar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
-					
-					Run.hotel.getContratoAberto(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText())).setAberto(false);
-					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
-					Arquivos.salvaHotel(Run.hotel);
+				try {
+					MenuPrincipal.checkOut = new CheckOut(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.checkOut, "31");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "31");
 					nomeAPesquisar.setText("");
 					cpfAPesquisar.setText("");
-					}catch(Exception c){
-						nomeAPesquisar.setText("");
-						cpfAPesquisar.setText("");
-						JOptionPane.showMessageDialog(null, c.getMessage());
-					}
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
 			}
 		});
 		button.setBounds(454, 315, 89, 23);
