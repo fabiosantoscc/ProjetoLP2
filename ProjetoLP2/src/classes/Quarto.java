@@ -68,7 +68,6 @@ public abstract class Quarto implements Servicos, Serializable  {
 			diaEntrada++;
 		}
 		return contador; 
-		
 	}
 	
   public void setValorDiario(double diaria){
