@@ -19,7 +19,6 @@ import excecoes.*;
 public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
 	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
