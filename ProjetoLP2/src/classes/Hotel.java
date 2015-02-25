@@ -83,7 +83,7 @@ public class Hotel implements Serializable {
 	 * @throws HospedeInvalidoException
 	 */
 	
-	public Hospede pesquisaHospede( String cpf, String nome ) throws HospedeInvalidoException {
+	public Hospede pesquisaHospede( String cpf ) throws HospedeInvalidoException {
 		Hospede h = null;
 		Set <Hospede> meusHospedes = hospedes.keySet();
 		
@@ -91,11 +91,11 @@ public class Hotel implements Serializable {
 			throw new HospedeInvalidoException("Hospede nao existente no hotel");
 		
 		for ( Hospede umHospede : meusHospedes ) {
-			if ( umHospede.getCpf().equals(cpf) || umHospede.getNome().equals(nome)) {
+			if ( umHospede.getCpf().equals(cpf) ) {
 				h = umHospede;
 			}
 		}
-		
+
 		if ( h == null )
 			throw new HospedeInvalidoException("Hospede nao existente no hotel.");
 		
