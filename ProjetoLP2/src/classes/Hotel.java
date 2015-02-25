@@ -485,6 +485,16 @@ public class Hotel implements Serializable {
 		return opinioes;
 	}
 	
+	public String getComentarios() {
+		String comentarios = "";
+		for ( Opiniao op : getListaOpinioes() ) {
+			comentarios += op.getComentario();
+			comentarios += "\n";
+		}
+		
+		return comentarios;
+	}
+	
 	/**
 	 * 
 	 */

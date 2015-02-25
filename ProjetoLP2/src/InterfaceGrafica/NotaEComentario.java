@@ -11,6 +11,8 @@ import java.awt.Font;
 
 public class NotaEComentario extends JPanel {
 
+	String comentarios;
+	
 	/**
 	 * Create the panel.
 	 */
