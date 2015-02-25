@@ -176,4 +176,10 @@ public class AluguelDeCarros implements Servicos, Serializable {
 		return (tipoCarro.equals(novoAluguel.getTipoCarro()) && tanqueCheio == novoAluguel.isTanqueCheio() &&
 				seguroDeAutomovel == novoAluguel.isSeguroDeAutomovel());
 		}
+
+	@Override
+	public double getDespesaTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
