@@ -8,7 +8,6 @@ import java.util.Set;
 
 import excecoes.*;
 
-
 /**
  * Classe que representa um hotel.
  * 
