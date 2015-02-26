@@ -24,6 +24,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 	boolean isTanqueCheio = false;
 	boolean isSeguro= false;
 	public AdicionarAlugueldeCarros(Hospede hospedeAtual) {
+		
 		setLayout(null);
 		
 		JLabel lblAlugarVeculo = new JLabel("Alugar Ve\u00EDculo");
