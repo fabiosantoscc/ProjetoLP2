@@ -15,7 +15,6 @@ import java.util.Calendar;
 public class AluguelDeCarros implements Servicos, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
