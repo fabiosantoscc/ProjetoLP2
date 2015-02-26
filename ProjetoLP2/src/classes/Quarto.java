@@ -46,12 +46,11 @@ public abstract class Quarto implements Servicos, Serializable  {
     this.quantidadeDePessoas = quantidadeDePessoas;
   }
   
-  public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
+  public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
 			int anoSaida)throws Exception{
 		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
 		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
 		boolean dataValida = true;
-		int contador = 0;
 		while (dataValida){
 			if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) break;
 			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
@@ -62,13 +61,12 @@ public abstract class Quarto implements Servicos, Serializable  {
 				}
 				else mesEntrada++;
 			}
-			contador++;
+		
 			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
 			despesaTotal += estrategia.calculaMontante(valorDiaria);
 			System.out.println(despesaTotal);
 			diaEntrada++;
 		}
-		return contador; 
 	}
 
   public void setCamaExtra() {
