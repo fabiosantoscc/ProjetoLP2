@@ -14,7 +14,7 @@ public class DefaultMenu extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ronan\\git\\ProjetoLP2\\ProjetoLP2\\src\\Icons\\lc_hotel_riviera.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(DefaultMenu.class.getResource("/Icons/lc_hotel_riviera.jpg")));
 		lblNewLabel.setBounds(0, 0, 771, 555);
 		add(lblNewLabel);
 	}
