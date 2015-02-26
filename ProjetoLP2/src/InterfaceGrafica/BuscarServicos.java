@@ -20,7 +20,6 @@ import Executar.Run;
 import excecoes.HospedeInvalidoException;
 
 public class BuscarServicos extends JPanel {
-	private JTextField nomeAPesquisar;
 	private JTextField cpfAPesquisar;
 
 	/**
@@ -31,35 +30,25 @@ public class BuscarServicos extends JPanel {
 		
 		JLabel lblNovoContrato = new JLabel("Buscar Serviços do Hospede");
 		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 236, 40);
+		lblNovoContrato.setBounds(38, 29, 314, 40);
 		add(lblNovoContrato);
 		
-		JLabel lblCpfDoHospede = new JLabel("Nome do Hospede");
-		lblCpfDoHospede.setBounds(50, 123, 114, 21);
-		add(lblCpfDoHospede);
-		
-		nomeAPesquisar = new JTextField();
-		nomeAPesquisar.setBounds(190, 123, 114, 20);
-		add(nomeAPesquisar);
-		nomeAPesquisar.setColumns(10);
-		
 		JLabel label = new JLabel("CPF do Hospede");
-		label.setBounds(50, 190, 95, 21);
+		label.setBounds(53, 137, 95, 21);
 		add(label);
 		
 		cpfAPesquisar = new JTextField();
 		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(190, 190, 114, 20);
+		cpfAPesquisar.setBounds(192, 137, 114, 20);
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					MenuPrincipal.servicosDoHospede = new ServicosDoHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText(), nomeAPesquisar.getText()));
+					MenuPrincipal.servicosDoHospede = new ServicosDoHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.servicosDoHospede, "22");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
-					nomeAPesquisar.setText("");
 					cpfAPesquisar.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -67,7 +56,7 @@ public class BuscarServicos extends JPanel {
 
 			}
 		});
-		button.setBounds(454, 315, 89, 23);
+		button.setBounds(374, 225, 89, 23);
 		add(button);
 
 	}

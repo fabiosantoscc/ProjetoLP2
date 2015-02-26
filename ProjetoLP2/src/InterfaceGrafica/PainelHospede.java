@@ -199,8 +199,8 @@ public class PainelHospede extends JPanel {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText());
-					MenuPrincipal.contratosDoHospede = new ContratosDoHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText()));
+					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText());
+					MenuPrincipal.contratosDoHospede = new ContratosDoHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.contratosDoHospede, "19");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "19");
 					frmtdtxtfldNome.setText("");
@@ -218,8 +218,8 @@ public class PainelHospede extends JPanel {
 		btnAtualizarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
-					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText());
-					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText(), frmtdtxtfldNome.getText()));
+					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText());
+					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.atualizarHospede, "7");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
 				}catch(Exception c){
