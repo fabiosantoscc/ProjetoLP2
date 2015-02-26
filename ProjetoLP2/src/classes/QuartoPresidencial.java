@@ -13,7 +13,7 @@ import excecoes.*;
 
 public class QuartoPresidencial extends Quarto {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8803978738161881465L;
 	private final double VALOR_DIARIA = 1200.0;
 	
 	/**
