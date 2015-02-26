@@ -40,6 +40,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		comboBox.setBounds(80, 230, 161, 20);
 		add(comboBox);
 		
+		
 		JLabel lblModeloDoCarro = new JLabel("Modelo do Carro");
 		lblModeloDoCarro.setBounds(59, 196, 93, 14);
 		add(lblModeloDoCarro);
