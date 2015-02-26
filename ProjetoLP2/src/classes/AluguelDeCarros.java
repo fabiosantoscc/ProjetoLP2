@@ -1,6 +1,6 @@
 package classes;
 
-// Essa merda não quer funcionar
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -13,15 +13,17 @@ import java.util.Calendar;
  */
 
 public class AluguelDeCarros implements Servicos, Serializable {
-
+	private EstrategiaDeCalculoDaMontante estrategia;
 	private static final long serialVersionUID = 1L;
+
+	private CalendarioDeEstrategias calendario;
+
 	private String tipoCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
 	private int valorDiaria;
 	private int tarifaTotal = 0;
 	private Calendar data;
-	private int diaInicial, mesInicial, anoInicial;
 	
 	/**
 	 * Construtor da classe AluguelDeCarros
@@ -34,11 +36,7 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	
 	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) throws Exception {
 		checaTipoCarro(tipoCarro);
-		data = Calendar.getInstance();
-		diaInicial = data.get(Calendar.DAY_OF_MONTH);
-		mesInicial = data.get(Calendar.MONTH) + 1;
-		anoInicial = data.get(Calendar.YEAR);
-		
+		data = Calendar.getInstance();		
 		this.tipoCarro = tipoCarro;
 		this.tanqueCheio = tanqueCheio;
 		this.seguroDeAutomovel = seguroAutomovel;
@@ -118,29 +116,34 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	 * @param diaDeSaida Dia de inicio do aluguel 
 	 * @param mesDeSaida Mes de saida do aluguel
 	 */
-/*
-	public void calculaGastoTotal(int diaDeEntrada, int mesDeEntrada, int diaDeSaida, int mesDeSaida)throws Exception{
-		if (!(calendario.verificaDataValida(diaDeEntrada, mesDeEntrada))) throw new Exception ("Data invalida.");
-		if (!(calendario.verificaDataValida(diaDeSaida, mesDeSaida))) throw new Exception ("Data invalida.");
-		for (int i = mesDeEntrada;i <= mesDeSaida;i++){
-			for (int j = diaDeEntrada; j <= diaDeSaida; j++){
-				boolean dataValida = calendario.verificaDataValida(j,i);
-				if (! dataValida){
-					i = 1;
-					if (j == 12) {
-						j = 1;
-					}
-					else j++;
-					break;
+
+	public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
+			int anoSaida)throws Exception{
+		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
+		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
+		boolean dataValida = true;
+		int contador = 0;
+		while (dataValida){
+			if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) break;
+			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
+				diaEntrada = 1;
+				if (mesEntrada == 12){
+					anoEntrada++;
+					mesEntrada = 1;
 				}
-				estrategia = calendario.verificaEstrategia(j, i);
-				tarifaTotal += estrategia.calculaMontante(valorDiaria);
-				}
+				else mesEntrada++;
 			}
+			contador++;
+			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
+			tarifaTotal += estrategia.calculaMontante(valorDiaria);
+			System.out.println(tarifaTotal);
+			diaEntrada++;
 		}
-	*/
+		return contador; 
+	}
+	
 		
-	/**
+	/** 
 	 * Metodo que retorna uma String com os atributos da classe
 	 */
 	

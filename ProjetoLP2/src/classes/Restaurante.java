@@ -24,7 +24,7 @@ public class Restaurante implements Servicos, Serializable {
 	public double getConsumoUnidade2() {
 		return consumoUnidade2;
 	}
-	
+	 
 
 	/**
 	 * Adiciona ao valor diario e ao determinado tipo de unidade um valor de consumo

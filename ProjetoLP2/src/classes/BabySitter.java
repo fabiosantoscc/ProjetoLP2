@@ -13,7 +13,7 @@ import classes.BabySitter;
  * 
  * Atualizacao 10/02/2015
  */
-
+ 
 public class BabySitter implements Servicos, Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -61,7 +61,7 @@ public class BabySitter implements Servicos, Serializable {
 			throw new Exception ("O numero de horas tem que ser maior que zero.");
 		}
 	}
-	
+	 
 	private void checaHoraInicial(int horaInicial) throws Exception{
 		if (horaInicial < 0 || horaInicial > 23){
 			throw new Exception("Hora inicial do servico invalida.");
@@ -76,27 +76,29 @@ public class BabySitter implements Servicos, Serializable {
 	 * @param mesSaida Dia final da solicitacao do servico
 	 */
 	
-	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida)throws Exception{
+	public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
+			int anoSaida)throws Exception{
 		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
 		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
-		checaHorasDobradas(this.quantidadeHoras, this.horaInicial);
-		despesaDiaria = calculaTarifa(this.quantidadeHoras, this.quantidadeHorasDobradas);
-		for (int i = mesEntrada;i <= mesSaida;i++){
-			for (int j = diaEntrada; j <= diaSaida; j++){
-				boolean dataValida = calendario.verificaDataValida(j,i);
-				if (! dataValida){
-					i = 1;
-					if (j == 12) {
-						j = 1;
-					}
-					else j++;
-					break;
+		boolean dataValida = true;
+		int contador = 0;
+		while (dataValida){
+			if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) break;
+			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
+				diaEntrada = 1;
+				if (mesEntrada == 12){
+					anoEntrada++;
+					mesEntrada = 1;
 				}
-				
-				estrategia = calendario.verificaEstrategia(j, i);
-				despesaTotal += estrategia.calculaMontante(despesaDiaria);
+				else mesEntrada++;
 			}
+			contador++;
+			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
+			despesaTotal += estrategia.calculaMontante(despesaDiaria);
+			System.out.println(despesaTotal);
+			diaEntrada++;
 		}
+		return contador; 
 	}
 	
 	/**
