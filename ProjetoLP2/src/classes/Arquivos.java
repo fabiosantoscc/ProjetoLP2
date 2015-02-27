@@ -19,7 +19,9 @@ import java.io.ObjectOutputStream;
 public class Arquivos {
 
   private final static String DESTINO = "hotel";
-
+  // Caracter de fim de linha.
+  public static final String FIM_LINHA = System.getProperty("line.separator");
+  
   /**
   * Metodo que salva um onjeto do tipo hotel.
   * 
