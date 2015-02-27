@@ -1,5 +1,7 @@
 package classes;
 
+import excecoes.CamaExtraEsgotadaException;
+
 public class QuartoComCamaExtra extends Quarto {
 	public CalendarioDeEstrategias calendario;
 	public EstrategiaDeCalculoDaMontante estrategia;
@@ -9,11 +11,40 @@ public class QuartoComCamaExtra extends Quarto {
     private static final long serialVersionUID = 1L;
   
  
-  public QuartoComCamaExtra(int quantidadeDePessoas, int camaExtra) {
+  public QuartoComCamaExtra(int quantidadeDePessoas, int camaExtra) throws CamaExtraEsgotadaException {
 	  super(quantidadeDePessoas);
+	  verificaCamaExtra(camaExtra);
 	  this.camaExtra = camaExtra;
+      Hotel.setCamaExtra(Hotel.getCamaExtra() - this.camaExtra);
   }
   
+	private void verificaCamaExtra(int camaExtra) throws CamaExtraEsgotadaException {
+		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
+			throw new CamaExtraEsgotadaException("Quantidade de camas extras invalida");
+		}
+	}
+  
+	/**
+	 * @return - A quantidade de camas extras do quarto.
+	 */
+	
+	public int getCamaExtra() {
+		return camaExtra;
+	}
+	
+	/**
+	 * 
+	 * @param cama
+	 * @throws CamaExtraEsgotadaException 
+	 */
+	
+	public void setCamaExtra( int cama) throws CamaExtraEsgotadaException {
+		verificaCamaExtra(cama);
+		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
+		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
+		this.camaExtra = cama;
+	}	
+	
   @Override
   public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
 			int anoSaida)throws Exception{
