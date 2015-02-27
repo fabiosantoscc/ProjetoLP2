@@ -61,11 +61,6 @@ public class TelaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNomeHotel = new JLabel("Hotel Riviera Campina");
-		lblNomeHotel.setFont(new Font("Liberation Sans Narrow", Font.PLAIN, 50));
-		lblNomeHotel.setBounds(196, 54, 438, 45);
-		contentPane.add(lblNomeHotel);
-		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(305, 300, 178, 25);
 		passwordField.setText("admin");

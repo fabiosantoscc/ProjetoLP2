@@ -54,7 +54,7 @@ public class MenuPrincipal {
 	public static AtualizarRestaurante atualizarRestaurante;
 	public static CheckOut checkOut;
 	public static AtualizarQuarto atualizarQuarto;
-	public static NotaEComentario notaEComentario = new NotaEComentario();
+	public static NotaEComentario notaEComentario;
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -236,6 +236,7 @@ public class MenuPrincipal {
 		mnNewMenu_1.add(mntmNewMenuItem_6);
 		mntmNotaDeAceitao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				notaEComentario = new NotaEComentario();
 				cl.show(panel0, "30");
 			}
 		});
