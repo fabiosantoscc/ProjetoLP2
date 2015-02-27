@@ -308,16 +308,21 @@ public class Hotel implements Serializable {
 	public double getNotaDeAceitacao() {
 		return notaDeAceitacao;
 	}
+
+  /**
+   * 
+   * @param opinioes
+   */
 	
-	private void calculaNotaDeAceitacao( List<Opiniao> opinioes ) {
-		int soma = 0;
-		for ( int i = 0; i < opinioes.size(); i++) {
-			soma += opinioes.get(i).getNota();
-		}
-		
-		double nota = soma / opinioes.size();
-		this.notaDeAceitacao = nota;
-	}
+  private void calculaNotaDeAceitacao( List<Opiniao> opinioes ) {
+    double soma = 0.0;
+    for ( int i = 0; i < opinioes.size(); i++) {
+      soma += opinioes.get(i).getNota();
+    }
+
+    double nota = soma / opinioes.size();
+    this.notaDeAceitacao = nota;
+  }
 	
 	/**
 	 * 
