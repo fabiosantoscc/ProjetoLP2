@@ -28,7 +28,6 @@ public class NotaEComentario extends JPanel {
 		textPane.setText(Run.hotel.getComentarios());
 		textPane.setEditable(false);
 		
-		
 		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o");
 		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		lblNotaDeAceitao.setBounds(34, 32, 251, 50);
