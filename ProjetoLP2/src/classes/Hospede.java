@@ -7,6 +7,7 @@ import excecoes.NomeInvalidoException;
 import excecoes.NumeroCartaoInvalidoException;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  *     Classe que representa um hospede.
@@ -24,7 +25,8 @@ public class Hospede implements Serializable {
   private Telefone telefone;
   private String numeroDoCartao;
   private String email;
-
+  private Calendar dataDeNascimento;
+  
   /**
   * Construtor da classe Hospede.
   * @param endereco Objeto com todos os dados do endereco
@@ -37,7 +39,7 @@ public class Hospede implements Serializable {
   */
 
   public Hospede( String nome, String cpf, String cartao, String email, Telefone telefone, 
-      Endereco endereco ) throws InputArgumentInvalidException {
+      Endereco endereco, Calendar DataDeNascimento ) throws InputArgumentInvalidException {
 
     verificaNome(nome);
     verificaCpf(cpf);
@@ -50,6 +52,7 @@ public class Hospede implements Serializable {
     this.telefone = telefone;
     this.numeroDoCartao = cartao;
     this.email = email;
+    this.dataDeNascimento = DataDeNascimento;
   }
 
   /**
@@ -373,6 +376,24 @@ public class Hospede implements Serializable {
   * @return String - Representacao do hospede.
   */
 
+  /**
+   *  
+   * @return
+   */
+  
+  public Calendar getDataDeNascimento() {
+	  return dataDeNascimento;
+  }
+  
+  /**
+   * 
+   * @param dataDeNascimento
+   */
+  
+  public void serDataDeNascimento( Calendar dataDeNascimento ) {
+	  this.dataDeNascimento = dataDeNascimento;
+  }
+  
   @Override
   public String toString() {
     return "- Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"
