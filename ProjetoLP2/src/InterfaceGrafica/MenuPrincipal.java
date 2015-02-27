@@ -117,7 +117,6 @@ public class MenuPrincipal {
 		panel0.add(buscarServicos, "23");
 		panel0.add(buscarRemoverServicos, "26");
 		panel0.add(buscarRestauranteAtualizar, "27");
-		panel0.add(notaEComentario, "30");
 		frame.setResizable(false);
 		
 		
@@ -237,6 +236,7 @@ public class MenuPrincipal {
 		mntmNotaDeAceitao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				notaEComentario = new NotaEComentario();
+				panel0.add(notaEComentario, "30");
 				cl.show(panel0, "30");
 			}
 		});
