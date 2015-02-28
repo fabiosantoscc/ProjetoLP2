@@ -73,13 +73,13 @@ public class Restaurante implements Servicos, Serializable {
 	@Override
 	public String toString() {
 		return "Restaurante:"
-				+ "\nUnidade 1 (Terreo)"
-				+ "     \n Quantidade de usos: "+quantUsoUnidade1
-				+ "     \n Valor consumido: "+ consumoUnidade1
-				+ "\nUnidade 2 (Cobertura)"
-				+ "     \n Quantidade de usos: "+quantUsoUnidade2
-				+ "     \n Valor consumido: "+ consumoUnidade2
-				+ "\n\nValor total: "+ consumoGeral;
+				+Arquivos.FIM_LINHA+"Unidade 1 (Terreo)"
+				+Arquivos.FIM_LINHA+ "      Quantidade de usos: "+quantUsoUnidade1
+				+Arquivos.FIM_LINHA+ "      Valor consumido: "+ consumoUnidade1
+				+Arquivos.FIM_LINHA+ "Unidade 2 (Cobertura)"
+				+Arquivos.FIM_LINHA+ "      Quantidade de usos: "+quantUsoUnidade2
+				+Arquivos.FIM_LINHA+ "      Valor consumido: "+ consumoUnidade2
+				+ Arquivos.FIM_LINHA+Arquivos.FIM_LINHA+"\n\nValor total: "+ consumoGeral;
 	} 
 	
 	@Override

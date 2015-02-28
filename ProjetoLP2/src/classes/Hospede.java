@@ -396,9 +396,9 @@ public class Hospede implements Serializable {
   
   @Override
   public String toString() {
-    return "- Nome: " + nome + "\n" + "- Endereco: \n" + endereco.toString() + "\n"
-        + "- CPF: " + cpf + "\n- Telefone: " + telefone + "\n"
-        + "- Numero do Cartao: " + numeroDoCartao + "\n" + "- E-Mail: " + email;
+    return "- Nome: " + nome + Arquivos.FIM_LINHA+ "- Endereco: " +Arquivos.FIM_LINHA+ endereco.toString() + Arquivos.FIM_LINHA
+        + "- CPF: " + cpf + Arquivos.FIM_LINHA+"- Telefone: " + telefone + Arquivos.FIM_LINHA
+        + "- Numero do Cartao: " + numeroDoCartao + Arquivos.FIM_LINHA+ "- E-Mail: " + email;
   }
 
   /**
