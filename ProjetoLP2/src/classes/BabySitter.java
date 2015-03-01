@@ -32,6 +32,7 @@ public class BabySitter implements Servicos, Serializable {
 	 */
 	
 	public BabySitter(int quantidadeHoras, int horaInicial)throws Exception{
+		Hotel.maisBaby++;
 		data = Calendar.getInstance();
 		calendario = new CalendarioDeEstrategias(); 
 		checaHoras(quantidadeHoras);

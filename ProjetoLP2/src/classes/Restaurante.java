@@ -11,11 +11,16 @@ import java.util.Calendar;
  */
 
 public class Restaurante implements Servicos, Serializable {
-	private CalendarioDeEstrategias calendario = new CalendarioDeEstrategias();
+	private CalendarioDeEstrategias calendario;
 	private static final long serialVersionUID = 1L;
 	private EstrategiaDeCalculoDaMontante estrategia;
 	private double consumoRefeicao, consumoUnidade1, consumoUnidade2, consumoGeral;
 	private int quantUsoUnidade1, quantUsoUnidade2;
+	
+	public Restaurante(){
+		Hotel.maisRestaurante++;
+		calendario = new CalendarioDeEstrategias();
+	}
 	
 	public  double getConsumoUnidade1(){
 		return consumoUnidade1;

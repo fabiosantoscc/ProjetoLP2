@@ -61,7 +61,6 @@ public abstract class Quarto implements Servicos, Serializable  {
 				}
 				else mesEntrada++;
 			}
-		
 			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
 			despesaTotal += estrategia.calculaMontante(valorDiaria);
 			System.out.println(despesaTotal);

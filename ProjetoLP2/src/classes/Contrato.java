@@ -23,6 +23,9 @@ public class Contrato implements Serializable {
   private double valorAPagar;
   private int numeroDeNoites;
   private Calendar dataInicial;
+  private double despesaTotal;
+  private CalendarioDeEstrategias calendario;
+  private double multa;
 
   /**
    * Construtor de um Contrato.
@@ -42,13 +45,53 @@ public class Contrato implements Serializable {
     this.numeroDeNoites = numeroDeNoites;
     this.aberto = true;
   }
-
+  
+  /**
+   * Calcula a despesa total dos servicos contrados pelo hospede
+   */
+  
+  public void calculaDespesaTotal(){
+	  for (Servicos s : servicos){
+		  despesaTotal += s.getDespesaTotal();
+	  }
+  }
+  
+  private int verificaDiasDeMulta(){
+	 Calendar dataSaida = Calendar.getInstance();
+	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);
+	 int mesEntrada =  dataInicial.get(Calendar.MONTH);
+	 int anoEntrada = dataInicial.get(Calendar.YEAR);
+	 int contaDias = 0;
+	 while (true){
+		 if (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH)
+				 && anoEntrada == dataSaida.get(Calendar.YEAR)) break;
+		 contaDias++;
+		 if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
+			 diaEntrada = 1;
+			 if (mesEntrada == 12){
+					anoEntrada++;
+					mesEntrada = 1;
+			}
+				else mesEntrada++;
+		}
+	 } 
+	 return contaDias - numeroDeNoites;
+  }
+  
+  /**
+   * Calcula valor da multa se houver atraso
+   */
+  
+  public void calculaMulta(){
+	 multa = (0.025 * despesaTotal) * verificaDiasDeMulta();
+  }
+  
   /**
   * Adiciona varios servicos no Contrato.
   * 
   * @param meusServicos - Servicos a serem adicionados.
   */
-
+  
   public void servicosContrato( List<Servicos> meusServicos ) {
     servicos.addAll(meusServicos);
   }

@@ -35,6 +35,7 @@ public class AluguelDeCarros implements Servicos, Serializable {
 	 */
 	
 	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) throws Exception {
+		Hotel.maisAluguel++;
 		checaTipoCarro(tipoCarro);
 		data = Calendar.getInstance();		
 		this.tipoCarro = tipoCarro;

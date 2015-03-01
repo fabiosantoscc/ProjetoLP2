@@ -28,6 +28,9 @@ public class Hotel implements Serializable {
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
 	private double notaDeAceitacao = 0;
+	public static int maisRestaurante = 0;
+	public static int maisBaby = 0;
+	public static int maisAluguel = 0;
 	private List<Opiniao> opinioes = new ArrayList<Opiniao>();
 	
 	// map com um hospede como chave, e um List<Contrato> como valor
@@ -100,6 +103,17 @@ public class Hotel implements Serializable {
 			throw new HospedeInvalidoException("Hospede nao existente no hotel.");
 		
 		return h;
+	}
+	
+	/**
+	 * Metodo que verifica o servico mais solicitado ate o momento no hotel
+	 * @return Uma string com o servico mais solicitado e a quantidade de vezes que foi solicitado
+	 */
+	
+	public String servicoPopular(){
+		if (maisAluguel > maisBaby && maisAluguel > maisRestaurante) return "Aluguel de Carros: " + maisAluguel;
+		if (maisBaby > maisAluguel && maisBaby > maisRestaurante) return "Babby Sitter: " + maisBaby;
+		return "Restaurante: " + maisRestaurante;
 	}
 	
 	/**
