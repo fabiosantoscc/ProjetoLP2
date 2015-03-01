@@ -26,6 +26,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
+import javax.swing.JToggleButton;
+import java.awt.Label;
 
 public class TelaLogin extends JFrame {
 
@@ -62,30 +65,25 @@ public class TelaLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(305, 300, 178, 25);
+		passwordField.setBounds(348, 300, 178, 25);
 		passwordField.setText("admin");
 		contentPane.add(passwordField);
 		
 		JFormattedTextField loginField = new JFormattedTextField();
 		loginField.setText("admin");
-		loginField.setBounds(305, 263, 178, 25);
+		loginField.setBounds(348, 265, 178, 25);
 		contentPane.add(loginField);
 		
 		JLabel lblLogin = new JLabel("Login");
 		
 		lblLogin.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblLogin.setBounds(212, 264, 75, 20);
+		lblLogin.setBounds(233, 269, 75, 20);
 		contentPane.add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblSenha.setBounds(212, 305, 70, 15);
+		lblSenha.setBounds(233, 302, 70, 15);
 		contentPane.add(lblSenha);
-		
-		JCheckBox salvarSenha = new JCheckBox("Salvar Senha");
-		salvarSenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 16));
-		salvarSenha.setBounds(315, 333, 129, 23);
-		contentPane.add(salvarSenha);
 		
 		JButton entrar = new JButton("Entrar");
 		entrar.addActionListener(new ActionListener() {
@@ -100,9 +98,14 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		entrar.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 16));
-		entrar.setBounds(453, 382, 117, 25);
+		entrar.setFont(new Font("Dialog", Font.BOLD, 18));
+		entrar.setBounds(294, 390, 192, 51);
 		contentPane.add(entrar);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
+		lblNewLabel.setBounds(294, 47, 192, 179);
+		contentPane.add(lblNewLabel);
 	}
 	
 	private boolean isPasswordCorrect(char[] input) {
