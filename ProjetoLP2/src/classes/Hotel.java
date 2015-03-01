@@ -84,7 +84,7 @@ public class Hotel implements Serializable {
 	 * @param cpf - cpf do hospede a ser pesquisado.
 	 * @return Hospede - Hospede pesquisado, se existir.
 	 * @throws HospedeInvalidoException
-	 */
+	 */ 
 	
 	public Hospede pesquisaHospede( String cpf ) throws HospedeInvalidoException {
 		Hospede h = null;

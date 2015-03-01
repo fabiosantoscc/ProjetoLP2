@@ -15,7 +15,7 @@ import java.util.Calendar;
  */
 
 public abstract class Quarto implements Servicos, Serializable  {
- 
+  
   private static final long serialVersionUID = 1L;
   private double valorDiaria;
   private EstrategiaDeCalculoDaMontante estrategia;

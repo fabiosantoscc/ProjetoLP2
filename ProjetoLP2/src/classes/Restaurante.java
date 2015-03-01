@@ -9,7 +9,7 @@ import java.util.Calendar;
  * @author Ronan Souza
  * Ultima atualizacao 14/01/2015 / Fabio Alexandre
  */
-
+ 
 public class Restaurante implements Servicos, Serializable {
 	private CalendarioDeEstrategias calendario;
 	private static final long serialVersionUID = 1L;

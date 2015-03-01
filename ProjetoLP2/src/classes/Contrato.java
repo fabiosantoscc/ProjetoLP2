@@ -55,7 +55,7 @@ public class Contrato implements Serializable {
 		  despesaTotal += s.getDespesaTotal();
 	  }
   }
-  
+   
   private int verificaDiasDeMulta(){
 	 Calendar dataSaida = Calendar.getInstance();
 	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);

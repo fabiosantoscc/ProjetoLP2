@@ -13,7 +13,7 @@ import classes.BabySitter;
  * 
  * Atualizacao 10/02/2015
  */
- 
+  
 public class BabySitter implements Servicos, Serializable {
 	
 	private static final long serialVersionUID = 1L;
