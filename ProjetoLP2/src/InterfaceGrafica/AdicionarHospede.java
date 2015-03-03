@@ -19,9 +19,14 @@ import excecoes.InputArgumentInvalidException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Calendar;
+
+import com.toedter.calendar.JDateChooser;
 
 public class AdicionarHospede extends JPanel {
-
+	
+	Calendar dataNascimento;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -179,7 +184,7 @@ public class AdicionarHospede extends JPanel {
 					Telefone tel = new Telefone(dddHospede.getText(), numeroHospede.getText());
 					Endereco end = new Endereco(cidadeHospede.getText(), bairroHospede.getText(), ruaHospede.getText(), numeroCasaHospede.getText(), 
 					complementoHospede.getText(), estadoHospede.getText(), paisHospede.getText(), cepHospede.getText());
-					Hospede h = new Hospede(nomeHospede.getText(), cpfHospede.getText(), cartaoHospede.getText(), emailHospede.getText(), tel, end);
+					Hospede h = new Hospede(nomeHospede.getText(), cpfHospede.getText(), cartaoHospede.getText(), emailHospede.getText(), tel, end, dataNascimento);
 					Run.hotel.addHospede(h);
 					Arquivos.salvaHotel(Run.hotel);
 					JOptionPane.showMessageDialog(null, "Hospede criado com sucesso!");
@@ -206,6 +211,15 @@ public class AdicionarHospede extends JPanel {
 		});
 		btnCadastrar.setBounds(313, 479, 254, 45);
 		add(btnCadastrar);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.getCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dataNascimento = dateChooser.getCalendar();
+			}
+		});
+		dateChooser.setBounds(476, 182, 132, 20);
+		add(dateChooser);
 	}
 }
 
