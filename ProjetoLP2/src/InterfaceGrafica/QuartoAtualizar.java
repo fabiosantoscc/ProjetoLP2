@@ -55,6 +55,7 @@ public class QuartoAtualizar extends JPanel {
 		add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboBox.getSelectedItem();
@@ -64,7 +65,7 @@ public class QuartoAtualizar extends JPanel {
 			}
 		});
 		
-		comboBox.setBounds(50, 156, 173, 20);
+		comboBox.setBounds(50, 149, 173, 27);
 		add(comboBox);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
@@ -73,6 +74,7 @@ public class QuartoAtualizar extends JPanel {
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		spinner.setBounds(245, 292, 48, 20);
 		add(spinner);
 		
@@ -82,10 +84,12 @@ public class QuartoAtualizar extends JPanel {
 		add(lblQuantidadeDeCamas);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		spinner_1.setBounds(268, 369, 48, 20);
 		add(spinner_1);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -195,7 +199,7 @@ public class QuartoAtualizar extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 89, 23);
+		btnAdicionar.setBounds(472, 426, 99, 36);
 		add(btnAdicionar);
 		
 

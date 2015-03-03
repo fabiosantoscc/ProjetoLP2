@@ -50,16 +50,16 @@ public class AdicionarContrato extends JPanel {
 		
 		JLabel lblHospede = new JLabel("Hospede: "+hospedeAtual.getNome());
 		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(55, 78, 333, 23);
+		lblHospede.setBounds(55, 78, 554, 23);
 		add(lblHospede);
 		
 		JLabel lblNumeroDeNoites = new JLabel("Numero de Noites");
-		lblNumeroDeNoites.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNumeroDeNoites.setBounds(55, 152, 115, 14);
+		lblNumeroDeNoites.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNumeroDeNoites.setBounds(55, 152, 135, 17);
 		add(lblNumeroDeNoites);
 		
 		textField = new JTextField();
-		textField.setBounds(180, 152, 56, 17);
+		textField.setBounds(200, 152, 56, 18);
 		add(textField);
 		textField.setColumns(10);
 		
@@ -86,7 +86,7 @@ public class AdicionarContrato extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(483, 396, 135, 38);
 		add(btnNewButton);
 	}

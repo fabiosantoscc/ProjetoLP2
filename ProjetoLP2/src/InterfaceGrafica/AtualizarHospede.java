@@ -28,32 +28,32 @@ public class AtualizarHospede extends JPanel {
 		setLayout(null);
 						
 		JLabel lblAtualizarCadastro = new JLabel("Atualizar Cadastro");
-		lblAtualizarCadastro.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 28));
+		lblAtualizarCadastro.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblAtualizarCadastro.setBounds(12, 12, 287, 29);
 		add(lblAtualizarCadastro);
 		
 		JLabel label_1 = new JLabel("Dados Pessoais");
-		label_1.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		label_1.setBounds(38, 53, 174, 29);
 		add(label_1);
 		
 		JLabel label_2 = new JLabel("Nome");
-		label_2.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_2.setBounds(68, 91, 70, 25);
 		add(label_2);
 		
 		JLabel label_3 = new JLabel("CPF");
-		label_3.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_3.setBounds(68, 128, 70, 15);
 		add(label_3);
 		
 		JLabel label_4 = new JLabel("Email");
-		label_4.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_4.setBounds(68, 155, 70, 15);
 		add(label_4);
 		
 		JLabel label_5 = new JLabel("Cartao de credito");
-		label_5.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_5.setBounds(68, 182, 158, 15);
 		add(label_5);
 		
@@ -73,7 +73,7 @@ public class AtualizarHospede extends JPanel {
 		add(frmtdtxtfldCartaoCredito);
 		
 		JLabel label_6 = new JLabel("Telefone");
-		label_6.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_6.setBounds(313, 129, 70, 15);
 		add(label_6);
 		
@@ -92,27 +92,27 @@ public class AtualizarHospede extends JPanel {
 		add(separator);
 		
 		JLabel lblEndereo = new JLabel("Endere\u00E7o");
-		lblEndereo.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
+		lblEndereo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblEndereo.setBounds(38, 254, 114, 25);
 		add(lblEndereo);
 		
 		JLabel label_9 = new JLabel("Logradouro");
-		label_9.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_9.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_9.setBounds(58, 302, 138, 15);
 		add(label_9);
 		
 		JLabel label_10 = new JLabel("Complemento");
-		label_10.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_10.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_10.setBounds(58, 329, 114, 15);
 		add(label_10);
 		
 		JLabel label_11 = new JLabel("Bairro");
-		label_11.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_11.setBounds(58, 361, 70, 15);
 		add(label_11);
 		
 		JLabel label_12 = new JLabel("Pais");
-		label_12.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_12.setBounds(58, 394, 70, 15);
 		add(label_12);
 		
@@ -142,12 +142,12 @@ public class AtualizarHospede extends JPanel {
 		add(frmtdtxtfldCidade);
 		
 		JLabel label_7 = new JLabel("Estado/Condado");
-		label_7.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_7.setBounds(58, 420, 126, 15);
 		add(label_7);
 		
 		JLabel lblCepZipCode = new JLabel("CEP/ Zip Code");
-		lblCepZipCode.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		lblCepZipCode.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCepZipCode.setBounds(292, 395, 126, 15);
 		add(lblCepZipCode);
 		
@@ -157,7 +157,7 @@ public class AtualizarHospede extends JPanel {
 		add(frmtdtxtfldCep);
 		
 		JLabel label_14 = new JLabel("Numero");
-		label_14.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 14));
+		label_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_14.setBounds(476, 329, 70, 15);
 		add(label_14);
 		
@@ -172,7 +172,7 @@ public class AtualizarHospede extends JPanel {
 		add(frmtdtxtfldEstado);
 		
 		JLabel lblCidade = new JLabel("Cidade");
-		lblCidade.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCidade.setBounds(292, 363, 70, 15);
 		add(lblCidade);
 		
@@ -184,6 +184,7 @@ public class AtualizarHospede extends JPanel {
 		
 		
 		JButton btnCadastrar = new JButton("Atualizar");
+		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCadastrar.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e){
 				try{
@@ -208,7 +209,7 @@ public class AtualizarHospede extends JPanel {
 				}
 			}
 		});
-		btnCadastrar.setBounds(292, 479, 154, 23);
+		btnCadastrar.setBounds(292, 479, 158, 37);
 		add(btnCadastrar);
 		
 

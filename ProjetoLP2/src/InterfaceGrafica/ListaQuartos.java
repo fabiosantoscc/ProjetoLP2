@@ -46,8 +46,8 @@ public class ListaQuartos extends JPanel {
 		}
 		
 		JLabel lblListaDeContratos = new JLabel("Lista de Serviços");
-		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblListaDeContratos.setBounds(44, 49, 184, 31);
+		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblListaDeContratos.setBounds(44, 49, 201, 31);
 		add(lblListaDeContratos);
 
 		JLabel lblHospede = new JLabel("Hospede:");
@@ -68,6 +68,7 @@ public class ListaQuartos extends JPanel {
 		scrollPane.setViewportView(meuList);
 		
 		JButton btnAtualizarQuarto = new JButton("Atualizar Quarto");
+		btnAtualizarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAtualizarQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				for ( Servicos servico : servicosAtuais ) {
@@ -80,7 +81,7 @@ public class ListaQuartos extends JPanel {
 				
 			}
 		});
-		btnAtualizarQuarto.setBounds(531, 486, 119, 41);
+		btnAtualizarQuarto.setBounds(531, 486, 137, 41);
 		add(btnAtualizarQuarto);
 		
 		System.out.println(servicosAtuais.size());

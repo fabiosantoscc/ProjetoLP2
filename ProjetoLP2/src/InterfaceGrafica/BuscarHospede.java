@@ -34,16 +34,19 @@ public class BuscarHospede extends JPanel {
 		add(lblNovoContrato);
 		
 		JLabel label = new JLabel("CPF do Hospede");
-		label.setBounds(55, 156, 95, 21);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label.setBounds(192, 160, 112, 21);
 		add(label);
 		
 		cpfAPesquisar = new JTextField();
+		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(175, 156, 114, 20);
+		cpfAPesquisar.setBounds(354, 160, 147, 20);
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
-		button.setBounds(376, 256, 89, 23);
+		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		button.setBounds(297, 221, 99, 31);
 		add(button);
 		button.setToolTipText("Digite um nome ou um cpf para buscar o hospede.");
 		button.addActionListener(new ActionListener()  {

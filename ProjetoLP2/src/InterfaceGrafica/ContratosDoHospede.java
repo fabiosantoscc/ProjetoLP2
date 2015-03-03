@@ -37,8 +37,8 @@ public class ContratosDoHospede extends JPanel {
 		DefaultListModel modeling = new DefaultListModel();
 		
 		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");
-		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblListaDeContratos.setBounds(44, 49, 184, 31);
+		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblListaDeContratos.setBounds(44, 49, 270, 31);
 		add(lblListaDeContratos);
 		
 		JLabel lblHospede = new JLabel("Hospede:");
@@ -52,6 +52,7 @@ public class ContratosDoHospede extends JPanel {
 		add(label);
 		
 		JButton btnVisualizarServios = new JButton("Visualizar Servi\u00E7os");
+		btnVisualizarServios.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVisualizarServios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuPrincipal.servicosDoHospede = new ServicosDoHospede(hospedeAtual);
@@ -59,7 +60,7 @@ public class ContratosDoHospede extends JPanel {
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
 			}
 		});
-		btnVisualizarServios.setBounds(512, 425, 141, 23);
+		btnVisualizarServios.setBounds(512, 417, 141, 31);
 		add(btnVisualizarServios);
 		
 		JScrollPane scrollPane = new JScrollPane();

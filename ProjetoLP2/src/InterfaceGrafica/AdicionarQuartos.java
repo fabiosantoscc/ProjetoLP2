@@ -46,7 +46,7 @@ public class AdicionarQuartos extends JPanel {
 		setLayout(null);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
 		
@@ -74,6 +74,7 @@ public class AdicionarQuartos extends JPanel {
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner.setBounds(245, 292, 48, 20);
 		add(spinner);
 		
@@ -83,10 +84,12 @@ public class AdicionarQuartos extends JPanel {
 		add(lblQuantidadeDeCamas);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner_1.setBounds(268, 369, 48, 20);
 		add(spinner_1);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -203,7 +206,7 @@ public class AdicionarQuartos extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 89, 23);
+		btnAdicionar.setBounds(482, 439, 125, 36);
 		add(btnAdicionar);
 		
 		for(int i = 0; i < quartos.size(); i++){

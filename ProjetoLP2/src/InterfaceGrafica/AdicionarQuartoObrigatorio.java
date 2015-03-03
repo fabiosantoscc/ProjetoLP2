@@ -59,7 +59,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
 		setLayout(null);
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
 		
@@ -76,7 +76,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 			}
 		});
 		
-		comboBox.setBounds(50, 156, 173, 20);
+		comboBox.setBounds(50, 156, 191, 20);
 		add(comboBox);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
@@ -85,19 +85,22 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinner = new JSpinner();
-		spinner.setBounds(245, 292, 48, 20);
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		spinner.setBounds(245, 288, 50, 24);
 		add(spinner);
 		
 		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
 		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDeCamas.setBounds(47, 364, 219, 25);
+		lblQuantidadeDeCamas.setBounds(47, 365, 219, 25);
 		add(lblQuantidadeDeCamas);
 		
 		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(268, 369, 48, 20);
+		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		spinner_1.setBounds(268, 365, 58, 24);
 		add(spinner_1);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -202,7 +205,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				servicos.add(quartoAtual);
 			}
 		});
-		btnAdicionar.setBounds(468, 406, 123, 23);
+		btnAdicionar.setBounds(468, 402, 137, 27);
 		add(btnAdicionar);
 		
 		JButton btnCriarContrato = new JButton("Criar Contrato");
@@ -228,7 +231,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 			}
 		});
 		btnCriarContrato.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnCriarContrato.setBounds(468, 458, 123, 45);
+		btnCriarContrato.setBounds(468, 458, 146, 53);
 		add(btnCriarContrato);
 		
 		for(int i = 0; i < quartos.size(); i++){

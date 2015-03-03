@@ -74,7 +74,7 @@ public class CheckOut extends JPanel {
 			}
 		});
 		btnCheckOut.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnCheckOut.setBounds(381, 458, 184, 45);
+		btnCheckOut.setBounds(329, 426, 184, 45);
 		add(btnCheckOut);
 		
 		try {

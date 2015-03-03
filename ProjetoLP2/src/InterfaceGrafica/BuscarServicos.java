@@ -34,15 +34,18 @@ public class BuscarServicos extends JPanel {
 		add(lblNovoContrato);
 		
 		JLabel label = new JLabel("CPF do Hospede");
-		label.setBounds(53, 137, 95, 21);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label.setBounds(207, 157, 114, 21);
 		add(label);
 		
 		cpfAPesquisar = new JTextField();
+		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(192, 137, 114, 20);
+		cpfAPesquisar.setBounds(346, 157, 141, 20);
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -56,7 +59,7 @@ public class BuscarServicos extends JPanel {
 
 			}
 		});
-		button.setBounds(374, 225, 89, 23);
+		button.setBounds(308, 203, 90, 29);
 		add(button);
 
 	}

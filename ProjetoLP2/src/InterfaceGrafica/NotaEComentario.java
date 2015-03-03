@@ -20,7 +20,7 @@ public class NotaEComentario extends JPanel {
 		setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(34, 128, 644, 352);
+		scrollPane.setBounds(57, 224, 621, 256);
 		add(scrollPane);
 		
 		JTextPane textPane = new JTextPane();
@@ -29,14 +29,19 @@ public class NotaEComentario extends JPanel {
 		textPane.setEditable(false);
 		
 		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o");
-		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblNotaDeAceitao.setBounds(34, 32, 251, 50);
+		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNotaDeAceitao.setBounds(57, 122, 251, 50);
 		add(lblNotaDeAceitao);
 		
 		JLabel label = new JLabel(Run.hotel.getNotaDeAceitacao()+"");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		label.setBounds(270, 32, 200, 50);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label.setBounds(264, 124, 200, 50);
 		add(label);
+		
+		JLabel lblComentriosDosHospedes = new JLabel("Coment\u00E1rios dos hospedes");
+		lblComentriosDosHospedes.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblComentriosDosHospedes.setBounds(34, 26, 307, 50);
+		add(lblComentriosDosHospedes);
 
 	}
 }

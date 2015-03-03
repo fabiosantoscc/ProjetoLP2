@@ -51,7 +51,7 @@ public class AtualizarQuarto extends JPanel {
 		setLayout(null);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
 		
@@ -61,24 +61,27 @@ public class AtualizarQuarto extends JPanel {
 		add(lblNewLabel);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
-		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblQuantidadeDePessoas.setBounds(53, 182, 188, 25);
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner.setBounds(266, 186, 48, 20);
 		add(spinner);
 		
 		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
-		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblQuantidadeDeCamas.setBounds(47, 238, 219, 25);
 		add(lblQuantidadeDeCamas);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner_1.setBounds(266, 242, 48, 20);
 		add(spinner_1);
 		
 		JButton btnAdicionar = new JButton("Atualizar");
+		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -94,7 +97,7 @@ public class AtualizarQuarto extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 89, 23);
+		btnAdicionar.setBounds(482, 439, 119, 37);
 		add(btnAdicionar);
 		
 	}

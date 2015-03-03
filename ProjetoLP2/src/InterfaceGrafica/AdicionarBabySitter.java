@@ -16,6 +16,7 @@ import classes.Hospede;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class AdicionarBabySitter extends JPanel {
 	private JTextField textField;
@@ -33,24 +34,27 @@ public class AdicionarBabySitter extends JPanel {
 		add(lblBabySitter);
 		
 		JLabel lblHorrioInicial = new JLabel("Hor\u00E1rio Inicial");
-		lblHorrioInicial.setBounds(29, 164, 80, 14);
+		lblHorrioInicial.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblHorrioInicial.setBounds(29, 164, 126, 23);
 		add(lblHorrioInicial);
 		
 		JLabel lblDuraoemHoras = new JLabel("Dura\u00E7\u00E3o (em horas)");
-		lblDuraoemHoras.setBounds(29, 189, 104, 14);
+		lblDuraoemHoras.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDuraoemHoras.setBounds(29, 197, 141, 22);
 		add(lblDuraoemHoras);
 		
 		textField = new JTextField();
-		textField.setBounds(143, 161, 86, 20);
+		textField.setBounds(190, 167, 86, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(143, 186, 86, 20);
+		textField_1.setBounds(190, 200, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Adicionar");
+		JButton btnNewButton = new JButton("Adicionar Servi\u00E7o");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -64,7 +68,7 @@ public class AdicionarBabySitter extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setBounds(306, 245, 89, 23);
+		btnNewButton.setBounds(306, 323, 174, 40);
 		add(btnNewButton);
 	}
 }

@@ -29,19 +29,22 @@ public class BuscarAluguelDeCarros extends JPanel {
 		
 		JLabel lblNovoContrato = new JLabel("Aluguel de Carro");
 		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 175, 40);
+		lblNovoContrato.setBounds(38, 29, 231, 40);
 		add(lblNovoContrato);
 		
 		JLabel label = new JLabel("CPF do Hospede");
-		label.setBounds(50, 141, 95, 21);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label.setBounds(149, 157, 122, 21);
 		add(label);
 		
 		cpfAPesquisar = new JTextField();
+		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(155, 141, 114, 20);
+		cpfAPesquisar.setBounds(293, 157, 153, 20);
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
@@ -54,7 +57,7 @@ public class BuscarAluguelDeCarros extends JPanel {
 				}
 			}
 		});
-		button.setBounds(342, 242, 89, 23);
+		button.setBounds(249, 212, 101, 30);
 		add(button);
 
 	}

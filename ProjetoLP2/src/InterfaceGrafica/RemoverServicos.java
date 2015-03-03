@@ -36,7 +36,6 @@ public class RemoverServicos extends JPanel {
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;
 	private DefaultListModel modeling = new DefaultListModel();
-	private JTextField textField;
 	public RemoverServicos(Hospede hospedeAtual) {
 		setLayout(null);
 		
@@ -87,13 +86,8 @@ public class RemoverServicos extends JPanel {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(523, 469, 127, 31);
+		btnNewButton.setBounds(320, 458, 162, 40);
 		add(btnNewButton);
-		
-		textField = new JTextField();
-		textField.setBounds(44, 442, 586, 20);
-		add(textField);
-		textField.setColumns(10);
 		
 		System.out.println(servicosAtuais.size());
 		

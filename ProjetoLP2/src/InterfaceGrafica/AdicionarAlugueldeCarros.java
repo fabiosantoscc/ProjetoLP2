@@ -28,10 +28,12 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		setLayout(null);
 		
 		JLabel lblAlugarVeculo = new JLabel("Alugar Ve\u00EDculo");
-		lblAlugarVeculo.setBounds(38, 43, 67, 14);
+		lblAlugarVeculo.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblAlugarVeculo.setBounds(38, 43, 227, 46);
 		add(lblAlugarVeculo);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboBox.getSelectedItem();
@@ -42,28 +44,33 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		add(comboBox);
 		
 		JLabel lblModeloDoCarro = new JLabel("Modelo do Carro");
-		lblModeloDoCarro.setBounds(59, 196, 93, 14);
+		lblModeloDoCarro.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblModeloDoCarro.setBounds(59, 196, 152, 20);
 		add(lblModeloDoCarro);
 		
 		JLabel lblHospede = new JLabel("Hospede: ");
-		lblHospede.setBounds(59, 119, 61, 14);
+		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblHospede.setBounds(59, 119, 93, 23);
 		add(lblHospede);
 		
 		JLabel lblNewLabel = new JLabel(hospedeAtual.getNome());
-		lblNewLabel.setBounds(130, 119, 267, 14);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel.setBounds(130, 119, 440, 23);
 		add(lblNewLabel);
 		
 		JCheckBox chckbxTanqueCheio = new JCheckBox("Tanque Cheio");
+		chckbxTanqueCheio.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckbxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isTanqueCheio = true;
 			}
 		});
-		chckbxTanqueCheio.setBounds(80, 278, 97, 23);
+		chckbxTanqueCheio.setBounds(80, 278, 131, 23);
 		add(chckbxTanqueCheio);
 		
 		JCheckBox chckbxSeguro = new JCheckBox("Seguro");
-		chckbxSeguro.setBounds(80, 309, 97, 23);
+		chckbxSeguro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxSeguro.setBounds(80, 309, 131, 23);
 		chckbxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isSeguro= true;
@@ -85,8 +92,8 @@ public class AdicionarAlugueldeCarros extends JPanel {
 				}
 			}
 		});
-		btnAdicionarServio.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnAdicionarServio.setBounds(437, 389, 152, 46);
+		btnAdicionarServio.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnAdicionarServio.setBounds(409, 389, 180, 46);
 		add(btnAdicionarServio);
 	}
 }
