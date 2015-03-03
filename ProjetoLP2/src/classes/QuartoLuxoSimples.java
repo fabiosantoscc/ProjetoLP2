@@ -1,6 +1,6 @@
 package classes;
 
-import excecoes.*;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 /**
  * 
@@ -26,25 +26,13 @@ public class QuartoLuxoSimples extends QuartoComCamaExtra {
 	
 	public QuartoLuxoSimples( int quantidadeDePessoas, int camaExtra ) throws Exception {
 
-		super(quantidadeDePessoas, camaExtra);
-		verificaQuantidadeDePessoas(quantidadeDePessoas);		
+		super(quantidadeDePessoas, camaExtra);	
 		
 		if ( Hotel.getQuartoLuxoSimples() - 1 < 0 ) {
 			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		Hotel.setQuartoLuxoSimples(Hotel.getQuartoLuxoSimples() - 1);
-	}
-			
-	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
-		super.setQuantidadeDePessoas(pessoas);
-	}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
 	}
 	
 	/**

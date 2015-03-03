@@ -42,16 +42,12 @@ public class QuartoPresidencial extends Quarto {
 	 * @throws QuantidadeDePessoasInvalidaException 
 	 */
 	
-	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
-		super.setQuantidadeDePessoas(pessoas);
-	}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
-	}
+  @Override
+  public void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+    if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 4 ) {
+      throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+    }
+  }
 	
 	/**
 	 * Metodo que retorna uma string para representacao de um quarto presidencial.

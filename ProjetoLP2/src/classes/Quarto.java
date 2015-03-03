@@ -31,12 +31,14 @@ public abstract class Quarto implements Servicos, Serializable  {
   * construtor de um quarto.
   * 
   * @param quantidadeDePessoas - Quantidade De Pessoas a se hospedarem no quarto.
+ * @throws QuantidadeDePessoasInvalidaException 
  * @throws CamaExtraEsgotadaException 
   * @throws Exception
   */
 
-  public Quarto( int quantidadeDePessoas ) {
-    Calendar date = Calendar.getInstance();
+  public Quarto( int quantidadeDePessoas ) throws QuantidadeDePessoasInvalidaException {
+    verificaQuantidadeDePessoas(quantidadeDePessoas);
+	Calendar date = Calendar.getInstance();
     calendario = new CalendarioDeEstrategias();
     data = date;
     diaInicial = date.get(Calendar.DAY_OF_MONTH);
@@ -67,11 +69,7 @@ public abstract class Quarto implements Servicos, Serializable  {
 			diaEntrada++;
 		}
 	}
-
-  public void setCamaExtra() {
-	  
-  }
-
+ 
   public void setValorDiario(double diaria) {
 	  valorDiaria = diaria;
   }
@@ -121,9 +119,16 @@ public abstract class Quarto implements Servicos, Serializable  {
   }
 
   public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-    this.quantidadeDePessoas = pessoas;
+    verificaQuantidadeDePessoas(pessoas);
+	this.quantidadeDePessoas = pessoas;
   }
 
+  public void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
+    if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
+      throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+    }
+  }  
+  
   /**
   * Metodo que retorna uma string para representacao de um quarto.
   * 

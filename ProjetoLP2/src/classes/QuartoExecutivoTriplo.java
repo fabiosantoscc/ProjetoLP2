@@ -1,6 +1,5 @@
 package classes;
 
-import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
 /**
@@ -27,24 +26,12 @@ public class QuartoExecutivoTriplo extends Quarto {
 	public QuartoExecutivoTriplo( int quantidadeDePessoas ) throws Exception {
 		
 		super(quantidadeDePessoas);
-		verificaQuantidadeDePessoas(quantidadeDePessoas);
 
 		if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
 			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
 		Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
-	}
-		
-	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
-		super.setQuantidadeDePessoas(pessoas);
-	}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
 	}
 	
 	/**

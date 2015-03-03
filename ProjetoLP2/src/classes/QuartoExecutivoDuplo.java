@@ -1,7 +1,5 @@
 package classes;
 
-import excecoes.CamaExtraEsgotadaException;
-import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
 /**
@@ -13,11 +11,10 @@ import excecoes.QuartoEsgotadoNoHotelException;
  * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
  */
 
-public class QuartoExecutivoDuplo extends Quarto {
+public class QuartoExecutivoDuplo extends QuartoComCamaExtra {
 	
 	private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 385.0;
-	private int camaExtra;
 	
 	/**
 	 * Construtor de um quarto executivo duplo.
@@ -29,63 +26,13 @@ public class QuartoExecutivoDuplo extends Quarto {
 	
 	public QuartoExecutivoDuplo( int quantidadeDePessoas, int camaExtra  ) throws Exception {
 		
-		super(quantidadeDePessoas);
-		
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new IllegalArgumentException("Quantidade de pessoas do quarto invalida");
-		}
-		
-		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
-			throw new IllegalArgumentException("Quantidade de camas extras invalida");
-		}
-		
+		super(quantidadeDePessoas, camaExtra);
 		
 		if ( Hotel.getQuartoExecutivoDuplo() == 0 ) {
 			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
 		
-		this.camaExtra = camaExtra;
-		Hotel.setCamaExtra(Hotel.getCamaExtra() - this.camaExtra);
 		Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() - 1);
-	}
-	
-	/**
-	 *  @return - Quantidade de camas extras do quarto.
-	 */
-	
-	public int getCamaExtra() {
-		return camaExtra;
-	}
-	
-	/**
-	 * 
-	 * @param cama
-	 * @throws CamaExtraEsgotadaException 
-	 */
-	
-	public void setCamaExtra( int cama) throws CamaExtraEsgotadaException {
-		verificaCamaExtra(cama);
-
-		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
-		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
-		this.camaExtra = cama;
-	}
-
-	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
-		super.setQuantidadeDePessoas(pessoas);
-	}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
-	}
-
-	private void verificaCamaExtra(int camaExtra) throws CamaExtraEsgotadaException {
-		if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
-			throw new CamaExtraEsgotadaException("Quantidade de camas extras invalida");
-		}
 	}
 	
 	/**

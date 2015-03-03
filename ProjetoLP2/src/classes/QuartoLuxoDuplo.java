@@ -11,11 +11,10 @@ import excecoes.*;
  * Ultima atualizacao: 14/01/2015 / Fabio Alexandre
  */
 
-public class QuartoLuxoDuplo extends Quarto {
+public class QuartoLuxoDuplo extends QuartoComCamaExtra {
 
 	private static final long serialVersionUID = 1L;
 	private final double VALOR_DIARIA = 570.0;
-	private int camaExtra;
 	
 	/**
 	 * Construtor de um quarto de luxo duplo.
@@ -27,60 +26,13 @@ public class QuartoLuxoDuplo extends Quarto {
 	
 	public QuartoLuxoDuplo( int quantidadeDePessoas, int camaExtra ) throws Exception {
 		
-		super(quantidadeDePessoas);
-		
-		verificaQuantidadeDePessoas(quantidadeDePessoas);
-		verificaCamaExtra(camaExtra);
+		super(quantidadeDePessoas, camaExtra);
 		
 		if ( Hotel.getQuartoLuxoDuplo() - 1 < 0 ) {
 			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
-		
-		this.camaExtra = camaExtra;
-		Hotel.setCamaExtra(Hotel.getCamaExtra() - this.camaExtra);
+
 		Hotel.setQuartoLuxoDuplo(Hotel.getQuartoLuxoDuplo() - 1);
-	}
-	
-    private void verificaCamaExtra(int camaExtra) throws CamaExtraEsgotadaException {
-			if ( camaExtra < 0 || camaExtra > Hotel.getCamaExtra()) {
-				throw new CamaExtraEsgotadaException("Quantidade de camas extras invalida");
-			}
-		}
-	
-	private void verificaQuantidadeDePessoas(int quantidadeDePessoas) throws QuantidadeDePessoasInvalidaException {
-		if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-			throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
-		}
-	}
-
-	
-
-	/**
-	 * @return - A quantidade de camas extras do quarto.
-	 */
-	
-	public int getCamaExtra() {
-		return camaExtra;
-	}
-	
-	/**
-	 * 
-	 * @param cama
-	 * @throws CamaExtraEsgotadaException 
-	 */
-	
-	public void setCamaExtra( int cama) throws CamaExtraEsgotadaException {
-		verificaCamaExtra(cama);
-		
-		Hotel.setCamaExtra(Hotel.getCamaExtra() + camaExtra);
-		Hotel.setCamaExtra(Hotel.getCamaExtra() - cama);
-		this.camaExtra = cama;
-	}
-		
-	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-		verificaQuantidadeDePessoas(pessoas);
-		
-		super.setQuantidadeDePessoas(pessoas);
 	}
 	
 	/**
