@@ -1,5 +1,6 @@
 package InterfaceGrafica;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
@@ -25,7 +26,12 @@ public class NotaEComentario extends JPanel {
 		
 		JTextPane textPane = new JTextPane();
 		scrollPane.setViewportView(textPane);
-		textPane.setText(Run.hotel.getComentarios());
+		try {
+			textPane.setText(Run.hotel.getComentarios());
+		} catch ( Exception e ) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+			
 		textPane.setEditable(false);
 		
 		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o");

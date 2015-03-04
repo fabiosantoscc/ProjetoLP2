@@ -1,9 +1,12 @@
 package InterfaceGrafica;
 
+import Executar.Run;
+
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -18,7 +21,9 @@ import classes.Hospede;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 public class MenuPrincipal {
 
@@ -123,6 +128,7 @@ public class MenuPrincipal {
 		
 		
 		frame.setJMenuBar(menuBar);
+		lblInicio.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/house.png")));
 		lblInicio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -133,11 +139,11 @@ public class MenuPrincipal {
 		menuBar.add(lblInicio);
 		
 		JMenu mnNewMenu = new JMenu("Hospedes");
-		mnNewMenu.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/multisend.ico")));
+		mnNewMenu.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/group.png")));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Pesquisar");
-		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/multisend.ico")));
+		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_go.png")));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "2");
@@ -146,12 +152,14 @@ public class MenuPrincipal {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Adicionar");
+		mntmNewMenuItem_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_add.png")));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "1");
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
+		mntmNewMenuItem_2.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_edit.png")));
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "9");
@@ -232,6 +240,7 @@ public class MenuPrincipal {
 		});
 		
 		mnServios.add(mntmRemover);
+		mnNewMenu_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cog.png")));
 		
 		menuBar.add(mnNewMenu_1);
 		

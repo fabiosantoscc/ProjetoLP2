@@ -3,6 +3,8 @@ package InterfaceGrafica;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 public class DefaultMenu extends JPanel {
 
