@@ -57,7 +57,7 @@ public class TelaLogin extends JFrame {
 	public TelaLogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 781, 601);
+		setBounds(100, 100, 531, 445);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,27 +65,29 @@ public class TelaLogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(348, 300, 178, 25);
+		passwordField.setBounds(229, 300, 178, 25);
 		passwordField.setText("admin");
 		contentPane.add(passwordField);
 		
 		JFormattedTextField loginField = new JFormattedTextField();
 		loginField.setText("admin");
-		loginField.setBounds(348, 265, 178, 25);
+		loginField.setToolTipText("Digite o nome do usuário para entrar no sistema.");
+		loginField.setBounds(229, 265, 178, 25);
 		contentPane.add(loginField);
 		
 		JLabel lblLogin = new JLabel("Login");
 		
 		lblLogin.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblLogin.setBounds(233, 269, 75, 20);
+		lblLogin.setBounds(116, 264, 75, 20);
 		contentPane.add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblSenha.setBounds(233, 302, 70, 15);
+		lblSenha.setBounds(116, 302, 70, 15);
 		contentPane.add(lblSenha);
 		
 		JButton entrar = new JButton("Entrar");
+		entrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")));
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(loginField.getText().equals("admin") && isPasswordCorrect(passwordField.getPassword())){
@@ -98,14 +100,20 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		entrar.setFont(new Font("Dialog", Font.BOLD, 18));
-		entrar.setBounds(294, 390, 192, 51);
+		entrar.setFont(new Font("Dialog", Font.BOLD, 15));
+		entrar.setBounds(116, 372, 130, 25);
 		contentPane.add(entrar);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
-		lblNewLabel.setBounds(294, 47, 192, 179);
+		lblNewLabel.setBounds(170, 38, 192, 179);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")));
+		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnCadastrar.setBounds(277, 372, 130, 25);
+		contentPane.add(btnCadastrar);
 	}
 	
 	private boolean isPasswordCorrect(char[] input) {
