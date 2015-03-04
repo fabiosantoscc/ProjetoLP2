@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 
 import Executar.Run;
 import excecoes.HospedeInvalidoException;
+import javax.swing.ImageIcon;
 
 public class BuscarQuartoAtualizar extends JPanel {
 	private JTextField cpfAPesquisar;
@@ -45,6 +46,7 @@ public class BuscarQuartoAtualizar extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(BuscarQuartoAtualizar.class.getResource("/Icons/zoom.png")));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

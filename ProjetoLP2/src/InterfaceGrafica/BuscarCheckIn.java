@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 
 import Executar.Run;
+import javax.swing.ImageIcon;
 
 public class BuscarCheckIn extends JPanel {
 	private JTextField cpfAPesquisar;
@@ -44,6 +45,7 @@ public class BuscarCheckIn extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(BuscarCheckIn.class.getResource("/Icons/zoom.png")));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -58,7 +60,7 @@ public class BuscarCheckIn extends JPanel {
 				}
 			}
 		});
-		button.setBounds(268, 196, 94, 27);
+		button.setBounds(268, 196, 104, 27);
 		add(button);
 
 	}

@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 
 import Executar.Run;
 import excecoes.HospedeInvalidoException;
+import javax.swing.ImageIcon;
 
 public class BuscarContratos extends JPanel {
 	private JTextField cpfAPesquisar;
@@ -45,6 +46,7 @@ public class BuscarContratos extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(BuscarContratos.class.getResource("/Icons/zoom.png")));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -60,7 +62,7 @@ public class BuscarContratos extends JPanel {
 				
 			}
 		});
-		button.setBounds(296, 211, 95, 29);
+		button.setBounds(296, 211, 114, 29);
 		add(button);
 
 	}

@@ -78,12 +78,12 @@ public class TelaLogin extends JFrame {
 		JLabel lblLogin = new JLabel("Login");
 		
 		lblLogin.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblLogin.setBounds(116, 264, 75, 20);
+		lblLogin.setBounds(144, 265, 75, 25);
 		contentPane.add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha");
 		lblSenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblSenha.setBounds(116, 302, 70, 15);
+		lblSenha.setBounds(144, 302, 70, 23);
 		contentPane.add(lblSenha);
 		
 		JButton entrar = new JButton("Entrar");
@@ -114,6 +114,16 @@ public class TelaLogin extends JFrame {
 		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnCadastrar.setBounds(277, 372, 130, 25);
 		contentPane.add(btnCadastrar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));
+		label.setBounds(116, 300, 36, 25);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/status_online.png")));
+		label_1.setBounds(116, 265, 36, 25);
+		contentPane.add(label_1);
 	}
 	
 	private boolean isPasswordCorrect(char[] input) {

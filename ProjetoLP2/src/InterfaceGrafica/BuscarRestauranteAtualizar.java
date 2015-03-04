@@ -15,6 +15,7 @@ import classes.Servicos;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 
 public class BuscarRestauranteAtualizar extends JPanel {
@@ -44,6 +45,7 @@ public class BuscarRestauranteAtualizar extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(BuscarRestauranteAtualizar.class.getResource("/Icons/zoom.png")));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -57,7 +59,7 @@ public class BuscarRestauranteAtualizar extends JPanel {
 				}
 			}
 		});
-		button.setBounds(297, 192, 94, 29);
+		button.setBounds(297, 192, 106, 29);
 		add(button);
 
 	}

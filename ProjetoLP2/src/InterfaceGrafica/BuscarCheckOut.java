@@ -18,6 +18,8 @@ import javax.swing.JComboBox;
 
 import classes.Arquivos;
 import Executar.Run;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class BuscarCheckOut extends JPanel {
 	private JTextField cpfAPesquisar;
@@ -46,6 +48,8 @@ public class BuscarCheckOut extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(BuscarCheckOut.class.getResource("/Icons/zoom.png")));
+		button.setBackground(new Color(0, 204, 255));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,7 +63,7 @@ public class BuscarCheckOut extends JPanel {
 				}
 			}
 		});
-		button.setBounds(268, 198, 94, 27);
+		button.setBounds(268, 198, 107, 27);
 		add(button);
 
 	}
