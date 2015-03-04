@@ -176,6 +176,7 @@ public class MenuPrincipal {
 		});
 		
 		mnContratos.add(mntmNewMenuItem_4);
+		mntmNewMenuItem_3.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_add.png")));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "10");
