@@ -18,6 +18,7 @@ import classes.Hospede;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class MenuPrincipal {
 
@@ -132,9 +133,11 @@ public class MenuPrincipal {
 		menuBar.add(lblInicio);
 		
 		JMenu mnNewMenu = new JMenu("Hospedes");
+		mnNewMenu.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/multisend.ico")));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Pesquisar");
+		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/multisend.ico")));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "2");
