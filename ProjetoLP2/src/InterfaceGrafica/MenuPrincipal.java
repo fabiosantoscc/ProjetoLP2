@@ -167,8 +167,10 @@ public class MenuPrincipal {
 		});
 		
 		mnNewMenu.add(mntmNewMenuItem_2);
+		mnContratos.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report.png")));
 		
 		menuBar.add(mnContratos);
+		mntmNewMenuItem_4.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_go.png")));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "4");
@@ -184,6 +186,7 @@ public class MenuPrincipal {
 		});
 		
 		mnContratos.add(mntmNewMenuItem_3);
+		mntmNewMenuItem_5.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_delete.png")));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "11");
@@ -198,8 +201,10 @@ public class MenuPrincipal {
 		});
 		
 		mnContratos.add(mntmAgendar);
+		mnServios.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart.png")));
 		
 		menuBar.add(mnServios);
+		mntmPesquisar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_go.png")));
 		mntmPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			cl.show(panel0, "23");	
@@ -207,6 +212,7 @@ public class MenuPrincipal {
 		});
 		
 		mnServios.add(mntmPesquisar);
+		mnAdicionar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_add.png")));
 		
 		mnServios.add(mnAdicionar);
 		mnAdicionar.add(mntmBabySitter);
@@ -218,6 +224,7 @@ public class MenuPrincipal {
 		
 		mnAdicionar.add(mntmQuartos);
 		mnAdicionar.add(mntmAluguelDeVeculo);
+		mnAtualizar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_edit.png")));
 		
 		mnServios.add(mnAtualizar);
 		mntmQuartos_1.addActionListener(new ActionListener() {
@@ -234,6 +241,7 @@ public class MenuPrincipal {
 		});
 		
 		mnAtualizar.add(mntmRestaurante);
+		mntmRemover.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_delete.png")));
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "26");	
@@ -244,8 +252,10 @@ public class MenuPrincipal {
 		mnNewMenu_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cog.png")));
 		
 		menuBar.add(mnNewMenu_1);
+		mntmNewMenuItem_6.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/help.png")));
 		
 		mnNewMenu_1.add(mntmNewMenuItem_6);
+		mntmNotaDeAceitao.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/comment.png")));
 		mntmNotaDeAceitao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				notaEComentario = new NotaEComentario();
