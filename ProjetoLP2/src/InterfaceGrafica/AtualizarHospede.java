@@ -16,6 +16,7 @@ import classes.Telefone;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class AtualizarHospede extends JPanel {
 
@@ -184,6 +185,7 @@ public class AtualizarHospede extends JPanel {
 		
 		
 		JButton btnCadastrar = new JButton("Atualizar");
+		btnCadastrar.setIcon(new ImageIcon(AtualizarHospede.class.getResource("/Icons/accept.png")));
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCadastrar.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e){
@@ -209,7 +211,7 @@ public class AtualizarHospede extends JPanel {
 				}
 			}
 		});
-		btnCadastrar.setBounds(292, 479, 158, 37);
+		btnCadastrar.setBounds(313, 487, 137, 29);
 		add(btnCadastrar);
 		
 

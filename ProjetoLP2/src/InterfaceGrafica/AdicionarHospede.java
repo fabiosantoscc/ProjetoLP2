@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.ImageIcon;
 
 public class AdicionarHospede extends JPanel {
 	
@@ -177,6 +178,7 @@ public class AdicionarHospede extends JPanel {
 		
 		
 		JButton btnCadastrar = new JButton("Criar");
+		btnCadastrar.setIcon(new ImageIcon(AdicionarHospede.class.getResource("/Icons/accept.png")));
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnCadastrar.addActionListener(new ActionListener()  {
 			public void actionPerformed(ActionEvent arg0) {
@@ -209,7 +211,7 @@ public class AdicionarHospede extends JPanel {
 				}
 			}
 		});
-		btnCadastrar.setBounds(313, 479, 254, 45);
+		btnCadastrar.setBounds(334, 497, 138, 29);
 		add(btnCadastrar);
 		
 		JDateChooser dateChooser = new JDateChooser();
