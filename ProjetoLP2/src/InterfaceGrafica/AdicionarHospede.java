@@ -14,7 +14,6 @@ import classes.Arquivos;
 import classes.Endereco;
 import classes.Hospede;
 import classes.Telefone;
-import excecoes.EstadoInvalidoException;
 import excecoes.InputArgumentInvalidException;
 
 import java.awt.event.ActionListener;

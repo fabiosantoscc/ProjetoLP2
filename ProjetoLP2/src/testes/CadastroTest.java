@@ -1,4 +1,4 @@
-package classes;
+package testes;
 
 import org.junit.Assert;
 import org.junit.Test;

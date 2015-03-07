@@ -1,14 +1,7 @@
 package classes;
 
-import excecoes.BairroInvalidoException;
-import excecoes.CepInvalidoException;
-import excecoes.CidadeInvalidaException;
-import excecoes.ComplementoInvalidoException;
-import excecoes.EstadoInvalidoException;
 import excecoes.InputArgumentInvalidException;
-import excecoes.NomeRuaInvalidaException;
-import excecoes.NumeroDaResidenciaInvalidoException;
-import excecoes.PaisInvalidoException;
+import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 
@@ -16,7 +9,7 @@ import java.io.Serializable;
  *     Classe que manipula dados referentes ao endereco do cliente.
  *     @author Ravi Leite
  *     @data 23/12/2014
- *     Alteracoes: 23/02/2015 / Fabio Alexandre
+ *     Alteracoes: 06/03/2015 / Fabio Alexandre
  */
 
 public class Endereco implements Serializable {
@@ -67,104 +60,104 @@ public class Endereco implements Serializable {
     this.cep = cep;
   }
 
-  private void checaCidade( String cidade ) throws CidadeInvalidaException {
+  private void checaCidade( String cidade ) throws StringInvalidaException {
     if ( cidade == null || cidade.equals("") ) {
-      throw new CidadeInvalidaException("Nome da cidade invalido.");
+      throw new StringInvalidaException("Nome da cidade invalido.");
     }
 
     for (int i = 0; i < cidade.length(); i++ ) {
       if ( Character.isDigit(cidade.charAt(i))) {
-        throw new CidadeInvalidaException("Nome da cidade deve conter apenas letras.");
+        throw new StringInvalidaException("Nome da cidade deve conter apenas letras.");
       }
     }
   }
 
-  private void checaBairro( String bairro ) throws BairroInvalidoException {
+  private void checaBairro( String bairro ) throws StringInvalidaException {
     if ( bairro == null || bairro.equals("") ) {
-      throw new BairroInvalidoException("Nome do bairro invalido.");
+      throw new StringInvalidaException("Nome do bairro invalido.");
     }
 
     for ( int i = 0; i < bairro.length(); i++ ) {
       if ( Character.isDigit(bairro.charAt(i)) ) {
-        throw new BairroInvalidoException("Nome do bairro deve conter apenas letras.");
+        throw new StringInvalidaException("Nome do bairro deve conter apenas letras.");
       }
     }
   }
 
-  private void checaRua( String rua ) throws NomeRuaInvalidaException {
+  private void checaRua( String rua ) throws StringInvalidaException {
     if ( rua == null || rua.equals("") ) {
-      throw new NomeRuaInvalidaException("Nome da rua invalido.");
+      throw new StringInvalidaException("Nome da rua invalido.");
     }
     
     for ( int i = 0; i < rua.length(); i++ ) {
       if ( Character.isDigit(rua.charAt(i))) {
-        throw new NomeRuaInvalidaException("Nome da rua deve conter apenas letras.");
+    	  throw new StringInvalidaException("Nome da rua deve conter apenas letras.");
       }
     }
   }
   
-  private void checaComplemento( String complemento ) throws ComplementoInvalidoException {
+  private void checaComplemento( String complemento ) throws StringInvalidaException {
     if (complemento == null) {
-      throw new ComplementoInvalidoException("Complemento invalido.");
+      throw new StringInvalidaException("Complemento invalido.");
     }
   }
 
-  private void checaNumero( String numero ) throws NumeroDaResidenciaInvalidoException {
+  private void checaNumero( String numero ) throws StringInvalidaException {
 
     if ( numero == null || numero.equals("")) {
-      throw new NumeroDaResidenciaInvalidoException("Numero da residencia nao pode ser vazio.");
+      throw new StringInvalidaException("Numero da residencia nao pode ser vazio.");
     }
     
     for ( int i = 0; i < numero.length(); i++) {
       if ( ! (Character.isDigit(numero.charAt(i))) ) {
-        throw new NumeroDaResidenciaInvalidoException("Numero da residencia deve ser "
+        throw new StringInvalidaException("Numero da residencia deve ser "
             + "um inteiro positivo.");
       }
     }
 
     if ( Integer.parseInt(numero) <= 0 ) {
-      throw new NumeroDaResidenciaInvalidoException("Numero da residencia deve ser um "
+      throw new StringInvalidaException("Numero da residencia deve ser um "
           + "inteiro positivo.");
     }
   }
 
-  private void checaEstado( String estado ) throws EstadoInvalidoException {
+  private void checaEstado( String estado ) throws StringInvalidaException {
     if ( estado == null || estado.equals("")) {
-      throw new EstadoInvalidoException("Nome do estado invalido.");
+      throw new StringInvalidaException("Nome do estado invalido.");
     }
 
     for ( int i = 0; i < estado.length(); i++ ) {
       if ( Character.isDigit(estado.charAt(i)) ) {
-        throw new EstadoInvalidoException("Nome do estado deve conter apenas letras.");
+        throw new StringInvalidaException("Nome do estado deve conter apenas letras.");
       }
     }
   }
 
-  private void checaPais( String meuPais ) throws PaisInvalidoException {
+  private void checaPais( String meuPais ) throws StringInvalidaException {
     if ( meuPais == null || meuPais.equals("")) {
-      throw new PaisInvalidoException("Nome do pais invalido.");
+      throw new StringInvalidaException("Nome do pais invalido.");
     }
 
     for ( int i = 0; i < meuPais.length(); i++ ) {
       if ( Character.isDigit(meuPais.charAt(i)) ) {
-        throw new PaisInvalidoException("Nome do pais deve conter apenas letras.");
+        throw new StringInvalidaException("Nome do pais deve conter apenas letras.");
       }
     }
   }
 
-  private void checaCep( String cep ) throws CepInvalidoException {
+  private void checaCep( String cep ) throws StringInvalidaException {
 
     if ( cep == null || cep.equals("") ) {
-      throw new CepInvalidoException("Cep nao pode ser vazio.");
+      throw new StringInvalidaException("Cep nao pode ser vazio.");
     }
 
     if ( cep.length() != 8 ) {
-      throw new CepInvalidoException("Quantidade de digitos do cep invalida.");
+      throw new StringInvalidaException("Quantidade de digitos do cep invalida.");
     }
     
     for ( int i = 0; i < cep.length(); i++ ) {
       if ( ! (Character.isDigit(cep.charAt(i))) ) {
-        throw new CepInvalidoException("Cep deve conter apenas digitos.");
+        throw new StringInvalidaException("Cep deve conter apenas digitos.");
       }  
     }
   }
@@ -183,10 +176,10 @@ public class Endereco implements Serializable {
   * Atribui um novo nome de cidade.
   * 
   * @param cidade - nova cidade onde reside o cliente.
-  * @throws CidadeInvalidaException 
+  * @throws StringInvalidaException
   */
 
-  public void setCidade(String cidade) throws CidadeInvalidaException {
+  public void setCidade(String cidade) throws StringInvalidaException {
     checaCidade(cidade);
     this.cidade = cidade;
   }
@@ -205,10 +198,10 @@ public class Endereco implements Serializable {
   * Atribui um novo bairro ao endereco do cliente.
   * 
   * @param bairro - novo bairro de localizacao da rua do cliente.
-  * @throws BairroInvalidoException 
+  * @throws StringInvalidaException
   */
 
-  public void setBairro(String bairro) throws BairroInvalidoException {
+  public void setBairro(String bairro) throws StringInvalidaException {
     checaBairro(bairro);
     this.bairro = bairro;
   }
@@ -227,10 +220,10 @@ public class Endereco implements Serializable {
   * Atribui um novo nome de rua para o cliente.
   * 
   * @param nomeDaRua - Nome da nova rua onde se localiza a residencia do cliente.
-  * @throws NomeRuaInvalidaException 
+  * @throws StringInvalidaException
   */
 
-  public void setNomeDaRua(String nomeDaRua) throws NomeRuaInvalidaException  {
+  public void setNomeDaRua(String nomeDaRua) throws StringInvalidaException {
     checaRua(nomeDaRua);
     this.nomeDaRua = nomeDaRua;
   }
@@ -252,7 +245,7 @@ public class Endereco implements Serializable {
   * @throws NumeroDaResidenciaInvalidoException
   */
 
-  public void setNumeroDaCasa(String numeroDaCasa) throws NumeroDaResidenciaInvalidoException {
+  public void setNumeroDaCasa(String numeroDaCasa) throws StringInvalidaException {
     checaNumero(numeroDaCasa);
     this.numeroDaCasa = numeroDaCasa;
   }
@@ -274,7 +267,7 @@ public class Endereco implements Serializable {
   * @throws ComplementoInvalidoException 
   */
 
-  public void setComplemento(String complemento) throws ComplementoInvalidoException {
+  public void setComplemento(String complemento) throws StringInvalidaException {
     checaComplemento(complemento);
     this.complemento = complemento;
   }
@@ -298,7 +291,7 @@ public class Endereco implements Serializable {
   * @throws EstadoInvalidoException 
   */
 
-  public void setEstado(String estado) throws EstadoInvalidoException {
+  public void setEstado(String estado) throws StringInvalidaException {
     checaEstado(estado);
     this.estado = estado;
   }
@@ -320,7 +313,7 @@ public class Endereco implements Serializable {
   * @throws PaisInvalidoException 
   */
 
-  public void setPais(String pais) throws PaisInvalidoException {
+  public void setPais(String pais) throws StringInvalidaException {
     checaPais(pais);
     this.pais = pais;
   }
@@ -342,7 +335,7 @@ public class Endereco implements Serializable {
   * @throws CepInvalidoException  
   */
 
-  public void setCep(String cep) throws CepInvalidoException {
+  public void setCep(String cep) throws StringInvalidaException {
     checaCep(cep);
     this.cep = cep;
   }
