@@ -1,10 +1,10 @@
 package excecoes;
 
-public class DataDeNascimentoInvalidaException extends InputArgumentInvalidException {
+public class DataDeNascimentoInvalidaException extends Exception {
 
-	private static final long serialVersionUID = 287618677768147925L;
+  private static final long serialVersionUID = 287618677768147925L;
 
-	public DataDeNascimentoInvalidaException(String comentario) {
-		super(comentario);
-	}
+  public DataDeNascimentoInvalidaException(String comentario) {
+    super(comentario);
+  }
 }

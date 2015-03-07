@@ -1,11 +1,8 @@
 package classes;
 
-import excecoes.CpfInvalidoException;
 import excecoes.DataDeNascimentoInvalidaException;
-import excecoes.EmailInvalidoException;
 import excecoes.InputArgumentInvalidException;
-import excecoes.NomeInvalidoException;
-import excecoes.NumeroCartaoInvalidoException;
+import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -14,7 +11,7 @@ import java.util.Calendar;
  *     Classe que representa um hospede.
  *     @author Ravi Leite
  *     @data 23/12/2014
- *     Ultima revisao: 04/03/2015 / Fabio Alexandre
+ *     Ultima revisao: 06/03/2015 / Fabio Alexandre
  */
 
 public class Hospede implements Serializable {
@@ -38,11 +35,12 @@ public class Hospede implements Serializable {
   * @param telefone - telefone do hospede.
   * @param endereco - endereco do hospede.
   * @param dataDeNascimento - Data de nascimento do hospede.
-  * @throws InputArgumentInvalidException - Pode lancar excecao de entrada de dados invalida.
+ * @throws InputArgumentInvalidException 
   */
 
   public Hospede( String nome, String cpf, String cartao, String email, Telefone telefone, 
-      Endereco endereco, Calendar dataDeNascimento ) throws InputArgumentInvalidException {
+      Endereco endereco, Calendar dataDeNascimento ) throws DataDeNascimentoInvalidaException,
+      InputArgumentInvalidException {
 
     verificaNome(nome);
     verificaCpf(cpf);
@@ -71,21 +69,21 @@ public class Hospede implements Serializable {
 
   private void verificaCpf(String cpf) throws InputArgumentInvalidException {
     if (cpf == null || cpf.equals("")) {
-      throw new CpfInvalidoException("O campo do cpf nao pode ser vazio.");
+      throw new StringInvalidaException("O campo do cpf nao pode ser vazio.");
     }
 
     for (int i = 0; i < cpf.length(); i++) {
       if (!(Character.isDigit(cpf.charAt(i)))) {
-        throw new CpfInvalidoException("O cpf deve conter apenas numeros.");
+        throw new StringInvalidaException("O cpf deve conter apenas numeros.");
       }  
     }
 
     if (cpf.length() != 11) {
-      throw new CpfInvalidoException("Quantidade de digitos do cpf invalida.");
+      throw new StringInvalidaException("Quantidade de digitos do cpf invalida.");
     }
 
     if ( ! (isCpf(cpf) ) ) {
-      throw new CpfInvalidoException("cpf invalido");
+      throw new StringInvalidaException("cpf invalido");
     }
   }
 
@@ -174,12 +172,12 @@ public class Hospede implements Serializable {
   private void verificaNome( String nome ) throws InputArgumentInvalidException {
 
     if ( nome == null || nome.equals("") ) {
-      throw new NomeInvalidoException("O nome do hospede nao pode ser vazio.");
+      throw new StringInvalidaException("O nome do hospede nao pode ser vazio.");
     }
 
     for ( int i = 0; i < nome.length(); i++) {
       if ( (Character.isDigit(nome.charAt(i))) ) {
-        throw new NomeInvalidoException("O nome do hospede deve conter apenas letras.");
+        throw new StringInvalidaException("O nome do hospede deve conter apenas letras.");
       }  
     }
   }
@@ -194,21 +192,21 @@ public class Hospede implements Serializable {
   private void verificaCartao(String cartao) throws InputArgumentInvalidException {
 
     if (cartao == null || cartao.equals("")) {
-      throw new NumeroCartaoInvalidoException("O campo NUMERO DO CARTAO nao pode ser vazio.");
+      throw new StringInvalidaException("O campo NUMERO DO CARTAO nao pode ser vazio.");
     }
 
     if (cartao.length() != 16) {
-      throw new NumeroCartaoInvalidoException("Quantidade de digitos do cartao invalida.");
+      throw new StringInvalidaException("Quantidade de digitos do cartao invalida.");
     }
     
     for (int i = 0; i < 16; i++) {
       if ( !(Character.isDigit(cartao.charAt(i))) ) {
-        throw new NumeroCartaoInvalidoException("O numero do cartao deve conter apenas numeros.");
+        throw new StringInvalidaException("O numero do cartao deve conter apenas numeros.");
       }
     }
 
     if (!(isCartao(cartao))) {
-      throw new NumeroCartaoInvalidoException("Numero do cartao invalido.");
+      throw new StringInvalidaException("Numero do cartao invalido.");
     }
   }
 
@@ -252,11 +250,11 @@ public class Hospede implements Serializable {
 
   private void verificaEmail( String email ) throws InputArgumentInvalidException {
     if ( email == null || email.equals("") ) {
-      throw new EmailInvalidoException("O campo do email nao pode ser vazio.");
+      throw new StringInvalidaException("O campo do email nao pode ser vazio.");
     }
 
     if ( email.indexOf("@") == -1 ) {
-      throw new EmailInvalidoException("O campo do email deve ser preenchido no formato"
+      throw new StringInvalidaException("O campo do email deve ser preenchido no formato"
           + " adequado com o @.");
     }
   }
@@ -401,7 +399,7 @@ public class Hospede implements Serializable {
   */
   
   public void setDataDeNascimento( Calendar dataDeNascimento )
-      throws DataDeNascimentoInvalidaException {
+      throws InputArgumentInvalidException, DataDeNascimentoInvalidaException {
     if ( dataDeNascimento == null ) {
       throw new DataDeNascimentoInvalidaException("Data de nascimento nao pode ser vazia.");
     }
