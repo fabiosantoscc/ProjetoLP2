@@ -19,7 +19,7 @@ import excecoes.*;
 public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-    public static final String PIN = "123";
+    private String pin;
 	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
@@ -32,10 +32,22 @@ public class Hotel implements Serializable {
 	public static int maisRestaurante = 0;
 	public static int maisBaby = 0;
 	public static int maisAluguel = 0;
+	
+	private List<Cadastro> cadastros = new ArrayList<Cadastro>();
+	
+	// map com um hospede como chave, e um List<Contrato> como valor para guardar todos os contratos do hospede.
+	private HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
+	
+	// Opinioes dos hospedes que fizeram checkout no hotel.
 	private List<Opiniao> opinioes = new ArrayList<Opiniao>();
 	
-	// map com um hospede como chave, e um List<Contrato> como valor
-	HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
+	public Hotel( String pin ) {
+		this.pin = pin;
+	}
+	
+	public String getPin() {
+		return pin;
+	}
 	
 	/**
 	 * Realiza o checkout de um método, ou seja, deixa ele como fechado.
