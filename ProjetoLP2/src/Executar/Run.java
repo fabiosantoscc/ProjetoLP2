@@ -10,7 +10,7 @@ public class Run {
 	
 	public static void main(String[] args) throws Exception {
 		
-		hotel = new Hotel();
+		hotel = new Hotel("123");
 		Arquivos.salvaHotel(hotel);
 		hotel = Arquivos.lerHotel();
 		TelaLogin.main(args);

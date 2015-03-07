@@ -110,6 +110,11 @@ public class TelaLogin extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new TelaCadastro();
+			}
+		});
 		btnCadastrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")));
 		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnCadastrar.setBounds(277, 372, 130, 25);

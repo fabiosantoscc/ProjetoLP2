@@ -1,23 +1,27 @@
 package InterfaceGrafica;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 public class DefaultMenu extends JPanel {
 
-	/**
-	 * Create the panel.
+	/*
+	 * Cria um menu default para a tela inicial do projeto.
+	 * 
 	 */
 	
 	public DefaultMenu() {
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(DefaultMenu.class.getResource("/Icons/Background.jpg")));
-		lblNewLabel.setBounds(0, 0, 771, 555);
-		add(lblNewLabel);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(82, 189, 596, 291);
+		add(scrollPane);
+		
+		JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
+			
+		textPane.setEditable(false);
+
 	}
 }

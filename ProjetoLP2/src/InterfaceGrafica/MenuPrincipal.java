@@ -1,12 +1,9 @@
 package InterfaceGrafica;
 
-import Executar.Run;
-
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -17,13 +14,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JLabel;
 
-import classes.Hospede;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
 
 public class MenuPrincipal {
 
