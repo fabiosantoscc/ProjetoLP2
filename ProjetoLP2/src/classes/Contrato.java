@@ -18,7 +18,7 @@ import java.util.List;
 public class Contrato implements Serializable {
 
   private static final long serialVersionUID = 1L;
-  private List<Servicos> servicos = new ArrayList<Servicos>();
+  private List<Servico> servicos = new ArrayList<Servico>();
   private boolean aberto;
   private double valorAPagar;
   private int numeroDeNoites;
@@ -51,7 +51,7 @@ public class Contrato implements Serializable {
    */
   
   public void calculaDespesaTotal(){
-	  for (Servicos s : servicos){
+	  for (Servico s : servicos){
 		  despesaTotal += s.getDespesaTotal();
 	  }
   }
@@ -92,7 +92,7 @@ public class Contrato implements Serializable {
   * @param meusServicos - Servicos a serem adicionados.
   */
   
-  public void servicosContrato( List<Servicos> meusServicos ) {
+  public void servicosContrato( List<Servico> meusServicos ) {
     servicos.addAll(meusServicos);
   }
 
@@ -102,10 +102,14 @@ public class Contrato implements Serializable {
   * @param servico - Servico a ser adicionado.
   */
 
-  public void adicionaServico( Servicos servico ) {
+  public void adicionaServico( Servico servico ) {
     servicos.add(servico);
   }
 
+  public void removeServico( Servico servico ) {
+	  servicos.remove(servico);
+  }
+  
   /**
   * Recupera o dia inicial do Contrato.
   * 
@@ -142,7 +146,7 @@ public class Contrato implements Serializable {
    * @return List<> - Todos os servicos do Contrato.
    */
   
-  public List<Servicos> getServicos() {
+  public List<Servico> getServicos() {
     return servicos;
   }
 

@@ -11,7 +11,7 @@ import java.util.Calendar;
  * Ultima Alteracao : FAbio Alexandre 10/02/2015
  */
  
-public class AluguelDeCarros implements Servicos, Serializable {
+public class AluguelDeCarros implements Servico, Serializable {
 	private EstrategiaDeCalculoDaMontante estrategia;
 	private static final long serialVersionUID = 1L;
 

@@ -18,7 +18,7 @@ import Executar.Run;
 import classes.Arquivos;
 import classes.Contrato;
 import classes.Hospede;
-import classes.Servicos;
+import classes.Servico;
 
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
@@ -31,7 +31,7 @@ public class RemoverServicos extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	List<Servicos> servicosAtuais;
+	List<Servico> servicosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;
@@ -72,7 +72,7 @@ public class RemoverServicos extends JPanel {
 		JButton btnNewButton = new JButton("Remover");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for ( Servicos servico : servicosAtuais ) {
+				for ( Servico servico : servicosAtuais ) {
 					if ( ((String) meuList.getSelectedValue()).equals(servico.toString()) ) {
 						servicosAtuais.remove(servico);
 						try {

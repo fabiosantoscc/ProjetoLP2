@@ -14,7 +14,7 @@ import classes.BabySitter;
  * Atualizacao 10/02/2015
  */
   
-public class BabySitter implements Servicos, Serializable {
+public class BabySitter implements Servico, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
@@ -31,12 +31,12 @@ public class BabySitter implements Servicos, Serializable {
 	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manhã)
 	 */
 	
-	public BabySitter(int quantidadeHoras, int horaInicial)throws Exception{
-		Hotel.maisBaby++;
+	public BabySitter(int quantidadeHoras, int horaInicial) throws Exception {
 		data = Calendar.getInstance();
 		calendario = new CalendarioDeEstrategias(); 
 		checaHoras(quantidadeHoras);
 		checaHoraInicial(horaInicial);
+		Hotel.maisBaby++;
 		this.horaInicial = horaInicial;
 		this.quantidadeHoras = quantidadeHoras;
 		quantidadeHorasDobradas = 0;
@@ -48,7 +48,7 @@ public class BabySitter implements Servicos, Serializable {
 	 * Construtor da classe Baby Sitter sem agendamento de servico
 	 */
 	
-	public BabySitter()throws Exception{
+	public BabySitter() throws Exception {
 		calendario = new CalendarioDeEstrategias(); 
 		despesaTotal = 0;
 		this.horaInicial = 0;
@@ -57,14 +57,14 @@ public class BabySitter implements Servicos, Serializable {
 	}
 	
 	
-	private void checaHoras(int quantidadeHoras)throws Exception{
-		if (quantidadeHoras <= 0){
+	private void checaHoras(int quantidadeHoras) throws Exception {
+		if (quantidadeHoras <= 0) {
 			throw new Exception ("O numero de horas tem que ser maior que zero.");
 		}
 	}
 	 
-	private void checaHoraInicial(int horaInicial) throws Exception{
-		if (horaInicial < 0 || horaInicial > 23){
+	private void checaHoraInicial(int horaInicial) throws Exception {
+		if (horaInicial < 0 || horaInicial > 23) {
 			throw new Exception("Hora inicial do servico invalida.");
 		}
 	}
@@ -78,7 +78,7 @@ public class BabySitter implements Servicos, Serializable {
 	 */
 	
 	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
-			int anoSaida)throws Exception{
+			int anoSaida) throws Exception {
 		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
 		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
 		boolean dataValida = true;
@@ -118,13 +118,16 @@ public class BabySitter implements Servicos, Serializable {
 	 * Verifica a quantidade de horas simples e dobradas em cada dia agendado ou de hora extra
 	 */
 	
-	public void checaHorasDobradas(int quantidadeHoras, int horaInicial){
+	public void checaHorasDobradas(int quantidadeHoras, int horaInicial) {
 		int horas = horaInicial;
-		for (int i = 0; i < quantidadeHoras; i++){
-			if (horas == 24) horas = 0;
-			if ((horas >= 18 && horas <= 23) || (horas >= 0 && horas < 7)){
+		for (int i = 0; i < quantidadeHoras; i++) {
+			if (horas == 24)
+				horas = 0;
+			
+			if ((horas >= 18 && horas <= 23) || (horas >= 0 && horas < 7)) {
 				quantidadeHorasDobradas++;
 			}
+			
 			horas++;
 		}
 	}
@@ -159,7 +162,7 @@ public class BabySitter implements Servicos, Serializable {
 	 * @return
 	 */
 	
-	public int getHoraInicial(){
+	public int getHoraInicial() {
 		return horaInicial;
 	}
 	
@@ -176,7 +179,7 @@ public class BabySitter implements Servicos, Serializable {
 	 * @return A despesa total da baby sitter em um determinado periodo
 	 */
 	
-	public double getPreco(){
+	public double getPreco() {
 		return despesaTotal;
 	}
 	
@@ -211,11 +214,13 @@ public class BabySitter implements Servicos, Serializable {
 	
 	@Override
 	public boolean equals( Object obj ) {
-		if (!(obj instanceof BabySitter)) return false;
+		if ( !(obj instanceof BabySitter) ) {
+          return false;
+        }
+		
 		BabySitter novaBabySitter = (BabySitter)obj;
-		if (quantidadeHoras == novaBabySitter.getQuantidadeHoras() &&
-				quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas())
-			return true;
-		return false;
+		
+		return quantidadeHoras == novaBabySitter.getQuantidadeHoras()
+            && quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas();
 	}
 }

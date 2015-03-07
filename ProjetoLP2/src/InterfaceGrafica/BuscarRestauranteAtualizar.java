@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import Executar.Run;
-import classes.Servicos;
+import classes.Servico;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class BuscarRestauranteAtualizar extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	List<Servicos> servicosAtuais = null;
+	List<Servico> servicosAtuais = null;
 	public BuscarRestauranteAtualizar() {
 		setLayout(null);
 		

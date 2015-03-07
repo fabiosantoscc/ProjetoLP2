@@ -26,7 +26,7 @@ import classes.QuartoLuxoSimples;
 import classes.QuartoLuxoTriplo;
 import classes.QuartoPresidencial;
 import classes.Restaurante;
-import classes.Servicos;
+import classes.Servico;
 
 import javax.swing.JLabel;
 
@@ -53,7 +53,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	 */
 	
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
-	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
+	ArrayList<Servico> servicos = new ArrayList<Servico>();
 	Quarto quartoAtual;
 	
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
@@ -214,7 +214,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				try {
 					if (servicos.size() > 0){
 						Run.hotel.criaContrato(hospedeAtual, numNoitesAtual);
-						for ( Servicos s : servicos ) {
+						for ( Servico s : servicos ) {
 							Run.hotel.adicionaServico(hospedeAtual, s);
 						}
 						Run.hotel.adicionaServico(hospedeAtual, new Restaurante());

@@ -18,7 +18,7 @@ import Executar.Run;
 import classes.Contrato;
 import classes.Hospede;
 import classes.Quarto;
-import classes.Servicos;
+import classes.Servico;
 
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
@@ -30,7 +30,7 @@ public class ListaQuartos extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	List<Servicos> servicosAtuais;
+	List<Servico> servicosAtuais;
 	List<Quarto> quartosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
@@ -71,7 +71,7 @@ public class ListaQuartos extends JPanel {
 		btnAtualizarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAtualizarQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				for ( Servicos servico : servicosAtuais ) {
+				for ( Servico servico : servicosAtuais ) {
 					if ( ((String) meuList.getSelectedValue()).equals(servico.toString()) ) {
 						MenuPrincipal.atualizarQuarto = new AtualizarQuarto((Quarto) servico);
 						MenuPrincipal.panel0.add(MenuPrincipal.atualizarQuarto, "30");

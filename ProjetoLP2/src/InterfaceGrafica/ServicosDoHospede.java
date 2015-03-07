@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import Executar.Run;
 import classes.Contrato;
 import classes.Hospede;
-import classes.Servicos;
+import classes.Servico;
 
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
@@ -29,7 +29,7 @@ public class ServicosDoHospede extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	List<Servicos> servicosAtuais;
+	List<Servico> servicosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
 	JList meuList;

@@ -149,7 +149,7 @@ public class Hotel implements Serializable {
 	 * @throws HospedeInvalidoException 
 	 */
 	
-	public void adicionaVariosServicos(Hospede hospede, List<Servicos> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
+	public void adicionaVariosServicos(Hospede hospede, List<Servico> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
 		
 		List<Contrato> contratos =  hospedes.get(hospede);
 		boolean contratoAberto = false;
@@ -187,8 +187,8 @@ public class Hotel implements Serializable {
 				List<Contrato> contratos = hospedes.get(umHospede);
 				for ( Contrato contrato : contratos ) {
 					if ( contrato.isAberto()) {
-						List<Servicos> servicos = contrato.getServicos();
-						for ( Servicos servico : servicos ) {
+						List<Servico> servicos = contrato.getServicos();
+						for ( Servico servico : servicos ) {
 							if ( servico instanceof Restaurante )
 								return (Restaurante) servico;
 						}
@@ -212,7 +212,7 @@ public class Hotel implements Serializable {
 	 * @throws ContratoAbertoException 
 	 */
 	
-	public void adicionaServico( Hospede esseHospede, Servicos umServico ) throws ContratoAbertoException {
+	public void adicionaServico( Hospede esseHospede, Servico umServico ) throws ContratoAbertoException {
 		boolean isContratoAberto = false;
 		
 		List<Contrato> contratos = this.hospedes.get(esseHospede);
@@ -287,10 +287,10 @@ public class Hotel implements Serializable {
 	 * @throws Exception
 	 */
 	
-	public List<Servicos> getServicosHospede( Hospede hospede ) throws Exception {
+	public List<Servico> getServicosHospede( Hospede hospede ) throws Exception {
 		boolean isContratoAberto = false;
 		List <Contrato> meusContratos = hospedes.get(hospede);
-		List<Servicos> servicos = null;
+		List<Servico> servicos = null;
 		
 		for ( Contrato meuContrato : meusContratos ) {
 			if ( meuContrato.isAberto() ) {

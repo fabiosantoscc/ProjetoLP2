@@ -10,14 +10,17 @@ import java.util.Calendar;
  * Ultima atualizacao 14/01/2015 / Fabio Alexandre
  */
  
-public class Restaurante implements Servicos, Serializable {
-	private CalendarioDeEstrategias calendario;
+public class Restaurante implements Servico, Serializable {
+	
 	private static final long serialVersionUID = 1L;
+	private CalendarioDeEstrategias calendario;
 	private EstrategiaDeCalculoDaMontante estrategia;
 	private double consumoRefeicao, consumoUnidade1, consumoUnidade2, consumoGeral;
 	private int quantUsoUnidade1, quantUsoUnidade2;
+	private Calendar dataConsumo;
 	
 	public Restaurante(){
+		dataConsumo = Calendar.getInstance();
 		Hotel.maisRestaurante++;
 		calendario = new CalendarioDeEstrategias();
 	}
@@ -78,26 +81,25 @@ public class Restaurante implements Servicos, Serializable {
 	@Override
 	public String toString() {
 		return "Restaurante:"
-				+Arquivos.FIM_LINHA+"Unidade 1 (Terreo)"
-				+Arquivos.FIM_LINHA+ "      Quantidade de usos: "+quantUsoUnidade1
-				+Arquivos.FIM_LINHA+ "      Valor consumido: "+ consumoUnidade1
-				+Arquivos.FIM_LINHA+ "Unidade 2 (Cobertura)"
-				+Arquivos.FIM_LINHA+ "      Quantidade de usos: "+quantUsoUnidade2
-				+Arquivos.FIM_LINHA+ "      Valor consumido: "+ consumoUnidade2
-				+ Arquivos.FIM_LINHA+Arquivos.FIM_LINHA+"\n\nValor total: "+ consumoGeral;
+				+ Arquivos.FIM_LINHA + "Unidade 1 (Terreo)"
+				+ Arquivos.FIM_LINHA + "      Quantidade de usos: "+quantUsoUnidade1
+				+ Arquivos.FIM_LINHA + "      Valor consumido: "+ consumoUnidade1
+				+ Arquivos.FIM_LINHA + "Unidade 2 (Cobertura)"
+				+ Arquivos.FIM_LINHA + "      Quantidade de usos: "+quantUsoUnidade2
+				+ Arquivos.FIM_LINHA + "      Valor consumido: "+ consumoUnidade2
+				+ Arquivos.FIM_LINHA +Arquivos.FIM_LINHA+"\n\nValor total: "+ consumoGeral;
 	} 
 	
 	@Override
 	public boolean equals( Object obj ) {
-		if (! (obj instanceof Restaurante)){
+		if (! (obj instanceof Restaurante)) {
 			return false;
 		}
-		Restaurante novo = (Restaurante) obj;
 		
-		if (novo.getConsumoUnidade1() == consumoUnidade1 &&
-				novo.getConsumoUnidade2() == consumoUnidade2 && novo.getDespesaTotal() == consumoGeral){
-			return true;
-		}
-		return false;
+		Restaurante restaurante = (Restaurante) obj;
+		
+		return restaurante.getConsumoUnidade1() == consumoUnidade1
+		    && restaurante.getConsumoUnidade2() == consumoUnidade2
+		    && restaurante.getDespesaTotal() == consumoGeral;
 	}
 }

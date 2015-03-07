@@ -8,7 +8,7 @@ package classes;
  *
  */
 
-public interface Servicos {
+public interface Servico {
 
 	public double getDespesaTotal();
 	

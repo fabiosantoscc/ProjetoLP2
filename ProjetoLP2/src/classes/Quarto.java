@@ -13,7 +13,7 @@ import java.util.Calendar;
  *     Ultima atualizacao 23/02/2015 / Fabio Alexandre
  */
 
-public abstract class Quarto implements Servicos, Serializable  {
+public abstract class Quarto implements Servico, Serializable  {
   
   private static final long serialVersionUID = 1L;
   private double valorDiaria;

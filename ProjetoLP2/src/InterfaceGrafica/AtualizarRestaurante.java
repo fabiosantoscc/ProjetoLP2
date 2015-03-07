@@ -14,7 +14,7 @@ import Executar.Run;
 import classes.Arquivos;
 import classes.Hospede;
 import classes.Restaurante;
-import classes.Servicos;
+import classes.Servico;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
