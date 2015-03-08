@@ -2,6 +2,8 @@ package classes;
 
 import java.io.Serializable;
 
+import excecoes.StringInvalidaException;
+
 public class Cadastro implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -17,15 +19,19 @@ public class Cadastro implements Serializable {
   * @param nome - Nome do Usuario.
   * @param nomeLogin - Nome usado para login.
   * @param senha - senha do cadastro.
+  * @throws StringInvalidaException 
   */
   
-  public Cadastro(String pin, String nome, String nomeLogin, String senha ) {
+  public Cadastro(String pin, String nome, String nomeLogin, String senha ) throws StringInvalidaException {
 
+    verificaNome(nome);
+    verificaNomeLogin(nomeLogin);
+    verificaSenha(senha);
+	
     this.pin = pin;
     this.nome = nome;
     this.nomeLogin = nomeLogin;
     this.senha = senha;
-    
   }
 
   /**
@@ -42,10 +48,12 @@ public class Cadastro implements Serializable {
   * Atribui um novo nome ao usuario do cadastro.
   * 
   * @param nome - Novo nome.
+  * @throws StringInvalidaException 
   */
 
-  public void setNome(String nome) {
-    this.nome = nome;
+  public void setNome(String nome) throws StringInvalidaException {
+    verificaNome(nome);
+	this.nome = nome;
   }
 
   /**
@@ -62,9 +70,11 @@ public class Cadastro implements Serializable {
   * Atribui um novo nome de login ao usuario do cadastro.
   * 
   * @param nomeLogin - Novo nome de login.
+  * @throws StringInvalidaException 
   */
 
-  public void setNomeLogin(String nomeLogin) {
+  public void setNomeLogin(String nomeLogin) throws StringInvalidaException {
+    verificaNomeLogin(nomeLogin);
     this.nomeLogin = nomeLogin;
   }
 
@@ -83,9 +93,18 @@ public class Cadastro implements Serializable {
   * 
   * @param senhaAntiga - Senha atual do cadastro.
   * @param novaSenha - Nova senha do cadastro.
+  * @throws StringInvalidaException 
   */
 
-  public void setSenha(String senhaAntiga, String novaSenha) {
+  public void setSenha(String senhaAntiga, String novaSenha) throws StringInvalidaException {
+    
+	verificaSenha(novaSenha);
+
+    /*
+    * Verifica se a senha antiga passada eh de fato verdadeira,
+    * para poder atribuir uma nova senha.
+    */
+
     if ( senhaAntiga.equals(getSenha()) ) {
       this.senha = novaSenha;
     }
@@ -106,10 +125,29 @@ public class Cadastro implements Serializable {
   * 
   * @return String - Representacao do cadastro.
   */
+  
+  private void verificaSenha(String senha) throws StringInvalidaException {
+    if ( senha == null || senha.equals("") ) {
+      throw new StringInvalidaException("Senha nao pode ser vazia.");
+    }
+  }
+
+  private void verificaNomeLogin(String nomeLogin) throws StringInvalidaException {
+    if ( nomeLogin == null || nomeLogin.equals("")) {
+      throw new StringInvalidaException("Nome de login nao pode ser vazio.");
+    }
+  }
+
+  private void verificaNome(String nome) throws StringInvalidaException {
+    if ( nome == null || nome.equals("")) {
+      throw new StringInvalidaException("Nome nao pode ser vazio.");
+    }
+  }
 
   @Override
   public String toString() {
-    return "";
+    return "Cadastro [ Nome:" + getNome() + ", Nome de login: " + getNomeLogin()
+        + ", Senha: " + getSenha() + " ]";
   }
   
   /**

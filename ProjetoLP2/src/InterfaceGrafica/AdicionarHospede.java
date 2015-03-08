@@ -14,7 +14,6 @@ import classes.Arquivos;
 import classes.Endereco;
 import classes.Hospede;
 import classes.Telefone;
-import excecoes.InputArgumentInvalidException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -219,12 +218,12 @@ public class AdicionarHospede extends JPanel {
 				dataNascimento = dateChooser.getCalendar();
 			}
 		});
-		dateChooser.setBounds(476, 182, 132, 20);
+		dateChooser.setBounds(445, 182, 114, 17);
 		add(dateChooser);
 		
-		JLabel lblData = new JLabel("Data");
+		JLabel lblData = new JLabel("Data de nascimento");
 		lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblData.setBounds(388, 182, 70, 15);
+		lblData.setBounds(421, 155, 138, 15);
 		add(lblData);
 	}
 }
