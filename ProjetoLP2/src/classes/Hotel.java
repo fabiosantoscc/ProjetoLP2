@@ -166,43 +166,7 @@ public class Hotel implements Serializable {
 		}
 	}
 	
-	/**
-	 * Retorna o restaurante da lista de servicos.
-	 * 
-	 * @param Hospede - Hospede do qual vai se fazer a pesquisa.
-	 * @return - O restaurante do contrato
-	 * @throws Exception
-	 */
-	
-	public Restaurante getRestaurante( Hospede hospede ) throws Exception {
-		Set <Hospede> meusHospedes = hospedes.keySet();
-		boolean restauranteEncontrado = false;
-		
-		if ( meusHospedes.size() == 0 )
-			throw new HospedeInvalidoException("Nao existe hospedes no hotel.");
 
-		for ( Hospede umHospede :  meusHospedes ) {
-			
-			if ( umHospede.getCpf().equals(hospede.getCpf()) || umHospede.getNome().equals(hospede.getNome()) ) {
-				List<Contrato> contratos = hospedes.get(umHospede);
-				for ( Contrato contrato : contratos ) {
-					if ( contrato.isAberto()) {
-						List<Servico> servicos = contrato.getServicos();
-						for ( Servico servico : servicos ) {
-							if ( servico instanceof Restaurante )
-								return (Restaurante) servico;
-						}
-					}	
-				}
-			}
-		}
-		
-		if ( restauranteEncontrado == false ) {
-			throw new Exception("Restaurante inexistente");
-		}
-		
-		return null;
-	}
 	
 	/**
 	 * Adiciona um servico ao contrato aberto do hospede, se existir.
