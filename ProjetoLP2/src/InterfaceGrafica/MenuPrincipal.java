@@ -30,7 +30,6 @@ public class MenuPrincipal {
 	public static PainelHospede telaHospede;
 	public static AdicionarContrato adicionarContrato;
 	BuscarContratos buscarContratos = new BuscarContratos();
-	FecharContrato fecharContrato = new FecharContrato();
 	AgendarContrato agendarContrato = new AgendarContrato();
 	public static AtualizarHospede atualizarHospede;
 	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
@@ -89,7 +88,6 @@ public class MenuPrincipal {
 		panel0.add(adicionarHospede, "1");
 		panel0.add(buscarHospede, "2");
 		panel0.add(buscarContratos, "4");
-		panel0.add(fecharContrato, "5");
 		panel0.add(agendarContrato, "6");
 		panel0.add(buscarHospedeAtualizar, "9");
 		panel0.add(buscarCheckIn, "10");
