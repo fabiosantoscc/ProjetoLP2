@@ -29,15 +29,15 @@ public class BuscarHospede extends JPanel {
 	public BuscarHospede() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Pesquisar Hospede");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 266, 40);
-		add(lblNovoContrato);
+		JLabel lblBuscarHospede = new JLabel("Pesquisar Hospede");
+		lblBuscarHospede.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblBuscarHospede.setBounds(38, 29, 266, 40);
+		add(lblBuscarHospede);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(192, 160, 112, 21);
-		add(label);
+		JLabel textCPF = new JLabel("CPF do Hospede");
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textCPF.setBounds(192, 160, 112, 21);
+		add(textCPF);
 		
 		cpfAPesquisar = new JTextField();
 		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -45,13 +45,13 @@ public class BuscarHospede extends JPanel {
 		cpfAPesquisar.setBounds(354, 160, 147, 20);
 		add(cpfAPesquisar);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarHospede.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.setBounds(297, 221, 99, 31);
-		add(button);
-		button.setToolTipText("Digite um nome ou um cpf para buscar o hospede.");
-		button.addActionListener(new ActionListener()  {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarHospede.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar.setBounds(297, 221, 99, 31);
+		add(btnBuscar);
+		btnBuscar.setToolTipText("Digite um nome ou um cpf para buscar o hospede.");
+		btnBuscar.addActionListener(new ActionListener()  {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
