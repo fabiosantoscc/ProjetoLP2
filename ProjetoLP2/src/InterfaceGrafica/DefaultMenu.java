@@ -19,8 +19,7 @@ public class DefaultMenu extends JPanel {
 		add(scrollPane);
 		
 		JTextPane textPane = new JTextPane();
-		scrollPane.setViewportView(textPane);
-			
+		scrollPane.setViewportView(textPane);	
 		textPane.setEditable(false);
 
 	}
