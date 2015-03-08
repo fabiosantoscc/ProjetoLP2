@@ -46,10 +46,10 @@ public class ContratosDoHospede extends JPanel {
 		lblHospede.setBounds(47, 122, 82, 14);
 		add(lblHospede);
 		
-		JLabel label = new JLabel(hospedeAtual.getNome());
-		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label.setBounds(139, 124, 243, 14);
-		add(label);
+		JLabel lblNomeHospede = new JLabel(hospedeAtual.getNome());
+		lblNomeHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNomeHospede.setBounds(139, 124, 243, 14);
+		add(lblNomeHospede);
 		
 		JButton btnVisualizarServios = new JButton("Visualizar Servi\u00E7os");
 		btnVisualizarServios.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -63,12 +63,12 @@ public class ContratosDoHospede extends JPanel {
 		btnVisualizarServios.setBounds(512, 417, 141, 31);
 		add(btnVisualizarServios);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(44, 185, 551, 201);
-		add(scrollPane);
+		JScrollPane scrollPaneContratos = new JScrollPane();
+		scrollPaneContratos.setBounds(44, 185, 551, 201);
+		add(scrollPaneContratos);
 		
-		JList list = new JList<>(modeling);
-		scrollPane.setViewportView(list);
+		JList listContratos = new JList<>(modeling);
+		scrollPaneContratos.setViewportView(listContratos);
 		for ( int i = 0; i < contratosAtuais.size(); i++) {
 			modeling.addElement(contratosAtuais.get(i).toString());
 		}
