@@ -21,39 +21,39 @@ public class NotaEComentario extends JPanel {
 	public NotaEComentario() {
 		setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(57, 224, 621, 256);
-		add(scrollPane);
+		JScrollPane scrollPaneComentarios = new JScrollPane();
+		scrollPaneComentarios.setBounds(57, 224, 621, 256);
+		add(scrollPaneComentarios);
 		
-		JTextPane textPane = new JTextPane();
-		scrollPane.setViewportView(textPane);
+		JTextPane textPaneComentarios = new JTextPane();
+		scrollPaneComentarios.setViewportView(textPaneComentarios);
 		try {
-			textPane.setText(Run.hotel.getComentarios());
+			textPaneComentarios.setText(Run.hotel.getComentarios());
 		} catch ( Exception e ) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 			
-		textPane.setEditable(false);
+		textPaneComentarios.setEditable(false);
 		
 		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o");
 		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNotaDeAceitao.setBounds(57, 25, 251, 50);
 		add(lblNotaDeAceitao);
 		
-		JLabel label = new JLabel(Run.hotel.getNotaDeAceitacao() + "");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label.setBounds(250, 25, 200, 50);
-		add(label);
+		JLabel lblNota = new JLabel(Run.hotel.getNotaDeAceitacao() + "");
+		lblNota.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNota.setBounds(250, 25, 200, 50);
+		add(lblNota);
 		
 		JLabel lblComentriosDosHospedes = new JLabel("Coment\u00E1rios dos hospedes");
 		lblComentriosDosHospedes.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblComentriosDosHospedes.setBounds(57, 150, 307, 50);
 		add(lblComentriosDosHospedes);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(NotaEComentario.class.getResource("/Icons/comments.png")));
-		lblNewLabel.setBounds(367, 164, 54, 26);
-		add(lblNewLabel);
+		JLabel lblIcon = new JLabel("");
+		lblIcon.setIcon(new ImageIcon(NotaEComentario.class.getResource("/Icons/comments.png")));
+		lblIcon.setBounds(367, 164, 54, 26);
+		add(lblIcon);
 
 	}
 }
