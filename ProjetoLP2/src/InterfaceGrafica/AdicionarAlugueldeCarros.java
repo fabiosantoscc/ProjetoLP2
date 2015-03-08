@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import Executar.Run;
 import classes.AluguelDeCarros;
+import classes.ModelosDoCarro;
 import classes.Arquivos;
 import classes.Hospede;
 import java.awt.event.ActionListener;
@@ -33,13 +34,13 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		add(lblAlugarVeculo);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboBox.getSelectedItem();
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Executivo", "Luxo"}));
+		comboBox.setModel(new DefaultComboBoxModel(new ModelosDoCarro[] {ModelosDoCarro.EXECUTIVO, ModelosDoCarro.LUXO}));
 		comboBox.setBounds(80, 230, 161, 20);
 		add(comboBox);
 		
@@ -82,7 +83,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		btnAdicionarServio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					AluguelDeCarros carroAtual = new AluguelDeCarros((String) comboBox.getSelectedItem(), isTanqueCheio, isSeguro);
+					AluguelDeCarros carroAtual = new AluguelDeCarros((ModelosDoCarro) comboBox.getSelectedItem(), isTanqueCheio, isSeguro);
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
