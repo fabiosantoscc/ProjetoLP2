@@ -49,54 +49,54 @@ public class QuartoAtualizar extends JPanel {
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
 		
-		JLabel lblNewLabel = new JLabel("Tipo de quarto");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(47, 94, 146, 25);
-		add(lblNewLabel);
+		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
+		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTipoQuarto.setBounds(47, 94, 146, 25);
+		add(lblTipoQuarto);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		comboBox.addActionListener(new ActionListener() {
+		JComboBox comboTipoQuarto = new JComboBox();
+		comboTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboTipoQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String c = (String) comboBox.getSelectedItem();
+				String c = (String) comboTipoQuarto.getSelectedItem();
 				//textField.setText(c);
 
 				
 			}
 		});
 		
-		comboBox.setBounds(50, 149, 173, 27);
-		add(comboBox);
+		comboTipoQuarto.setBounds(50, 149, 173, 27);
+		add(comboTipoQuarto);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
 		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblQuantidadeDePessoas.setBounds(47, 288, 188, 25);
 		add(lblQuantidadeDePessoas);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		spinner.setBounds(245, 292, 48, 20);
-		add(spinner);
+		JSpinner spinnerQuantidadePessoas = new JSpinner();
+		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		spinnerQuantidadePessoas.setBounds(245, 292, 48, 20);
+		add(spinnerQuantidadePessoas);
 		
 		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
 		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblQuantidadeDeCamas.setBounds(47, 364, 219, 25);
 		add(lblQuantidadeDeCamas);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		spinner_1.setBounds(268, 369, 48, 20);
-		add(spinner_1);
+		JSpinner spinnerQuantidadeCamas = new JSpinner();
+		spinnerQuantidadeCamas.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		spinnerQuantidadeCamas.setBounds(268, 369, 48, 20);
+		add(spinnerQuantidadeCamas);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				switch ((String) comboBox.getSelectedItem()) {
+				switch ((String) comboTipoQuarto.getSelectedItem()) {
 				case "Presidencial":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoPresidencial quartoAtual = new QuartoPresidencial(pessoas);
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
@@ -111,7 +111,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Luxo Simples":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoLuxoSimples quartoAtual = new QuartoLuxoSimples(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -125,7 +125,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Luxo Duplo":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoLuxoDuplo quartoAtual = new QuartoLuxoDuplo(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -139,7 +139,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Luxo Triplo":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoLuxoTriplo quartoAtual = new QuartoLuxoTriplo(pessoas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -153,7 +153,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Executivo Simples":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoExecutivoSimples quartoAtual = new QuartoExecutivoSimples(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -167,7 +167,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Executivo Duplo":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoExecutivoDuplo quartoAtual = new QuartoExecutivoDuplo(pessoas, 1);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -181,7 +181,7 @@ public class QuartoAtualizar extends JPanel {
 					break;
 				case "Executivo Triplo":
 					try {
-						int pessoas = Integer.parseInt(spinner.getValue().toString());
+						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						QuartoExecutivoTriplo quartoAtual = new QuartoExecutivoTriplo(pessoas);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
@@ -204,7 +204,7 @@ public class QuartoAtualizar extends JPanel {
 		
 
 		for(int i = 0; i < quartos.size(); i++){
-			comboBox.addItem(quartos.get(i));
+			comboTipoQuarto.addItem(quartos.get(i));
 		}
 	}
 }

@@ -26,75 +26,75 @@ public class PainelHospede extends JPanel {
 		setLayout(null);
 		this.hospedeAtual = hospedeAtual;
 		
-		JLabel lblAtualizarCadastro = new JLabel("Hospede");
-		lblAtualizarCadastro.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAtualizarCadastro.setBounds(12, 12, 287, 29);
-		add(lblAtualizarCadastro);
+		JLabel lblHospede = new JLabel("Hospede");
+		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblHospede.setBounds(12, 12, 287, 29);
+		add(lblHospede);
 		
-		JLabel label_1 = new JLabel("Dados Pessoais");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label_1.setBounds(38, 53, 174, 29);
-		add(label_1);
+		JLabel lblDadosPessoais = new JLabel("Dados Pessoais");
+		lblDadosPessoais.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDadosPessoais.setBounds(38, 53, 174, 29);
+		add(lblDadosPessoais);
 		
-		JLabel label_2 = new JLabel("Nome");
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_2.setBounds(68, 91, 70, 25);
-		add(label_2);
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNome.setBounds(68, 91, 70, 25);
+		add(lblNome);
 		
-		JLabel label_3 = new JLabel("CPF");
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_3.setBounds(68, 128, 70, 15);
-		add(label_3);
+		JLabel lblCPF = new JLabel("CPF");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(68, 128, 70, 15);
+		add(lblCPF);
 		
-		JLabel label_4 = new JLabel("Email");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_4.setBounds(68, 155, 70, 15);
-		add(label_4);
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEmail.setBounds(68, 155, 70, 15);
+		add(lblEmail);
 		
-		JLabel label_5 = new JLabel("Cartao de credito");
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_5.setBounds(68, 182, 158, 15);
-		add(label_5);
+		JLabel lblCartao = new JLabel("Cartao de credito");
+		lblCartao.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCartao.setBounds(68, 182, 158, 15);
+		add(lblCartao);
 		
-		JFormattedTextField frmtdtxtfldNome = new JFormattedTextField();
-		frmtdtxtfldNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldNome.setText(hospedeAtual.getNome());
-		frmtdtxtfldNome.setEditable(false);
-		frmtdtxtfldNome.setBounds(119, 99, 440, 17);
-		add(frmtdtxtfldNome);
+		JFormattedTextField textNome = new JFormattedTextField();
+		textNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textNome.setText(hospedeAtual.getNome());
+		textNome.setEditable(false);
+		textNome.setBounds(119, 99, 440, 17);
+		add(textNome);
 		
-		JFormattedTextField frmtdtxtfldEmail = new JFormattedTextField();
-		frmtdtxtfldEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldEmail.setText(hospedeAtual.getEmail());
-		frmtdtxtfldEmail.setEditable(false);
-		frmtdtxtfldEmail.setBounds(119, 155, 264, 17);
-		add(frmtdtxtfldEmail);
+		JFormattedTextField textEmail = new JFormattedTextField();
+		textEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textEmail.setText(hospedeAtual.getEmail());
+		textEmail.setEditable(false);
+		textEmail.setBounds(119, 155, 264, 17);
+		add(textEmail);
 		
-		JFormattedTextField frmtdtxtfldCartaoCredito = new JFormattedTextField();
-		frmtdtxtfldCartaoCredito.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldCartaoCredito.setText(hospedeAtual.getNumeroDoCartao());
-		frmtdtxtfldCartaoCredito.setEditable(false);
-		frmtdtxtfldCartaoCredito.setBounds(203, 182, 151, 17);
-		add(frmtdtxtfldCartaoCredito);
+		JFormattedTextField textCartao = new JFormattedTextField();
+		textCartao.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCartao.setText(hospedeAtual.getNumeroDoCartao());
+		textCartao.setEditable(false);
+		textCartao.setBounds(203, 182, 151, 17);
+		add(textCartao);
 		
-		JLabel label_6 = new JLabel("Telefone");
-		label_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_6.setBounds(313, 129, 70, 15);
-		add(label_6);
+		JLabel lblTelefone = new JLabel("Telefone");
+		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTelefone.setBounds(313, 129, 70, 15);
+		add(lblTelefone);
 		
-		JFormattedTextField frmtdtxtfldDdd = new JFormattedTextField();
-		frmtdtxtfldDdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldDdd.setText(hospedeAtual.getTelefone().getDdd());
-		frmtdtxtfldDdd.setEditable(false);
-		frmtdtxtfldDdd.setBounds(388, 128, 44, 17);
-		add(frmtdtxtfldDdd);
+		JFormattedTextField textDDD = new JFormattedTextField();
+		textDDD.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textDDD.setText(hospedeAtual.getTelefone().getDdd());
+		textDDD.setEditable(false);
+		textDDD.setBounds(388, 128, 44, 17);
+		add(textDDD);
 		
-		JFormattedTextField frmtdtxtfldTelefone = new JFormattedTextField();
-		frmtdtxtfldTelefone.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldTelefone.setText(hospedeAtual.getTelefone().getNumero());
-		frmtdtxtfldTelefone.setEditable(false);
-		frmtdtxtfldTelefone.setBounds(445, 128, 114, 17);
-		add(frmtdtxtfldTelefone);
+		JFormattedTextField textNumero = new JFormattedTextField();
+		textNumero.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textNumero.setText(hospedeAtual.getTelefone().getNumero());
+		textNumero.setEditable(false);
+		textNumero.setBounds(445, 128, 114, 17);
+		add(textNumero);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(38, 240, 687, 2);
@@ -105,108 +105,108 @@ public class PainelHospede extends JPanel {
 		lblEndereo.setBounds(38, 254, 114, 25);
 		add(lblEndereo);
 		
-		JLabel label_9 = new JLabel("Logradouro");
-		label_9.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_9.setBounds(58, 302, 138, 15);
-		add(label_9);
+		JLabel lblLogradouro = new JLabel("Logradouro");
+		lblLogradouro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblLogradouro.setBounds(58, 302, 138, 15);
+		add(lblLogradouro);
 		
-		JLabel label_10 = new JLabel("Complemento");
-		label_10.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_10.setBounds(58, 329, 114, 15);
-		add(label_10);
+		JLabel lblComplemento = new JLabel("Complemento");
+		lblComplemento.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblComplemento.setBounds(58, 329, 114, 15);
+		add(lblComplemento);
 		
-		JLabel label_11 = new JLabel("Bairro");
-		label_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_11.setBounds(58, 361, 70, 15);
-		add(label_11);
+		JLabel lblBairro = new JLabel("Bairro");
+		lblBairro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblBairro.setBounds(58, 361, 70, 15);
+		add(lblBairro);
 		
-		JLabel label_12 = new JLabel("Pais");
-		label_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_12.setBounds(58, 394, 70, 15);
-		add(label_12);
+		JLabel lblPais = new JLabel("Pais");
+		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblPais.setBounds(58, 394, 70, 15);
+		add(lblPais);
 		
-		JFormattedTextField frmtdtxtfldRua = new JFormattedTextField();
-		frmtdtxtfldRua.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldRua.setText(hospedeAtual.getEndereco().getNomeDaRua());
-		frmtdtxtfldRua.setEditable(false);
-		frmtdtxtfldRua.setBounds(144, 302, 468, 17);
-		add(frmtdtxtfldRua);
+		JFormattedTextField textLogradouro = new JFormattedTextField();
+		textLogradouro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textLogradouro.setText(hospedeAtual.getEndereco().getNomeDaRua());
+		textLogradouro.setEditable(false);
+		textLogradouro.setBounds(144, 302, 468, 17);
+		add(textLogradouro);
 		
-		JFormattedTextField frmtdtxtfldComplemento = new JFormattedTextField();
-		frmtdtxtfldComplemento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldComplemento.setText(hospedeAtual.getEndereco().getComplemento());
-		frmtdtxtfldComplemento.setEditable(false);
-		frmtdtxtfldComplemento.setBounds(167, 329, 299, 17);
-		add(frmtdtxtfldComplemento);
+		JFormattedTextField textComplemento = new JFormattedTextField();
+		textComplemento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textComplemento.setText(hospedeAtual.getEndereco().getComplemento());
+		textComplemento.setEditable(false);
+		textComplemento.setBounds(167, 329, 299, 17);
+		add(textComplemento);
 		
-		JFormattedTextField frmtdtxtfldBairro = new JFormattedTextField();
-		frmtdtxtfldBairro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldBairro.setText(hospedeAtual.getEndereco().getBairro());
-		frmtdtxtfldBairro.setEditable(false);
-		frmtdtxtfldBairro.setBounds(119, 361, 138, 17);
-		add(frmtdtxtfldBairro);
+		JFormattedTextField textBairro = new JFormattedTextField();
+		textBairro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textBairro.setText(hospedeAtual.getEndereco().getBairro());
+		textBairro.setEditable(false);
+		textBairro.setBounds(119, 361, 138, 17);
+		add(textBairro);
 		
-		JFormattedTextField frmtdtxtfldPais = new JFormattedTextField();
-		frmtdtxtfldPais.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldPais.setText(hospedeAtual.getEndereco().getPais());
-		frmtdtxtfldPais.setEditable(false);
-		frmtdtxtfldPais.setBounds(119, 394, 138, 17);
-		add(frmtdtxtfldPais);
+		JFormattedTextField textPais = new JFormattedTextField();
+		textPais.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textPais.setText(hospedeAtual.getEndereco().getPais());
+		textPais.setEditable(false);
+		textPais.setBounds(119, 394, 138, 17);
+		add(textPais);
 		
-		JFormattedTextField frmtdtxtfldCidade = new JFormattedTextField();
-		frmtdtxtfldCidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldCidade.setText(hospedeAtual.getEndereco().getCidade());
-		frmtdtxtfldCidade.setEditable(false);
-		frmtdtxtfldCidade.setBounds(376, 361, 198, 17);
-		add(frmtdtxtfldCidade);
+		JFormattedTextField textCidade = new JFormattedTextField();
+		textCidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCidade.setText(hospedeAtual.getEndereco().getCidade());
+		textCidade.setEditable(false);
+		textCidade.setBounds(376, 361, 198, 17);
+		add(textCidade);
 		
-		JLabel label_7 = new JLabel("Estado/Condado");
-		label_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_7.setBounds(58, 420, 126, 15);
-		add(label_7);
+		JLabel lblEstado = new JLabel("Estado/Condado");
+		lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEstado.setBounds(58, 420, 126, 15);
+		add(lblEstado);
 		
 		JLabel lblCepZipCode = new JLabel("CEP/ Zip Code");
 		lblCepZipCode.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCepZipCode.setBounds(292, 395, 126, 15);
 		add(lblCepZipCode);
 		
-		JFormattedTextField frmtdtxtfldCep = new JFormattedTextField();
-		frmtdtxtfldCep.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldCep.setText(hospedeAtual.getEndereco().getCep());
-		frmtdtxtfldCep.setEditable(false);
-		frmtdtxtfldCep.setBounds(436, 393, 138, 17);
-		add(frmtdtxtfldCep);
+		JFormattedTextField textCEP = new JFormattedTextField();
+		textCEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCEP.setText(hospedeAtual.getEndereco().getCep());
+		textCEP.setEditable(false);
+		textCEP.setBounds(436, 393, 138, 17);
+		add(textCEP);
 		
-		JLabel label_14 = new JLabel("Numero");
-		label_14.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_14.setBounds(476, 329, 70, 15);
-		add(label_14);
+		JLabel lblNumeroCasa = new JLabel("Numero");
+		lblNumeroCasa.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNumeroCasa.setBounds(476, 329, 70, 15);
+		add(lblNumeroCasa);
 		
-		JFormattedTextField frmtdtxtfldNumero = new JFormattedTextField();
-		frmtdtxtfldNumero.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldNumero.setText(hospedeAtual.getEndereco().getNumeroDaCasa());
-		frmtdtxtfldNumero.setEditable(false);
-		frmtdtxtfldNumero.setBounds(542, 329, 70, 17);
-		add(frmtdtxtfldNumero);
+		JFormattedTextField textNumeroCasa = new JFormattedTextField();
+		textNumeroCasa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textNumeroCasa.setText(hospedeAtual.getEndereco().getNumeroDaCasa());
+		textNumeroCasa.setEditable(false);
+		textNumeroCasa.setBounds(542, 329, 70, 17);
+		add(textNumeroCasa);
 		
-		JFormattedTextField frmtdtxtfldEstado = new JFormattedTextField();
-		frmtdtxtfldEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldEstado.setText(hospedeAtual.getEndereco().getEstado());
-		frmtdtxtfldEstado.setEditable(false);
-		frmtdtxtfldEstado.setBounds(203, 422, 180, 17);
-		add(frmtdtxtfldEstado);
+		JFormattedTextField textEstado = new JFormattedTextField();
+		textEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textEstado.setText(hospedeAtual.getEndereco().getEstado());
+		textEstado.setEditable(false);
+		textEstado.setBounds(203, 422, 180, 17);
+		add(textEstado);
 		
 		JLabel lblCidade = new JLabel("Cidade");
 		lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCidade.setBounds(292, 363, 70, 15);
 		add(lblCidade);
 		
-		JFormattedTextField frmtdtxtfldCpf = new JFormattedTextField();
-		frmtdtxtfldCpf.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmtdtxtfldCpf.setText(hospedeAtual.getCpf());
-		frmtdtxtfldCpf.setEditable(false);
-		frmtdtxtfldCpf.setBounds(119, 127, 151, 17);
-		add(frmtdtxtfldCpf);
+		JFormattedTextField textCPF = new JFormattedTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCPF.setText(hospedeAtual.getCpf());
+		textCPF.setEditable(false);
+		textCPF.setBounds(119, 127, 151, 17);
+		add(textCPF);
 		
 		
 		JButton btnCadastrar = new JButton("Visualizar Contratos");
@@ -214,12 +214,12 @@ public class PainelHospede extends JPanel {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText());
-					MenuPrincipal.contratosDoHospede = new ContratosDoHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText()));
+					Run.hotel.pesquisaHospede(textCPF.getText());
+					MenuPrincipal.contratosDoHospede = new ContratosDoHospede(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.contratosDoHospede, "19");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "19");
-					frmtdtxtfldNome.setText("");
-					frmtdtxtfldCpf.setText("");
+					textNome.setText("");
+					textCPF.setText("");
 				} catch (HospedeInvalidoException e) {
 					JOptionPane.showMessageDialog(null, e);
 				}
@@ -234,8 +234,8 @@ public class PainelHospede extends JPanel {
 		btnAtualizarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
-					Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText());
-					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(frmtdtxtfldCpf.getText()));
+					Run.hotel.pesquisaHospede(textCPF.getText());
+					MenuPrincipal.atualizarHospede = new AtualizarHospede(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.atualizarHospede, "7");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "7");
 				}catch(Exception c){
