@@ -55,37 +55,37 @@ public class AtualizarQuarto extends JPanel {
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
 		
-		JLabel lblNewLabel = new JLabel("Tipo de quarto");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(47, 94, 146, 25);
-		add(lblNewLabel);
+		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
+		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTipoQuarto.setBounds(47, 94, 146, 25);
+		add(lblTipoQuarto);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
 		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblQuantidadeDePessoas.setBounds(53, 182, 188, 25);
 		add(lblQuantidadeDePessoas);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinner.setBounds(266, 186, 48, 20);
-		add(spinner);
+		JSpinner spinnerQuantidadePessoas = new JSpinner();
+		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		spinnerQuantidadePessoas.setBounds(266, 186, 48, 20);
+		add(spinnerQuantidadePessoas);
 		
 		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
 		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblQuantidadeDeCamas.setBounds(47, 238, 219, 25);
 		add(lblQuantidadeDeCamas);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinner_1.setBounds(266, 242, 48, 20);
-		add(spinner_1);
+		JSpinner spinnerQuantidadeCamas = new JSpinner();
+		spinnerQuantidadeCamas.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		spinnerQuantidadeCamas.setBounds(266, 242, 48, 20);
+		add(spinnerQuantidadeCamas);
 		
-		JButton btnAdicionar = new JButton("Atualizar");
-		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAdicionar.addActionListener(new ActionListener() {
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					quartoAtual.setQuantidadeDePessoas(Integer.parseInt(spinner.getValue().toString()));
+					quartoAtual.setQuantidadeDePessoas(Integer.parseInt(spinnerQuantidadePessoas.getValue().toString()));
 					JOptionPane.showMessageDialog(null, "Hospede Atualizado com Sucesso");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 				} catch (NumberFormatException e1) {
@@ -97,8 +97,8 @@ public class AtualizarQuarto extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 119, 37);
-		add(btnAdicionar);
+		btnAtualizar.setBounds(482, 439, 119, 37);
+		add(btnAtualizar);
 		
 	}
 }
