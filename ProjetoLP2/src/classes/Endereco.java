@@ -346,9 +346,13 @@ public class Endereco implements Serializable {
 
   @Override
   public String toString() {
-    return "- Cidade: " + getCidade() + Arquivos.FIM_LINHA+ "- Bairro: " + getBairro() + Arquivos.FIM_LINHA+"- Rua: " + getNomeDaRua()
-            + Arquivos.FIM_LINHA +"- Numero: " + getNumeroDaCasa() + Arquivos.FIM_LINHA+"- Complemento: " + getComplemento()
-            + Arquivos.FIM_LINHA+"- Estado: " + getEstado() + Arquivos.FIM_LINHA+"- Pais: " + getPais() + Arquivos.FIM_LINHA+"- Cep: " + getCep();
+    return "- Cidade: " + getCidade() + Arquivos.FIM_LINHA + "- Bairro: " + getBairro()
+        + Arquivos.FIM_LINHA + "- Rua: " + getNomeDaRua()
+        + Arquivos.FIM_LINHA + "- Numero: " + getNumeroDaCasa()
+        + Arquivos.FIM_LINHA + "- Complemento: " + getComplemento()
+        + Arquivos.FIM_LINHA + "- Estado: " + getEstado()
+        + Arquivos.FIM_LINHA + "- Pais: " + getPais()
+        + Arquivos.FIM_LINHA + "- Cep: " + getCep();
   }
 
   /**
