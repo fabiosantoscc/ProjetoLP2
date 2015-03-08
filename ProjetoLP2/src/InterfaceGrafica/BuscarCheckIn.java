@@ -20,7 +20,7 @@ import Executar.Run;
 import javax.swing.ImageIcon;
 
 public class BuscarCheckIn extends JPanel {
-	private JTextField cpfAPesquisar;
+	private JTextField textCPF;
 
 	/**
 	 * Create the panel.
@@ -28,40 +28,40 @@ public class BuscarCheckIn extends JPanel {
 	public BuscarCheckIn() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Check in");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 175, 40);
-		add(lblNovoContrato);
+		JLabel lblCheckIN = new JLabel("Check in");
+		lblCheckIN.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblCheckIN.setBounds(38, 29, 175, 40);
+		add(lblCheckIN);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label.setBounds(167, 132, 152, 21);
-		add(label);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCPF.setBounds(167, 132, 152, 21);
+		add(lblCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(329, 132, 152, 20);
-		add(cpfAPesquisar);
+		textCPF = new JTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textCPF.setColumns(10);
+		textCPF.setBounds(329, 132, 152, 20);
+		add(textCPF);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarCheckIn.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.addActionListener(new ActionListener() {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarCheckIn.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(textCPF.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "3");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "3");
-				cpfAPesquisar.setText("");
+				textCPF.setText("");
 				}catch(Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());
 	
 				}
 			}
 		});
-		button.setBounds(268, 196, 104, 27);
-		add(button);
+		btnBuscar.setBounds(268, 196, 104, 27);
+		add(btnBuscar);
 
 	}
 }
