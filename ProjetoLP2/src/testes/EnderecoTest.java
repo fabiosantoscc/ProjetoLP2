@@ -9,15 +9,14 @@ import classes.Endereco;
 import excecoes.*;
 
 /**
- * Classe de testes da classe Endereco
- * 
+ * Classe de testes da classe Endereco.
  * Author: Jaaziel Moura
  * Ultima atualizacao: 08/02/2015 / Fabio Alexandre
  */
 
 public class EnderecoTest {
-	Endereco novoEndereco, outroEndereco;
-	
+  Endereco novoEndereco, outroEndereco;
+
 	@Before
 	public void constroiObjetos() throws Exception {
 		novoEndereco = new Endereco("Campina Grande", "Malvinas", "Rua das Umburanas", "66", "Perto da caixa d'agua", "Paraiba", "Brasil",
@@ -32,19 +31,13 @@ public class EnderecoTest {
 		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "", "Paraiba", "Brasil", "32423424");
 		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Esse prompt nao deve ser mostrado se o construtor estiver correto", e.getMessage());
-		}
-		
-		try {
-			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "", "Paraiba", "Brasil", "57391234");
-		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Esse prompt nao deve ser mostrado pois o complemento esta correto", e.getMessage());
+			Assert.fail("Nao lanca excecao pois o construtor esta correto.");
 		}
 		
 		try {
 			new Endereco("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "Perto da UFCG", "Paraiba", "Brasil", "42452213");
 		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Esse prompt nao deve ser mostrado se o construtor estiver correto", e.getMessage());
+			Assert.fail("Nao lanca excecao pois o construtor esta correto.");
 		}
 		
 		try {
@@ -118,13 +111,6 @@ public class EnderecoTest {
 		}
 		
 		try {
-			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "-5", "Perto da UFCG", "Paraiba", "Brasil", "56745323");
-			Assert.fail("Esperava excecao pois o campo de numero eh zero.");
-		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Numero da residencia deve ser um inteiro positivo.", e.getMessage());
-		}
-		
-		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "", "Perto da UFCG", "Paraiba", "Brasil", "56745323");
 			Assert.fail("Esperava excecao pois o numero da casa eh vazio.");
 		} catch ( StringInvalidaException e ) {
@@ -137,6 +123,13 @@ public class EnderecoTest {
 		} catch ( StringInvalidaException e ) {
 			Assert.assertEquals("Numero da residencia deve ser um inteiro positivo.", e.getMessage());
 		}	
+		
+		try {
+			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", null, "Perto da UFCG", "Paraiba", "Brasil", "56609876");
+			Assert.fail("Esperava excecao pois o campo de numero null");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Numero da residencia nao pode ser vazio.", e.getMessage());
+		}
 		
 		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "asas6ss", "Perto da UFCG", "Paraiba", "Brasil", "56609876");
@@ -203,21 +196,14 @@ public class EnderecoTest {
 		
 		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "", "Paraiba", "Brasil", "");
-			Assert.fail("O construtor esta valido, nao deve lancar excecao");
+			Assert.fail("Esperava excecao de cep vazio.");
 		} catch ( StringInvalidaException e ) {
 			Assert.assertEquals("Cep nao pode ser vazio.", e.getMessage());
 		}
 		
 		try {
 			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "", "Paraiba", "Brasil", "88dd99ss");
-			Assert.fail("O construtor esta valido, nao deve lancar excecao");
-		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Cep deve conter apenas digitos.", e.getMessage());
-		}
-		
-		try {
-			new Endereco ("Campina Grande", "Bodocongo", "Rua Rodrigues ALves", "7", "", "Paraiba", "Brasil", "88dd99ss");
-			Assert.fail("O construtor esta valido, nao deve lancar excecao");
+			Assert.fail("Esperava excecao de cep invalido.");
 		} catch ( StringInvalidaException e ) {
 			Assert.assertEquals("Cep deve conter apenas digitos.", e.getMessage());
 		}	
@@ -225,6 +211,12 @@ public class EnderecoTest {
 	
 	@Test
 	public void testaSetters()throws StringInvalidaException {
+		
+		try {
+			novoEndereco.setCidade("Campina");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome da cidade invalido.", e.getMessage());
+		}
 		
 		try {
 			novoEndereco.setCidade("");
@@ -238,6 +230,12 @@ public class EnderecoTest {
 			Assert.fail("Esperava excecao pois o campo de cidade esta como null.");
 		} catch ( StringInvalidaException e ) {
 			Assert.assertEquals("Nome da cidade invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setBairro("Prata");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do bairro invalido.", e.getMessage());
 		}
 		
 		try {
@@ -255,6 +253,12 @@ public class EnderecoTest {
 		}
 		
 		try {
+			novoEndereco.setNomeDaRua("Fura olho.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome da rua invalido.", e.getMessage());
+		}
+		
+		try {
 			novoEndereco.setNomeDaRua("");
 			Assert.fail("Esperava excecao pois o campo de rua esta vazio.");
 		} catch ( StringInvalidaException e ) {
@@ -267,6 +271,12 @@ public class EnderecoTest {
 		} catch ( StringInvalidaException e ) {
 			Assert.assertEquals("Nome da rua invalido.", e.getMessage());
 		}
+		
+		try {
+			novoEndereco.setNumeroDaCasa("2");
+		} catch ( StringInvalidaException e ) {
+			Assert.fail("Nao lanca excecao pois o numero da residencia esta valido.");
+		}	
 		
 		try {
 			novoEndereco.setNumeroDaCasa("0");
@@ -303,6 +313,12 @@ public class EnderecoTest {
 		}
 		
 		try {
+			novoEndereco.setCep("56456789");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nao lanca excecao pois o cep esta valido.", e.getMessage());
+		}
+		
+		try {
 			novoEndereco.setCep("");
 			Assert.fail("Esperava excecao pois o campo de numero eh menor que zero.");
 		} catch ( StringInvalidaException e ) {
@@ -324,10 +340,56 @@ public class EnderecoTest {
 		}
 		
 		try {
-			novoEndereco.setCep("43423");
-			Assert.fail("Esperava excecao pois o campo de numero eh menor que zero.");
+			novoEndereco.setEstado("Paraiba");
 		} catch ( StringInvalidaException e ) {
-			Assert.assertEquals("Quantidade de digitos do cep invalida.", e.getMessage());
+			Assert.assertEquals("Nome do estado invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setEstado("");
+			Assert.fail("Esperava excecao de estado invalido.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do estado invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setEstado(null);
+			Assert.fail("Esperava excecao de estado invalido.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do estado invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setPais("Brasil");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do pais invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setPais("Brasil");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do pais invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setPais("");
+			Assert.fail("Deveria lancar excecao de pais invalido.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do pais invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setPais(null);
+			Assert.fail("Deveria lancar excecao de pais invalido.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do pais invalido.", e.getMessage());
+		}
+		
+		try {
+			novoEndereco.setPais("Brasil2");
+			Assert.fail("Deveria lancar excecao de pais invalido.");
+		} catch ( StringInvalidaException e ) {
+			Assert.assertEquals("Nome do pais deve conter apenas letras.", e.getMessage());
 		}
 	}
 	

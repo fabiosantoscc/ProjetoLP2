@@ -91,7 +91,7 @@ public class Endereco implements Serializable {
     
     for ( int i = 0; i < rua.length(); i++ ) {
       if ( Character.isDigit(rua.charAt(i))) {
-    	  throw new StringInvalidaException("Nome da rua deve conter apenas letras.");
+        throw new StringInvalidaException("Nome da rua deve conter apenas letras.");
       }
     }
   }
