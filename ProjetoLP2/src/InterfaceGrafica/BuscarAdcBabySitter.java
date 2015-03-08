@@ -20,7 +20,7 @@ import Executar.Run;
 import javax.swing.ImageIcon;
 
 public class BuscarAdcBabySitter extends JPanel {
-	private JTextField cpfAPesquisar;
+	private JTextField textCPF;
 
 	/**
 	 * Create the panel.
@@ -28,39 +28,39 @@ public class BuscarAdcBabySitter extends JPanel {
 	public BuscarAdcBabySitter() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("BabySitter");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 175, 40);
-		add(lblNovoContrato);
+		JLabel lblBabySitter = new JLabel("BabySitter");
+		lblBabySitter.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblBabySitter.setBounds(38, 29, 175, 40);
+		add(lblBabySitter);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(151, 153, 142, 21);
-		add(label);
+		JLabel lblCP = new JLabel("CPF do Hospede");
+		lblCP.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCP.setBounds(151, 153, 142, 21);
+		add(lblCP);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(303, 153, 178, 21);
-		add(cpfAPesquisar);
+		textCPF = new JTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textCPF.setColumns(10);
+		textCPF.setBounds(303, 153, 178, 21);
+		add(textCPF);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		button.addActionListener(new ActionListener() {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				MenuPrincipal.painelBabySitter = new AdicionarBabySitter(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+				MenuPrincipal.painelBabySitter = new AdicionarBabySitter(Run.hotel.pesquisaHospede(textCPF.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.painelBabySitter, "17");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "17");
-				cpfAPesquisar.setText("");
+				textCPF.setText("");
 				}catch(Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());
 				}
 			}
 		});
-		button.setBounds(260, 269, 107, 32);
-		add(button);
+		btnBuscar.setBounds(260, 269, 107, 32);
+		add(btnBuscar);
 
 	}
 }
