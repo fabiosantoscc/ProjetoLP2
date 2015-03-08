@@ -412,19 +412,22 @@ public class EnderecoTest {
 		Assert.assertTrue("58888645".equals(novoEndereco.getCep()));
 		Assert.assertFalse("32423233".equals(novoEndereco.getCep()));
 	}
-	
-	@Test
-	public void testaToString() {
-		Assert.assertEquals(novoEndereco.toString(),"- Cidade: Campina Grande" + Arquivos.FIM_LINHA + "- Bairro: Malvinas" + Arquivos.FIM_LINHA + "- "
-				+ "Rua: Rua das Umburanas" + Arquivos.FIM_LINHA + "- Numero: 66" + Arquivos.FIM_LINHA + "- Complemento: Perto da caixa d'agua" + Arquivos.FIM_LINHA + 
-				"- Estado: Paraiba" + Arquivos.FIM_LINHA + "- Pais: Brasil" + Arquivos.FIM_LINHA + "- Cep: 58888645");
-	}
-	
-	@Test
-	public void testaEquals() throws StringInvalidaException {
-		Assert.assertFalse(novoEndereco.equals(outroEndereco));
-		outroEndereco.setNumeroDaCasa("66");
-		outroEndereco.setCep("58888645");
-		Assert.assertTrue(novoEndereco.equals(outroEndereco));
-	}
+
+  @Test
+  public void testaToString() {
+    Assert.assertEquals(novoEndereco.toString(),"- Cidade: Campina Grande" + Arquivos.FIM_LINHA
+        + "- Bairro: Malvinas" + Arquivos.FIM_LINHA + "- Rua: Rua das Umburanas"
+        + Arquivos.FIM_LINHA + "- Numero: 66" + Arquivos.FIM_LINHA
+        + "- Complemento: Perto da caixa d'agua" + Arquivos.FIM_LINHA
+        + "- Estado: Paraiba" + Arquivos.FIM_LINHA + "- Pais: Brasil"
+        + Arquivos.FIM_LINHA + "- Cep: 58888645");
+  }
+
+  @Test
+  public void testaEquals() throws StringInvalidaException {
+    Assert.assertFalse(novoEndereco.equals(outroEndereco));
+    outroEndereco.setNumeroDaCasa("66");
+    outroEndereco.setCep("58888645");
+    Assert.assertTrue(novoEndereco.equals(outroEndereco));
+  }
 }
