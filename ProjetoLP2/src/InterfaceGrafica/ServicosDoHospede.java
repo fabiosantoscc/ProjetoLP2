@@ -32,7 +32,7 @@ public class ServicosDoHospede extends JPanel {
 	List<Servico> servicosAtuais;
 	ArrayList<String> nomeServicos = new ArrayList<String>();
 	ArrayList<String> minhasStrings = new ArrayList<String>();
-	JList meuList;
+	JList listServicos;
 	private DefaultListModel modeling = new DefaultListModel();
 	public ServicosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
@@ -54,17 +54,17 @@ public class ServicosDoHospede extends JPanel {
 		lblHospede.setBounds(47, 122, 82, 14);
 		add(lblHospede);
 		
-		JLabel label = new JLabel(hospedeAtual.getNome());
-		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label.setBounds(139, 124, 243, 14);
-		add(label);
+		JLabel lblNomeHospede = new JLabel(hospedeAtual.getNome());
+		lblNomeHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNomeHospede.setBounds(139, 124, 243, 14);
+		add(lblNomeHospede);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(44, 241, 606, 223);
-		add(scrollPane);
+		JScrollPane scrollPaneServicos = new JScrollPane();
+		scrollPaneServicos.setBounds(44, 241, 606, 223);
+		add(scrollPaneServicos);
 		
-		meuList = new JList(modeling);
-		scrollPane.setViewportView(meuList);
+		listServicos = new JList(modeling);
+		scrollPaneServicos.setViewportView(listServicos);
 		
 		System.out.println(servicosAtuais.size());
 		
