@@ -15,19 +15,20 @@ import classes.Arquivos;
 import classes.Hospede;
 import classes.Restaurante;
 import classes.Servico;
+import classes.UnidadesDoRestaurante;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.awt.Font;
 
-public class AtualizarRestaurante extends JPanel {
+public class AdicionarRestaurante extends JPanel {
 	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public AtualizarRestaurante(Hospede hospedeAtual) {
+	public AdicionarRestaurante(Hospede hospedeAtual) {
 		setLayout(null);
 		
 		JLabel lblAdicionarConsumo = new JLabel("Adicionar Consumo");
@@ -47,7 +48,7 @@ public class AtualizarRestaurante extends JPanel {
 				String c = (String) comboBox.getSelectedItem();
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Terreo", "Cobertura"}));
+		comboBox.setModel(new DefaultComboBoxModel(new UnidadesDoRestaurante[]{UnidadesDoRestaurante.TERREO, UnidadesDoRestaurante.COBERTURA}));
 		comboBox.setBounds(140, 113, 124, 20);
 		add(comboBox);
 		
@@ -68,7 +69,7 @@ public class AtualizarRestaurante extends JPanel {
 		btnAtualizarRestaurante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
-					Run.hotel.getRestaurante(hospedeAtual).AdicionaNovoConsumo((String)comboBox.getSelectedItem(), Double.parseDouble(textField.getText()));
+					Run.hotel.adicionaServico(hospedeAtual, new Restaurante((UnidadesDoRestaurante)comboBox.getSelectedItem(), Double.parseDouble(textField.getText())));
 					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 					Arquivos.salvaHotel(Run.hotel);

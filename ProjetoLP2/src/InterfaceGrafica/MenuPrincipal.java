@@ -50,8 +50,8 @@ public class MenuPrincipal {
 	BuscarServicos buscarServicos = new BuscarServicos();
 	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
 	public static RemoverServicos removerServicos;
-	BuscarRestauranteAtualizar buscarRestauranteAtualizar = new BuscarRestauranteAtualizar();
-	public static AtualizarRestaurante atualizarRestaurante;
+	BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
+	public static AdicionarRestaurante adicionarRestaurante;
 	public static CheckOut checkOut;
 	public static AtualizarQuarto atualizarQuarto;
 	public static NotaEComentario notaEComentario;

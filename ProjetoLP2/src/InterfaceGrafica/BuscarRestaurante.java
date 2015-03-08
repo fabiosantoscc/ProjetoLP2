@@ -18,14 +18,14 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 
-public class BuscarRestauranteAtualizar extends JPanel {
+public class BuscarRestaurante extends JPanel {
 	private JTextField cpfAPesquisar;
 
 	/**
 	 * Create the panel.
 	 */
 	List<Servico> servicosAtuais = null;
-	public BuscarRestauranteAtualizar() {
+	public BuscarRestaurante() {
 		setLayout(null);
 		
 		JLabel lblNovoContrato = new JLabel("Restaurante");
@@ -45,17 +45,17 @@ public class BuscarRestauranteAtualizar extends JPanel {
 		add(cpfAPesquisar);
 		
 		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarRestauranteAtualizar.class.getResource("/Icons/zoom.png")));
+		button.setIcon(new ImageIcon(BuscarRestaurante.class.getResource("/Icons/zoom.png")));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-					MenuPrincipal.atualizarRestaurante = new AtualizarRestaurante(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
-					MenuPrincipal.panel0.add(MenuPrincipal.atualizarRestaurante, "28");
+					MenuPrincipal.adicionarRestaurante = new AdicionarRestaurante(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+					MenuPrincipal.panel0.add(MenuPrincipal.adicionarRestaurante, "28");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "28");
 					cpfAPesquisar.setText("");
 				}catch(Exception c){
-					JOptionPane.showMessageDialog(null, "AA");
+					JOptionPane.showMessageDialog(null, c.getMessage());
 				}
 			}
 		});
