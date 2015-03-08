@@ -105,9 +105,11 @@ public class Cadastro implements Serializable {
     * para poder atribuir uma nova senha.
     */
 
-    if ( senhaAntiga.equals(getSenha()) ) {
-      this.senha = novaSenha;
+    if ( ! (senhaAntiga.equals(getSenha())) ) {
+      throw new StringInvalidaException("Senhas nao coincidentes.");
     }
+    
+    this.senha = novaSenha;
   }
   
   /**
@@ -120,12 +122,6 @@ public class Cadastro implements Serializable {
     return pin;
   }
 
-  /**
-  * Retorna a representacao de um cadastro.
-  * 
-  * @return String - Representacao do cadastro.
-  */
-  
   private void verificaSenha(String senha) throws StringInvalidaException {
     if ( senha == null || senha.equals("") ) {
       throw new StringInvalidaException("Senha nao pode ser vazia.");
@@ -144,11 +140,32 @@ public class Cadastro implements Serializable {
     }
   }
 
+  /**
+  * Retorna a representacao de um cadastro.
+  * 
+  * @return String - Representacao do cadastro.
+  */
+  
   @Override
   public String toString() {
     return "Cadastro [ Nome:" + getNome() + ", Nome de login: " + getNomeLogin()
         + ", Senha: " + getSenha() + " ]";
   }
+
+  /**
+   * 
+   */
+  
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+    result = prime * result + ((nomeLogin == null) ? 0 : nomeLogin.hashCode());
+    result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+
+    return result;
+  }  
   
   /**
   * Verifica se dois cadastros sao iguais.

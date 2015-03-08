@@ -77,11 +77,86 @@ public class CadastroTest {
 	  Assert.assertTrue(cadastro2.getNomeLogin().equals("FulanoDeTal"));
 	  Assert.assertTrue(cadastro1.getSenha().equals("fabio123"));
 	  Assert.assertTrue(cadastro2.getSenha().equals("fulano321"));
+	  Assert.assertTrue(cadastro1.getPin().equals("123"));
+	  Assert.assertTrue(cadastro2.getPin().equals("pinDoGerente"));
   }
   
   @Test
   public void TestaSetters() {
+	  try {
+		  cadastro1.setNome("boy");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.fail("Nao deve lancar excecao, pois o nome eh valido.");
+	  }
 	  
+	  try {
+		  cadastro1.setNome(null);
+		  Assert.fail("Deve lancar excecao, pois o nome eh invalido.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Nome nao pode ser vazio.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setNome("");
+		  Assert.fail("Deve lancar excecao, pois o nome eh invalido.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Nome nao pode ser vazio.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setNome(null);
+		  Assert.fail("Deve lancar excecao, pois o nome eh invalido.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Nome nao pode ser vazio.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setNomeLogin("Boy123");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.fail("Nao deve lancar excecao, pois o nome de login eh valido.");
+	  }
+	  
+	  try {
+		  cadastro1.setNomeLogin(null);
+		  Assert.fail("Deve lancar excecao, pois o nome de login eh invalido.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Nome de login nao pode ser vazio.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setNomeLogin("");
+		  Assert.fail("Deve lancar excecao, pois o nome de login eh invalido.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Nome de login nao pode ser vazio.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setSenha("fabio123", "fabio1");;
+	  } catch ( StringInvalidaException e ) {
+		  Assert.fail("Nao deve lancar excecao, pois a senha antiga eh correta"
+		  		+ " e a senha atual eh valida.");
+	  }
+	  
+	  try {
+		  cadastro1.setSenha("fabio12", "fabio1");
+		  Assert.fail("Deve lancar excecao, pois a senha antiga eh incorreta.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Senhas nao coincidentes.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setSenha("fabio123", null);
+		  Assert.fail("Deve lancar excecao, pois a nova senha eh invalida.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Senha nao pode ser vazia.", e.getMessage());
+	  }
+	  
+	  try {
+		  cadastro1.setSenha("fabio123", "");
+		  Assert.fail("Deve lancar excecao, pois a nova senha eh invalida.");
+	  } catch ( StringInvalidaException e ) {
+		  Assert.assertEquals("Senha nao pode ser vazia.", e.getMessage());
+	  }
   }
   
   @Test
