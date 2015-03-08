@@ -111,106 +111,6 @@ public class Hospede implements Serializable {
   }
 
   /**
-  * Calcula o 11 digito do cpf.
-  * 
-  * @param cpf - Cpf do cliente
-  * @return int - o 11 digito do CPF
-  */
-
-  private int calculaDigito11( String cpf ) {
-    int digito11;
-    int soma = 0;
-    int digitoAtual = 0;
-
-    for ( int i = 11; i > 1; i-- ) {
-      soma += Integer.parseInt(cpf.charAt(digitoAtual) + "") * i;
-      digitoAtual++;
-    }
-
-    if ( 11 - ( soma % 11 ) == 10 || 11 - ( soma % 11 ) == 11 ) {
-      digito11 = 0;
-    } else {
-      digito11 = 11 - ( soma % 11 );
-    }
-
-    return digito11;
-  }
-
-  /**
-  * Calcula o 10 digito do CPF.
-  * 
-  * @param cpf - Cpf do cliente.
-  * @return int - O 10 digito do CPF.
-  */
-
-  private int calculaDigito10( String cpf ) {
-    int digito10;
-    int soma = 0;
-    int digitoAtual = 0;
-
-    for ( int i = 10; i > 1; i-- ) {
-      soma += Integer.parseInt(cpf.charAt(digitoAtual) + "") * i;
-      digitoAtual++;
-    }
-
-    if ( 11 - ( soma % 11 ) == 10 || 11 - ( soma % 11 ) == 11 ) {
-      digito10 = 0;
-    } else {
-      digito10 = 11 - ( soma % 11 );
-    }
-
-    return digito10;
-  }
-
-  /**
-  * Verifica se o nome do hospede eh valido.
-  * 
-  * @param nome - Nome do hospede.
-  * @throws InputArgumentInvalidException - Pode lancar excecao de entrada invalida.
-  */
-
-  private void verificaNome( String nome ) throws InputArgumentInvalidException {
-
-    if ( nome == null || nome.equals("") ) {
-      throw new StringInvalidaException("O nome do hospede nao pode ser vazio.");
-    }
-
-    for ( int i = 0; i < nome.length(); i++) {
-      if ( (Character.isDigit(nome.charAt(i))) ) {
-        throw new StringInvalidaException("O nome do hospede deve conter apenas letras.");
-      }  
-    }
-  }
-
-  /**
-  * Verifica se o numero do cartao eh valido.
-  * 
-  * @param cartao - numero do cartao de credito do hospede.
-  * @throws InputArgumentInvalidException - Pode lancar excecao de entrada invalida.
-  */
-
-  private void verificaCartao(String cartao) throws InputArgumentInvalidException {
-
-    if (cartao == null || cartao.equals("")) {
-      throw new StringInvalidaException("O campo NUMERO DO CARTAO nao pode ser vazio.");
-    }
-
-    if (cartao.length() != 16) {
-      throw new StringInvalidaException("Quantidade de digitos do cartao invalida.");
-    }
-    
-    for (int i = 0; i < 16; i++) {
-      if ( !(Character.isDigit(cartao.charAt(i))) ) {
-        throw new StringInvalidaException("O numero do cartao deve conter apenas numeros.");
-      }
-    }
-
-    if (!(isCartao(cartao))) {
-      throw new StringInvalidaException("Numero do cartao invalido.");
-    }
-  }
-
-  /**
   * Metodo para testar se o numero do cartao informado e valido.
   * 
   * @param cartao - Numero do cartao de credito do hospede.
@@ -239,24 +139,6 @@ public class Hospede implements Serializable {
   
     return true;
   
-  }
-
-  /**
-  * Verifica e-mail do hospede.
-  * 
-  * @param email - E-mail do hospede.
-  * @throws - InputArgumentInvalidException - Pode lancar excecao de entrada invalida.
-  */
-
-  private void verificaEmail( String email ) throws InputArgumentInvalidException {
-    if ( email == null || email.equals("") ) {
-      throw new StringInvalidaException("O campo do email nao pode ser vazio.");
-    }
-
-    if ( email.indexOf("@") == -1 ) {
-      throw new StringInvalidaException("O campo do email deve ser preenchido no formato"
-          + " adequado com o @.");
-    }
   }
   
   public Telefone getTelefone() {
@@ -392,19 +274,140 @@ public class Hospede implements Serializable {
   }
   
   /**
-  * Atribui uma nova data de nascimento ao hospede ( Caso a atual esteja incorreta).
-  * 
-  * @param dataDeNascimento - Data de Nascimento do hospede.
-  * @throws DataDeNascimentoInvalidaException - Pode lancar excecao de data de nascimento invalida.
-  */
+   * 
+   * @param dataDeNascimento
+   * @throws InputArgumentInvalidException
+   * @throws DataDeNascimentoInvalidaException
+   */
   
   public void setDataDeNascimento( Calendar dataDeNascimento )
-      throws InputArgumentInvalidException, DataDeNascimentoInvalidaException {
+    throws InputArgumentInvalidException, DataDeNascimentoInvalidaException {
+
     if ( dataDeNascimento == null ) {
       throw new DataDeNascimentoInvalidaException("Data de nascimento nao pode ser vazia.");
     }
 
     this.dataDeNascimento = dataDeNascimento;
+  }
+
+  /**
+  * Calcula o 11 digito do cpf.
+  * 
+  * @param cpf - Cpf do cliente
+  * @return int - o 11 digito do CPF
+  */
+
+  private int calculaDigito11( String cpf ) {
+    int soma = 0;
+    int digitoAtual = 0;
+
+    for ( int i = 11; i > 1; i-- ) {
+      soma += Integer.parseInt(cpf.charAt(digitoAtual) + "") * i;
+      digitoAtual++;
+    }
+    
+    int digito11 = calculaDigito(soma);
+    
+    return digito11;
+  }
+
+  /**
+  * Calcula o 10 digito do CPF.
+  * 
+  * @param cpf - Cpf do cliente.
+  * @return int - O 10 digito do CPF.
+  */
+
+  private int calculaDigito10( String cpf ) {
+    int soma = 0;
+    int digitoAtual = 0;
+
+    for ( int i = 10; i > 1; i-- ) {
+      soma += Integer.parseInt(cpf.charAt(digitoAtual) + "") * i;
+      digitoAtual++;
+    }
+
+    int digito10 = calculaDigito(soma);
+
+    return digito10;
+  }
+  
+  private int calculaDigito( int soma ) {
+    int digito;
+    
+    if ( 11 - ( soma % 11 ) == 10 || 11 - ( soma % 11 ) == 11 ) {
+	  digito = 0;
+	} else {
+	   digito = 11 - ( soma % 11 );
+	}
+    
+    return digito;
+  }
+  
+  /**
+  * Atribui uma nova data de nascimento ao hospede ( Caso a atual esteja incorreta).
+  * 
+  * @param dataDeNascimento - Data de Nascimento do hospede.
+  * @throws DataDeNascimentoInvalidaException - Pode lancar excecao de data de nascimento invalida.
+  */
+
+  private void verificaEmail( String email ) throws InputArgumentInvalidException {
+    if ( email == null || email.equals("") ) {
+      throw new StringInvalidaException("O campo do email nao pode ser vazio.");
+    }
+
+    if ( email.indexOf("@") == -1 ) {
+      throw new StringInvalidaException("O campo do email deve ser preenchido no formato"
+          + " adequado com o @.");
+    }
+  }
+  
+  /**
+  * Verifica se o numero do cartao eh valido.
+  * 
+  * @param cartao - numero do cartao de credito do hospede.
+  * @throws InputArgumentInvalidException - Pode lancar excecao de entrada invalida.
+  */
+
+  private void verificaCartao(String cartao) throws InputArgumentInvalidException {
+
+    if (cartao == null || cartao.equals("")) {
+      throw new StringInvalidaException("O campo NUMERO DO CARTAO nao pode ser vazio.");
+    }
+
+    if (cartao.length() != 16) {
+      throw new StringInvalidaException("Quantidade de digitos do cartao invalida.");
+    }
+    
+    for (int i = 0; i < 16; i++) {
+      if ( !(Character.isDigit(cartao.charAt(i))) ) {
+        throw new StringInvalidaException("O numero do cartao deve conter apenas numeros.");
+      }
+    }
+
+    if (!(isCartao(cartao))) {
+      throw new StringInvalidaException("Numero do cartao invalido.");
+    }
+  }
+  
+  /**
+  * Verifica se o nome do hospede eh valido.
+  * 
+  * @param nome - Nome do hospede.
+  * @throws InputArgumentInvalidException - Pode lancar excecao de entrada invalida.
+  */
+
+  private void verificaNome( String nome ) throws InputArgumentInvalidException {
+
+    if ( nome == null || nome.equals("") ) {
+      throw new StringInvalidaException("O nome do hospede nao pode ser vazio.");
+    }
+
+    for ( int i = 0; i < nome.length(); i++) {
+      if ( (Character.isDigit(nome.charAt(i))) ) {
+        throw new StringInvalidaException("O nome do hospede deve conter apenas letras.");
+      }  
+    }
   }
   
   /**
@@ -450,7 +453,7 @@ public class Hospede implements Serializable {
       return false;
     }
    
-    Hospede novoHospede = (Hospede)obj;
+    Hospede novoHospede = (Hospede) obj;
 
     return ( nome.equals(novoHospede.getNome()) && cpf == novoHospede.getCpf() );
   }

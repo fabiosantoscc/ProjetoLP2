@@ -1,8 +1,7 @@
 package classes;
 
-import excecoes.DddInvalidoException;
 import excecoes.InputArgumentInvalidException;
-import excecoes.NumeroTelefoneInvalidoException;
+import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 
@@ -47,17 +46,17 @@ public class Telefone implements Serializable {
   private void verificaDdd( String ddd ) throws InputArgumentInvalidException {
 
     if ( ddd == null || ddd.equals("") ) {
-      throw new DddInvalidoException("DDD nao pode ser vazio.");
+      throw new StringInvalidaException("DDD nao pode ser vazio.");
     }
     
     for ( int i = 0; i < ddd.length(); i++ ) {
       if ( (! (Character.isDigit(ddd.charAt(i))))) {
-        throw new DddInvalidoException("DDD deve conter apenas digitos.");
+        throw new StringInvalidaException("DDD deve conter apenas digitos.");
       }
     }
 
     if ( ddd.length() != 2 ) {
-      throw new DddInvalidoException("Quantidade de digitos do DDD invalida.");
+      throw new StringInvalidaException("Quantidade de digitos do DDD invalida.");
     }  
   }
 
@@ -71,22 +70,22 @@ public class Telefone implements Serializable {
   private void verificaNumero( String numero ) throws InputArgumentInvalidException {
 
     if ( numero == null || numero.equals("") ) {
-      throw new NumeroTelefoneInvalidoException("Numero de telefone nao pode ser vazio.");
+      throw new StringInvalidaException("Numero de telefone nao pode ser vazio.");
     }
 
     for ( int i = 0; i < numero.length(); i++ ) {
       if ( !(Character.isDigit(numero.charAt(i)) )) {
-        throw new NumeroTelefoneInvalidoException("O Numero do telefone deve conter "
+        throw new StringInvalidaException("O Numero do telefone deve conter "
         + "apenas digitos.");
       }
     }
 
     if ( numero.length() > 9 || numero.length() < 8 ) {
-      throw new NumeroTelefoneInvalidoException("Quantidade de digitos do telefone invalida.");
+      throw new StringInvalidaException("Quantidade de digitos do telefone invalida.");
     }
   
     if ( numero.length() == 9 && numero.charAt(0) != '9' ) {
-      throw new NumeroTelefoneInvalidoException("Primeiro digito do telefone deve ser 9 (nove).");
+      throw new StringInvalidaException("Primeiro digito do telefone deve ser 9 (nove).");
     }
   }
 

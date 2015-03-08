@@ -21,8 +21,8 @@ import javax.swing.ImageIcon;
 
 public class MenuPrincipal {
 
-	public static CardLayout cl = new CardLayout();
 	JFrame frame = new JFrame();
+	public static CardLayout cl = new CardLayout();
 	static public JPanel panel0 = new JPanel();
 	DefaultMenu menuPadrao = new DefaultMenu();
 	AdicionarHospede adicionarHospede = new AdicionarHospede();
@@ -61,7 +61,6 @@ public class MenuPrincipal {
 	private final JMenuItem mntmNewMenuItem_3 = new JMenuItem("Check in");
 	private final JMenuItem mntmNewMenuItem_4 = new JMenuItem("Pesquisar");
 	private final JMenuItem mntmNewMenuItem_5 = new JMenuItem("Check out");
-	private final JMenuItem mntmAgendar = new JMenuItem("Agendar");
 	private final JLabel lblInicio = new JLabel("  Inicio   ");
 	private final JMenuItem mntmNewMenuItem_2 = new JMenuItem("Atualizar");
 	private final JMenu mnServios = new JMenu("Servi\u00E7os");
@@ -188,13 +187,6 @@ public class MenuPrincipal {
 		});
 		
 		mnContratos.add(mntmNewMenuItem_5);
-		mntmAgendar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "6");
-			}
-		});
-		
-		mnContratos.add(mntmAgendar);
 		mnServios.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart.png")));
 		
 		menuBar.add(mnServios);

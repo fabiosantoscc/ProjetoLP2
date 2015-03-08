@@ -40,7 +40,7 @@ public class NotaEComentario extends JPanel {
 		lblNotaDeAceitao.setBounds(57, 25, 251, 50);
 		add(lblNotaDeAceitao);
 		
-		JLabel label = new JLabel(Run.hotel.getNotaDeAceitacao()+"");
+		JLabel label = new JLabel(Run.hotel.getNotaDeAceitacao() + "");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setBounds(250, 25, 200, 50);
 		add(label);
