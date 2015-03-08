@@ -21,7 +21,7 @@ import excecoes.HospedeInvalidoException;
 import javax.swing.ImageIcon;
 
 public class BuscarRemoverServicos extends JPanel {
-	private JTextField cpfAPesquisar;
+	private JTextField textCPF;
 
 	/**
 	 * Create the panel.
@@ -29,40 +29,40 @@ public class BuscarRemoverServicos extends JPanel {
 	public BuscarRemoverServicos() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Buscar Serviços para remover");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 326, 40);
-		add(lblNovoContrato);
+		JLabel lblBuscarSercicos = new JLabel("Buscar Serviços para remover");
+		lblBuscarSercicos.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblBuscarSercicos.setBounds(38, 29, 326, 40);
+		add(lblBuscarSercicos);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(207, 145, 120, 21);
-		add(label);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(207, 145, 120, 21);
+		add(lblCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(381, 145, 114, 20);
-		add(cpfAPesquisar);
+		textCPF = new JTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textCPF.setColumns(10);
+		textCPF.setBounds(381, 145, 114, 20);
+		add(textCPF);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarRemoverServicos.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.addActionListener(new ActionListener() {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarRemoverServicos.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					MenuPrincipal.removerServicos = new RemoverServicos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+					MenuPrincipal.removerServicos = new RemoverServicos(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.removerServicos, "27");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "27");
-					cpfAPesquisar.setText("");
+					textCPF.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 
 			}
 		});
-		button.setBounds(311, 198, 104, 27);
-		add(button);
+		btnBuscar.setBounds(311, 198, 104, 27);
+		add(btnBuscar);
 
 	}
 }
