@@ -13,7 +13,7 @@ import org.junit.Test;
 
  /**Classe de testes da classe telefone.
   * Author: Ravi Lopes
-  * Ultima revisao: 19/02/2015 / Fabio Alexandre
+  * Ultima revisao: 07/03/2015 / Fabio Alexandre
   */
 
 public class TelefoneTest {
@@ -184,8 +184,8 @@ public class TelefoneTest {
 
   @Test
   public void testaHashCode() throws InputArgumentInvalidException {
-	Telefone novoTelefone = new Telefone("83", "99999998");
-	Assert.assertFalse(telefone.hashCode() == novoTelefone.hashCode());
+    Telefone novoTelefone = new Telefone("83", "99999998");
+    Assert.assertFalse(telefone.hashCode() == novoTelefone.hashCode());
     novoTelefone.setNumero("99999999");
     Assert.assertTrue(telefone.hashCode() == novoTelefone.hashCode());
   }
