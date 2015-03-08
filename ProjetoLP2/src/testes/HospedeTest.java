@@ -16,9 +16,7 @@ import excecoes.StringInvalidaException;
 
 /**
  * Classe de testes da classe hospede
- * 
  * Author: Ravi Lopes
- * 
  * Ultima revisao: 07/03/2015 / Fabio Alexandre
  *
  */
