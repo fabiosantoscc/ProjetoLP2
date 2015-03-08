@@ -76,9 +76,9 @@ public class TelaLogin extends JFrame {
 		lblSenha.setBounds(144, 302, 70, 23);
 		contentPane.add(lblSenha);
 		
-		JButton entrar = new JButton("Entrar");
-		entrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")));
-		entrar.addActionListener(new ActionListener() {
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")));
+		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(loginField.getText().equals("admin") && isPasswordCorrect(passwordField.getPassword())){
 					MenuPrincipal menuFrame = new MenuPrincipal();
@@ -90,9 +90,9 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		entrar.setFont(new Font("Dialog", Font.BOLD, 15));
-		entrar.setBounds(116, 350, 130, 25);
-		contentPane.add(entrar);
+		btnEntrar.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnEntrar.setBounds(116, 350, 130, 25);
+		contentPane.add(btnEntrar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -119,20 +119,20 @@ public class TelaLogin extends JFrame {
 		btnSair.setBounds(219, 389, 89, 23);
 		contentPane.add(btnSair);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
-		lblNewLabel.setBounds(172, 25, 192, 179);
-		contentPane.add(lblNewLabel);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
+		lblLogo.setBounds(172, 25, 192, 179);
+		contentPane.add(lblLogo);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));
-		label.setBounds(116, 300, 36, 25);
-		contentPane.add(label);
+		JLabel lblUserIcon = new JLabel("");
+		lblUserIcon.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));
+		lblUserIcon.setBounds(116, 300, 36, 25);
+		contentPane.add(lblUserIcon);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/status_online.png")));
-		label_1.setBounds(116, 265, 36, 25);
-		contentPane.add(label_1);
+		JLabel lblSenhaIcon = new JLabel("");
+		lblSenhaIcon.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/status_online.png")));
+		lblSenhaIcon.setBounds(116, 265, 36, 25);
+		contentPane.add(lblSenhaIcon);
 	}
 	
 	private boolean isPasswordCorrect(char[] input) {
