@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 
 
 public class BuscarRestaurante extends JPanel {
-	private JTextField cpfAPesquisar;
+	private JTextField textCPF;
 
 	/**
 	 * Create the panel.
@@ -28,39 +28,39 @@ public class BuscarRestaurante extends JPanel {
 	public BuscarRestaurante() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Restaurante");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 175, 40);
-		add(lblNovoContrato);
+		JLabel lblRestaurante = new JLabel("Restaurante");
+		lblRestaurante.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblRestaurante.setBounds(38, 29, 175, 40);
+		add(lblRestaurante);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(204, 136, 114, 21);
-		add(label);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(204, 136, 114, 21);
+		add(lblCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(344, 136, 136, 20);
-		add(cpfAPesquisar);
+		textCPF = new JTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textCPF.setColumns(10);
+		textCPF.setBounds(344, 136, 136, 20);
+		add(textCPF);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarRestaurante.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.addActionListener(new ActionListener() {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarRestaurante.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-					MenuPrincipal.adicionarRestaurante = new AdicionarRestaurante(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+					MenuPrincipal.adicionarRestaurante = new AdicionarRestaurante(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.adicionarRestaurante, "28");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "28");
-					cpfAPesquisar.setText("");
+					textCPF.setText("");
 				}catch(Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());
 				}
 			}
 		});
-		button.setBounds(297, 192, 106, 29);
-		add(button);
+		btnBuscar.setBounds(297, 192, 106, 29);
+		add(btnBuscar);
 
 	}
 }

@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CheckOut extends JPanel {
-	private JTextField textField;
+	private JTextField textNotaAceitacao;
 
 	/**
 	 * Create the panel.
@@ -41,28 +41,28 @@ public class CheckOut extends JPanel {
 		lblNotaDeAceitao.setBounds(37, 154, 173, 50);
 		add(lblNotaDeAceitao);
 		
-		textField = new JTextField();
-		textField.setBounds(186, 171, 80, 20);
-		add(textField);
-		textField.setColumns(10);
+		textNotaAceitacao = new JTextField();
+		textNotaAceitacao.setBounds(186, 171, 80, 20);
+		add(textNotaAceitacao);
+		textNotaAceitacao.setColumns(10);
 		
 		JLabel lblComentario = new JLabel("Coment\u00E1rio:");
 		lblComentario.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblComentario.setBounds(37, 238, 120, 28);
 		add(lblComentario);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(163, 238, 325, 69);
-		add(scrollPane);
+		JScrollPane scrollPaneComentarios = new JScrollPane();
+		scrollPaneComentarios.setBounds(163, 238, 325, 69);
+		add(scrollPaneComentarios);
 		
-		JTextPane textPane = new JTextPane();
-		scrollPane.setViewportView(textPane);
+		JTextPane textPaneComentarios = new JTextPane();
+		scrollPaneComentarios.setViewportView(textPaneComentarios);
 		
 		JButton btnCheckOut = new JButton("Check out");
 		btnCheckOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-					Opiniao novaOpiniao = new Opiniao(textPane.getText(), Double.parseDouble(textField.getText()));
+					Opiniao novaOpiniao = new Opiniao(textPaneComentarios.getText(), Double.parseDouble(textNotaAceitacao.getText()));
 					Run.hotel.adicionaOpiniao(novaOpiniao);
 					Run.hotel.getContratoAberto(hospedeAtual).setAberto(false);
 					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
