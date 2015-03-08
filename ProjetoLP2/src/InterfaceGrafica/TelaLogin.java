@@ -1,6 +1,5 @@
 package InterfaceGrafica;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,27 +10,18 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
-import javax.swing.JCheckBox;
 import javax.swing.JButton;
 
-import com.sun.glass.events.WindowEvent;
-
-import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
-import javax.swing.JToggleButton;
-import java.awt.Label;
 
 public class TelaLogin extends JFrame {
 
+	private int telaAberta = 0;
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 
@@ -57,7 +47,7 @@ public class TelaLogin extends JFrame {
 	public TelaLogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 531, 445);
+		setBounds(100, 100, 534, 462);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -101,24 +91,38 @@ public class TelaLogin extends JFrame {
 			}
 		});
 		entrar.setFont(new Font("Dialog", Font.BOLD, 15));
-		entrar.setBounds(116, 372, 130, 25);
+		entrar.setBounds(116, 350, 130, 25);
 		contentPane.add(entrar);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
-		lblNewLabel.setBounds(170, 38, 192, 179);
-		contentPane.add(lblNewLabel);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new TelaCadastro();
+				if ( telaAberta == 0) {
+					telaAberta++;
+					new TelaCadastro();
+				}
 			}
 		});
 		btnCadastrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")));
 		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnCadastrar.setBounds(277, 372, 130, 25);
+		btnCadastrar.setBounds(277, 350, 130, 25);
 		contentPane.add(btnCadastrar);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		btnSair.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/cancel.png")));
+		btnSair.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnSair.setBounds(219, 389, 89, 23);
+		contentPane.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
+		lblNewLabel.setBounds(172, 25, 192, 179);
+		contentPane.add(lblNewLabel);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));

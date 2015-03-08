@@ -76,27 +76,12 @@ public class MenuPrincipal {
 	private final JMenu mnNewMenu_1 = new JMenu("Mais Op\u00E7\u00F5es");
 	private final JMenuItem mntmNewMenuItem_6 = new JMenuItem("Sobre");
 	private final JMenuItem mntmNotaDeAceitao = new JMenuItem("Nota de Aceita\u00E7\u00E3o e Coment\u00E1rios");
-
-	/**
-	 * Launch the application.
-	 */
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuPrincipal window = new MenuPrincipal();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private final JLabel lblSair = new JLabel("Sair");
 
 	/**
 	 * Create the application.
 	 */
+	
 	public MenuPrincipal() {
 		initialize();
 		panel0.setLayout(cl);
@@ -251,6 +236,16 @@ public class MenuPrincipal {
 		});
 		
 		mnNewMenu_1.add(mntmNotaDeAceitao);
+		lblSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cancel.png")));
+		lblSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TelaLogin t = new TelaLogin();
+				frame.dispose();
+				t.setVisible(true);
+			}
+		});
+		menuBar.add(lblSair);
 		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(panel0, "15");
@@ -273,14 +268,15 @@ public class MenuPrincipal {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
-		
 	}
-	private static class __Tmp {
-		private static void __tmp() {
-			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
-			  
-			  javax.swing.JFrame frame_1 = new javax.swing.JFrame();
-			  __wbp_panel.add(frame_1);
-		}
-	}
+	
+	//QUE MERDA É ESSA? HUAHAU
+//	private static class __Tmp {
+//		private static void __tmp() {
+//			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+//			  
+//			  javax.swing.JFrame frame_1 = new javax.swing.JFrame();
+//			  __wbp_panel.add(frame_1);
+//		}
+//	}
 }

@@ -1,8 +1,5 @@
 package InterfaceGrafica;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class TelaCadastro extends JFrame {
 
@@ -51,16 +49,20 @@ public class TelaCadastro extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(TelaCadastro.class.getResource("/Icons/cancel.png")));
+		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				TelaCadastro.this.dispose();
 			}
 		});
-		btnCancelar.setBounds(255, 348, 89, 23);
+		btnCancelar.setBounds(237, 348, 107, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(110, 348, 89, 23);
+		btnCadastrar.setIcon(new ImageIcon(TelaCadastro.class.getResource("/Icons/accept.png")));
+		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnCadastrar.setBounds(110, 348, 107, 23);
 		contentPane.add(btnCadastrar);
 	}
 }

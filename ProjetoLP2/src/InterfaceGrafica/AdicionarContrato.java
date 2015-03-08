@@ -12,24 +12,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.JComboBox;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerDateModel;
-
-import Executar.Run;
 import classes.Contrato;
 import classes.Hospede;
 
-import java.util.Date;
 import java.util.Calendar;
 
-import javax.swing.JCheckBox;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SpinnerListModel;
-
-import excecoes.NumeroDeNoitesInvalidoException;
 
 public class AdicionarContrato extends JPanel {
 	private JTextField textField;
@@ -39,6 +26,7 @@ public class AdicionarContrato extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public AdicionarContrato(Hospede hospedeAtual) {
 		
 		setLayout(null);
