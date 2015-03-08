@@ -1,8 +1,16 @@
 package classes;
 
+import excecoes.StringInvalidaException;
+
 import java.io.Serializable;
 
-import excecoes.StringInvalidaException;
+  /**
+  * Classe que representa um cadastro.
+  * 
+  * @author Fabio Alexandre
+  * @since 08/03/2015
+  *
+  */
 
 public class Cadastro implements Serializable {
 
@@ -22,12 +30,13 @@ public class Cadastro implements Serializable {
   * @throws StringInvalidaException 
   */
   
-  public Cadastro(String pin, String nome, String nomeLogin, String senha ) throws StringInvalidaException {
+  public Cadastro(String pin, String nome, String nomeLogin, String senha )
+      throws StringInvalidaException {
 
     verificaNome(nome);
     verificaNomeLogin(nomeLogin);
     verificaSenha(senha);
-	
+
     this.pin = pin;
     this.nome = nome;
     this.nomeLogin = nomeLogin;
@@ -53,7 +62,7 @@ public class Cadastro implements Serializable {
 
   public void setNome(String nome) throws StringInvalidaException {
     verificaNome(nome);
-	this.nome = nome;
+    this.nome = nome;
   }
 
   /**
@@ -98,7 +107,7 @@ public class Cadastro implements Serializable {
 
   public void setSenha(String senhaAntiga, String novaSenha) throws StringInvalidaException {
     
-	verificaSenha(novaSenha);
+    verificaSenha(novaSenha);
 
     /*
     * Verifica se a senha antiga passada eh de fato verdadeira,
@@ -148,13 +157,16 @@ public class Cadastro implements Serializable {
   
   @Override
   public String toString() {
-    return "Cadastro [ Nome:" + getNome() + ", Nome de login: " + getNomeLogin()
+    return "Cadastro [ Nome: " + getNome() + ", Nome de login: " + getNomeLogin()
         + ", Senha: " + getSenha() + " ]";
   }
 
   /**
-   * 
-   */
+  * Metodo que compara dois cadastros por dois inteiros,
+  * utiliza as mesmas variaveis do equals.
+  * 
+  * @return int - Valor pra comparar os objetos.
+  */
   
   @Override
   public int hashCode() {

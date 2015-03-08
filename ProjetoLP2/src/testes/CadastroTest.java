@@ -1,11 +1,13 @@
 package testes;
 
+import classes.Cadastro;
+import classes.Opiniao;
+import excecoes.InputArgumentInvalidException;
+import excecoes.StringInvalidaException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-
-import classes.Cadastro;
-import excecoes.StringInvalidaException;
 
 public class CadastroTest {
 
@@ -161,11 +163,35 @@ public class CadastroTest {
   
   @Test
   public void TestaToString() {
-	  
+	  Assert.assertEquals("Cadastro [ Nome: Fabio, Nome de login: fabiosantos, Senha: fabio123 ]", cadastro1.toString());
+	  Assert.assertEquals("Cadastro [ Nome: Fulano, Nome de login: FulanoDeTal, Senha: fulano321 ]", cadastro2.toString());
   }
   
   @Test
-  public void TestaEquals() {
-	  
+  public void TestaHashCode() throws StringInvalidaException {
+	  Assert.assertFalse(cadastro1.hashCode() == cadastro2.hashCode());
+	  cadastro2.setNome("Fabio");
+	  cadastro2.setNomeLogin("fabiosantos");
+	  cadastro2.setSenha("fulano321", "fabio123");
+	  Assert.assertTrue(cadastro2.hashCode() == cadastro1.hashCode());
+  }
+  
+  @Test
+  public void TestaEquals() throws InputArgumentInvalidException {
+	  Opiniao op = new Opiniao("Bom", 10);
+	  Assert.assertFalse(cadastro1.equals(op));
+	  Assert.assertFalse(cadastro1.equals(cadastro2));
+	  cadastro2.setNome("Fabio");
+	  cadastro2.setNomeLogin("fabiosantos");
+	  cadastro2.setSenha("fulano321", "fabio123");
+	  Assert.assertTrue(cadastro1.equals(cadastro2));
+	  cadastro1.setNome("FabiO");
+	  Assert.assertFalse(cadastro1.equals(cadastro2));
+	  cadastro1.setNome("Fabio");
+	  cadastro1.setNomeLogin("fabiosants");
+	  Assert.assertFalse(cadastro1.equals(cadastro2));
+	  cadastro1.setNomeLogin("fabiosantos");
+	  cadastro1.setSenha("fabio123", "outraSenha");
+	  Assert.assertFalse(cadastro1.equals(cadastro2));
   }
 }
