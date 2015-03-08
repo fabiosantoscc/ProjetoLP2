@@ -28,15 +28,15 @@ public class BuscarAdcQuartos extends JPanel {
 	public BuscarAdcQuartos() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Adicionar Quartos");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 242, 40);
-		add(lblNovoContrato);
+		JLabel lblAdicionarQuartos = new JLabel("Adicionar Quartos");
+		lblAdicionarQuartos.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblAdicionarQuartos.setBounds(38, 29, 242, 40);
+		add(lblAdicionarQuartos);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(162, 148, 118, 21);
-		add(label);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(162, 148, 118, 21);
+		add(lblCPF);
 		
 		cpfAPesquisar = new JTextField();
 		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -44,10 +44,10 @@ public class BuscarAdcQuartos extends JPanel {
 		cpfAPesquisar.setBounds(312, 148, 155, 21);
 		add(cpfAPesquisar);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarAdcQuartos.class.getResource("/Icons/zoom.png")));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		button.addActionListener(new ActionListener() {
+		JButton textCPF = new JButton("Buscar");
+		textCPF.setIcon(new ImageIcon(BuscarAdcQuartos.class.getResource("/Icons/zoom.png")));
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCPF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
@@ -59,7 +59,7 @@ public class BuscarAdcQuartos extends JPanel {
 				}
 			}
 		});
-		button.setBounds(262, 253, 111, 25);
-		add(button);
+		textCPF.setBounds(262, 253, 111, 25);
+		add(textCPF);
 	}
 }

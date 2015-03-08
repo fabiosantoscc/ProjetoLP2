@@ -33,10 +33,10 @@ public class BuscarAdcBabySitter extends JPanel {
 		lblBabySitter.setBounds(38, 29, 175, 40);
 		add(lblBabySitter);
 		
-		JLabel lblCP = new JLabel("CPF do Hospede");
-		lblCP.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCP.setBounds(151, 153, 142, 21);
-		add(lblCP);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(151, 153, 142, 21);
+		add(lblCPF);
 		
 		textCPF = new JTextField();
 		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
