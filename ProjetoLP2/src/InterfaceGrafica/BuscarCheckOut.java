@@ -22,7 +22,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class BuscarCheckOut extends JPanel {
-	private JTextField cpfAPesquisar;
+	private JTextField textCPF;
 
 	/**
 	 * Create the panel.
@@ -31,40 +31,40 @@ public class BuscarCheckOut extends JPanel {
 	public BuscarCheckOut() {
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Check out");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(38, 29, 175, 40);
-		add(lblNovoContrato);
+		JLabel lblCheckOUT = new JLabel("Check out");
+		lblCheckOUT.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblCheckOUT.setBounds(38, 29, 175, 40);
+		add(lblCheckOUT);
 		
-		JLabel label = new JLabel("CPF do Hospede");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(172, 145, 119, 21);
-		add(label);
+		JLabel lblCPF = new JLabel("CPF do Hospede");
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCPF.setBounds(172, 145, 119, 21);
+		add(lblCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(320, 145, 114, 20);
-		add(cpfAPesquisar);
+		textCPF = new JTextField();
+		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textCPF.setColumns(10);
+		textCPF.setBounds(320, 145, 114, 20);
+		add(textCPF);
 		
-		JButton button = new JButton("Buscar");
-		button.setIcon(new ImageIcon(BuscarCheckOut.class.getResource("/Icons/zoom.png")));
-		button.setBackground(new Color(0, 204, 255));
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.addActionListener(new ActionListener() {
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(BuscarCheckOut.class.getResource("/Icons/zoom.png")));
+		btnBuscar.setBackground(new Color(0, 204, 255));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					MenuPrincipal.checkOut = new CheckOut(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+					MenuPrincipal.checkOut = new CheckOut(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.checkOut, "31");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "31");
-					cpfAPesquisar.setText("");
+					textCPF.setText("");
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 			}
 		});
-		button.setBounds(268, 198, 107, 27);
-		add(button);
+		btnBuscar.setBounds(268, 198, 107, 27);
+		add(btnBuscar);
 
 	}
 }
