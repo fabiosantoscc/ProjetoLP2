@@ -16,8 +16,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private CalendarioDeEstrategias calendario;
-
-	private String tipoCarro;
+	private ModelosDoCarro modeloCarro;
 	private boolean tanqueCheio;
 	private boolean seguroDeAutomovel;
 	private int valorDiaria;
@@ -33,17 +32,17 @@ public class AluguelDeCarros implements Servico, Serializable {
 	 * @param quantidadeDias Quantidade de dias em que o automovel estará em uso do cliente
 	 */
 	
-	public AluguelDeCarros(String tipoCarro, boolean tanqueCheio, boolean seguroAutomovel) throws Exception {
+	public AluguelDeCarros(ModelosDoCarro carro, boolean tanqueCheio, boolean seguroAutomovel) throws Exception {
 		Hotel.maisAluguel++;
-		checaTipoCarro(tipoCarro);
+		checaTipoCarro(carro);
 		data = Calendar.getInstance();		
-		this.tipoCarro = tipoCarro;
+		this.modeloCarro = carro;
 		this.tanqueCheio = tanqueCheio;
 		this.seguroDeAutomovel = seguroAutomovel;
 	}	
 	
-	private void checaTipoCarro(String tipo) throws Exception {
-		if (!( tipo.equals("Executivo") ||  tipo.equals("Luxo"))) {
+	private void checaTipoCarro(ModelosDoCarro carro) throws Exception {
+		if (!( carro.equals(ModelosDoCarro.EXECUTIVO)||  carro.equals(ModelosDoCarro.LUXO))){
 			throw new Exception("Modelo de Automóvel Invalido");
 		}
 	}
@@ -53,8 +52,8 @@ public class AluguelDeCarros implements Servico, Serializable {
 	 * @return Modelo do Automovel desejado ( "Luxo" ou "Executivo")
 	 */
 	
-	public String getTipoCarro() {
-		return tipoCarro;
+	public ModelosDoCarro getModeloCarro() {
+		return this.modeloCarro;
 	}
 	
 	public double getPreco() { 
@@ -92,8 +91,8 @@ public class AluguelDeCarros implements Servico, Serializable {
 	 */
 	
 	public void verificaTipo() {
-		if (tipoCarro.equals("Luxo")) valorDiaria = 100;
-		else if (tipoCarro.equals("Executivo")) valorDiaria = 60;
+		if (this.modeloCarro.equals(ModelosDoCarro.LUXO)) valorDiaria = 100;
+		else if (this.modeloCarro.equals(ModelosDoCarro.EXECUTIVO)) valorDiaria = 60;
 	}
 	
 	/**
@@ -146,17 +145,18 @@ public class AluguelDeCarros implements Servico, Serializable {
 	/** 
 	 * Metodo que retorna uma String com os atributos da classe
 	 */
-	
 	@Override
 	public String toString() {
 		String string;
-		string = "AluguelDeCarros - "+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
-				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
+		string = "Aluguel de Carro - "+ Arquivos.FIM_LINHA+
+		"  Modelo: "+this.modeloCarro+Arquivos.FIM_LINHA+		
+		"  Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+				+ data.get(Calendar.YEAR) + " às " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 		
 		if ( tanqueCheio ) {
 			string += ", Tanque cheio";
 		} else {
-			string += ", Tanque nao cheio";
+			string += ", Sem tanque cheio";
 		}
 		
 		if ( seguroDeAutomovel ) {
@@ -175,7 +175,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 		
 		AluguelDeCarros novoAluguel = (AluguelDeCarros)obj;
 		
-		return (tipoCarro.equals(novoAluguel.getTipoCarro()) && tanqueCheio == novoAluguel.isTanqueCheio() &&
+		return (modeloCarro.equals(novoAluguel.getModeloCarro()) && tanqueCheio == novoAluguel.isTanqueCheio() &&
 				seguroDeAutomovel == novoAluguel.isSeguroDeAutomovel());
 		}
 

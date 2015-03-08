@@ -42,7 +42,7 @@ public class AdicionarRestaurante extends JPanel {
 		add(lblUnidade);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboBox.getSelectedItem();
