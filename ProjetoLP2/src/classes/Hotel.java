@@ -149,6 +149,7 @@ public class Hotel implements Serializable {
 	 * @throws HospedeInvalidoException 
 	 */
 	
+	// talvez colocar esse metodo em contrato
 	public void adicionaVariosServicos(Hospede hospede, List<Servico> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
 		
 		List<Contrato> contratos =  hospedes.get(hospede);

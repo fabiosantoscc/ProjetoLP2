@@ -8,11 +8,11 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Classe que representa um contrato.
+ *     Classe que representa um contrato.
  * 
  *     @author Fabio Alexandre Santos Silva Júnior
  *     @date 02/02/2015
- *     Ultima alteracao: 24/02/2015 / Fabio Alexandre
+ *     Ultima alteracao: 08/03/2015 / Fabio Alexandre
  */
 
 public class Contrato implements Serializable {
@@ -21,11 +21,10 @@ public class Contrato implements Serializable {
   private List<Servico> servicos = new ArrayList<Servico>();
   private boolean aberto;
   private double valorAPagar;
+  private double despesaParcial;
   private int numeroDeNoites;
   private Calendar dataInicial;
-  private double despesaTotal;
   private CalendarioDeEstrategias calendario;
-  private double multa;
 
   /**
    * Construtor de um Contrato.
@@ -35,7 +34,8 @@ public class Contrato implements Serializable {
    */
   
   public Contrato( int numeroDeNoites ) throws NumeroDeNoitesInvalidoException {
-    Calendar dataInicial = Calendar.getInstance();
+    
+	  Calendar dataInicial = Calendar.getInstance();
     this.dataInicial = dataInicial;
 
     if ( numeroDeNoites <= 0) {
@@ -47,22 +47,24 @@ public class Contrato implements Serializable {
   }
   
   /**
-   * Calcula a despesa total dos servicos contrados pelo hospede
-   */
+  * Calcula a despesa total dos servicos contrados pelo hospede
+  */
   
-  public void calculaDespesaTotal(){
-	  for (Servico s : servicos){
-		  despesaTotal += s.getDespesaTotal();
-	  }
+  public void calculaDespesaTotal() {
+    for (Servico s : servicos) {
+      despesaParcial += s.getDespesaTotal();
+    }
+
+    this.valorAPagar = despesaParcial + calculaMulta();
   }
    
-  private int verificaDiasDeMulta(){
+  private int diasDeMulta() {
 	 Calendar dataSaida = Calendar.getInstance();
 	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);
 	 int mesEntrada =  dataInicial.get(Calendar.MONTH);
 	 int anoEntrada = dataInicial.get(Calendar.YEAR);
 	 int contaDias = 0;
-	 while (true){
+	 while (true) {
 		 if (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH)
 				 && anoEntrada == dataSaida.get(Calendar.YEAR)) break;
 		 contaDias++;
@@ -74,7 +76,8 @@ public class Contrato implements Serializable {
 			}
 				else mesEntrada++;
 		}
-	 } 
+	 }
+
 	 return contaDias - numeroDeNoites;
   }
   
@@ -82,8 +85,8 @@ public class Contrato implements Serializable {
    * Calcula valor da multa se houver atraso
    */
   
-  public void calculaMulta(){
-	 multa = (0.025 * despesaTotal) * verificaDiasDeMulta();
+  public double calculaMulta() {
+    return (0.025 * despesaParcial) * diasDeMulta();
   }
   
   /**
@@ -92,6 +95,7 @@ public class Contrato implements Serializable {
   * @param meusServicos - Servicos a serem adicionados.
   */
   
+  //metodo parecido em hotel.
   public void servicosContrato( List<Servico> meusServicos ) {
     servicos.addAll(meusServicos);
   }
@@ -181,21 +185,13 @@ public class Contrato implements Serializable {
   }
 
   /**
-  * Recupera o valor a ser pago pelo Contrato.
+  * Recupera o valor a ser pago pelo Contrato ja com a multa(se houver).
   * 
   * @return double - O valor gasto no geral durante o periodo do Contrato.
   */
 
   public double getValorAPagar() {
     return valorAPagar;
-  }
-
-  /**
-  * Calcula o valor total a pagar no Contrato.
-  */
-
-  public void calculaTotalAPagar() {
-    //implementar
   }
 
   /**
