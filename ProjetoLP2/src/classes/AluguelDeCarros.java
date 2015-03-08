@@ -145,7 +145,6 @@ public class AluguelDeCarros implements Servico, Serializable {
 	/** 
 	 * Metodo que retorna uma String com os atributos da classe
 	 */
-	
 	@Override
 	public String toString() {
 		String string;
