@@ -40,7 +40,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 				String c = (String) comboModelosDeCarro.getSelectedItem();
 			}
 		});
-		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new ModelosDoCarro[] {ModelosDoCarro.EXECUTIVO, ModelosDoCarro.LUXO}));
+		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new String[] {""+ModelosDoCarro.EXECUTIVO, ""+ModelosDoCarro.LUXO}));
 		comboModelosDeCarro.setBounds(80, 230, 161, 20);
 		add(comboModelosDeCarro);
 		

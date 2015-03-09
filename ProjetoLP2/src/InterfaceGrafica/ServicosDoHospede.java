@@ -65,15 +65,12 @@ public class ServicosDoHospede extends JPanel {
 		
 		listServicos = new JList(modeling);
 		scrollPaneServicos.setViewportView(listServicos);
-		
-		System.out.println(servicosAtuais.size());
-		
+
 		for (int i = 0; i < servicosAtuais.size(); i++){
 			minhasStrings.add(servicosAtuais.get(i).toString());
 		}
 		
 		for ( String s : minhasStrings) {
-			System.out.println(s);
 			modeling.addElement(s);
 		}
 	}
