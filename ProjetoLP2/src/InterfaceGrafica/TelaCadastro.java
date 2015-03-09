@@ -119,9 +119,11 @@ public class TelaCadastro extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				Cadastro c = null;
 				try {
-					Run.hotel.adicionarCadastro(new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText()), textPIN.getText());
+					c = new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText());
+					Run.hotel.adicionarCadastro(c, Run.hotel.getPin());
+					System.out.println("entrou");
 					textNome.setText("");
 					passwordField.setText("");
 					ConfirmPasswordField.setText("");

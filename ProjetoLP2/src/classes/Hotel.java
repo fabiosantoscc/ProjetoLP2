@@ -19,7 +19,7 @@ import excecoes.*;
 public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-    private static String pin = "123";
+    private String pin;
 	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
@@ -33,7 +33,7 @@ public class Hotel implements Serializable {
 	public static int maisBaby = 0;
 	public static int maisAluguel = 0;
 	
-	private static List<Cadastro> cadastros = new ArrayList<Cadastro>();
+	private List<Cadastro> cadastros = new ArrayList<Cadastro>();
 	
 	// map com um hospede como chave, e um List<Contrato> como valor para guardar todos os contratos do hospede.
 	private HashMap<Hospede, List<Contrato>> hospedes = new HashMap<Hospede, List<Contrato>>();
@@ -60,7 +60,7 @@ public class Hotel implements Serializable {
 	 * @throws Exception - Número PIN fornecido pelo funcionario não coincide com o do sistema.
 	 */
 	
-	public static void adicionarCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
+	public void adicionarCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
 		if (!(pinFuncionario.equals(pin))){
 			throw new Exception("Pin Inválido!");
 		}
@@ -70,7 +70,7 @@ public class Hotel implements Serializable {
 	}
 	
 	
-	private static void verificaCadastroExistente(String login) throws Exception{
+	private void verificaCadastroExistente(String login) throws Exception{
 		for (Cadastro i : cadastros){
 			if (i.getNomeLogin().equals(login)){
 				throw new Exception("Usuário já existente, altere o login!");
@@ -85,7 +85,7 @@ public class Hotel implements Serializable {
 	 */
 	
 	
-	public static Cadastro buscarCadastro(String login) throws Exception{
+	public Cadastro buscarCadastro(String login) throws Exception{
 		for (Cadastro i : cadastros){
 			if (i.getNomeLogin().equals(login)){
 				return i;
