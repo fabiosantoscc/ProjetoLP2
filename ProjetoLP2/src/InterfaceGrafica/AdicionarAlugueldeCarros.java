@@ -86,7 +86,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 					AluguelDeCarros carroAtual = new AluguelDeCarros((ModelosDoCarro) comboModelosDeCarro.getSelectedItem(), isTanqueCheio, isSeguro);
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0,"MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());

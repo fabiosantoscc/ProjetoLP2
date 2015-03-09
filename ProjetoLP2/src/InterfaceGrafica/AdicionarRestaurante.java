@@ -71,7 +71,7 @@ public class AdicionarRestaurante extends JPanel {
 				try {
 					Run.hotel.adicionaServico(hospedeAtual, new Restaurante((UnidadesDoRestaurante)comboUnidadeRestaurante.getSelectedItem(), Double.parseDouble(textConsumo.getText())));
 					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());

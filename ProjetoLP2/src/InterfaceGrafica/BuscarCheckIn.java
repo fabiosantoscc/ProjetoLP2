@@ -51,8 +51,8 @@ public class BuscarCheckIn extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(textCPF.getText()));
-				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "3");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "3");
+				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "painelAdcContrato");
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcContrato");
 				textCPF.setText("");
 				}catch(Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());

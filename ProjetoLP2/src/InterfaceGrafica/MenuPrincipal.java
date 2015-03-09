@@ -23,37 +23,38 @@ public class MenuPrincipal {
 
 	JFrame frame = new JFrame();
 	public static CardLayout cl = new CardLayout();
-	static public JPanel panel0 = new JPanel();
-	DefaultMenu menuPadrao = new DefaultMenu();
-	AdicionarHospede adicionarHospede = new AdicionarHospede();
-	BuscarHospede buscarHospede = new BuscarHospede();
+	public static JPanel panel0 = new JPanel();
 	public static PainelHospede telaHospede;
 	public static AdicionarContrato adicionarContrato;
-	BuscarContratos buscarContratos = new BuscarContratos();
-	AgendarContrato agendarContrato = new AgendarContrato();
 	public static AtualizarHospede atualizarHospede;
-	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
-	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
-	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
-	public static ContratosDoHospede contratosDoHospede;
-	BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
-	BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
-	BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
 	public static AdicionarBabySitter painelBabySitter;
 	public static AdicionarQuartos adcquartos;
 	public static AdicionarAlugueldeCarros adcAluguelDeCarros;
 	public static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
-	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
+	public static ContratosDoHospede contratosDoHospede;
 	public static ListaQuartos listaQuartosAtualizar;
 	public static ServicosDoHospede servicosDoHospede;
-	BuscarServicos buscarServicos = new BuscarServicos();
-	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
 	public static RemoverServicos removerServicos;
-	BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
 	public static AdicionarRestaurante adicionarRestaurante;
 	public static CheckOut checkOut;
 	public static AtualizarQuarto atualizarQuarto;
 	public static NotaEComentario notaEComentario;
+	DefaultMenu menuPadrao = new DefaultMenu();
+	AdicionarHospede adicionarHospede = new AdicionarHospede();
+	BuscarHospede buscarHospede = new BuscarHospede();
+	BuscarContratos buscarContratos = new BuscarContratos();
+	AgendarContrato agendarContrato = new AgendarContrato();
+	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
+	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
+	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
+	BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
+	BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
+	BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
+	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
+	BuscarServicos buscarServicos = new BuscarServicos();
+	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
+	BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
+	
 	
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -84,21 +85,20 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		initialize();
 		panel0.setLayout(cl);
-		panel0.add(menuPadrao, "0");
-		panel0.add(adicionarHospede, "1");
-		panel0.add(buscarHospede, "2");
-		panel0.add(buscarContratos, "4");
-		panel0.add(agendarContrato, "6");
+		panel0.add(menuPadrao, "MenuPadrao");
+		panel0.add(adicionarHospede, "adicionarHospede");
+		panel0.add(buscarHospede, "buscarHospede");
+		panel0.add(buscarContratos, "buscarContratos");
 		panel0.add(buscarHospedeAtualizar, "9");
-		panel0.add(buscarCheckIn, "10");
-		panel0.add(buscarCheckOut, "11");
-		panel0.add(buscarAdcQuarto, "14");
-		panel0.add(buscarAluguelDeCarros, "15");
-		panel0.add(buscarBabySitter, "16");
-		panel0.add(buscarQuartoAtualizar, "25");
-		panel0.add(buscarServicos, "23");
-		panel0.add(buscarRemoverServicos, "26");
-		panel0.add(buscarRestauranteAtualizar, "27");
+		panel0.add(buscarCheckIn, "buscarCheckIn");
+		panel0.add(buscarCheckOut, "buscarCheckOut");
+		panel0.add(buscarAdcQuarto, "buscarAdcQuarto");
+		panel0.add(buscarAluguelDeCarros, "buscarAluguelDeCarros");
+		panel0.add(buscarBabySitter, "buscarBabySitter");
+		panel0.add(buscarQuartoAtualizar, "buscarQuartoAtualizar");
+		panel0.add(buscarServicos, "buscarServicos");
+		panel0.add(buscarRemoverServicos, "buscarRemoverServicos");
+		panel0.add(buscarRestauranteAtualizar, "buscarRestauranteAtualizar");
 		frame.setResizable(false);
 		
 		
@@ -108,7 +108,7 @@ public class MenuPrincipal {
 		lblInicio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cl.show(panel0, "0");
+				cl.show(panel0, "MenuPadrao");
 			}
 		});
 		
@@ -122,7 +122,7 @@ public class MenuPrincipal {
 		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_go.png")));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "2");
+				cl.show(panel0, "buscarHospede");
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem);
@@ -131,7 +131,7 @@ public class MenuPrincipal {
 		mntmNewMenuItem_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_add.png")));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "1");
+				cl.show(panel0, "adicionarHospede");
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
@@ -149,7 +149,7 @@ public class MenuPrincipal {
 		mntmNewMenuItem_4.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_go.png")));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "4");
+				cl.show(panel0, "buscarContratos");
 			}
 		});
 		
@@ -157,7 +157,7 @@ public class MenuPrincipal {
 		mntmNewMenuItem_3.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_add.png")));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "10");
+				cl.show(panel0, "buscarCheckIn");
 			}
 		});
 		
@@ -165,7 +165,7 @@ public class MenuPrincipal {
 		mntmNewMenuItem_5.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report_delete.png")));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "11");
+				cl.show(panel0, "buscarCheckOut");
 			}
 		});
 		
@@ -176,7 +176,7 @@ public class MenuPrincipal {
 		mntmPesquisar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_go.png")));
 		mntmPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			cl.show(panel0, "23");	
+			cl.show(panel0, "buscarServicos");	
 			}
 		});
 		
@@ -187,7 +187,7 @@ public class MenuPrincipal {
 		mnAdicionar.add(mntmBabySitter);
 		mntmQuartos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "14");	
+				cl.show(panel0, "buscarAdcQuarto");	
 			}
 		});
 		
@@ -198,14 +198,14 @@ public class MenuPrincipal {
 		mnServios.add(mnAtualizar);
 		mntmQuartos_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "25");
+				cl.show(panel0, "buscarQuartoAtualizar");
 			}
 		});
 		
 		mnAtualizar.add(mntmQuartos_1);
 		mntmRestaurante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				cl.show(panel0, "27");
+				cl.show(panel0, "buscarRestauranteAtualizar");
 			}
 		});
 		
@@ -213,7 +213,7 @@ public class MenuPrincipal {
 		mntmRemover.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_delete.png")));
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "26");	
+				cl.show(panel0, "buscarRemoverServicos");	
 			}
 		});
 		
@@ -228,8 +228,8 @@ public class MenuPrincipal {
 		mntmNotaDeAceitao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				notaEComentario = new NotaEComentario();
-				panel0.add(notaEComentario, "30");
-				cl.show(panel0, "30");
+				panel0.add(notaEComentario, "notaEComentario");
+				cl.show(panel0, "notaEComentario");
 			}
 		});
 		
@@ -246,12 +246,12 @@ public class MenuPrincipal {
 		menuBar.add(lblSair);
 		mntmAluguelDeVeculo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "15");
+				cl.show(panel0, "buscarAluguelDeCarros");
 			}
 		});
 		mntmBabySitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(panel0, "16");
+				cl.show(panel0, "buscarBabySitter");
 			}
 		});
 		

@@ -205,7 +205,7 @@ public class AtualizarHospede extends JPanel {
 					hospedeAtual.getEndereco().setCep(textCEP.getText());
 					JOptionPane.showMessageDialog(null, "Hospede atualizado com sucesso!");
 					Arquivos.salvaHotel(Run.hotel);
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 				}catch (Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());
 				}

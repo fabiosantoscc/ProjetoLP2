@@ -66,7 +66,7 @@ public class CheckOut extends JPanel {
 					Run.hotel.adicionaOpiniao(novaOpiniao);
 					Run.hotel.getContratoAberto(hospedeAtual).setAberto(false);
 					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 					}catch(Exception c){
 						JOptionPane.showMessageDialog(null, c.getMessage());

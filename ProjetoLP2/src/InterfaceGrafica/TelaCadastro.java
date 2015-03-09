@@ -126,7 +126,7 @@ public class TelaCadastro extends JFrame {
 					passwordField.setText("");
 					ConfirmPasswordField.setText("");
 					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
-					//Arquivos.salvaHotel(Run.hotel);
+					Arquivos.salvaHotel(Run.hotel);
 					TelaCadastro.this.dispose();
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

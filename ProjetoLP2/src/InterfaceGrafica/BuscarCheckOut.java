@@ -55,8 +55,8 @@ public class BuscarCheckOut extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					MenuPrincipal.checkOut = new CheckOut(Run.hotel.pesquisaHospede(textCPF.getText()));
-					MenuPrincipal.panel0.add(MenuPrincipal.checkOut, "31");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "31");
+					MenuPrincipal.panel0.add(MenuPrincipal.checkOut, "painelCheckOut");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelCheckOut");
 					textCPF.setText("");
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
