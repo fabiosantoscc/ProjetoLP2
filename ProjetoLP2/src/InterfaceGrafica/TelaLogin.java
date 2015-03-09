@@ -85,8 +85,8 @@ public class TelaLogin extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Run.hotel.buscarCadastro(loginField.getText());
-					//checaSenha(funcionarioAtual.getSenha());
+					Cadastro funcionarioAtual = Run.hotel.buscarCadastro(loginField.getText());
+					checaSenha(funcionarioAtual.getSenha());
 					MenuPrincipal menuFrame = new MenuPrincipal();
 					TelaLogin.this.dispose();
 				} catch (Exception e1) {

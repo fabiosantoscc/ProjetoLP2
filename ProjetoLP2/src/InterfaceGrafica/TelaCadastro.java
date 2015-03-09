@@ -128,7 +128,6 @@ public class TelaCadastro extends JFrame {
 					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
-					System.out.println(e);
 				}
 			}
 		});
