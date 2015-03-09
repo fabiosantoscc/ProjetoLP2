@@ -83,7 +83,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					AluguelDeCarros carroAtual = new AluguelDeCarros((ModelosDoCarro) comboModelosDeCarro.getSelectedItem(), isTanqueCheio, isSeguro);
+					AluguelDeCarros carroAtual = new AluguelDeCarros(ModelosDoCarro.valueOf(comboModelosDeCarro.getSelectedItem().toString()), isTanqueCheio, isSeguro);
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0,"MenuPadrao");

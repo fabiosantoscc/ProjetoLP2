@@ -70,7 +70,7 @@ public class AdicionarRestaurante extends JPanel {
 		btnAdicionarConsumo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
-					Run.hotel.adicionaServico(hospedeAtual, new Restaurante((UnidadesDoRestaurante)comboUnidadeRestaurante.getSelectedItem(), Double.parseDouble(textConsumo.getText())));
+					Run.hotel.adicionaServico(hospedeAtual, new Restaurante(UnidadesDoRestaurante.valueOf(comboUnidadeRestaurante.getSelectedItem().toString()), Double.parseDouble(textConsumo.getText())));
 					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
