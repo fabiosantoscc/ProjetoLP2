@@ -128,6 +128,7 @@ public class TelaCadastro extends JFrame {
 					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
+					System.out.println(e);
 				}
 			}
 		});
@@ -138,21 +139,4 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(btnCadastrar);
 	}
 	
-/*	public void testaLogin() throws Exception{
-		if (textNome.getText().length() == 0 || textNome.getText().contains("!@#$%¨¨¨&*()_+") || textNome.getText().length() > 5){
-			throw new Exception("O Nome do usuário é inválido!");
-		}
-	}
-	
-	public void testaSenha() throws Exception{
-		if ((Arrays.equals(passwordField.getPassword(), ConfirmPasswordField.getPassword())) ){
-			throw new Exception("As senhas não coincidem!");
-		}
-		if (passwordField.getPassword().length > 8 || passwordField.getPassword().length < 6){
-			throw new Exception ("A senha deve conter entre seis e oito digitos");
-		}
-		
-		passwordField.getp
-	}
-*/
 }

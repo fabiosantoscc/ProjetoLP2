@@ -50,17 +50,38 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
-	 * Realiza o checkout de um método, ou seja, deixa ele como fechado.
-	 * 
-	 * @param hospede - Hospede do qual vai se fazer o checkout.
-	 * @throws Exception
+	 * Adiciona novo cadastro à lista de cadastros para possibilitar o acesso de um novo funcionário ao software 
+	 * @param funcionario - Cadastro com dados de um novo funcionario 
+	 * @param pinFuncionario - O Número PIN inserido pelo funcionario para a autorização da criação da conta
+	 * @throws Exception - Número PIN fornecido pelo funcionario não coincide com o do sistema.
 	 */
 	
 	public void adicionaCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
 		if (!(pinFuncionario.equals(pin))){
 			throw new Exception("Pin Inválido!");
 		}
+		cadastros.add(funcionario);
 	}
+	
+	/**
+	 * Busca, se existe algum funcionario com o login passado como parâmetro 
+	 * @param login - Login do funcionário que deseja encontrar
+	 * @return Cadastro, se existente, do referido login
+	 * @throws Exception Usuário não existe no sistema
+	 */
+	
+	
+	public Cadastro buscarCadastro(String login) throws Exception{
+		return null;
+		
+	}
+	
+	/**
+	 * Realiza o checkout de um método, ou seja, deixa ele como fechado.
+	 * 
+	 * @param hospede - Hospede do qual vai se fazer o checkout.
+	 * @throws Exception
+	 */
 	
 	public void realizaCheckout( Hospede hospede ) throws Exception {
 		List<Contrato> contratos =  hospedes.get(hospede);
