@@ -234,6 +234,9 @@ public class MenuPrincipal {
 		});
 		
 		mnNewMenu_1.add(mntmNotaDeAceitao);
+		
+		JMenuItem mntmServicosMaisContratados = new JMenuItem("Servi\u00E7os mais contratados");
+		mnNewMenu_1.add(mntmServicosMaisContratados);
 		lblSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cancel.png")));
 		lblSair.addMouseListener(new MouseAdapter() {
 			@Override
@@ -267,14 +270,4 @@ public class MenuPrincipal {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
-	
-	//QUE MERDA É ESSA? HUAHAU
-//	private static class __Tmp {
-//		private static void __tmp() {
-//			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
-//			  
-//			  javax.swing.JFrame frame_1 = new javax.swing.JFrame();
-//			  __wbp_panel.add(frame_1);
-//		}
-//	}
 }
