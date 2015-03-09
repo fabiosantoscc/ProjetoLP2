@@ -20,6 +20,7 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 
+import classes.Arquivos;
 import classes.Cadastro;
 import Executar.Run;
 
@@ -120,12 +121,13 @@ public class TelaCadastro extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
-					Run.hotel.adicionaCadastro(new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText()), textPIN.getText());
+					Run.hotel.adicionarCadastro(new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText()), textPIN.getText());
 					textNome.setText("");
 					passwordField.setText("");
 					ConfirmPasswordField.setText("");
+					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
+					//Arquivos.salvaHotel(Run.hotel);
 					TelaCadastro.this.dispose();
-					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}

@@ -60,13 +60,23 @@ public class Hotel implements Serializable {
 	 * @throws Exception - Número PIN fornecido pelo funcionario não coincide com o do sistema.
 	 */
 	
-	public static void adicionaCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
+	public static void adicionarCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
 		if (!(pinFuncionario.equals(pin))){
 			throw new Exception("Pin Inválido!");
 		}
+		verificaCadastroExistente(funcionario.getNomeLogin());
 		cadastros.add(funcionario);
+
 	}
 	
+	
+	private static void verificaCadastroExistente(String login) throws Exception{
+		for (Cadastro i : cadastros){
+			if (i.getNomeLogin().equals(login)){
+				throw new Exception("Usuário já existente, altere o login!");
+			}
+		}	
+	}
 	/**
 	 * Busca, se existe algum funcionario com o login passado como parâmetro 
 	 * @param login - Login do funcionário que deseja encontrar

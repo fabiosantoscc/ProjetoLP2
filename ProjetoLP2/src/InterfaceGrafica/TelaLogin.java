@@ -102,7 +102,7 @@ public class TelaLogin extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( telaAberta == 0) {
-					telaAberta++;
+					//telaAberta++;
 					new TelaCadastro();
 				}
 			}
