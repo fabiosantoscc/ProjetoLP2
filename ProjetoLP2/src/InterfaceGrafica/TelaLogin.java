@@ -60,11 +60,9 @@ public class TelaLogin extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(229, 300, 178, 25);
-		passwordField.setText("admin");
 		contentPane.add(passwordField);
 		
 		JFormattedTextField loginField = new JFormattedTextField();
-		loginField.setText("admin");
 		loginField.setToolTipText("Digite o nome do usuário para entrar no sistema.");
 		loginField.setBounds(229, 265, 178, 25);
 		contentPane.add(loginField);
