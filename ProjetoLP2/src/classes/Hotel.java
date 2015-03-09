@@ -56,6 +56,12 @@ public class Hotel implements Serializable {
 	 * @throws Exception
 	 */
 	
+	public void adicionaCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
+		if (!(pinFuncionario.equals(pin))){
+			throw new Exception("Pin Inválido!");
+		}
+	}
+	
 	public void realizaCheckout( Hospede hospede ) throws Exception {
 		List<Contrato> contratos =  hospedes.get(hospede);
 		boolean existeContratoAberto = false;
