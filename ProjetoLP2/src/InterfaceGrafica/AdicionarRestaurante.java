@@ -16,6 +16,7 @@ import classes.Hospede;
 import classes.Restaurante;
 import classes.Servico;
 import classes.UnidadesDoRestaurante;
+import excecoes.ContratoAbertoException;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,7 +49,7 @@ public class AdicionarRestaurante extends JPanel {
 				String c = (String) comboUnidadeRestaurante.getSelectedItem();
 			}
 		});
-		comboUnidadeRestaurante.setModel(new DefaultComboBoxModel(new UnidadesDoRestaurante[]{UnidadesDoRestaurante.TERREO, UnidadesDoRestaurante.COBERTURA}));
+		comboUnidadeRestaurante.setModel(new DefaultComboBoxModel(new String[]{""+UnidadesDoRestaurante.TERREO, ""+UnidadesDoRestaurante.COBERTURA}));
 		comboUnidadeRestaurante.setBounds(140, 113, 124, 20);
 		add(comboUnidadeRestaurante);
 		
@@ -69,15 +70,17 @@ public class AdicionarRestaurante extends JPanel {
 		btnAdicionarConsumo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
-					Run.hotel.adicionaServico(hospedeAtual, new Restaurante((UnidadesDoRestaurante)comboUnidadeRestaurante.getSelectedItem(), Double.parseDouble(textConsumo.getText())));
+					Run.hotel.adicionaServico(hospedeAtual, new Restaurante(UnidadesDoRestaurante.valueOf(comboUnidadeRestaurante.getSelectedItem().toString()), Double.parseDouble(textConsumo.getText())));
 					JOptionPane.showMessageDialog(null, "Consumo adicionado com sucesso");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (ContratoAbertoException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
-				}
+				} 
 							
 			}
 		});

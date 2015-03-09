@@ -17,7 +17,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
+
 import javax.swing.ImageIcon;
+
+import classes.Cadastro;
+import Executar.Run;
 
 public class TelaLogin extends JFrame {
 
@@ -80,13 +84,13 @@ public class TelaLogin extends JFrame {
 		btnEntrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(loginField.getText().equals("admin") && isPasswordCorrect(passwordField.getPassword())){
+				try {
+					Cadastro funcionarioAtual = Run.hotel.buscarCadastro(loginField.getText());
+					checaSenha(funcionarioAtual.getSenha());
 					MenuPrincipal menuFrame = new MenuPrincipal();
 					TelaLogin.this.dispose();
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
-					
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 			}
 		});
@@ -98,7 +102,7 @@ public class TelaLogin extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( telaAberta == 0) {
-					telaAberta++;
+					//telaAberta++;
 					new TelaCadastro();
 				}
 			}
@@ -135,7 +139,13 @@ public class TelaLogin extends JFrame {
 		contentPane.add(lblSenhaIcon);
 	}
 	
-	private boolean isPasswordCorrect(char[] input) {
+	private void checaSenha(String senhaComparada)throws Exception{
+		if (!(passwordField.getText().equals(senhaComparada))){
+			throw new Exception("Senha incorreta!");
+		}
+	}
+	
+/*	private boolean isPasswordCorrect(char[] input) {
         boolean isCorrect = true;
         char[] correctPassword = { 'a', 'd', 'm', 'i', 'n'};
  
@@ -149,5 +159,5 @@ public class TelaLogin extends JFrame {
         Arrays.fill(correctPassword,'0');
  
         return isCorrect;
-    }
+    }*/
 }

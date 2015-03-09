@@ -51,8 +51,8 @@ public class BuscarAluguelDeCarros extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				MenuPrincipal.adcAluguelDeCarros = new AdicionarAlugueldeCarros(Run.hotel.pesquisaHospede(textCPF.getText()));
-				MenuPrincipal.panel0.add(MenuPrincipal.adcAluguelDeCarros, "20");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "20");
+				MenuPrincipal.panel0.add(MenuPrincipal.adcAluguelDeCarros, "painelAdcAluguelDeCarros");
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcAluguelDeCarros");
 				textCPF.setText("");
 				}catch(Exception c){
 					JOptionPane.showMessageDialog(null, c.getMessage());

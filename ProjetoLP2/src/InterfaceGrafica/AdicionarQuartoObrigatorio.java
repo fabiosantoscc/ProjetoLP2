@@ -218,7 +218,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 							Run.hotel.adicionaServico(hospedeAtual, s);
 						}
 						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
-						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+						MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					}
 					else{
 						JOptionPane.showMessageDialog(null, "O contrato de ter pelo menos um quarto!");

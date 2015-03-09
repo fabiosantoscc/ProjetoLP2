@@ -40,7 +40,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 				String c = (String) comboModelosDeCarro.getSelectedItem();
 			}
 		});
-		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new ModelosDoCarro[] {ModelosDoCarro.EXECUTIVO, ModelosDoCarro.LUXO}));
+		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new String[] {""+ModelosDoCarro.EXECUTIVO, ""+ModelosDoCarro.LUXO}));
 		comboModelosDeCarro.setBounds(80, 230, 161, 20);
 		add(comboModelosDeCarro);
 		
@@ -83,10 +83,10 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					AluguelDeCarros carroAtual = new AluguelDeCarros((ModelosDoCarro) comboModelosDeCarro.getSelectedItem(), isTanqueCheio, isSeguro);
+					AluguelDeCarros carroAtual = new AluguelDeCarros(ModelosDoCarro.valueOf(comboModelosDeCarro.getSelectedItem().toString()), isTanqueCheio, isSeguro);
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0,"MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());

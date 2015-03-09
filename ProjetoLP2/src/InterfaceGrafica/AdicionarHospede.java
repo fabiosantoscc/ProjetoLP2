@@ -202,7 +202,7 @@ public class AdicionarHospede extends JPanel {
 					txtCartao.setText("");
 					textDDD.setText("");
 					textNumero.setText("");
-					MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

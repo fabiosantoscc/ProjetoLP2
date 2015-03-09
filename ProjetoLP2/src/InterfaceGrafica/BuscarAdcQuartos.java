@@ -51,8 +51,8 @@ public class BuscarAdcQuartos extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
-				MenuPrincipal.panel0.add(MenuPrincipal.adcquartos, "18");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "18");
+				MenuPrincipal.panel0.add(MenuPrincipal.adcquartos, "painelAdcQuartos");
+				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcQuartos");
 				cpfAPesquisar.setText("");
 				}catch(Exception c){
 					
