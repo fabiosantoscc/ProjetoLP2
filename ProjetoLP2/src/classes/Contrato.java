@@ -85,7 +85,7 @@ public class Contrato implements Serializable {
    * Calcula valor da multa se houver atraso
    */
   
-  public double calculaMulta() {
+  private double calculaMulta() {
     return (0.025 * despesaParcial) * diasDeMulta();
   }
   

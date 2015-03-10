@@ -1,13 +1,12 @@
 package testes;
 
-import java.util.Calendar;
+import classes.Contrato;
+import excecoes.NumeroDeNoitesInvalidoException;
 
+import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-
-import classes.Contrato;
-import excecoes.NumeroDeNoitesInvalidoException;
 
 /**
  * Classe de testes da classe Contrato.
@@ -41,14 +40,14 @@ public class ContratoTest {
 			new Contrato(0);
 			Assert.fail("Esperava excecao pois numero de dias esta igual a zero.");
 		} catch ( NumeroDeNoitesInvalidoException e) {
-			Assert.assertEquals("Numero de dias deve ser maior que zero.", e.getMessage());
+			Assert.assertEquals("Numero de noites deve ser maior que zero.", e.getMessage());
 		}
 		
 		try {
 			new Contrato(-4);
 			Assert.fail("Esperava excecao pois numero de dias esta menor que zero.");
 		} catch (Exception e) {
-			Assert.assertEquals("Numero de dias deve ser maior que zero.", e.getMessage());
+			Assert.assertEquals("Numero de noites deve ser maior que zero.", e.getMessage());
 		}
 	}
 	
@@ -72,16 +71,16 @@ public class ContratoTest {
 	@Test
 	public void testaToString(){
 		contrato.setAberto(true);
-		Assert.assertEquals(contrato.toString(), "Contrato [ Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
+		Assert.assertEquals(contrato.toString(), "Contrato - Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
 				+ (c.get(Calendar.MONTH) + 1) + "/" +  c.get(Calendar.YEAR) + " as " + data.get(Calendar.HOUR_OF_DAY)
-				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + "\nContrato aberto"
-				+ ", Noites de hospedagem: " + 3 + " ]");
+				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + ", Contrato aberto"
+				+ ", Noites de hospedagem: " + 3);
 		
 		contrato.setAberto(false);
-		Assert.assertEquals(contrato.toString(), "Contrato [ Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
+		Assert.assertEquals(contrato.toString(), "Contrato - Criado em " + c.get(Calendar.DAY_OF_MONTH) + "/" 
 				+ (c.get(Calendar.MONTH) + 1) + "/" +  c.get(Calendar.YEAR) + " as " + data.get(Calendar.HOUR_OF_DAY)
-				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + "\nContrato fechado"
-				+ ", Noites de hospedagem: " + 3 + " ]");
+				+ ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND) + ", Contrato fechado"
+				+ ", Noites de hospedagem: " + 3);
 	}
 	
 	@Test
