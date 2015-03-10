@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="classes.BabySitter" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/BabySitter.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="classes.servicos.BabySitter" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/servicos/BabySitter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1275" y="258"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

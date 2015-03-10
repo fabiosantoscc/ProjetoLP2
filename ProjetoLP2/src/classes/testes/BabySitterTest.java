@@ -3,7 +3,8 @@ package classes.testes;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import classes.BabySitter;
+
+import classes.servicos.BabySitter;
 
 public class BabySitterTest {
 	

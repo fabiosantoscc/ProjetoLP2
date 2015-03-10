@@ -1,10 +1,13 @@
-package classes;
+package classes.servicos;
 
 import java.io.Serializable;
 import java.util.Calendar;
 
-import classes.BabySitter;
-import classes.servicos.Servico;
+import classes.Arquivos;
+import classes.CalendarioDeEstrategias;
+import classes.EstrategiaDeCalculoDaMontante;
+import classes.Hotel;
+import classes.servicos.BabySitter;
 
 /**
  * Classe que recebe a quantidade de horas contratadas da Baby Sitter e faz um balanço
@@ -45,6 +48,7 @@ public class BabySitter implements Servico, Serializable {
 		despesaDiaria = 0;
 	}
 	
+	// Criar uma babbysitter sem hora de começo nem de fim?
 	/**
 	 * Construtor da classe Baby Sitter sem agendamento de servico
 	 */
@@ -95,11 +99,11 @@ public class BabySitter implements Servico, Serializable {
 			}
 			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
 			despesaTotal += estrategia.calculaMontante(despesaDiaria);
-			System.out.println(despesaTotal);
 			diaEntrada++;
 		}
 	}
 	
+	// Esse hora extra é necessário?
 	/**
 	 * Metodo que calcula horas extras 
 	 * @param quantidadeHoras Quantidade de hroas no dia 
@@ -202,10 +206,10 @@ public class BabySitter implements Servico, Serializable {
 	@Override
 	public String toString() {
 		return "Baby Sitter " + Arquivos.FIM_LINHA
-				+ "Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
+				+ "Horario de inicio do serviço: "+ horaInicial + Arquivos.FIM_LINHA
 				+"Quantidade de Horas Normais: " + quantidadeHoras + Arquivos.FIM_LINHA
 				+ "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
-				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1) + "/"
 				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
 	
@@ -219,7 +223,7 @@ public class BabySitter implements Servico, Serializable {
           return false;
         }
 		
-		BabySitter novaBabySitter = (BabySitter)obj;
+		BabySitter novaBabySitter = (BabySitter) obj;
 		
 		return quantidadeHoras == novaBabySitter.getQuantidadeHoras()
             && quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas();
