@@ -22,38 +22,38 @@ import javax.swing.ImageIcon;
 public class MenuPrincipal {
 
 	JFrame frame = new JFrame();
-	public static CardLayout cl = new CardLayout();
-	public static JPanel panel0 = new JPanel();
-	public static PainelHospede telaHospede;
-	public static AdicionarContrato adicionarContrato;
-	public static AtualizarHospede atualizarHospede;
-	public static AdicionarBabySitter painelBabySitter;
-	public static AdicionarQuartos adcquartos;
-	public static AdicionarAlugueldeCarros adcAluguelDeCarros;
-	public static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
-	public static ContratosDoHospede contratosDoHospede;
-	public static ListaQuartos listaQuartosAtualizar;
-	public static ServicosDoHospede servicosDoHospede;
-	public static RemoverServicos removerServicos;
-	public static AdicionarRestaurante adicionarRestaurante;
-	public static CheckOut checkOut;
-	public static AtualizarQuarto atualizarQuarto;
-	public static NotaEComentario notaEComentario;
-	DefaultMenu menuPadrao = new DefaultMenu();
-	AdicionarHospede adicionarHospede = new AdicionarHospede();
-	BuscarHospede buscarHospede = new BuscarHospede();
-	BuscarContratos buscarContratos = new BuscarContratos();
-	AgendarContrato agendarContrato = new AgendarContrato();
-	BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
-	BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
-	BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
-	BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
-	BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
-	BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
-	BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
-	BuscarServicos buscarServicos = new BuscarServicos();
-	BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
-	BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
+	protected static CardLayout cl = new CardLayout();
+	protected static JPanel panel0 = new JPanel();
+	protected static PainelHospede telaHospede;
+	protected static AdicionarContrato adicionarContrato;
+	protected static AtualizarHospede atualizarHospede;
+	protected static AdicionarBabySitter painelBabySitter;
+	protected static AdicionarQuartos adcquartos;
+	protected static AdicionarAlugueldeCarros adcAluguelDeCarros;
+	protected static AdicionarQuartoObrigatorio adcQuartoObrigatorio;
+	protected static ContratosDoHospede contratosDoHospede;
+	protected static ListaQuartos listaQuartosAtualizar;
+	protected static ServicosDoHospede servicosDoHospede;
+	protected static RemoverServicos removerServicos;
+	protected static AdicionarRestaurante adicionarRestaurante;
+	protected static CheckOut checkOut;
+	protected static AtualizarQuarto atualizarQuarto;
+	protected static NotaEComentario notaEComentario;
+	private DefaultMenu menuPadrao = new DefaultMenu();
+	private AdicionarHospede adicionarHospede = new AdicionarHospede();
+	private BuscarHospede buscarHospede = new BuscarHospede();
+	private BuscarContratos buscarContratos = new BuscarContratos();
+	private BuscarCheckIn buscarCheckIn = new BuscarCheckIn();
+	private BuscarCheckOut buscarCheckOut = new BuscarCheckOut();
+	private BuscarHospedeAtualizar buscarHospedeAtualizar = new BuscarHospedeAtualizar();
+	private BuscarAdcQuartos buscarAdcQuarto = new BuscarAdcQuartos();
+	private BuscarAluguelDeCarros buscarAluguelDeCarros = new BuscarAluguelDeCarros();
+	private BuscarAdcBabySitter buscarBabySitter = new BuscarAdcBabySitter();
+	private BuscarQuartoAtualizar buscarQuartoAtualizar = new BuscarQuartoAtualizar();
+	private BuscarServicos buscarServicos = new BuscarServicos();
+	private BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
+	private BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
+	private TelaSobre telaSobre = new TelaSobre();
 	
 	
 	private final JMenuBar menuBar = new JMenuBar();
@@ -99,6 +99,7 @@ public class MenuPrincipal {
 		panel0.add(buscarServicos, "buscarServicos");
 		panel0.add(buscarRemoverServicos, "buscarRemoverServicos");
 		panel0.add(buscarRestauranteAtualizar, "buscarRestauranteAtualizar");
+		panel0.add(telaSobre, "telaSobre");
 		frame.setResizable(false);
 		
 		
@@ -221,6 +222,11 @@ public class MenuPrincipal {
 		mnNewMenu_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cog.png")));
 		
 		menuBar.add(mnNewMenu_1);
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cl.show(panel0, "telaSobre");
+			}
+		});
 		mntmNewMenuItem_6.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/help.png")));
 		
 		mnNewMenu_1.add(mntmNewMenuItem_6);
