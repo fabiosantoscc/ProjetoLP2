@@ -58,10 +58,10 @@ public class BabySitterTest {
 		
 	@Test
 	public void testaGets(){
-		baby2.checaHorasDobradas(baby2.getQuantidadeHoras(), baby2.getHoraInicial());
-		baby3.checaHorasDobradas(baby3.getQuantidadeHoras(), baby3.getHoraInicial());
-		baby4.checaHorasDobradas(baby4.getQuantidadeHoras(), baby4.getHoraInicial());
-		baby5.checaHorasDobradas(baby5.getQuantidadeHoras(), baby5.getHoraInicial());
+//		baby2.checaHorasDobradas(baby2.getQuantidadeHoras(), baby2.getHoraInicial());
+//		baby3.checaHorasDobradas(baby3.getQuantidadeHoras(), baby3.getHoraInicial());
+//		baby4.checaHorasDobradas(baby4.getQuantidadeHoras(), baby4.getHoraInicial());
+//		baby5.checaHorasDobradas(baby5.getQuantidadeHoras(), baby5.getHoraInicial());
 		Assert.assertEquals(6, baby2.getQuantidadeHoras());
 		Assert.assertEquals(9, baby3.getQuantidadeHoras());
 		Assert.assertEquals(16, baby4.getQuantidadeHoras());

@@ -1,10 +1,12 @@
 package classes.servicos;
 
+import java.io.Serializable;
+import java.util.Calendar;
+
 import classes.CalendarioDeEstrategias;
 import classes.EstrategiaDeCalculoDaMontante;
 import classes.Hotel;
-import java.io.Serializable;
-import java.util.Calendar;
+import excecoes.NumberInvalidException;
 
 /**
  * Classe que representa um restaurante.
@@ -24,13 +26,14 @@ public class Restaurante implements Servico, Serializable {
 	private Calendar data;
 	
 	/**
+	 * Construtor de um servico Restaurante.
 	 * 
-	 * @param tipo
-	 * @param valorConsumido
-	 * @throws Exception
+	 * @param tipo - Tipo do restaurante.
+	 * @param valorConsumido - Valor consumido pelo hospede.
+	 * @throws NumberInvalidException - Pode lancar excecao de valor consumido invalido.
 	 */
 	
-	public Restaurante(UnidadesDoRestaurante tipo, double valorConsumido) throws Exception {
+	public Restaurante(UnidadesDoRestaurante tipo, double valorConsumido) throws NumberInvalidException {
 		checaValorConsumo(valorConsumido);
 		calendario = new CalendarioDeEstrategias();
 		data = Calendar.getInstance();
@@ -39,21 +42,18 @@ public class Restaurante implements Servico, Serializable {
 		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
 		consumoRefeicao = estrategia.calculaMontante(valorConsumido);
 	}
-
-	/**
-	 * Adiciona ao valor geral o consumo diario de acordo com a estrategia usada naquele dia
-	 * @param dia Dia do consumo
-	 * @param mes Mes do consumo
-	 */
 	
-	private void checaValorConsumo(double valor) throws Exception {
+	private void checaValorConsumo(double valor) throws NumberInvalidException {
 		if ( valor <= 0 ) {
-			throw new Exception("Valor invalido!");
+			throw new NumberInvalidException("Valor invalido!");
 		}	
 	}
 	
 	/**
+	 * Recupera o valor consumido do hospede ja com a estrategia de calculo feita.
+	 * (No construtor)
 	 * 
+	 * return double - Valor Consunmido.
 	 */
 	
 	@Override
@@ -62,8 +62,9 @@ public class Restaurante implements Servico, Serializable {
 	}
 
 	/**
+	 * Recupera o tipo do restaurante.
 	 * 
-	 * @return
+	 * @return UnidadesDoRestaurante - Tipo do restaurante.
 	 */
 	
 	public UnidadesDoRestaurante getUnidadeRestaurante() {
@@ -71,7 +72,9 @@ public class Restaurante implements Servico, Serializable {
 	}
 	
 	/**
+	 * Recupera uma representação do restaurante em formato de string.
 	 * 
+	 * @return String - Repressentação do restaurante.
 	 */
 	
 	@Override
@@ -83,7 +86,9 @@ public class Restaurante implements Servico, Serializable {
 	} 
 	
 	/**
+	 * Compara dois objetos de restaurante e verifica sao iguais.
 	 * 
+	 * @return boolean - Valor booleano se os objetos forem iguais ou nao.
 	 */
 	
 	@Override

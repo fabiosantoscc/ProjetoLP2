@@ -1,21 +1,22 @@
 package classes.servicos;
 
-import java.io.Serializable;
-import java.util.Calendar;
-
 import classes.Arquivos;
 import classes.CalendarioDeEstrategias;
 import classes.EstrategiaDeCalculoDaMontante;
 import classes.Hotel;
 import classes.servicos.Servico;
 
+import java.io.Serializable;
+import java.util.Calendar;
+
 /**
  * Classe que recebe a quantidade de horas contratadas da Baby Sitter e faz um balanço
- * geral da despesa com esse servico
+ * geral da despesa com essa informacao. 
+ * 
  * @author Ravi Leite and Ronan Souza
  * @data 02/01/2015
  * 
- * Atualizacao 10/02/2015
+ * Ultima atualizacao 10/02/2015 / Fabio Alexandre
  */
   
 public class BabySitter implements Servico, Serializable {
@@ -31,8 +32,9 @@ public class BabySitter implements Servico, Serializable {
 	
 	/**
 	 * Construtor da classe Baby Sitter
-	 * @param quantidadedeHoras Horas normais (entre as 7h da manhã ate as 18h)
-	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manhã)
+	 * 
+	 * @param quantidadedeHoras - Horas normais (entre as 7h da manha ate as 18h)
+	 * @param quantidadedeHorasDobradas - Horas dobradas (entre as 18h e 7h da manha)
 	 */
 	
 	public BabySitter(int quantidadeHoras, int horaInicial) throws Exception {
@@ -68,7 +70,7 @@ public class BabySitter implements Servico, Serializable {
 	 * @param mes Mes da solicitacao
 	 */
 	
-	private void calculaDespesa() throws Exception{
+	private void calculaDespesa() throws Exception {
 		checaHorasDobradas(quantidadeHoras, horaInicial);
 		estrategia = calendario.verificaEstrategia(Calendar.DAY_OF_MONTH, Calendar.MONTH);
 		despesaTotal += estrategia.calculaMontante(calculaTarifa(quantidadeHoras, quantidadeHorasDobradas));
@@ -137,33 +139,37 @@ public class BabySitter implements Servico, Serializable {
 		return despesa;
 	}
 	
-	/**
-	 * Metodo que retorna uma String com os atributos da classe
-	 */
+  /**
+  * Recupera uma String que representa uma babysitter.
+  * 
+  * @return String - A representação da Babysitter.
+  */
 
-	@Override
-	public String toString() {
-		return "Baby Sitter " + Arquivos.FIM_LINHA
-				+ "Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
-				+"Quantidade de Horas Normais: " + quantidadeHoras + Arquivos.FIM_LINHA
-				+ "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
-				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
-				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
+  @Override
+  public String toString() {
+    return "Baby Sitter " + Arquivos.FIM_LINHA
+        + "Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
+        +"Quantidade de Horas Normais: " + quantidadeHoras + Arquivos.FIM_LINHA
+        + "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
+        + "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+        + data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
+
+  /**
+  * Compara se duas Baby Sitters são iguais.
+  * 
+  * @return boolean - Valor booleano dependendo se os objetos forem iguais.
+  */
 	
-	/**
-	 * Metodo que compara se duas Baby Sitters são iguais
-	 */
-	
-	@Override
-	public boolean equals( Object obj ) {
-		if ( !(obj instanceof BabySitter) ) {
-          return false;
-        }
-		
-		BabySitter novaBabySitter = (BabySitter)obj;
-		
-		return quantidadeHoras == novaBabySitter.getQuantidadeHoras()
-            && quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas();
+  @Override
+  public boolean equals( Object obj ) {
+    if ( !(obj instanceof BabySitter) ) {
+      return false;
+    }
+
+    BabySitter novaBabySitter = (BabySitter)obj;
+
+    return quantidadeHoras == novaBabySitter.getQuantidadeHoras()
+        && quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas();
 	}
 }
