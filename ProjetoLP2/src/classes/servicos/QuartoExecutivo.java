@@ -3,6 +3,7 @@ package classes.servicos;
 import classes.Hotel;
 import enums.SubtipoDeQuartoExecutivo;
 import excecoes.QuantidadeDePessoasInvalidaException;
+import excecoes.QuartoEsgotadoNoHotelException;
 
 public class QuartoExecutivo extends Quarto {
 
@@ -10,7 +11,7 @@ public class QuartoExecutivo extends Quarto {
   private SubtipoDeQuartoExecutivo tipo;
 
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
-      throws QuantidadeDePessoasInvalidaException {
+      throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoNoHotelException {
     super(quantidadeDePessoas);
     checaTipoDoQuarto();
     
@@ -25,18 +26,30 @@ public class QuartoExecutivo extends Quarto {
     return tipo;
   }
 
-  private void checaTipoDoQuarto() {
-	  if ( getTipo().name().equals("SIMPLES") ) {
-		  Hotel.setQuartoExecutivoSimples(Hotel.getQuartoExecutivoSimples() - 1);
-	  }
-	  
-	  if ( getTipo().name().equals("DUPLO") ) {
-		  Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() - 1);
-	  }
-	  
-	  if ( getTipo().name().equals("TRIPLO") ) {
-		  Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
-	  }
+  private void checaTipoDoQuarto() throws QuartoEsgotadoNoHotelException {
+    if ( getTipo().name().equals("SIMPLES") ) {
+      if ( Hotel.getQuartoExecutivoSimples() == 0 ) {
+        throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
+      }
+
+      Hotel.setQuartoExecutivoSimples(Hotel.getQuartoExecutivoSimples() - 1);
+    }
+
+    if ( getTipo().name().equals("DUPLO") ) {
+      if ( Hotel.getQuartoExecutivoDuplo() == 0 ) {
+        throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
+      }
+
+      Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() - 1);
+    }
+
+    if ( getTipo().name().equals("TRIPLO") ) {
+      if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
+        throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
+      }
+
+      Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
+    }
   }
   
   @Override
