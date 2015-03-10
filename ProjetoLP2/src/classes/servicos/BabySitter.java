@@ -7,7 +7,7 @@ import classes.Arquivos;
 import classes.CalendarioDeEstrategias;
 import classes.EstrategiaDeCalculoDaMontante;
 import classes.Hotel;
-import classes.servicos.BabySitter;
+import classes.servicos.Servico;
 
 /**
  * Classe que recebe a quantidade de horas contratadas da Baby Sitter e faz um balanço
@@ -23,14 +23,14 @@ public class BabySitter implements Servico, Serializable {
 	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
-	private double despesaDiaria, despesaTotal;
+	private double despesaTotal;
 	private int quantidadeHoras;
 	private int quantidadeHorasDobradas;
 	private int horaInicial;
 	Calendar data;
 	
 	/**
-	 * Construtor da classe Baby Sitter para agendamento do serviço
+	 * Construtor da classe Baby Sitter
 	 * @param quantidadedeHoras Horas normais (entre as 7h da manhã ate as 18h)
 	 * @param quantidadedeHorasDobradas Horas dobradas (entre as 18h e 7h da manhã)
 	 */
@@ -45,22 +45,8 @@ public class BabySitter implements Servico, Serializable {
 		this.quantidadeHoras = quantidadeHoras;
 		quantidadeHorasDobradas = 0;
 		despesaTotal = 0;
-		despesaDiaria = 0;
+		calculaDespesa();
 	}
-	
-	// Criar uma babbysitter sem hora de começo nem de fim?
-	/**
-	 * Construtor da classe Baby Sitter sem agendamento de servico
-	 */
-	
-	public BabySitter() throws Exception {
-		calendario = new CalendarioDeEstrategias(); 
-		despesaTotal = 0;
-		this.horaInicial = 0;
-		this.quantidadeHoras = 0;
-		quantidadeHorasDobradas = 0;
-	}
-	
 	
 	private void checaHoras(int quantidadeHoras) throws Exception {
 		if (quantidadeHoras <= 0) {
@@ -73,37 +59,7 @@ public class BabySitter implements Servico, Serializable {
 			throw new Exception("Hora inicial do servico invalida.");
 		}
 	}
-	
-	/**
-	 * Metodo que calcula a despesa total deste servico
-	 * @param diaEntrada Dia inicial da solicitacao do servico
-	 * @param mesEntrada Mes inicial da solicitacao do servico
-	 * @param diaSaida Dia final da solicitacao do servico
-	 * @param mesSaida Dia final da solicitacao do servico
-	 */
-	
-	public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
-			int anoSaida) throws Exception {
-		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
-		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
-		boolean dataValida = true;
-		while (dataValida){
-			if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) break;
-			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
-				diaEntrada = 1;
-				if (mesEntrada == 12){
-					anoEntrada++;
-					mesEntrada = 1;
-				}
-				else mesEntrada++;
-			}
-			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-			despesaTotal += estrategia.calculaMontante(despesaDiaria);
-			diaEntrada++;
-		}
-	}
-	
-	// Esse hora extra é necessário?
+	 
 	/**
 	 * Metodo que calcula horas extras 
 	 * @param quantidadeHoras Quantidade de hroas no dia 
@@ -112,18 +68,17 @@ public class BabySitter implements Servico, Serializable {
 	 * @param mes Mes da solicitacao
 	 */
 	
-	public void horaExtra(int qntHoras, int hrInicial, int dia, int mes) throws Exception{
-		if (!calendario.verificaDataValida(dia, mes)) throw new Exception ("O mes e o dia tem que ser valido.");
-		checaHorasDobradas(qntHoras, hrInicial);
-		estrategia = calendario.verificaEstrategia(dia, mes);
-		despesaTotal += estrategia.calculaMontante(calculaTarifa(qntHoras, quantidadeHorasDobradas));
+	private void calculaDespesa() throws Exception{
+		checaHorasDobradas(quantidadeHoras, horaInicial);
+		estrategia = calendario.verificaEstrategia(Calendar.DAY_OF_MONTH, Calendar.MONTH);
+		despesaTotal += estrategia.calculaMontante(calculaTarifa(quantidadeHoras, quantidadeHorasDobradas));
 	}
 	
 	/**
 	 * Verifica a quantidade de horas simples e dobradas em cada dia agendado ou de hora extra
 	 */
 	
-	public void checaHorasDobradas(int quantidadeHoras, int horaInicial) {
+	private void checaHorasDobradas(int quantidadeHoras, int horaInicial) {
 		int horas = horaInicial;
 		for (int i = 0; i < quantidadeHoras; i++) {
 			if (horas == 24)
@@ -135,23 +90,6 @@ public class BabySitter implements Servico, Serializable {
 			
 			horas++;
 		}
-	}
-	
-	/**
-	 * 
-	 * @return Valor da despesa diaria
-	 */
-	
-	public double getDespesaDiaria() {
-		return despesaDiaria;
-	}
-	
-	/**
-	 * 
-	 * @return Valor da despesa total no final do contrato
-	 */
-	public double getDespesaTotal() {
-		return despesaTotal;
 	}
 	
 	/**
@@ -184,7 +122,7 @@ public class BabySitter implements Servico, Serializable {
 	 * @return A despesa total da baby sitter em um determinado periodo
 	 */
 	
-	public double getPreco() {
+	public double getDespesaTotal() {
 		return despesaTotal;
 	}
 	
@@ -206,10 +144,10 @@ public class BabySitter implements Servico, Serializable {
 	@Override
 	public String toString() {
 		return "Baby Sitter " + Arquivos.FIM_LINHA
-				+ "Horario de inicio do serviço: "+ horaInicial + Arquivos.FIM_LINHA
+				+ "Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
 				+"Quantidade de Horas Normais: " + quantidadeHoras + Arquivos.FIM_LINHA
 				+ "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
-				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1) + "/"
+				+ "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
 				+ data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
 	
@@ -223,7 +161,7 @@ public class BabySitter implements Servico, Serializable {
           return false;
         }
 		
-		BabySitter novaBabySitter = (BabySitter) obj;
+		BabySitter novaBabySitter = (BabySitter)obj;
 		
 		return quantidadeHoras == novaBabySitter.getQuantidadeHoras()
             && quantidadeHorasDobradas == novaBabySitter.getQuantidadeHorasDobradas();
