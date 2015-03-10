@@ -1,12 +1,12 @@
 package classes;
 
-public enum SubtipoDeQuarto {
+public enum SubtipoDeQuartoExecutivo {
 
-	SIMPLES(360), DUPLO(385), TRIPLO(440), SIMPLES2(520), DUPLO2(570), TRIPLO2(620);
+	SIMPLES(360), DUPLO(385), TRIPLO(440);
 	
 	private double valorDiaria;
 	
-	SubtipoDeQuarto( double valorDiaria ) {
+	SubtipoDeQuartoExecutivo( double valorDiaria ) {
 		this.valorDiaria = valorDiaria;
 	}
 	

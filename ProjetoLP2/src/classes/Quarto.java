@@ -10,15 +10,15 @@ import java.util.Calendar;
  *     Classe que representa um quarto.
  * 
  *     @author Fabio Alexandre Santos Silva Junior
- *     Ultima atualizacao 23/02/2015 / Fabio Alexandre
+ *     Ultima atualizacao 09/03/2015 / Fabio Alexandre
  */
 
 public abstract class Quarto implements Servico, Serializable  {
   
   private static final long serialVersionUID = 1L;
-  private double valorDiaria;
   private EstrategiaDeCalculoDaMontante estrategia;
   private CalendarioDeEstrategias calendario;
+  private double valorDiaria;
   private Calendar data;
   private int quantidadeDePessoas;
   private double despesaTotal;
@@ -84,7 +84,6 @@ public abstract class Quarto implements Servico, Serializable  {
       }
       estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
       despesaTotal += estrategia.calculaMontante(valorDiaria);
-      System.out.println(despesaTotal);
       diaEntrada++;
     }
   }
@@ -178,7 +177,7 @@ public abstract class Quarto implements Servico, Serializable  {
 
   @Override
   public String toString() {
-    return "Quantidade De Pessoas = " + quantidadeDePessoas + ", Data: " + getDiaInicial()
+    return ", Quantidade De Pessoas = " + quantidadeDePessoas + ", Data de inicio: " + getDiaInicial()
         + "/" + getMesInicial() + "/" + getAnoInicial() + " " + data.get(Calendar.HOUR_OF_DAY)
         + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
   }
