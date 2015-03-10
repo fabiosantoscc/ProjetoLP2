@@ -4,7 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import classes.Contrato;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
+
 import javax.swing.JTextField;
 
 public class PainelContrato extends JPanel {

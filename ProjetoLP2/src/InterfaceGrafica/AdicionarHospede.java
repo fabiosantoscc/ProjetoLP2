@@ -11,15 +11,16 @@ import javax.swing.JSeparator;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Endereco;
-import classes.Hospede;
-import classes.Telefone;
+import classes.dadosDoHospede.Endereco;
+import classes.dadosDoHospede.Hospede;
+import classes.dadosDoHospede.Telefone;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
 import com.toedter.calendar.JDateChooser;
+
 import javax.swing.ImageIcon;
 
 public class AdicionarHospede extends JPanel {

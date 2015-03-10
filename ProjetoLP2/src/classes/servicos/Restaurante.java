@@ -3,9 +3,10 @@ package classes.servicos;
 import java.io.Serializable;
 import java.util.Calendar;
 
-import classes.CalendarioDeEstrategias;
-import classes.EstrategiaDeCalculoDaMontante;
 import classes.Hotel;
+import classes.estrategias.CalendarioDeEstrategias;
+import classes.estrategias.EstrategiaDeCalculoDaMontante;
+import enums.UnidadesDoRestaurante;
 import excecoes.NumberInvalidException;
 
 /**

@@ -1,9 +1,13 @@
-package classes;
+package classes.servicos;
 
 import java.io.Serializable;
 import java.util.Calendar;
 
-import classes.servicos.Servico;
+import classes.Arquivos;
+import classes.Hotel;
+import classes.estrategias.CalendarioDeEstrategias;
+import classes.estrategias.EstrategiaDeCalculoDaMontante;
+import enums.ModelosDoCarro;
 
 /**
  * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.

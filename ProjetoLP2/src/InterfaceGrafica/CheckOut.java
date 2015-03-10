@@ -6,8 +6,8 @@ import javax.swing.JLabel;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Hospede;
 import classes.Opiniao;
+import classes.dadosDoHospede.Hospede;
 
 import java.awt.Font;
 import java.awt.TextField;

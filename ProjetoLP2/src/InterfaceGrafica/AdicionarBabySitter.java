@@ -11,7 +11,7 @@ import javax.swing.JButton;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
 import classes.servicos.BabySitter;
 
 import java.awt.event.ActionListener;

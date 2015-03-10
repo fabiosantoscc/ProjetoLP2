@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Set;
 
+import classes.dadosDoHospede.Hospede;
 import classes.servicos.Servico;
 import excecoes.*;
 
@@ -523,10 +524,6 @@ public class Hotel implements Serializable {
 		Hotel.quartoLuxoTriplo = quartoLuxoTriplo;
 	}
 	
-	public List<Opiniao> getListaOpinioes(){
-		return opinioes;
-	}
-	
 	public String getComentarios() {
 		String comentarios = "";
 		for ( Opiniao op : getListaOpinioes() ) {
@@ -536,25 +533,36 @@ public class Hotel implements Serializable {
 		
 		return comentarios;
 	}
-	
-	/**
-	 * 
-	 */
-	
-	@Override
-	public String toString() {
-		return "";
-	}
-	
-	/**
-	 * 
-	 */
-	
-	@Override
-	public boolean equals( Object obj ) {
-		if ( !( obj instanceof Hotel ) ) {
-			return false;
-		}
-		return true;
-	}
+
+  /**
+  * Recupera as opinios dos hospedes.
+  * 
+  * @return List<Opiniao> - Opinioes dos hospedes.
+  */
+
+  public List<Opiniao> getListaOpinioes(){
+    return opinioes;
+  }
+
+  /**
+  * 
+  */
+
+  @Override
+  public String toString() {
+    return "";
+  }
+
+  /**
+  * 
+  */
+
+  @Override
+  public boolean equals( Object obj ) {
+    if ( !( obj instanceof Hotel ) ) {
+      return false;
+    }
+
+    return true;
+  }
 }

@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import classes.Contrato;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
 
 import java.util.Calendar;
 

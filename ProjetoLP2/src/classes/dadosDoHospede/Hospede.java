@@ -1,4 +1,4 @@
-package classes;
+package classes.dadosDoHospede;
 
 import excecoes.DataDeNascimentoInvalidaException;
 import excecoes.InputArgumentInvalidException;
@@ -6,6 +6,8 @@ import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 import java.util.Calendar;
+
+import classes.Arquivos;
 
 /**
  *     Classe que representa um hospede.

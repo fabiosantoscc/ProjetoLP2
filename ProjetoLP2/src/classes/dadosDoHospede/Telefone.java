@@ -1,4 +1,4 @@
-package classes;
+package classes.dadosDoHospede;
 
 import excecoes.InputArgumentInvalidException;
 import excecoes.StringInvalidaException;

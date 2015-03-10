@@ -1,4 +1,4 @@
-package classes;
+package classes.estrategias;
 
 public interface EstrategiaDeCalculoDaMontante {
 

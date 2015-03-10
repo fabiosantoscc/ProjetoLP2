@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
 import classes.servicos.Quarto;
 import classes.servicos.QuartoExecutivoDuplo;
 import classes.servicos.QuartoExecutivoSimples;

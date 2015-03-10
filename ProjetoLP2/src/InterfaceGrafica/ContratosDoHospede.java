@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import Executar.Run;
 import classes.Contrato;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;

@@ -12,10 +12,10 @@ import javax.swing.JButton;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
 import classes.servicos.Restaurante;
 import classes.servicos.Servico;
-import classes.servicos.UnidadesDoRestaurante;
+import enums.UnidadesDoRestaurante;
 import excecoes.ContratoAbertoException;
 
 import java.awt.event.ActionListener;

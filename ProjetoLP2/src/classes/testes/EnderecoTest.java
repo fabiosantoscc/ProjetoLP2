@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.Before;
 
 import classes.Arquivos;
-import classes.Endereco;
+import classes.dadosDoHospede.Endereco;
 import excecoes.*;
 
 /**

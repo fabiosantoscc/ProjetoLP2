@@ -1,4 +1,4 @@
-package classes.servicos;
+package enums;
 
 public enum UnidadesDoRestaurante {
 	TERREO, COBERTURA;

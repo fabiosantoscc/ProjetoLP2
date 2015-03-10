@@ -1,6 +1,7 @@
 package classes.servicos;
 
 import classes.Hotel;
+import enums.SubtipoDeQuartoLuxo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 
 public class QuartoLuxo extends Quarto {

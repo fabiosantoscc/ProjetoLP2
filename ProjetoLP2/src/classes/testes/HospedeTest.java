@@ -7,9 +7,9 @@ import org.junit.Test;
 import org.junit.Before;
 
 import classes.Arquivos;
-import classes.Endereco;
-import classes.Telefone;
-import classes.Hospede;
+import classes.dadosDoHospede.Endereco;
+import classes.dadosDoHospede.Hospede;
+import classes.dadosDoHospede.Telefone;
 import excecoes.DataDeNascimentoInvalidaException;
 import excecoes.InputArgumentInvalidException;
 import excecoes.StringInvalidaException;

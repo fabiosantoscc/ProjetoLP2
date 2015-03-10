@@ -1,6 +1,6 @@
 package classes.testes;
 
-import classes.Telefone;
+import classes.dadosDoHospede.Telefone;
 import classes.servicos.QuartoPresidencial;
 import excecoes.InputArgumentInvalidException;
 import excecoes.QuartoEsgotadoNoHotelException;

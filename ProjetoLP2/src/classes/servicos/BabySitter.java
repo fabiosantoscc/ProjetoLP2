@@ -1,9 +1,9 @@
 package classes.servicos;
 
 import classes.Arquivos;
-import classes.CalendarioDeEstrategias;
-import classes.EstrategiaDeCalculoDaMontante;
 import classes.Hotel;
+import classes.estrategias.CalendarioDeEstrategias;
+import classes.estrategias.EstrategiaDeCalculoDaMontante;
 import classes.servicos.Servico;
 
 import java.io.Serializable;

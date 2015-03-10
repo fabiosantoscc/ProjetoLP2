@@ -10,7 +10,7 @@ import org.junit.Before;
 import excecoes.ComentarioInvalidoException;
 import excecoes.InputArgumentInvalidException;
 import excecoes.QuartoEsgotadoNoHotelException;
-import classes.Telefone;
+import classes.dadosDoHospede.Telefone;
 import classes.servicos.QuartoPresidencial;
 
 /*

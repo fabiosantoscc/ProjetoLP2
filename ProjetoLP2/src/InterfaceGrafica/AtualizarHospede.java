@@ -11,11 +11,12 @@ import javax.swing.JSeparator;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Hospede;
-import classes.Telefone;
+import classes.dadosDoHospede.Hospede;
+import classes.dadosDoHospede.Telefone;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 
 public class AtualizarHospede extends JPanel {

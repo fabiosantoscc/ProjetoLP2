@@ -1,4 +1,5 @@
-package classes;
+package classes.estrategias;
+
 
 /**
  * Classe que implementa a estrategia principal, retorna o total gasto em um dia multiplicado

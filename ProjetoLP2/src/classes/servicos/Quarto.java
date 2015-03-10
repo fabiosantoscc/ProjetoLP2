@@ -1,7 +1,7 @@
 package classes.servicos;
 
-import classes.CalendarioDeEstrategias;
-import classes.EstrategiaDeCalculoDaMontante;
+import classes.estrategias.CalendarioDeEstrategias;
+import classes.estrategias.EstrategiaDeCalculoDaMontante;
 import classes.servicos.Quarto;
 import excecoes.QuantidadeDePessoasInvalidaException;
 

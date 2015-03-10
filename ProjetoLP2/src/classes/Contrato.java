@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import classes.estrategias.CalendarioDeEstrategias;
 import classes.servicos.Servico;
 
 /**

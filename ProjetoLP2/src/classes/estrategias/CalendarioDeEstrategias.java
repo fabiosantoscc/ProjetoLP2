@@ -1,4 +1,4 @@
-package classes;
+package classes.estrategias;
 
 import java.io.Serializable;
 

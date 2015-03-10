@@ -6,14 +6,19 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+
 import Executar.Run;
-import classes.AluguelDeCarros;
-import classes.ModelosDoCarro;
 import classes.Arquivos;
-import classes.Hospede;
+import classes.dadosDoHospede.Hospede;
+import classes.servicos.AluguelDeCarros;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
+
+import enums.ModelosDoCarro;
+
 import java.awt.Font;
 
 public class AdicionarAlugueldeCarros extends JPanel {

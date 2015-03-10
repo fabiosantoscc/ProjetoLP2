@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="classes.AluguelDeCarros" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/AluguelDeCarros.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="classes.servicos.AluguelDeCarros" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/servicos/AluguelDeCarros.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1575" y="1366"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="classes.CalendarioDeEstrategias" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/CalendarioDeEstrategias.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="classes.estrategias.CalendarioDeEstrategias" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/CalendarioDeEstrategias.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1266" y="-252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="classes.Hospede" project="ProjetoLP2" file="/ProjetoLP2/src/classes/Hospede.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="classes.dadosDoHospede.Hospede" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/dadosDoHospede/Hospede.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="37" y="-11"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="classes.Endereco" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/Endereco.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="classes.dadosDoHospede.Endereco" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/dadosDoHospede/Endereco.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="61" y="705"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="11" language="java" name="classes.EstrategiaDeCalculoDaMontante" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaDeCalculoDaMontante.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="11" language="java" name="classes.estrategias.EstrategiaDeCalculoDaMontante" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaDeCalculoDaMontante.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="933" y="-733"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="12" language="java" name="classes.EstrategiaFeriasDeJaneiro" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaFeriasDeJaneiro.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="classes.estrategias.EstrategiaFeriasDeJaneiro" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaFeriasDeJaneiro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="609" y="-719"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="classes.EstrategiaNatalPlusReveillon" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaNatalPlusReveillon.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="classes.estrategias.EstrategiaNatalPlusReveillon" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaNatalPlusReveillon.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1197" y="-725"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="classes.EstrategiaSaoJoao" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaSaoJoao.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="classes.estrategias.EstrategiaSaoJoao" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaSaoJoao.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="257" y="-726"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="classes.EstrategiaSaoJoaoEspecial" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaSaoJoaoEspecial.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="15" language="java" name="classes.estrategias.EstrategiaSaoJoaoEspecial" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaSaoJoaoEspecial.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1434" y="-722"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -136,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="classes.EstrategiaSimples" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/EstrategiaSimples.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="classes.estrategias.EstrategiaSimples" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/estrategias/EstrategiaSimples.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1217" y="-548"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -163,8 +163,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="classes.Telefone" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/Telefone.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="19" language="java" name="classes.dadosDoHospede.Telefone" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/dadosDoHospede/Telefone.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="297" width="267" x="-36" y="1166"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

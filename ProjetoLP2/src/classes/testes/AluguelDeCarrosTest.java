@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import classes.AluguelDeCarros;
-import classes.ModelosDoCarro;
+import classes.servicos.AluguelDeCarros;
+import enums.ModelosDoCarro;
 
 public class AluguelDeCarrosTest {
 	AluguelDeCarros carro1, carro2, carro3;

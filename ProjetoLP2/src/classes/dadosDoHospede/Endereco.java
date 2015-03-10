@@ -1,9 +1,11 @@
-package classes;
+package classes.dadosDoHospede;
 
 import excecoes.InputArgumentInvalidException;
 import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
+
+import classes.Arquivos;
 
 /**
  *     Classe que manipula dados referentes ao endereco do cliente.
