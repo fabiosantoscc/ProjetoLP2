@@ -242,6 +242,7 @@ public class MenuPrincipal {
 		mnNewMenu_1.add(mntmNotaDeAceitao);
 		
 		JMenuItem mntmServicosMaisContratados = new JMenuItem("Servi\u00E7os mais contratados");
+		mntmServicosMaisContratados.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/chart_bar.png")));
 		mnNewMenu_1.add(mntmServicosMaisContratados);
 		lblSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cancel.png")));
 		lblSair.addMouseListener(new MouseAdapter() {

@@ -10,6 +10,7 @@ public class QuartoLuxo extends Quarto {
   public QuartoLuxo(int quantidadeDePessoas, SubtipoDeQuartoLuxo tipo)
       throws QuantidadeDePessoasInvalidaException {
     super(quantidadeDePessoas);
+    checaTipoDoQuarto();
     
     if ( quantidadeDePessoas > 3 ) {
     	throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser maior que 3 neste tipo de quarto.");
@@ -22,6 +23,20 @@ public class QuartoLuxo extends Quarto {
 	  return tipo;
   }
   
+  private void checaTipoDoQuarto() {
+	  if ( getTipo().name().equals("SIMPLES") ) {
+		  Hotel.setQuartoLuxoSimples(Hotel.getQuartoLuxoSimples() - 1);
+	  }
+	  
+	  if ( getTipo().name().equals("DUPLO") ) {
+		  Hotel.setQuartoLuxoDuplo(Hotel.getQuartoLuxoDuplo() - 1);
+	  }
+	  
+	  if ( getTipo().name().equals("TRIPLO") ) {
+		  Hotel.setQuartoLuxoTriplo(Hotel.getQuartoLuxoTriplo() - 1);
+	  }
+  }
+  
   @Override
   public String toString() {
     return "QuartoLuxo - Tipo = " + getTipo().name().toLowerCase()
@@ -30,6 +45,12 @@ public class QuartoLuxo extends Quarto {
 
   @Override
   public boolean equals( Object obj ) {
-    return false;
+    if ( !(obj instanceof SubtipoDeQuartoLuxo) ) {
+    	return false;
+    }
+    
+    QuartoLuxo q = (QuartoLuxo) obj;
+    
+    return super.equals(q) && tipo.equals(q.getTipo());
   }
 }

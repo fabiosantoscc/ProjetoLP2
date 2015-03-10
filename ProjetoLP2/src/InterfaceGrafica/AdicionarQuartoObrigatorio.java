@@ -5,44 +5,25 @@
 				+"\nExecutivo Triplo: "+Run.hotel.getQuartoExecutivoTriplo());*/
 package InterfaceGrafica;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import javax.swing.JSpinner;
 
 import Executar.Run;
 import classes.Arquivos;
-import classes.Contrato;
 import classes.Hospede;
 import classes.Quarto;
-import classes.QuartoExecutivoDuplo;
-import classes.QuartoExecutivoSimples;
-import classes.QuartoExecutivoTriplo;
-import classes.QuartoLuxoDuplo;
-import classes.QuartoLuxoSimples;
-import classes.QuartoLuxoTriplo;
 import classes.QuartoPresidencial;
-import classes.Restaurante;
 import classes.Servico;
-
-import javax.swing.JLabel;
-
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JList;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-
-import jdk.nashorn.internal.scripts.JO;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
-import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
@@ -51,7 +32,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	
+
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	ArrayList<Servico> servicos = new ArrayList<Servico>();
 	Quarto quartoAtual;
@@ -175,7 +156,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						int camas = Integer.parseInt(spinnerQuantidadeCamas.getValue().toString());
-						quartoAtual = new QuartoExecutivoDuplo(pessoas, camas);
+						//quartoAtual = new QuartoExecutivoDuplo(pessoas, camas);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
 					} catch (QuantidadeDePessoasInvalidaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -220,7 +201,7 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 						JOptionPane.showMessageDialog(null, "Contrato criado com sucesso!");
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					}
-					else{
+					else {
 						JOptionPane.showMessageDialog(null, "O contrato de ter pelo menos um quarto!");
 					}
 					Arquivos.salvaHotel(Run.hotel);

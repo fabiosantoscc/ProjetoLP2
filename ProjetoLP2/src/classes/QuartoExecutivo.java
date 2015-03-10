@@ -10,6 +10,7 @@ public class QuartoExecutivo extends Quarto {
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
       throws QuantidadeDePessoasInvalidaException {
     super(quantidadeDePessoas);
+    checaTipoDoQuarto();
     
     if ( quantidadeDePessoas > 3 ) {
     	throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser maior que 3 neste tipo de quarto");
@@ -22,6 +23,20 @@ public class QuartoExecutivo extends Quarto {
     return tipo;
   }
 
+  private void checaTipoDoQuarto() {
+	  if ( getTipo().name().equals("SIMPLES") ) {
+		  Hotel.setQuartoExecutivoSimples(Hotel.getQuartoExecutivoSimples() - 1);
+	  }
+	  
+	  if ( getTipo().name().equals("DUPLO") ) {
+		  Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() - 1);
+	  }
+	  
+	  if ( getTipo().name().equals("TRIPLO") ) {
+		  Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
+	  }
+  }
+  
   @Override
   public String toString() {
     return "QuartoExecutivo - Tipo = " + getTipo().name().toLowerCase()
@@ -30,6 +45,12 @@ public class QuartoExecutivo extends Quarto {
 
   @Override
   public boolean equals( Object obj ) {
-    return false;
+    if ( !(obj instanceof SubtipoDeQuartoExecutivo) ) {
+    	return false;
+    }
+    
+    QuartoExecutivo q = (QuartoExecutivo) obj;
+    
+    return super.equals(q) && tipo.equals(q.getTipo());
   }
 }

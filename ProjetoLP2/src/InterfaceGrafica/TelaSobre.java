@@ -44,7 +44,7 @@ public class TelaSobre extends JPanel {
 		
 		JLabel lblLogoUFCG = new JLabel("");
 		lblLogoUFCG.setIcon(new ImageIcon(TelaSobre.class.getResource("/Icons/logo_ufcg.png")));
-		lblLogoUFCG.setBounds(285, 11, 117, 136);
+		lblLogoUFCG.setBounds(311, 11, 117, 136);
 		add(lblLogoUFCG);
 		
 		JLabel lblLogoComputacao = new JLabel("");
