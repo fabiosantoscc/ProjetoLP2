@@ -16,7 +16,6 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 
@@ -137,25 +136,9 @@ public class TelaLogin extends JFrame {
 		contentPane.add(lblSenhaIcon);
 	}
 	
-	private void checaSenha(String senhaComparada)throws Exception{
+	private void checaSenha(String senhaComparada) throws Exception {
 		if (!(passwordField.getText().equals(senhaComparada))){
 			throw new Exception("Senha incorreta!");
 		}
 	}
-	
-/*	private boolean isPasswordCorrect(char[] input) {
-        boolean isCorrect = true;
-        char[] correctPassword = { 'a', 'd', 'm', 'i', 'n'};
- 
-        if (input.length != correctPassword.length) {
-            isCorrect = false;
-        } else {
-            isCorrect = Arrays.equals (input, correctPassword);
-        }
- 
-        //Zero out the password.
-        Arrays.fill(correctPassword,'0');
- 
-        return isCorrect;
-    }*/
 }
