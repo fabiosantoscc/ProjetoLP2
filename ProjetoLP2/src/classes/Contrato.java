@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import classes.servicos.Servico;
+
 /**
  *     Classe que representa um contrato.
  * 

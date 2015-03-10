@@ -11,14 +11,14 @@ import javax.swing.JTextField;
 import Executar.Run;
 import classes.Arquivos;
 import classes.Hospede;
-import classes.Quarto;
-import classes.QuartoExecutivoDuplo;
-import classes.QuartoExecutivoSimples;
-import classes.QuartoExecutivoTriplo;
-import classes.QuartoLuxoDuplo;
-import classes.QuartoLuxoSimples;
-import classes.QuartoLuxoTriplo;
-import classes.QuartoPresidencial;
+import classes.servicos.Quarto;
+import classes.servicos.QuartoExecutivoDuplo;
+import classes.servicos.QuartoExecutivoSimples;
+import classes.servicos.QuartoExecutivoTriplo;
+import classes.servicos.QuartoLuxoDuplo;
+import classes.servicos.QuartoLuxoSimples;
+import classes.servicos.QuartoLuxoTriplo;
+import classes.servicos.QuartoPresidencial;
 
 import javax.swing.JLabel;
 

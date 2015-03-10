@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import Executar.Run;
 import classes.Arquivos;
 import classes.Hospede;
-import classes.Restaurante;
-import classes.Servico;
-import classes.UnidadesDoRestaurante;
+import classes.servicos.Restaurante;
+import classes.servicos.Servico;
+import classes.servicos.UnidadesDoRestaurante;
 import excecoes.ContratoAbertoException;
 
 import java.awt.event.ActionListener;

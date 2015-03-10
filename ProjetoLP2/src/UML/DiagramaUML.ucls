@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="classes.Quarto" project="ProjetoLP2" file="/ProjetoLP2/src/classes/Quarto.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="classes.servicos.Quarto" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/servicos/Quarto.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="681" y="512"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -145,62 +145,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="classes.QuartoExecutivoDuplo" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoExecutivoDuplo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="435" y="898"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="classes.QuartoExecutivoSimples" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoExecutivoSimples.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="956" y="881"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="classes.QuartoExecutivoTriplo" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoExecutivoTriplo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="408" y="515"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="classes.QuartoLuxoDuplo" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoLuxoDuplo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="937" y="496"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="classes.QuartoLuxoSimples" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoLuxoSimples.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="428" y="1225"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="22" language="java" name="classes.QuartoLuxoTriplo" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoLuxoTriplo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1084" y="1261"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="23" language="java" name="classes.QuartoPresidencial" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/QuartoPresidencial.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="17" language="java" name="classes.servicos.QuartoPresidencial" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/servicos/QuartoPresidencial.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="744" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -208,8 +154,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="classes.Restaurante" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/Restaurante.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="classes.servicos.Restaurante" project="ProjetoLP2" 
+    file="/ProjetoLP2/src/classes/servicos/Restaurante.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1610" y="877"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -217,16 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="25" language="java" name="classes.Servicos" project="ProjetoLP2" 
-    file="/ProjetoLP2/src/classes/Servicos.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1292" y="736"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="26" language="java" name="classes.Telefone" project="ProjetoLP2" 
+  <class id="19" language="java" name="classes.Telefone" project="ProjetoLP2" 
     file="/ProjetoLP2/src/classes/Telefone.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="297" width="267" x="-36" y="1166"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -235,150 +172,126 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="27">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="28" name="calendario"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="30">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <realization id="31">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <association id="32">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="33" name="e"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
+  <association id="20">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="21" name="estrategia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="35">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="25"/>  
+  <realization id="23">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="11"/>  
   </realization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <realization id="37">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="39">    
+  <association id="24">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="25" name="estrategia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="26" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="27">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <realization id="40">    
-    <end type="SOURCE" refId="16"/>    
+  <realization id="28">    
+    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="42">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="43" name="servicos"/>      
-      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
+  <association id="29">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="30" name="estrategia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="45">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <association id="46">    
+  <association id="32">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="47" name="opinioes"/>      
-      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+      <attribute id="33" name="opinioes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="50" name="calendario"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
+  <realization id="35">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="36">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="37" name="calendario">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="52">    
+  <association id="39">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="53" name="telefone"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="56" name="estrategia"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="58">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <generalization id="59">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="60">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="61">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="62" name="endereco"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
+      <attribute id="40" name="endereco">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="64">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <realization id="65">    
-    <end type="SOURCE" refId="13"/>    
+  <association id="42">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="43" name="calendario">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="45">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="67">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="68" name="estrategia"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
+  <association id="46">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="47" name="telefone">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="71" name="estrategia"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <realization id="49">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

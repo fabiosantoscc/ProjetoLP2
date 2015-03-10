@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Set;
 
+import classes.servicos.Servico;
 import excecoes.*;
 
 /**
@@ -401,7 +402,7 @@ public class Hotel implements Serializable {
 	 * @return - Quantidade de Quarto Presidencial do hotel.
 	 */
 	
-	protected static int getQuartoPresidencial() {
+	public static int getQuartoPresidencial() {
 		return quartoPresidencial;
 	}
 
@@ -410,7 +411,7 @@ public class Hotel implements Serializable {
 	 * @param quartoPresidencial
 	 */
 	
-	protected static void setQuartoPresidencial(int quartoPresidencial) {
+	public static void setQuartoPresidencial(int quartoPresidencial) {
 		Hotel.quartoPresidencial = quartoPresidencial;
 	}
 
@@ -419,7 +420,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoExecutivoSimples() {
+	public static int getQuartoExecutivoSimples() {
 		return quartoExecutivoSimples;
 	}
 
@@ -428,7 +429,7 @@ public class Hotel implements Serializable {
 	 * @param quartoExecutivoSimples
 	 */
 	
-	protected static void setQuartoExecutivoSimples(int quartoExecutivoSimples) {
+	public static void setQuartoExecutivoSimples(int quartoExecutivoSimples) {
 		Hotel.quartoExecutivoSimples = quartoExecutivoSimples;
 	}
 
@@ -437,7 +438,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoExecutivoDuplo() {
+	public static int getQuartoExecutivoDuplo() {
 		return quartoExecutivoDuplo;
 	}
 
@@ -446,7 +447,7 @@ public class Hotel implements Serializable {
 	 * @param quartoExecutivoDuplo
 	 */
 	
-	protected static void setQuartoExecutivoDuplo(int quartoExecutivoDuplo) {
+	public static void setQuartoExecutivoDuplo(int quartoExecutivoDuplo) {
 		Hotel.quartoExecutivoDuplo = quartoExecutivoDuplo;
 	}
 
@@ -455,7 +456,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoExecutivoTriplo() {
+	public static int getQuartoExecutivoTriplo() {
 		return quartoExecutivoTriplo;
 	}
 
@@ -464,7 +465,7 @@ public class Hotel implements Serializable {
 	 * @param quartoExecutivoTriplo
 	 */
 	
-	protected static void setQuartoExecutivoTriplo(int quartoExecutivoTriplo) {
+	public static void setQuartoExecutivoTriplo(int quartoExecutivoTriplo) {
 		Hotel.quartoExecutivoTriplo = quartoExecutivoTriplo;
 	}
 
@@ -473,7 +474,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoLuxoSimples() {
+	public static int getQuartoLuxoSimples() {
 		return quartoLuxoSimples;
 	}
 
@@ -482,7 +483,7 @@ public class Hotel implements Serializable {
 	 * @param quartoLuxoSimples
 	 */
 	
-	protected static void setQuartoLuxoSimples(int quartoLuxoSimples) {
+	public static void setQuartoLuxoSimples(int quartoLuxoSimples) {
 		Hotel.quartoLuxoSimples = quartoLuxoSimples;
 	}
 
@@ -491,7 +492,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoLuxoDuplo() {
+	public static int getQuartoLuxoDuplo() {
 		return quartoLuxoDuplo;
 	}
 
@@ -500,7 +501,7 @@ public class Hotel implements Serializable {
 	 * @param quartoLuxoDuplo
 	 */
 	
-	protected static void setQuartoLuxoDuplo(int quartoLuxoDuplo) {
+	public static void setQuartoLuxoDuplo(int quartoLuxoDuplo) {
 		Hotel.quartoLuxoDuplo = quartoLuxoDuplo;
 	}
 
@@ -509,7 +510,7 @@ public class Hotel implements Serializable {
 	 * @return
 	 */
 	
-	protected static int getQuartoLuxoTriplo() {
+	public static int getQuartoLuxoTriplo() {
 		return quartoLuxoTriplo;
 	}
 
@@ -518,7 +519,7 @@ public class Hotel implements Serializable {
 	 * @param quartoLuxoTriplo
 	 */
 	
-	protected static void setQuartoLuxoTriplo(int quartoLuxoTriplo) {
+	public static void setQuartoLuxoTriplo(int quartoLuxoTriplo) {
 		Hotel.quartoLuxoTriplo = quartoLuxoTriplo;
 	}
 	

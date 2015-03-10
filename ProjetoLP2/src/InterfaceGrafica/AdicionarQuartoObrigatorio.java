@@ -21,9 +21,9 @@ import javax.swing.JSpinner;
 import Executar.Run;
 import classes.Arquivos;
 import classes.Hospede;
-import classes.Quarto;
-import classes.QuartoPresidencial;
-import classes.Servico;
+import classes.servicos.Quarto;
+import classes.servicos.QuartoPresidencial;
+import classes.servicos.Servico;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 

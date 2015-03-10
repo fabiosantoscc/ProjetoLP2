@@ -3,6 +3,8 @@ package classes;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import classes.servicos.Servico;
+
 /**
  * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 

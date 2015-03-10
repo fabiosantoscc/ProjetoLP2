@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import classes.BabySitter;
+import classes.servicos.Servico;
 
 /**
  * Classe que recebe a quantidade de horas contratadas da Baby Sitter e faz um balanço

@@ -18,7 +18,7 @@ import Executar.Run;
 import classes.Arquivos;
 import classes.Contrato;
 import classes.Hospede;
-import classes.Servico;
+import classes.servicos.Servico;
 
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
