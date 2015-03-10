@@ -60,7 +60,7 @@ public class BuscarQuartoAtualizar extends JPanel {
 				}
 			}
 		});
-		btnBuscar.setBounds(335, 191, 97, 27);
+		btnBuscar.setBounds(335, 191, 105, 27);
 		add(btnBuscar);
 
 	}

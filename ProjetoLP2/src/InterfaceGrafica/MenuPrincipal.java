@@ -72,7 +72,6 @@ public class MenuPrincipal {
 	private final JMenuItem mntmPesquisar = new JMenuItem("Pesquisar");
 	private final JMenuItem mntmQuartos_1 = new JMenuItem("Quartos");
 	private final JMenuItem mntmRemover = new JMenuItem("Remover");
-	private final JMenuItem mntmRestaurante = new JMenuItem("Restaurante");
 	private final JMenu mnNewMenu_1 = new JMenu("Mais Op\u00E7\u00F5es");
 	private final JMenuItem mntmNewMenuItem_6 = new JMenuItem("Sobre");
 	private final JMenuItem mntmNotaDeAceitao = new JMenuItem("Nota de Aceita\u00E7\u00E3o e Coment\u00E1rios");
@@ -194,6 +193,14 @@ public class MenuPrincipal {
 		
 		mnAdicionar.add(mntmQuartos);
 		mnAdicionar.add(mntmAluguelDeVeculo);
+		
+		JMenuItem mntmRestaurante_1 = new JMenuItem("Restaurante");
+		mntmRestaurante_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(panel0, "buscarRestauranteAtualizar");
+			}
+		});
+		mnAdicionar.add(mntmRestaurante_1);
 		mnAtualizar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_edit.png")));
 		
 		mnServios.add(mnAtualizar);
@@ -204,13 +211,6 @@ public class MenuPrincipal {
 		});
 		
 		mnAtualizar.add(mntmQuartos_1);
-		mntmRestaurante.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cl.show(panel0, "buscarRestauranteAtualizar");
-			}
-		});
-		
-		mnAtualizar.add(mntmRestaurante);
 		mntmRemover.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cart_delete.png")));
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
