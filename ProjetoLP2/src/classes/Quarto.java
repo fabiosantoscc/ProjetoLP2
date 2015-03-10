@@ -42,7 +42,6 @@ public abstract class Quarto implements Servico, Serializable  {
     diaInicial = date.get(Calendar.DAY_OF_MONTH);
     mesInicial = date.get(Calendar.MONTH) + 1;
     anoInicial = date.get(Calendar.YEAR);
-    valorDiaria = 0.0;
     this.quantidadeDePessoas = quantidadeDePessoas;
   }
   
@@ -162,10 +161,10 @@ public abstract class Quarto implements Servico, Serializable  {
    * @throws QuantidadeDePessoasInvalidaException
    */
   
-  public void verificaQuantidadeDePessoas(int quantidadeDePessoas) 
+  private void verificaQuantidadeDePessoas(int quantidadeDePessoas) 
       throws QuantidadeDePessoasInvalidaException {
-    if ( quantidadeDePessoas <= 0 || quantidadeDePessoas > 3 ) {
-      throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas do quarto invalida");
+    if ( quantidadeDePessoas <= 0 ) {
+      throw new QuantidadeDePessoasInvalidaException("A quantidade de pessoas deve ser maior que zero.");
     }
   }  
   
@@ -177,7 +176,7 @@ public abstract class Quarto implements Servico, Serializable  {
 
   @Override
   public String toString() {
-    return ", Quantidade De Pessoas = " + quantidadeDePessoas + ", Data de inicio: " + getDiaInicial()
+    return "Quantidade De Pessoas = " + quantidadeDePessoas + ", Data de inicio: " + getDiaInicial()
         + "/" + getMesInicial() + "/" + getAnoInicial() + " " + data.get(Calendar.HOUR_OF_DAY)
         + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
   }

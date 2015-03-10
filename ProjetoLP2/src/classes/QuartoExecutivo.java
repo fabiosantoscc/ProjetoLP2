@@ -10,6 +10,11 @@ public class QuartoExecutivo extends Quarto {
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
       throws QuantidadeDePessoasInvalidaException {
     super(quantidadeDePessoas);
+    
+    if ( quantidadeDePessoas > 3 ) {
+    	throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser maior que 3 neste tipo de quarto");
+    }
+
     this.tipo = tipo;
   }
 
@@ -19,7 +24,8 @@ public class QuartoExecutivo extends Quarto {
 
   @Override
   public String toString() {
-    return "Quartoexecutivo [ Tipo = " + getTipo().name().toLowerCase() + super.toString();
+    return "QuartoExecutivo - Tipo = " + getTipo().name().toLowerCase()
+    		+ ", Valor da diaria = " + tipo.getValorDiaria() + ", " + super.toString();
   }
 
   @Override
