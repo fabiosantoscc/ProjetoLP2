@@ -13,13 +13,13 @@ public class QuartoExecutivo extends Quarto {
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
       throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoNoHotelException {
     super(quantidadeDePessoas);
-    checaTipoDoQuarto();
     
     if ( quantidadeDePessoas > 3 ) {
     	throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser maior que 3 neste tipo de quarto");
     }
 
     this.tipo = tipo;
+    checaTipoDoQuarto();
   }
 
   public SubtipoDeQuartoExecutivo getTipo() {

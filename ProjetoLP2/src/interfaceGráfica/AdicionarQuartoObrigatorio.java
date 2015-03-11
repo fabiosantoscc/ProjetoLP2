@@ -39,7 +39,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 
 	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	ArrayList<Servico> servicos = new ArrayList<Servico>();
-	Quarto quartoAtual;
+	private Quarto quartoAtual;
+	String comboSelecionado;
 	
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
 		setLayout(null);
@@ -50,45 +51,35 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		
 		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
 		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblTipoQuarto.setBounds(47, 94, 146, 25);
+		lblTipoQuarto.setBounds(65, 202, 146, 25);
 		add(lblTipoQuarto);
 		
 		JComboBox<String> comboTipoQuarto = new JComboBox<String>();
 		comboTipoQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String c = (String) comboTipoQuarto.getSelectedItem();
+				comboSelecionado = (String) comboTipoQuarto.getSelectedItem();
 			}
 		});
 		
-		comboTipoQuarto.setBounds(50, 156, 191, 20);
+		comboTipoQuarto.setBounds(62, 258, 191, 20);
 		add(comboTipoQuarto);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
 		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDePessoas.setBounds(47, 288, 188, 25);
+		lblQuantidadeDePessoas.setBounds(65, 402, 188, 25);
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinnerQuantidadePessoas = new JSpinner();
 		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadePessoas.setBounds(245, 288, 50, 24);
+		spinnerQuantidadePessoas.setBounds(269, 403, 50, 24);
 		add(spinnerQuantidadePessoas);
-		
-		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
-		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDeCamas.setBounds(47, 365, 219, 25);
-		add(lblQuantidadeDeCamas);
-		
-		JSpinner spinnerQuantidadeCamas = new JSpinner();
-		spinnerQuantidadeCamas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadeCamas.setBounds(268, 365, 58, 24);
-		add(spinnerQuantidadeCamas);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				switch ((String) comboTipoQuarto.getSelectedItem()) {
+				switch (comboSelecionado) {
 				case "Presidencial":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
@@ -99,19 +90,21 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 					} catch (QuartoEsgotadoNoHotelException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					}
+					
 					break;
 				case "Luxo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
 						quartoAtual = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.SIMPLES);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com sucesso");
-					} catch (QuantidadeDePessoasInvalidaException e1) {
+					} catch ( QuantidadeDePessoasInvalidaException e1 ) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
-					} catch (QuartoEsgotadoNoHotelException e1) {
-						JOptionPane.showMessageDialog(null, e1.getMessage());
-					} catch (Exception e1) {
-						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (QuartoEsgotadoNoHotelException e2) {
+						JOptionPane.showMessageDialog(null, e2.getMessage());
+					} catch (Exception e3) {
+						JOptionPane.showMessageDialog(null, e3.getMessage());
 					}
+					
 					break;
 				case "Luxo Duplo":
 					try {
