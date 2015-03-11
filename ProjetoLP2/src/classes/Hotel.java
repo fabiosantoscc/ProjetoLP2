@@ -2,13 +2,16 @@ package classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Servico;
-import excecoes.*;
+import excecoes.ContratoAbertoException;
+import excecoes.HospedeInvalidoException;
+import excecoes.StringInvalidaException;
 
 /**
  * Classe que representa um hotel.
@@ -21,8 +24,8 @@ import excecoes.*;
 public class Hotel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private Calendar dataDeInicio;
     private String pin;
-	private static int camaExtra = 20;
 	private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
 	private static int quartoExecutivoDuplo = 15;
@@ -30,10 +33,10 @@ public class Hotel implements Serializable {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	private double notaDeAceitacao = 0;
 	public static int maisRestaurante = 0;
 	public static int maisBaby = 0;
 	public static int maisAluguel = 0;
+	private double notaDeAceitacao = 0;
 	
 	private List<Cadastro> cadastros = new ArrayList<Cadastro>();
 	
@@ -43,8 +46,13 @@ public class Hotel implements Serializable {
 	// Opinioes dos hospedes que fizeram checkout no hotel.
 	private List<Opiniao> opinioes = new ArrayList<Opiniao>();
 	
-	public Hotel( String pin ) {
+	public Hotel( String pin ) throws StringInvalidaException {
+		if ( pin == null || pin.equals("") ) {
+			throw new StringInvalidaException("Pin nao pode ser vazio.");
+		}
+		
 		this.pin = pin;
+		dataDeInicio = Calendar.getInstance();
 	}
 	
 	public String getPin() {
@@ -68,17 +76,16 @@ public class Hotel implements Serializable {
 		}
 		verificaCadastroExistente(funcionario.getNomeLogin());
 		cadastros.add(funcionario);
-
 	}
 	
-	
 	private void verificaCadastroExistente(String login) throws Exception{
-		for (Cadastro i : cadastros){
-			if (i.getNomeLogin().equals(login)){
+		for (Cadastro cadastro : cadastros){
+			if (cadastro.getNomeLogin().equals(login)){
 				throw new Exception("Usuário já existente, altere o login!");
 			}
 		}	
 	}
+	
 	/**
 	 * Busca, se existe algum funcionario com o login passado como parâmetro 
 	 * @param login - Login do funcionário que deseja encontrar
@@ -87,12 +94,11 @@ public class Hotel implements Serializable {
 	 */
 	
 	
-	public Cadastro buscarCadastro(String login) throws Exception{
-		for (Cadastro i : cadastros){
-			if (i.getNomeLogin().equals(login)){
-				return i;
+	public Cadastro buscarCadastro(String login) throws Exception {
+		for (Cadastro cadastro : cadastros) {
+			if (cadastro.getNomeLogin().equals(login)) {
+				return cadastro;
 			}
-			
 		}
 		throw new Exception("Usuário Inexistente");
 	}
@@ -375,26 +381,6 @@ public class Hotel implements Serializable {
 	public void adicionaOpiniao( Opiniao umaOpiniao ) {
 		this.opinioes.add(umaOpiniao);
 		calculaNotaDeAceitacao(opinioes);
-	}
-	
-	/**
-	 * Recupera a quantidade de cama extra do hotel.
-	 * 
-	 * @return - Cama extra - A quantidade de camas extra do hotel.
-	 */
-	
-	protected static int getCamaExtra() {
-		return camaExtra;
-	}
-	
-	/**
-	 * Atribui uma nova quantidade de cama extra.
-	 * 
-	 * @param camaExtra - Nova quantidade a ser atribuida.
-	 */
-	
-	protected static void setCamaExtra(int camaExtra) {
-		Hotel.camaExtra = camaExtra;
 	}
 	
 	/**
