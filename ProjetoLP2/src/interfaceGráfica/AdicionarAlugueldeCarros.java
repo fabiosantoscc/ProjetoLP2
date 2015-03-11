@@ -24,20 +24,18 @@ import java.awt.Rectangle;
 
 public class AdicionarAlugueldeCarros extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	private boolean isTanqueCheio = false, isSeguro= false;
+	private JLabel lblAlugarVeiculo, lblModeloDoCarro, lblHospede, lblnomeDohospede;
+	private JCheckBox boxTanqueCheio, boxSeguro;
 	
-	boolean isTanqueCheio = false;
-	boolean isSeguro= false;
 	public AdicionarAlugueldeCarros(Hospede hospedeAtual) {
 		
 		setLayout(null);
 		
-		JLabel lblAlugarVeiculo = CriaObjetosNaTela.criaLabel("Alugar Ve\u00EDculo", new Rectangle(38, 43, 227, 46), fontePadrao(23), null, null);
+		lblAlugarVeiculo = CriaObjetosNaTela.criaLabel("Alugar Ve\u00EDculo", new Rectangle(38, 43, 227, 46), CriaObjetosNaTela.getFontePadrao(23), null, null);
 		add(lblAlugarVeiculo);
 		
-		JComboBox comboModelosDeCarro = CriaObjetosNaTela.criaComboBox(new Rectangle(80, 230, 161, 20), fontePadrao(14));
+		JComboBox comboModelosDeCarro = CriaObjetosNaTela.criaComboBox(new Rectangle(80, 230, 161, 20), CriaObjetosNaTela.getFontePadrao(14));
 		comboModelosDeCarro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboModelosDeCarro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -47,16 +45,16 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new String[] {""+ModelosDoCarro.EXECUTIVO, ""+ModelosDoCarro.LUXO}));
 		add(comboModelosDeCarro);
 		
-		JLabel lblModeloDoCarro = CriaObjetosNaTela.criaLabel("Modelo do Carro", new Rectangle(59, 196, 152, 20), fontePadrao(16), null, null);
+		lblModeloDoCarro = CriaObjetosNaTela.criaLabel("Modelo do Carro", new Rectangle(59, 196, 152, 20), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblModeloDoCarro);
 		
-		JLabel lblHospede = CriaObjetosNaTela.criaLabel("Hospede: ", new Rectangle(59, 119, 93, 23), fontePadrao(16), null, null);
+		lblHospede = CriaObjetosNaTela.criaLabel("Hospede: ", new Rectangle(59, 119, 93, 23), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblHospede);
 		
-		JLabel lblnomeDohospede = CriaObjetosNaTela.criaLabel(hospedeAtual.getNome(), new Rectangle(130, 119, 440, 23), fontePadrao(17), null, null);
+		lblnomeDohospede = CriaObjetosNaTela.criaLabel(hospedeAtual.getNome(), new Rectangle(130, 119, 440, 23), CriaObjetosNaTela.getFontePadrao(17), null, null);
 		add(lblnomeDohospede);
 		
-		JCheckBox boxTanqueCheio = CriaObjetosNaTela.criaCheckBox("Tanque Cheio", new Rectangle(80, 278, 131, 23), fontePadrao(15), null);
+		boxTanqueCheio = CriaObjetosNaTela.criaCheckBox("Tanque Cheio", new Rectangle(80, 278, 131, 23), CriaObjetosNaTela.getFontePadrao(15), null);
 		boxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isTanqueCheio = true;
@@ -64,7 +62,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		});
 		add(boxTanqueCheio);
 		
-		JCheckBox boxSeguro = CriaObjetosNaTela.criaCheckBox("Seguro", new Rectangle(80, 309, 131, 23), fontePadrao(23), null);
+		boxSeguro = CriaObjetosNaTela.criaCheckBox("Seguro", new Rectangle(80, 309, 131, 23), CriaObjetosNaTela.getFontePadrao(23), null);
 		boxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isSeguro= true;
@@ -72,7 +70,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		});
 		add(boxSeguro);
 		
-		JButton btnAdicionarServico = CriaObjetosNaTela.criaBotao("Adicionar Servi\u00E7o", new Rectangle(409, 389, 180, 46), fontePadrao(17), null, null);
+		JButton btnAdicionarServico = CriaObjetosNaTela.criaBotao("Adicionar Servi\u00E7o", new Rectangle(409, 389, 180, 46), CriaObjetosNaTela.getFontePadrao(17), null, null);
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -87,9 +85,5 @@ public class AdicionarAlugueldeCarros extends JPanel {
 			}
 		});
 		add(btnAdicionarServico);
-	}
-	
-	private Font fontePadrao(int tamanho){
-		return new Font("Tahoma", Font.PLAIN, tamanho);
 	}
 }

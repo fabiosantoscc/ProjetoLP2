@@ -9,6 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 import com.sun.org.apache.regexp.internal.recompile;
 
@@ -32,8 +33,8 @@ public class CriaObjetosNaTela {
 		return btnAtual;
 	}
 	
-	public static JFormattedTextField criaTextField(String texto, Rectangle bordas, Font fonte, boolean editavel, String mensagemOpcional){
-		JFormattedTextField textAtual = new JFormattedTextField(texto);
+	public static JTextField criaTextField(String texto, Rectangle bordas, Font fonte, boolean editavel, String mensagemOpcional){
+		JTextField textAtual = new JTextField(texto);
 		textAtual.setToolTipText(mensagemOpcional);
 		textAtual.setBounds(bordas);
 		textAtual.setEditable(editavel);
@@ -53,5 +54,9 @@ public class CriaObjetosNaTela {
 		comboBoxAtual.setBounds(bordas);
 		comboBoxAtual.setFont(fonte);
 		return comboBoxAtual;
+	}
+	
+	public static Font getFontePadrao(int tamanho){
+		return new Font("Tahoma", Font.PLAIN, tamanho);
 	}
 }
