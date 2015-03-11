@@ -9,6 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 import com.sun.org.apache.regexp.internal.recompile;
@@ -55,6 +56,12 @@ public class CriaObjetosNaTela {
 		comboBoxAtual.setBounds(bordas);
 		comboBoxAtual.setFont(fonte);
 		return comboBoxAtual;
+	}
+	
+	public static JSeparator criaSeparator(Rectangle bordas){
+		JSeparator separatorAtual = new JSeparator();
+		separatorAtual.setBounds(bordas);
+		return separatorAtual;
 	}
 	
 	public static Font getFontePadrao(int tamanho){
