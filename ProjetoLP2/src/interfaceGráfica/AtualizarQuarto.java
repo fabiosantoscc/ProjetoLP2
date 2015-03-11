@@ -16,12 +16,6 @@ import javax.swing.JTextField;
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Quarto;
-import classes.servicos.QuartoExecutivoDuplo;
-import classes.servicos.QuartoExecutivoSimples;
-import classes.servicos.QuartoExecutivoTriplo;
-import classes.servicos.QuartoLuxoDuplo;
-import classes.servicos.QuartoLuxoSimples;
-import classes.servicos.QuartoLuxoTriplo;
 import classes.servicos.QuartoPresidencial;
 
 import javax.swing.JLabel;
