@@ -54,8 +54,9 @@ public class MenuPrincipal {
 	private BuscarRemoverServicos buscarRemoverServicos = new BuscarRemoverServicos();
 	private BuscarRestaurante buscarRestauranteAtualizar = new BuscarRestaurante();
 	private TelaSobre telaSobre = new TelaSobre();
-	
-	
+	private ServicosMaisContratados servicosMaisContratados;
+	private FaturamentoMensal faturamento;
+		
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
 	private final JMenuItem mntmNewMenuItem_3 = new JMenuItem("Check in");
@@ -76,6 +77,7 @@ public class MenuPrincipal {
 	private final JMenuItem mntmNewMenuItem_6 = new JMenuItem("Sobre");
 	private final JMenuItem mntmNotaDeAceitao = new JMenuItem("Nota de Aceita\u00E7\u00E3o e Coment\u00E1rios");
 	private final JLabel lblSair = new JLabel("Sair");
+	private final JMenuItem mntmFaturamentoMensal = new JMenuItem("Faturamento Mensal");
 
 	/**
 	 * Create the application.
@@ -242,8 +244,25 @@ public class MenuPrincipal {
 		mnNewMenu_1.add(mntmNotaDeAceitao);
 		
 		JMenuItem mntmServicosMaisContratados = new JMenuItem("Servi\u00E7os mais contratados");
+		mntmServicosMaisContratados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				servicosMaisContratados = new ServicosMaisContratados();
+				panel0.add(servicosMaisContratados, "servicosMaisContratados");
+				cl.show(panel0, "servicosMaisContratados");
+			}
+		});
 		mntmServicosMaisContratados.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/chart_bar.png")));
 		mnNewMenu_1.add(mntmServicosMaisContratados);
+		mntmFaturamentoMensal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				faturamento = new FaturamentoMensal();
+				panel0.add(faturamento, "faturamento");
+				cl.show(panel0, "faturamento");
+			}
+		});
+		mntmFaturamentoMensal.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/money.png")));
+		
+		mnNewMenu_1.add(mntmFaturamentoMensal);
 		lblSair.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/cancel.png")));
 		lblSair.addMouseListener(new MouseAdapter() {
 			@Override
