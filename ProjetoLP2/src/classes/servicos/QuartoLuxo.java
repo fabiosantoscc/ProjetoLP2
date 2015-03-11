@@ -5,11 +5,25 @@ import enums.SubtipoDeQuartoLuxo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
+/**
+ * 
+ * @author Fabio
+ *
+ */
+
 public class QuartoLuxo extends Quarto {
 
   private static final long serialVersionUID = 1L;
   private SubtipoDeQuartoLuxo tipo;
-
+  
+  /**
+  * 
+  * @param quantidadeDePessoas
+  * @param tipo
+  * @throws QuantidadeDePessoasInvalidaException
+  * @throws QuartoEsgotadoNoHotelException
+  */
+  
   public QuartoLuxo(int quantidadeDePessoas, SubtipoDeQuartoLuxo tipo)
       throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoNoHotelException {
     super(quantidadeDePessoas);
@@ -21,7 +35,12 @@ public class QuartoLuxo extends Quarto {
     this.tipo = tipo;
     checaTipoDoQuarto();
   }
-
+  
+  /**
+  * 
+  * @return
+  */
+  
   public SubtipoDeQuartoLuxo getTipo() {
     return tipo;
   }
@@ -52,12 +71,20 @@ public class QuartoLuxo extends Quarto {
     }
   }
   
+  /**
+  * 
+  */
+  
   @Override
   public String toString() {
     return "QuartoLuxo - Tipo = " + getTipo().name().toLowerCase()
 	      + ", Valor da diaria = R$ " + tipo.getValorDiaria() + ", " + super.toString();
   }
 
+  /**
+  * 
+  */
+  
   @Override
   public boolean equals( Object obj ) {
     if ( !(obj instanceof SubtipoDeQuartoLuxo) ) {

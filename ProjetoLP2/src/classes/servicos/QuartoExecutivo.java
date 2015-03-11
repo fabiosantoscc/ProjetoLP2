@@ -5,11 +5,25 @@ import enums.SubtipoDeQuartoExecutivo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
+/**
+ * 
+ * @author Fabio
+ *
+ */
+
 public class QuartoExecutivo extends Quarto {
 
   private static final long serialVersionUID = 1L;
   private SubtipoDeQuartoExecutivo tipo;
 
+  /**
+   * 
+   * @param quantidadeDePessoas
+   * @param tipo
+   * @throws QuantidadeDePessoasInvalidaException
+   * @throws QuartoEsgotadoNoHotelException
+   */
+  
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
       throws QuantidadeDePessoasInvalidaException, QuartoEsgotadoNoHotelException {
     super(quantidadeDePessoas);
@@ -22,6 +36,11 @@ public class QuartoExecutivo extends Quarto {
     checaTipoDoQuarto();
   }
 
+  /**
+   * 
+   * @return
+   */
+  
   public SubtipoDeQuartoExecutivo getTipo() {
     return tipo;
   }
@@ -52,12 +71,20 @@ public class QuartoExecutivo extends Quarto {
     }
   }
   
+  /**
+   * 
+   */
+  
   @Override
   public String toString() {
     return "QuartoExecutivo - Tipo = " + getTipo().name().toLowerCase()
     		+ ", Valor da diaria = " + tipo.getValorDiaria() + ", " + super.toString();
   }
 
+  /**
+   * 
+   */
+  
   @Override
   public boolean equals( Object obj ) {
     if ( !(obj instanceof SubtipoDeQuartoExecutivo) ) {
