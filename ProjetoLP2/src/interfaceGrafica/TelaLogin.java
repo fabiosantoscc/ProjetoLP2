@@ -32,9 +32,7 @@ public class TelaLogin extends JFrame {
 	private JButton btnEntrar, btnSair, btnCadastrar;
 	private JLabel lblLogin, lblSenha, lblLogo, lblUserIcon, lblSenhaIcon;
 	private JTextField loginField;
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -74,7 +72,7 @@ public class TelaLogin extends JFrame {
 		lblSenha = CriaObjetosNaTela.criaLabel("Senha", new Rectangle(144, 302, 70, 23), fontePadrao(18), null, null);
 		contentPane.add(lblSenha);
 		
-		btnEntrar = CriaObjetosNaTela.criaBotao("Entrar", new Rectangle(116, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")), null); 
+		btnEntrar = CriaObjetosNaTela.criaBotao("Entrar", new Rectangle(116, 350, 130, 25), fontePadrao(15), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")), null); 
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -89,7 +87,7 @@ public class TelaLogin extends JFrame {
 		});
 		contentPane.add(btnEntrar);
 		
-		btnCadastrar = CriaObjetosNaTela.criaBotao("Cadastrar", new Rectangle(277, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")), null);
+		btnCadastrar = CriaObjetosNaTela.criaBotao("Cadastrar", new Rectangle(277, 350, 130, 25), fontePadrao(15), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")), null);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( telaAberta == 0) {

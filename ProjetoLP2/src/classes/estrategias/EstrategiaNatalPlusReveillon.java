@@ -1,5 +1,7 @@
 package classes.estrategias;
 
+import java.io.Serializable;
+
 
 /**
   *     Classe que implementa a estrategia principal, retorna o total gasto em um dia multiplicado
@@ -9,9 +11,11 @@ package classes.estrategias;
   *     Atualizado em 01/02/2015 Ravi leite
   */
 
-public class EstrategiaNatalPlusReveillon implements EstrategiaDeCalculoDaMontante {
+public class EstrategiaNatalPlusReveillon implements EstrategiaDeCalculoDaMontante, Serializable {
 
-  /**
+	private static final long serialVersionUID = 1L;
+
+/**
   * Calcula o montante naquele dia e mes, multiplicando o total por um valor
   *  pre-determinado pelo hotel
   */
