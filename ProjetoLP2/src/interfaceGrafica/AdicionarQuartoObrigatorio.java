@@ -6,6 +6,7 @@
 package interfaceGrafica;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -33,25 +34,21 @@ import executar.Run;
 
 public class AdicionarQuartoObrigatorio extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-
-	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
-	ArrayList<Servico> servicos = new ArrayList<Servico>();
+	private JLabel lblAdicionarQuarto, lblTipoQuarto, lblQuantidadeDePessoas;
+	private JSpinner spinnerQuantidadePessoas;
+	private JButton btnAdicionar, btnCriarContrato;
+	private ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
+	private ArrayList<Servico> servicos = new ArrayList<Servico>();
 	private Quarto quartoAtual;
-	String comboSelecionado;
+	private String comboSelecionado;
 	
 	public AdicionarQuartoObrigatorio(Hospede hospedeAtual, int numNoitesAtual) {
 		setLayout(null);
-		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
+		
+		lblAdicionarQuarto = CriaObjetosNaTela.criaLabel("Adicionar Quarto", new Rectangle(22, 30, 219, 27), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblAdicionarQuarto);
 		
-		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
-		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblTipoQuarto.setBounds(65, 202, 146, 25);
+		lblTipoQuarto = CriaObjetosNaTela.criaLabel("Tipo de Quarto", new Rectangle(65, 202, 146, 25), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblTipoQuarto);
 		
 		JComboBox<String> comboTipoQuarto = new JComboBox<String>();
@@ -64,21 +61,15 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 		comboTipoQuarto.setBounds(62, 258, 191, 20);
 		add(comboTipoQuarto);
 		
-		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
-		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDePessoas.setBounds(65, 402, 188, 25);
+		lblQuantidadeDePessoas = CriaObjetosNaTela.criaLabel("Quantidade de Pessoas", new Rectangle(65, 402, 188, 25), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblQuantidadeDePessoas);
 		
-		JSpinner spinnerQuantidadePessoas = new JSpinner();
-		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadePessoas.setBounds(269, 403, 50, 24);
+		spinnerQuantidadePessoas = CriaObjetosNaTela.criaSpinner(new Rectangle(269, 403, 50, 24), CriaObjetosNaTela.getFontePadrao(14));
 		add(spinnerQuantidadePessoas);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnAdicionar = CriaObjetosNaTela.criaBotao("Adicionar", new Rectangle(468, 402, 146, 27), CriaObjetosNaTela.getFontePadrao(12), null, null);
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				switch (comboSelecionado) {
 				case "Presidencial":
 					try {
@@ -178,10 +169,8 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				servicos.add(quartoAtual);
 			}
 		});
-		btnAdicionar.setBounds(468, 402, 137, 27);
 		add(btnAdicionar);
-		
-		JButton btnCriarContrato = new JButton("Criar Contrato");
+		btnCriarContrato = CriaObjetosNaTela.criaBotao("Criar Contrato", new Rectangle(468, 458, 146, 53), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		btnCriarContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -203,8 +192,6 @@ public class AdicionarQuartoObrigatorio extends JPanel {
 				}
 			}
 		});
-		btnCriarContrato.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnCriarContrato.setBounds(468, 458, 146, 53);
 		add(btnCriarContrato);
 		
 		for(int i = 0; i < quartos.size(); i++){

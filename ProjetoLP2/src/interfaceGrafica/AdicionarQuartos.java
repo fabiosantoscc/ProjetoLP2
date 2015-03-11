@@ -13,6 +13,7 @@ import excecoes.QuartoEsgotadoNoHotelException;
 import executar.Run;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -27,25 +28,19 @@ import javax.swing.JSpinner;
 
 public class AdicionarQuartos extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	
-	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
-	private JSpinner spinnerQuantidadeCamas;
+
+	private JLabel lblAdicionarQuarto, lblTipoQuarto, lblQuantidadeDePessoas;
 	private JSpinner spinnerQuantidadePessoas;
+	private JButton btnAdicionar;
+	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
 	
 	public AdicionarQuartos(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
+		lblAdicionarQuarto = CriaObjetosNaTela.criaLabel("Adicionar Quarto", new Rectangle(22, 30, 219, 27), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblAdicionarQuarto);
 		
-		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
-		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblTipoQuarto.setBounds(47, 94, 146, 25);
+		lblTipoQuarto = CriaObjetosNaTela.criaLabel("Tipo de Quarto", new Rectangle(65, 202, 146, 25), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblTipoQuarto);
 		
 		JComboBox<String> comboTipoQuarto = new JComboBox<String>();
@@ -55,34 +50,18 @@ public class AdicionarQuartos extends JPanel {
 			}
 		});
 		
-		comboTipoQuarto.setBounds(50, 156, 173, 20);
+		comboTipoQuarto.setBounds(62, 258, 191, 20);
 		add(comboTipoQuarto);
 		
-		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
-		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDePessoas.setBounds(47, 288, 188, 25);
+		lblQuantidadeDePessoas = CriaObjetosNaTela.criaLabel("Quantidade de Pessoas", new Rectangle(65, 402, 188, 25), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblQuantidadeDePessoas);
 		
-		spinnerQuantidadePessoas = new JSpinner();
-		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadePessoas.setBounds(245, 292, 48, 20);
+		spinnerQuantidadePessoas = CriaObjetosNaTela.criaSpinner(new Rectangle(269, 403, 50, 24), CriaObjetosNaTela.getFontePadrao(14));
 		add(spinnerQuantidadePessoas);
 		
-		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
-		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantidadeDeCamas.setBounds(47, 364, 219, 25);
-		add(lblQuantidadeDeCamas);
-		
-		spinnerQuantidadeCamas = new JSpinner();
-		spinnerQuantidadeCamas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadeCamas.setBounds(268, 369, 48, 20);
-		add(spinnerQuantidadeCamas);
-		
-		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAdicionar = CriaObjetosNaTela.criaBotao("Adicionar Quarto", new Rectangle(482, 439, 125, 36), CriaObjetosNaTela.getFontePadrao(12), null, null);
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				switch ((String) comboTipoQuarto.getSelectedItem()) {
 				case "Presidencial":
 					try {
@@ -196,7 +175,6 @@ public class AdicionarQuartos extends JPanel {
 				}
 			}
 		});
-		btnAdicionar.setBounds(482, 439, 125, 36);
 		add(btnAdicionar);
 		
 		for(int i = 0; i < quartos.size(); i++){

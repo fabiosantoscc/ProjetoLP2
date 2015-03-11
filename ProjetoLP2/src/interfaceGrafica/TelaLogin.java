@@ -89,7 +89,7 @@ public class TelaLogin extends JFrame {
 		});
 		contentPane.add(btnEntrar);
 		
-		btnCadastrar = CriaObjetosNaTela.criaBotao("Entrar", new Rectangle(277, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")), null);
+		btnCadastrar = CriaObjetosNaTela.criaBotao("Cadastrar", new Rectangle(277, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")), null);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( telaAberta == 0) {

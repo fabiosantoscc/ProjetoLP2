@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 import com.sun.org.apache.regexp.internal.recompile;
@@ -62,6 +63,13 @@ public class CriaObjetosNaTela {
 		JSeparator separatorAtual = new JSeparator();
 		separatorAtual.setBounds(bordas);
 		return separatorAtual;
+	}
+	
+	public static JSpinner criaSpinner(Rectangle bordas, Font fonte){
+		JSpinner spinnerAtual = new JSpinner();
+		spinnerAtual.setBounds(bordas);
+		spinnerAtual.setFont(fonte);
+		return spinnerAtual;
 	}
 	
 	public static Font getFontePadrao(int tamanho){
