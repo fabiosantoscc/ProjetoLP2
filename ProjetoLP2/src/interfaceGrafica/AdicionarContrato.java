@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 
 import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
+import excecoes.StringInvalidaException;
 
 import java.util.Calendar;
 
@@ -47,14 +48,10 @@ public class AdicionarContrato extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if ( Integer.parseInt(textField.getText()) == 0 ) {
-						throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
-					}
+					Integer.parseInt(textField.getText());
 					
-					for ( int i = 0; i < textField.getText().length(); i++ ) {
-						if ( !(Character.isDigit(textField.getText().charAt(i))) ) {
-							throw new Exception("A quantidade de noites deve ser um inteiro positivo.");
-						}
+					if ( Integer.parseInt(textField.getText()) == 0 ) {
+						throw new StringInvalidaException();
 					}
 					
 					MenuPrincipal.adcQuartoObrigatorio = new AdicionarQuartoObrigatorio(hospedeAtual, Integer.parseInt(textField.getText()));
@@ -62,7 +59,7 @@ public class AdicionarContrato extends JPanel {
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "21");
 					JOptionPane.showMessageDialog(null, "Para criar um contrato, é necessário adicionar um quarto.");
 				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(null, e1.getMessage());
+					JOptionPane.showMessageDialog(null, "Digite um número de noites válido");
 				}
 			}
 		});

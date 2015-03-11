@@ -1,6 +1,7 @@
 package interfaceGrafica;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,12 +28,9 @@ import executar.Run;
 
 public class ServicosDoHospede extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	
+	private JLabel lblListaDeContratos, lblHospede;
 	private List<Servico> servicosAtuais;
-//	private List<String> nomeServicos = new ArrayList<String>();
+	private List<String> nomeServicos = new ArrayList<String>();
 	private List<String> minhasStrings = new ArrayList<String>();
 	private JList<String> listServicos;
 	private DefaultListModel<String> modeling = new DefaultListModel<String>();
@@ -47,20 +45,11 @@ public class ServicosDoHospede extends JPanel {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		
-		JLabel lblListaDeContratos = new JLabel("Lista de Serviços");
-		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblListaDeContratos.setBounds(44, 49, 184, 31);
+		lblListaDeContratos = CriaObjetosNaTela.criaLabel("Lista de Serviços", new Rectangle(44, 49, 184, 31), CriaObjetosNaTela.getFontePadrao(20), null, null);
 		add(lblListaDeContratos);
 
-		JLabel lblHospede = new JLabel("Hospede:");
-		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(47, 122, 82, 14);
+		lblHospede = CriaObjetosNaTela.criaLabel("Hospede: "+hospedeAtual.getNome(), new Rectangle(47, 122, 501, 14), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblHospede);
-		
-		JLabel lblNomeHospede = new JLabel(hospedeAtual.getNome());
-		lblNomeHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeHospede.setBounds(139, 124, 243, 14);
-		add(lblNomeHospede);
 		
 		JScrollPane scrollPaneServicos = new JScrollPane();
 		scrollPaneServicos.setBounds(44, 241, 606, 223);

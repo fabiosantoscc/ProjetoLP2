@@ -58,6 +58,7 @@ public class BuscarServicos extends JPanel {
 					textCPF.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (Exception e2) {
 				}
 
 			}

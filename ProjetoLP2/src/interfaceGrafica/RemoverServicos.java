@@ -69,13 +69,14 @@ public class RemoverServicos extends JPanel {
 		listServicos = new JList(modeling);
 		scrollPaneServicos.setViewportView(listServicos);
 		
-		
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for ( Servico servico : servicosAtuais ) {
 					if ( ((String) listServicos.getSelectedValue()).equals(servico.toString()) ) {
 						servicosAtuais.remove(servico);
+						scrollPaneServicos.setViewportView(listServicos);
+						JOptionPane.showMessageDialog(null, "Serviço removido");
 						try {
 							Arquivos.salvaHotel(Run.hotel);
 						} catch (Exception e1) {
@@ -90,14 +91,11 @@ public class RemoverServicos extends JPanel {
 		btnRemover.setBounds(320, 458, 162, 40);
 		add(btnRemover);
 		
-		System.out.println(servicosAtuais.size());
-		
 		for (int i = 0; i < servicosAtuais.size(); i++){
 			minhasStrings.add(servicosAtuais.get(i).toString());
 		}
 		
 		for ( String s : minhasStrings) {
-			System.out.println(s);
 			modeling.addElement(s);
 		}
 	}

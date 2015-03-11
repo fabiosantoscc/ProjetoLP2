@@ -62,7 +62,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		});
 		add(boxTanqueCheio);
 		
-		boxSeguro = CriaObjetosNaTela.criaCheckBox("Seguro", new Rectangle(80, 309, 131, 23), CriaObjetosNaTela.getFontePadrao(23), null);
+		boxSeguro = CriaObjetosNaTela.criaCheckBox("Seguro", new Rectangle(80, 309, 131, 23), CriaObjetosNaTela.getFontePadrao(15), null);
 		boxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isSeguro= true;

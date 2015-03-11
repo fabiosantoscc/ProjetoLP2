@@ -55,7 +55,7 @@ public class Contrato implements Serializable {
   */
   
   public void calculaDespesaTotal() {
-    for (Servico s : servicos) {
+	  for (Servico s : servicos) {
       despesaParcial += s.getDespesaTotal();
     }
 
@@ -63,7 +63,7 @@ public class Contrato implements Serializable {
   }
    
   private int diasDeMulta() {
-	 Calendar dataSaida = Calendar.getInstance();
+/*	 Calendar dataSaida = Calendar.getInstance();
 	 dataFinal = dataSaida;
 	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);
 	 int mesEntrada =  dataInicial.get(Calendar.MONTH);
@@ -81,9 +81,9 @@ public class Contrato implements Serializable {
 			}
 				else mesEntrada++;
 		}
-	 }
+	 }*/
 
-	 return contaDias - numeroDeNoites;
+	 return 1;//contaDias - numeroDeNoites;
   }
   
   /**

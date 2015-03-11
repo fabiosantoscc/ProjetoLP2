@@ -69,15 +69,18 @@ public class CheckOut extends JPanel {
 		JButton btnCheckOut = new JButton("Check out");
 		btnCheckOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String informacoes = "AAAAAAA";
 				try{
 					Opiniao novaOpiniao = new Opiniao(textPaneComentarios.getText(), Double.parseDouble(spinnerNota.getValue().toString()));
 					Run.hotel.adicionaOpiniao(novaOpiniao);
-					Run.hotel.getContratoAberto(hospedeAtual).setAberto(false);
+					informacoes = Run.hotel.realizaCheckout(hospedeAtual);
 					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
+					JOptionPane.showMessageDialog(null, informacoes);
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "MenuPadrao");
 					Arquivos.salvaHotel(Run.hotel);
 					}catch(Exception c){
 						JOptionPane.showMessageDialog(null, c.getMessage());
+						System.out.println(c);
 					}
 			}
 		});

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -57,9 +58,13 @@ public class ContratosDoHospede extends JPanel {
 		btnVisualizarServios.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVisualizarServios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuPrincipal.servicosDoHospede = new ServicosDoHospede(hospedeAtual);
-				MenuPrincipal.panel0.add(MenuPrincipal.servicosDoHospede, "22");
-				MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
+				try{
+					MenuPrincipal.servicosDoHospede = new ServicosDoHospede(hospedeAtual);
+					MenuPrincipal.panel0.add(MenuPrincipal.servicosDoHospede, "22");
+					MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
+				}catch(Exception e){
+					e.getMessage();
+				}
 			}
 		});
 		btnVisualizarServios.setBounds(454, 416, 141, 31);

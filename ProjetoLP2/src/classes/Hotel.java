@@ -177,23 +177,28 @@ public class Hotel implements Serializable {
 	 * 
 	 * @param hospede - Hospede do qual vai se fazer o checkout.
 	 * @throws Exception
+	 * @return Relatório com todas as informações do referente contrato
 	 */
 	
-	public void realizaCheckout( Hospede hospede ) throws Exception {
+	public String realizaCheckout( Hospede hospede ) throws Exception {
 		List<Contrato> contratos =  hospedes.get(hospede);
+		Contrato contratoAberto = null;
 		boolean existeContratoAberto = false;
 		
 		for ( Contrato contrato : contratos ) {
 			if ( contrato.isAberto() == true ) {
+				contratoAberto = contrato;
 				contrato.setAberto(false);
 				existeContratoAberto = true;
 				contrato.calculaDespesaTotal();
 			}
 		}
-		
 		if ( !(existeContratoAberto) ) {
 			throw new Exception("Não existe nenhum contrato aberto, impossivel remover contrato");
 		}
+		return contratoAberto.toString();
+		
+		
 	}
 	
 	/**
