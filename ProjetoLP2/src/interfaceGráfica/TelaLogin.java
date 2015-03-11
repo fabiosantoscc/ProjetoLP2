@@ -1,6 +1,7 @@
 package interfaceGráfica;
 
 import java.awt.EventQueue;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -61,24 +62,16 @@ public class TelaLogin extends JFrame {
 		passwordField.setBounds(229, 300, 178, 25);
 		contentPane.add(passwordField);
 		
-		JFormattedTextField loginField = new JFormattedTextField();
-		loginField.setToolTipText("Digite o nome do usuário para entrar no sistema.");
-		loginField.setBounds(229, 265, 178, 25);
+		JFormattedTextField loginField = CriaObjetosNaTela.criaTextField(null, new Rectangle(229, 265, 178, 25), fontePadrao(18), true,"Digite o nome do usuário para entrar no sistema.");
 		contentPane.add(loginField);
 		
-		JLabel lblLogin = new JLabel("Login");
-		
-		lblLogin.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblLogin.setBounds(144, 265, 75, 25);
+		JLabel lblLogin = CriaObjetosNaTela.criaLabel("Login",new Rectangle(144, 265, 75, 25) , fontePadrao(18), null);
 		contentPane.add(lblLogin);
 		
-		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setFont(new Font("Liberation Sans Narrow", Font.BOLD, 18));
-		lblSenha.setBounds(144, 302, 70, 23);
+		JLabel lblSenha = CriaObjetosNaTela.criaLabel("Senha", new Rectangle(144, 302, 70, 23), fontePadrao(18), null);
 		contentPane.add(lblSenha);
 		
-		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png")));
+		JButton btnEntrar = CriaObjetosNaTela.criaBotao("Entrar", new Rectangle(116, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_open.png"))); 
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -91,11 +84,9 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		btnEntrar.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnEntrar.setBounds(116, 350, 130, 25);
 		contentPane.add(btnEntrar);
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
+		JButton btnCadastrar = CriaObjetosNaTela.criaBotao("Entrar", new Rectangle(277, 350, 130, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( telaAberta == 0) {
@@ -104,35 +95,23 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
-		btnCadastrar.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")));
-		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnCadastrar.setBounds(277, 350, 130, 25);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnSair = new JButton("Sair");
+		JButton btnSair = CriaObjetosNaTela.criaBotao("Sair", new Rectangle(219, 389, 89, 23), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/cancel.png")));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		btnSair.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/cancel.png")));
-		btnSair.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnSair.setBounds(219, 389, 89, 23);
 		contentPane.add(btnSair);
 		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
-		lblLogo.setBounds(172, 25, 192, 179);
+		JLabel lblLogo = CriaObjetosNaTela.criaLabel("", new Rectangle(172, 25, 192, 179), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")));
 		contentPane.add(lblLogo);
 		
-		JLabel lblUserIcon = new JLabel("");
-		lblUserIcon.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));
-		lblUserIcon.setBounds(116, 300, 36, 25);
+		JLabel lblUserIcon = CriaObjetosNaTela.criaLabel("", new Rectangle(116, 300, 36, 25), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/key.png")));
 		contentPane.add(lblUserIcon);
 		
-		JLabel lblSenhaIcon = new JLabel("");
-		lblSenhaIcon.setIcon(new ImageIcon(TelaLogin.class.getResource("/Icons/status_online.png")));
-		lblSenhaIcon.setBounds(116, 265, 36, 25);
+		JLabel lblSenhaIcon = CriaObjetosNaTela.criaLabel("", new Rectangle(116, 265, 36, 25), fontePadrao(18),new ImageIcon(TelaLogin.class.getResource("/Icons/status_online.png")));
 		contentPane.add(lblSenhaIcon);
 	}
 	
@@ -140,5 +119,9 @@ public class TelaLogin extends JFrame {
 		if (!(passwordField.getText().equals(senhaComparada))){
 			throw new Exception("Senha incorreta!");
 		}
+	}
+	
+	private Font fontePadrao(int tamanho){
+		return new Font("Liberation Sans Narrow", Font.BOLD, tamanho);
 	}
 }
