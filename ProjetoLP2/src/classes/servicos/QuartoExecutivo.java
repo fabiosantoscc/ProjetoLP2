@@ -50,7 +50,8 @@ public class QuartoExecutivo extends Quarto {
       if ( Hotel.getQuartoExecutivoSimples() == 0 ) {
         throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
       }
-
+      int cont = Hotel.getMapaDeQuartos().get("Quarto Executivo Simples");
+      Hotel.getMapaDeQuartos().put("Quarto Executivo Simples", cont++);
       Hotel.setQuartoExecutivoSimples(Hotel.getQuartoExecutivoSimples() - 1);
     }
 
@@ -58,7 +59,8 @@ public class QuartoExecutivo extends Quarto {
       if ( Hotel.getQuartoExecutivoDuplo() == 0 ) {
         throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
       }
-
+      int cont = Hotel.getMapaDeQuartos().get("Quarto Executivo Duplo");
+      Hotel.getMapaDeQuartos().put("Quarto Executivo Duplo", cont++);
       Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() - 1);
     }
 
@@ -66,7 +68,8 @@ public class QuartoExecutivo extends Quarto {
       if ( Hotel.getQuartoExecutivoTriplo() == 0 ) {
         throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
       }
-
+      int cont = Hotel.getMapaDeQuartos().get("Quarto Executivo Triplo");
+      Hotel.getMapaDeQuartos().put("Quarto Executivo Triplo", cont++);
       Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() - 1);
     }
   }

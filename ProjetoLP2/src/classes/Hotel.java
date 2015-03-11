@@ -36,6 +36,7 @@ public class Hotel implements Serializable {
 	public static int maisRestaurante = 0;
 	public static int maisBaby = 0;
 	public static int maisAluguel = 0;
+	private static HashMap<String, Integer> quartosUsados = new HashMap<String, Integer>();
 	private double notaDeAceitacao = 0;
 	private double lucroTotal;
 	
@@ -56,6 +57,7 @@ public class Hotel implements Serializable {
 		
 		this.pin = pin;
 		dataDeInicio = Calendar.getInstance();
+		iniciaMapaDeQuartos();
 	}
 	
 	public String getPin() {
@@ -64,6 +66,32 @@ public class Hotel implements Serializable {
 	
 	public List<Cadastro> getCadastros() {
 		return cadastros;
+	}
+	
+	public static HashMap<String, Integer> getMapaDeQuartos(){
+		return quartosUsados;
+	}
+	
+	private void iniciaMapaDeQuartos(){
+		quartosUsados.put("Quarto Presidencial", 0);
+		quartosUsados.put("Quarto Executivo Simples", 0);
+		quartosUsados.put("Quarto Executivo Duplo", 0);
+		quartosUsados.put("Quarto Executivo Triplo", 0);
+		quartosUsados.put("Quarto Luxo Simples", 0);
+		quartosUsados.put("Quarto Luxo Duplo", 0);
+		quartosUsados.put("Quarto Luxo Triplo", 0);
+	}
+	
+	public String verificaQuartoMaisAlugado(){
+		int maximo = 0;
+		String quartoMaisUsado = "";
+		for (String tipo : quartosUsados.keySet()){
+			if (quartosUsados.get(tipo) >= maximo){
+				maximo = quartosUsados.get(tipo);
+				quartoMaisUsado = tipo;
+			}
+		}
+		return "Quarto mais usado: "+ quartoMaisUsado +". Quantidade de vezes: "+maximo;
 	}
 	
 	/**

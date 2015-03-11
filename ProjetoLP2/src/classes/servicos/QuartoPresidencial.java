@@ -36,7 +36,8 @@ public class QuartoPresidencial extends Quarto {
 		if ( Hotel.getQuartoPresidencial() == 0 ) {
 			throw new QuartoEsgotadoNoHotelException("Nao ha mais quartos livres");
 		}
-		
+		int cont = Hotel.getMapaDeQuartos().get("Quarto Presidencial");
+	    Hotel.getMapaDeQuartos().put("Quarto  Presidencial", cont++);
 		Hotel.setQuartoPresidencial(Hotel.getQuartoPresidencial() - 1);
 	}
 	
