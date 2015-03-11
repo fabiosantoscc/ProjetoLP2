@@ -79,10 +79,6 @@ public class MenuPrincipal {
 	private final JLabel lblSair = new JLabel("Sair");
 	private final JMenuItem mntmFaturamentoMensal = new JMenuItem("Faturamento Mensal");
 
-	/**
-	 * Create the application.
-	 */
-	
 	public MenuPrincipal() {
 		initialize();
 		panel0.setLayout(cl);
