@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -22,36 +23,27 @@ public class AdicionarContrato extends JPanel {
 	private JTextField textField;
 	private Contrato contratoAtual;
 	private static Calendar calendario; 
-
-	/**
-	 * Create the panel.
-	 */
-	
+	private JLabel lblNovoContrato, lblHospede, lblNumeroDeNoites;
+	private JButton btnNewButton;
+		
 	public AdicionarContrato(Hospede hospedeAtual) {
 		
 		setLayout(null);
 		
-		JLabel lblNovoContrato = new JLabel("Novo Contrato");
-		lblNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNovoContrato.setBounds(35, 11, 252, 38);
+		lblNovoContrato = CriaObjetosNaTela.criaLabel("Novo Contrato", new Rectangle(35, 11, 252, 38), CriaObjetosNaTela.getFontePadrao(24), null,null);
 		add(lblNovoContrato);
 		
-		JLabel lblHospede = new JLabel("Hospede: "+hospedeAtual.getNome());
-		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(55, 78, 554, 23);
+		lblHospede = CriaObjetosNaTela.criaLabel("Hospede: "+hospedeAtual.getNome(), new Rectangle(55, 78, 554, 23), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblHospede);
 		
-		JLabel lblNumeroDeNoites = new JLabel("Numero de Noites");
-		lblNumeroDeNoites.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNumeroDeNoites.setBounds(55, 152, 135, 17);
+		lblNumeroDeNoites = CriaObjetosNaTela.criaLabel("Numero de Noites", new Rectangle(55, 152, 135, 17), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblNumeroDeNoites);
 		
-		textField = new JTextField();
-		textField.setBounds(200, 152, 56, 18);
+		textField = CriaObjetosNaTela.criaTextField(null, new Rectangle(200, 152, 56, 18), CriaObjetosNaTela.getFontePadrao(14), true, null);
 		add(textField);
-		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Prosseguir");
+		
+		btnNewButton = CriaObjetosNaTela.criaBotao("Prosseguir", new Rectangle(483, 396, 135, 38),CriaObjetosNaTela.getFontePadrao(15), null, null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -74,8 +66,6 @@ public class AdicionarContrato extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(483, 396, 135, 38);
 		add(btnNewButton);
 	}
 }

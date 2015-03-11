@@ -38,6 +38,7 @@ public class CriaObjetosNaTela {
 		textAtual.setToolTipText(mensagemOpcional);
 		textAtual.setBounds(bordas);
 		textAtual.setEditable(editavel);
+		textAtual.setColumns(10);
 		return textAtual;
 	}
 	
