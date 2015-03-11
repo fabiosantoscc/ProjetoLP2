@@ -1,6 +1,6 @@
 package executar;
 
-import interfaceGráfica.TelaLogin;
+import interfaceGrafica.TelaLogin;
 
 import javax.swing.JOptionPane;
 
