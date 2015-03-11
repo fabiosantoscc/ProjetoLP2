@@ -248,6 +248,7 @@ public class MenuPrincipal {
 		lblSair.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				cl.show(panel0, "DefaultMenu");
 				TelaLogin t = new TelaLogin();
 				frame.dispose();
 				t.setVisible(true);
@@ -270,6 +271,7 @@ public class MenuPrincipal {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
 		frame.getContentPane().add(panel0);
 		frame.setBounds(100, 100, 781, 601);

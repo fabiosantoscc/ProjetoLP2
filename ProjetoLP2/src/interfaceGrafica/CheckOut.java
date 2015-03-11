@@ -20,6 +20,8 @@ import executar.Run;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class CheckOut extends JPanel {
 	private JTextField textNotaAceitacao;
@@ -42,10 +44,10 @@ public class CheckOut extends JPanel {
 		lblNotaDeAceitao.setBounds(37, 154, 173, 50);
 		add(lblNotaDeAceitao);
 		
-		textNotaAceitacao = new JTextField();
-		textNotaAceitacao.setBounds(186, 171, 80, 20);
-		add(textNotaAceitacao);
-		textNotaAceitacao.setColumns(10);
+//		textNotaAceitacao = new JTextField();
+//		textNotaAceitacao.setBounds(186, 171, 80, 20);
+//		add(textNotaAceitacao);
+//		textNotaAceitacao.setColumns(10);
 		
 		JLabel lblComentario = new JLabel("Coment\u00E1rio:");
 		lblComentario.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -59,11 +61,16 @@ public class CheckOut extends JPanel {
 		JTextPane textPaneComentarios = new JTextPane();
 		scrollPaneComentarios.setViewportView(textPaneComentarios);
 		
+		JSpinner spinnerNota = new JSpinner();
+		spinnerNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
+		spinnerNota.setBounds(192, 171, 41, 20);
+		add(spinnerNota);
+		
 		JButton btnCheckOut = new JButton("Check out");
 		btnCheckOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-					Opiniao novaOpiniao = new Opiniao(textPaneComentarios.getText(), Double.parseDouble(textNotaAceitacao.getText()));
+					Opiniao novaOpiniao = new Opiniao(textPaneComentarios.getText(), Double.parseDouble(spinnerNota.getValue().toString()));
 					Run.hotel.adicionaOpiniao(novaOpiniao);
 					Run.hotel.getContratoAberto(hospedeAtual).setAberto(false);
 					JOptionPane.showMessageDialog(null, "Contrato fechado com Sucesso");
