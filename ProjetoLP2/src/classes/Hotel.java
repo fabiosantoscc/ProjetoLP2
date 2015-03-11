@@ -81,22 +81,23 @@ public class Hotel implements Serializable {
 		cadastros.add(funcionario);
 	}
 	
-	public void checaLucroMensal(){
-		int mesInicio = Calendar.MONTH;
-		int anoInicio = Calendar.YEAR;
+	public void checaLucroMensal() {
+		int mesInicio = dataDeInicio.get(Calendar.MONTH) + 1;
+		int anoInicio = dataDeInicio.get(Calendar.YEAR);
 		Calendar dataAtual = Calendar.getInstance();
 		double totalMensal = 0;
-		while (mesInicio <= dataAtual.MONTH && anoInicio <= dataAtual.YEAR){
+		while (mesInicio <= (dataAtual.get(Calendar.MONTH) + 1) && anoInicio <= dataAtual.get(Calendar.YEAR)) {
 			
-			for (Hospede h : hospedes.keySet()){
+			for (Hospede h : hospedes.keySet()) {
 				for (Contrato contrato : hospedes.get(h)){
-					if (contrato.getCalendar().MONTH == mesInicio && 
-							contrato.getCalendar().YEAR == anoInicio) totalMensal += contrato.getValorAPagar();
+					if ((contrato.getCalendar().get(Calendar.MONTH) + 1) == mesInicio && 
+							contrato.getCalendar().get(Calendar.YEAR) == anoInicio) totalMensal += contrato.getValorAPagar();
 				}
 			}
+			
 			datasLucro.add("Mes: " + mesInicio + "Ano: " + anoInicio);
 			valorDosMeses.add(totalMensal);
-			if(mesInicio == 12){
+			if(mesInicio == 12) {
 				mesInicio = 1;
 				anoInicio++;
 			}
