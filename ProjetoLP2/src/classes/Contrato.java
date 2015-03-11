@@ -28,7 +28,8 @@ public class Contrato implements Serializable {
   private int numeroDeNoites;
   private Calendar dataInicial;
   private CalendarioDeEstrategias calendario;
-
+  private Calendar dataFinal;
+  
   /**
    * Construtor de um Contrato.
    * 
@@ -63,6 +64,7 @@ public class Contrato implements Serializable {
    
   private int diasDeMulta() {
 	 Calendar dataSaida = Calendar.getInstance();
+	 dataFinal = dataSaida;
 	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);
 	 int mesEntrada =  dataInicial.get(Calendar.MONTH);
 	 int anoEntrada = dataInicial.get(Calendar.YEAR);
@@ -87,6 +89,10 @@ public class Contrato implements Serializable {
   /**
    * Calcula valor da multa se houver atraso
    */
+  
+  public Calendar getCalendar(){
+	  return dataFinal;
+  }
   
   private double calculaMulta() {
     return (0.025 * despesaParcial) * diasDeMulta();

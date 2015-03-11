@@ -37,7 +37,10 @@ public class Hotel implements Serializable {
 	public static int maisBaby = 0;
 	public static int maisAluguel = 0;
 	private double notaDeAceitacao = 0;
+	private double lucroTotal;
 	
+	private List<String> datasLucro = new ArrayList<String>();
+	private List<Double> valorDosMeses = new ArrayList<Double>();
 	private List<Cadastro> cadastros = new ArrayList<Cadastro>();
 	
 	// map com um hospede como chave, e um List<Contrato> como valor para guardar todos os contratos do hospede.
@@ -78,12 +81,49 @@ public class Hotel implements Serializable {
 		cadastros.add(funcionario);
 	}
 	
+	public void checaLucroMensal(){
+		int mesInicio = Calendar.MONTH;
+		int anoInicio = Calendar.YEAR;
+		Calendar dataAtual = Calendar.getInstance();
+		double totalMensal = 0;
+		while (mesInicio <= dataAtual.MONTH && anoInicio <= dataAtual.YEAR){
+			
+			for (Hospede h : hospedes.keySet()){
+				for (Contrato contrato : hospedes.get(h)){
+					if (contrato.getCalendar().MONTH == mesInicio && 
+							contrato.getCalendar().YEAR == anoInicio) totalMensal += contrato.getValorAPagar();
+				}
+			}
+			datasLucro.add("Mes: " + mesInicio + "Ano: " + anoInicio);
+			valorDosMeses.add(totalMensal);
+			if(mesInicio == 12){
+				mesInicio = 1;
+				anoInicio++;
+			}
+			else mesInicio++;
+			lucroTotal += totalMensal;
+			totalMensal = 0;
+		}
+	}
+	
+	public double calculaRendimentoMedioMensal(){
+		return lucroTotal / valorDosMeses.size();
+	}
+	
 	private void verificaCadastroExistente(String login) throws Exception{
 		for (Cadastro cadastro : cadastros){
 			if (cadastro.getNomeLogin().equals(login)){
 				throw new Exception("Usuário já existente, altere o login!");
 			}
 		}	
+	}
+	
+	public List<String> getListaDeMeses(){
+		return datasLucro;
+	}
+	
+	public List<Double> getLucroMensal(){
+		return valorDosMeses;
 	}
 	
 	/**
@@ -104,7 +144,7 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
-	 * Realiza o checkout de um método, ou seja, deixa ele como fechado.
+	 * Realiza o checkout de um contrato, ou seja, deixa ele como fechado.
 	 * 
 	 * @param hospede - Hospede do qual vai se fazer o checkout.
 	 * @throws Exception
@@ -118,6 +158,7 @@ public class Hotel implements Serializable {
 			if ( contrato.isAberto() == true ) {
 				contrato.setAberto(false);
 				existeContratoAberto = true;
+				contrato.calculaDespesaTotal();
 			}
 		}
 		
