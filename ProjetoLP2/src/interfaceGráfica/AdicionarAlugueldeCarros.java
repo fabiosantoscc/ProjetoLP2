@@ -20,6 +20,7 @@ import enums.ModelosDoCarro;
 import executar.Run;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 public class AdicionarAlugueldeCarros extends JPanel {
 
@@ -33,12 +34,10 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		
 		setLayout(null);
 		
-		JLabel lblAlugarVeiculo = new JLabel("Alugar Ve\u00EDculo");
-		lblAlugarVeiculo.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		lblAlugarVeiculo.setBounds(38, 43, 227, 46);
+		JLabel lblAlugarVeiculo = CriaObjetosNaTela.criaLabel("Alugar Ve\u00EDculo", new Rectangle(38, 43, 227, 46), fontePadrao(23), null, null);
 		add(lblAlugarVeiculo);
 		
-		JComboBox comboModelosDeCarro = new JComboBox();
+		JComboBox comboModelosDeCarro = CriaObjetosNaTela.criaComboBox(new Rectangle(80, 230, 161, 20), fontePadrao(14));
 		comboModelosDeCarro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboModelosDeCarro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -46,37 +45,26 @@ public class AdicionarAlugueldeCarros extends JPanel {
 			}
 		});
 		comboModelosDeCarro.setModel(new DefaultComboBoxModel(new String[] {""+ModelosDoCarro.EXECUTIVO, ""+ModelosDoCarro.LUXO}));
-		comboModelosDeCarro.setBounds(80, 230, 161, 20);
 		add(comboModelosDeCarro);
 		
-		JLabel lblModeloDoCarro = new JLabel("Modelo do Carro");
-		lblModeloDoCarro.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblModeloDoCarro.setBounds(59, 196, 152, 20);
+		JLabel lblModeloDoCarro = CriaObjetosNaTela.criaLabel("Modelo do Carro", new Rectangle(59, 196, 152, 20), fontePadrao(16), null, null);
 		add(lblModeloDoCarro);
 		
-		JLabel lblHospede = new JLabel("Hospede: ");
-		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(59, 119, 93, 23);
+		JLabel lblHospede = CriaObjetosNaTela.criaLabel("Hospede: ", new Rectangle(59, 119, 93, 23), fontePadrao(16), null, null);
 		add(lblHospede);
 		
-		JLabel lblnomeDohospede = new JLabel(hospedeAtual.getNome());
-		lblnomeDohospede.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblnomeDohospede.setBounds(130, 119, 440, 23);
+		JLabel lblnomeDohospede = CriaObjetosNaTela.criaLabel(hospedeAtual.getNome(), new Rectangle(130, 119, 440, 23), fontePadrao(17), null, null);
 		add(lblnomeDohospede);
 		
-		JCheckBox boxTanqueCheio = new JCheckBox("Tanque Cheio");
-		boxTanqueCheio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JCheckBox boxTanqueCheio = CriaObjetosNaTela.criaCheckBox("Tanque Cheio", new Rectangle(80, 278, 131, 23), fontePadrao(15), null);
 		boxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isTanqueCheio = true;
 			}
 		});
-		boxTanqueCheio.setBounds(80, 278, 131, 23);
 		add(boxTanqueCheio);
 		
-		JCheckBox boxSeguro = new JCheckBox("Seguro");
-		boxSeguro.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		boxSeguro.setBounds(80, 309, 131, 23);
+		JCheckBox boxSeguro = CriaObjetosNaTela.criaCheckBox("Seguro", new Rectangle(80, 309, 131, 23), fontePadrao(23), null);
 		boxTanqueCheio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isSeguro= true;
@@ -84,7 +72,7 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		});
 		add(boxSeguro);
 		
-		JButton btnAdicionarServico = new JButton("Adicionar Servi\u00E7o");
+		JButton btnAdicionarServico = CriaObjetosNaTela.criaBotao("Adicionar Servi\u00E7o", new Rectangle(409, 389, 180, 46), fontePadrao(17), null, null);
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -98,8 +86,10 @@ public class AdicionarAlugueldeCarros extends JPanel {
 				}
 			}
 		});
-		btnAdicionarServico.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnAdicionarServico.setBounds(409, 389, 180, 46);
 		add(btnAdicionarServico);
+	}
+	
+	private Font fontePadrao(int tamanho){
+		return new Font("Tahoma", Font.PLAIN, tamanho);
 	}
 }
