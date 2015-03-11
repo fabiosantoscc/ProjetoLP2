@@ -1,30 +1,25 @@
 package interfaceGrafica;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.swing.JPanel;
-
+import classes.Arquivos;
 import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
+import classes.servicos.Servico;
 import executar.Run;
 
-import java.awt.Font;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.swing.JPanel;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ContratosDoHospede extends JPanel {
 
@@ -32,10 +27,16 @@ public class ContratosDoHospede extends JPanel {
 	 * Create the panel.
 	 */
 	
+	List<Servico> contratosAtuais;
+	List<String> nomeServicos = new ArrayList<String>();
+	List<String> minhasStrings = new ArrayList<String>();
+	JList listContratos;
+	private DefaultListModel modeling = new DefaultListModel();
+
+	
 	public ContratosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
-		ArrayList<java.util.List<Contrato>> contratosAtuais = new ArrayList<>(Arrays.asList(Run.hotel.pesquisarContratos(hospedeAtual)));
-		DefaultListModel modeling = new DefaultListModel();
+		List<Contrato> contratosAtuais = Run.hotel.pesquisarContratos(hospedeAtual);
 		
 		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");
 		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -61,17 +62,22 @@ public class ContratosDoHospede extends JPanel {
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
 			}
 		});
-		btnVisualizarServios.setBounds(512, 417, 141, 31);
+		btnVisualizarServios.setBounds(454, 416, 141, 31);
 		add(btnVisualizarServios);
 		
 		JScrollPane scrollPaneContratos = new JScrollPane();
 		scrollPaneContratos.setBounds(44, 185, 551, 201);
 		add(scrollPaneContratos);
 		
-		JList listContratos = new JList<>(modeling);
+		listContratos = new JList<>(modeling);
 		scrollPaneContratos.setViewportView(listContratos);
-		for ( int i = 0; i < contratosAtuais.size(); i++) {
-			modeling.addElement(contratosAtuais.get(i).toString());
+		
+		for (int i = 0; i < contratosAtuais.size(); i++){
+			minhasStrings.add(contratosAtuais.get(i).toString());
+		}
+		
+		for ( String contrato : minhasStrings) {
+			modeling.addElement(contrato);
 		}
 	}
 }
