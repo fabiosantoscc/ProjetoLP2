@@ -1,25 +1,23 @@
 package interfaceGrafica;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
-import java.awt.Font;
 import java.awt.Color;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 import classes.Arquivos;
 import classes.Cadastro;
+import excecoes.StringInvalidaException;
 import executar.Run;
 
 public class TelaCadastro extends JFrame {
@@ -58,6 +56,7 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(lblNome);
 		
 		textNome = new JTextField();
+		textNome.setToolTipText("Nome do Funcion\u00E1rio");
 		textNome.setBounds(109, 100, 195, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
@@ -73,10 +72,12 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(lblRepetirSenha);
 		
 		passwordField = new JPasswordField();
+		passwordField.setToolTipText("Senha");
 		passwordField.setBounds(109, 163, 195, 20);
 		contentPane.add(passwordField);
 		
 		ConfirmPasswordField = new JPasswordField();
+		ConfirmPasswordField.setToolTipText("Confirmacao de senha");
 		ConfirmPasswordField.setBounds(157, 194, 147, 20);
 		contentPane.add(ConfirmPasswordField);
 		
@@ -86,6 +87,7 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(lblLogin);
 		
 		textLogin = new JTextField();
+		textLogin.setToolTipText("Nome de login");
 		textLogin.setColumns(10);
 		textLogin.setBounds(109, 133, 195, 20);
 		contentPane.add(textLogin);
@@ -96,11 +98,13 @@ public class TelaCadastro extends JFrame {
 		contentPane.add(lblPIN);
 		
 		textPIN = new JTextField();
+		textPIN.setToolTipText("Pin do gerente");
 		textPIN.setColumns(10);
 		textPIN.setBounds(109, 227, 58, 20);
 		contentPane.add(textPIN);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setToolTipText("Cancelar cadastramento.");
 		btnCancelar.setIcon(new ImageIcon(TelaCadastro.class.getResource("/Icons/cancel.png")));
 		btnCancelar.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnCancelar.addActionListener(new ActionListener() {
@@ -111,17 +115,22 @@ public class TelaCadastro extends JFrame {
 				TelaCadastro.this.dispose();
 			}
 		});
-		btnCancelar.setBounds(233, 290, 107, 23);
+		btnCancelar.setBounds(233, 290, 118, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setToolTipText("Cadastrar funcion\u00E1rio.");
 		btnCadastrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				Cadastro c = null;
 				try {
 					c = new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText());
-					Run.hotel.adicionarCadastro(c, Run.hotel.getPin());
+					if ( !(passwordField.getText().equals(ConfirmPasswordField.getText())) ) {
+						throw new StringInvalidaException("Senhas nao coincidem.");
+					}
+					
+					Run.hotel.adicionarCadastro(c, textPIN.getText());
 					textNome.setText("");
 					passwordField.setText("");
 					ConfirmPasswordField.setText("");
@@ -136,7 +145,7 @@ public class TelaCadastro extends JFrame {
 		
 		btnCadastrar.setIcon(new ImageIcon(TelaCadastro.class.getResource("/Icons/accept.png")));
 		btnCadastrar.setFont(new Font("Dialog", Font.BOLD, 11));
-		btnCadastrar.setBounds(109, 290, 107, 23);
+		btnCadastrar.setBounds(98, 290, 118, 23);
 		contentPane.add(btnCadastrar);
 	}
 	

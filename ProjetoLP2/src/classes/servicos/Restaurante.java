@@ -6,7 +6,7 @@ import java.util.Calendar;
 import classes.Hotel;
 import classes.estrategias.CalendarioDeEstrategias;
 import classes.estrategias.EstrategiaDeCalculoDaMontante;
-import classes.testes.UnidadesDoRestaurante;
+import enums.UnidadesDoRestaurante;
 import excecoes.NumberInvalidException;
 
 /**

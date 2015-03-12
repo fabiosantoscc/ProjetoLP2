@@ -14,7 +14,7 @@ import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Restaurante;
 import classes.servicos.Servico;
-import classes.testes.UnidadesDoRestaurante;
+import enums.UnidadesDoRestaurante;
 import excecoes.ContratoAbertoException;
 import executar.Run;
 

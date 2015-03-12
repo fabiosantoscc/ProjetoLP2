@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 import classes.dadosDoHospede.Hospede;
+import classes.servicos.AluguelDeCarros;
+import classes.servicos.BabySitter;
+import classes.servicos.Restaurante;
 import classes.servicos.Servico;
 import excecoes.ContratoAbertoException;
 import excecoes.HospedeInvalidoException;
@@ -33,9 +36,9 @@ public class Hotel implements Serializable {
 	private static int quartoLuxoSimples = 5;
 	private static int quartoLuxoDuplo = 15;
 	private static int quartoLuxoTriplo = 20;
-	public static int maisRestaurante = 0;
-	public static int maisBaby = 0;
-	public static int maisAluguel = 0;
+	private int maisRestaurante = 0;
+	private int maisBaby = 0;
+	private int maisAluguel = 0;
 	private static HashMap<String, Integer> quartosUsados = new HashMap<String, Integer>();
 	private double notaDeAceitacao = 0;
 	private double lucroTotal;
@@ -256,7 +259,14 @@ public class Hotel implements Serializable {
 		
 		return h;
 	}
-	
+
+	public HashMap<String, Integer> ServicosContratados(){
+		HashMap<String, Integer> servicos = new HashMap<String, Integer>();
+		servicos.put("Aluguel de Veiculos", maisAluguel);
+		servicos.put("Restaurante", maisRestaurante);
+		servicos.put("Baby Sitter", maisBaby);
+		return servicos;
+	}
 	/**
 	 * Metodo que verifica o servico mais solicitado ate o momento no hotel
 	 * @return Uma string com o servico mais solicitado e a quantidade de vezes que foi solicitado
@@ -323,6 +333,13 @@ public class Hotel implements Serializable {
 		List<Contrato> contratos = this.hospedes.get(esseHospede);
 		for ( Contrato c : contratos ) {
 			if ( c.isAberto() ) {
+				if (umServico instanceof Restaurante){
+					maisRestaurante++;
+				}else if(umServico instanceof AluguelDeCarros){
+					maisAluguel++;
+				}else if(umServico instanceof BabySitter){
+					maisBaby++;
+				}
 				c.adicionaServico(umServico);
 				isContratoAberto = true;
 			}

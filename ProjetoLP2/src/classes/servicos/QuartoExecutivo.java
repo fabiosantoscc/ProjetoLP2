@@ -75,6 +75,15 @@ public class QuartoExecutivo extends Quarto implements Serializable {
     }
   }
   
+  
+  @Override
+  public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
+	  if ( pessoas > 3 ) {
+		  throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas invalida.");
+	  }
+	  super.setQuantidadeDePessoas(pessoas);
+  }
+  
   /**
    * 
    */
