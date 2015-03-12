@@ -20,7 +20,7 @@ import java.util.Calendar;
  */
   
 public class BabySitter implements Servico, Serializable {
-	
+	 
 	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;

@@ -18,7 +18,7 @@ import excecoes.NumberInvalidException;
 
 
 public class Restaurante implements Servico, Serializable {
-	
+	 
 	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
 	private EstrategiaDeCalculoDaMontante estrategia;
