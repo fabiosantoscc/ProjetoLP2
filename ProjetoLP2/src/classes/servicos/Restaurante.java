@@ -41,6 +41,7 @@ public class Restaurante implements Servico, Serializable {
 		calendario = new CalendarioDeEstrategias();
 		data = Calendar.getInstance();
 		this.unidadeRestaurante = tipo;
+		//Esse metodo eh chamado no construtor como baby sitter, pois eh adicionado ao custo no momento do contrato do servico
 		calculaDespesaTotal();
 	}
 	
@@ -61,6 +62,7 @@ public class Restaurante implements Servico, Serializable {
 	 */
 	
 	public void calculaDespesaTotal(){
+		//Como nos outros servicos ele primeiro verifica a estrategia para depois adiciona-lo ao consumo da refeicao
 		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
 		consumoRefeicao = estrategia.calculaMontante(valorConsumido);
 	}
