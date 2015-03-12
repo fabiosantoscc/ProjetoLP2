@@ -46,6 +46,7 @@ public class BabySitter implements Servico, Serializable {
 		this.quantidadeHoras = quantidadeHoras;
 		quantidadeHorasDobradas = 0;
 		despesaTotal = 0;
+		//Esse metodo eh chamado no contrutor, pois a despesa total eh calculada ja no momento em que o servico eh contratado
 		calculaDespesaTotal();
 	}
 	
@@ -82,8 +83,11 @@ public class BabySitter implements Servico, Serializable {
 	 */
 	
 	public void calculaDespesaTotal() {
+		//Esse metodo verifica primeiro a quantidade de horas dobradas
 		checaHorasDobradas(quantidadeHoras, horaInicial);
+		//Busca a estrategia a ser usada referente a data em que o servico foi contratado
 		estrategia = calendario.verificaEstrategia(Calendar.DAY_OF_MONTH, Calendar.MONTH);
+		//Adiciona esse gasto a despesaTotal
 		despesaTotal += estrategia.calculaMontante(calculaTarifa(quantidadeHoras, quantidadeHorasDobradas));
 	}
 	
@@ -92,6 +96,7 @@ public class BabySitter implements Servico, Serializable {
 	 */
 	
 	private void checaHorasDobradas(int quantidadeHoras, int horaInicial) {
+		//Verifica a quantidade de horas dobradas dependendo da hora inicial e quantidade de horas
 		int horas = horaInicial;
 		for (int i = 0; i < quantidadeHoras; i++) {
 			if (horas == 24)
@@ -115,7 +120,7 @@ public class BabySitter implements Servico, Serializable {
 	}
 	
 	/**
-	 * @return
+	 * @return A hora inicial que o servico foi contratado
 	 */
 	
 	public int getHoraInicial() {
