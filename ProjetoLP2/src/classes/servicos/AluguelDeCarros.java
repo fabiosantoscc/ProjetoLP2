@@ -7,6 +7,8 @@ import classes.estrategias.EstrategiaDeCalculoDaMontante;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import enums.ModelosDoCarro;
+
 /**
  * Classe que recebe informações a cerca do aluguel de automoveis para clientes do Hotel e faz o gerenciamento desses dados.
  * 

@@ -14,7 +14,7 @@ import classes.dadosDoHospede.Telefone;
 import classes.servicos.BabySitter;
 import classes.servicos.Quarto;
 import classes.servicos.QuartoExecutivo;
-import classes.servicos.SubtipoDeQuartoExecutivo;
+import enums.SubtipoDeQuartoExecutivo;
 
 public class CasoDeUso2Test {
 	public Contrato cont;

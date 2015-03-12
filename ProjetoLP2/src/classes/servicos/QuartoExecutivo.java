@@ -3,6 +3,7 @@ package classes.servicos;
 import java.io.Serializable;
 
 import classes.Hotel;
+import enums.SubtipoDeQuartoExecutivo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
