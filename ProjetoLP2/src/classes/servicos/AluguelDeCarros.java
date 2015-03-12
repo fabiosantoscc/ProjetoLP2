@@ -14,7 +14,7 @@ import java.util.Calendar;
  * @date 12/01/2014
  * Ultima Alteracao / Fabio Alexandre 10/02/2015
  */
-  
+   
 public class AluguelDeCarros implements Servico, Serializable {
 	private static final long serialVersionUID = 1L;
 	private EstrategiaDeCalculoDaMontante estrategia;

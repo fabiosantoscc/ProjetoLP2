@@ -14,7 +14,7 @@ import java.util.Calendar;
  *     @author Fabio Alexandre Santos Silva Junior
  *     Ultima atualizacao 09/03/2015 / Fabio Alexandre
  */
-
+ 
 public abstract class Quarto implements Servico, Serializable  {
  
   private static final long serialVersionUID = 1L;

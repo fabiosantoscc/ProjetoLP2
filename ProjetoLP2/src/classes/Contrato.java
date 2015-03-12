@@ -19,7 +19,7 @@ import classes.servicos.Servico;
  */
  
 public class Contrato implements Serializable {
-
+ 
   private static final long serialVersionUID = 1L;
   private List<Servico> servicos = new ArrayList<Servico>();
   private boolean aberto;
