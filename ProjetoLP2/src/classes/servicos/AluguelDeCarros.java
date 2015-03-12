@@ -25,7 +25,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 	private int valorDiaria;
 	private int tarifaTotal;
 	private Calendar data;
-	
+	 
 	/** 
 	 * Construtor da classe AluguelDeCarros
 	 * 
@@ -118,12 +118,18 @@ public class AluguelDeCarros implements Servico, Serializable {
 	 * @param diaDeSaida Dia de inicio do aluguel 
 	 * @param mesDeSaida Mes de saida do aluguel
 	 */
-
+	
+	  //Obs.: Esse metodo de alguel de carros foi feito da mesma maneira que o metodo contido em Quarto
+	  //Ele percorre todos os dias que o servico estava sendo usado e passa pela estrategia para que seja
+	  //adicionado a tarifaTotal de acordo com a estrategia daquela data.
+	
 	  public void calculaDespesaTotal() {
 			Calendar dataSaida = Calendar.getInstance();
 			int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
 			int mesEntrada = data.get(Calendar.MONTH);
 			int anoEntrada = data.get(Calendar.YEAR);
+			//Esse loop so acaba quando a data de entrada for maior que a de saida, ou seja, o alguel so conta a partir de um
+			//dia apos o aluguel
 		    while (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
 		      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
 		        diaEntrada = 1;
@@ -134,6 +140,8 @@ public class AluguelDeCarros implements Servico, Serializable {
 		          mesEntrada++;
 		        }
 		      }
+		      //Aqui, apos verificar a data, o dia e o mes sao passados como parametro, procurando assim a estrategia a ser usada
+		      //para em seguida ser adicionado o valor a tarifaTotal
 		      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
 		      tarifaTotal += estrategia.calculaMontante(valorDiaria);
 		      diaEntrada++;
@@ -176,9 +184,8 @@ public class AluguelDeCarros implements Servico, Serializable {
   }
 	
   /**
-  *
-  * 
-  * @return
+  * Verifica se dois alugueis sao iguais
+  * @return True se forem iguais false se forem diferentes
   */
 
   @Override
