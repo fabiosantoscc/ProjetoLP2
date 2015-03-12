@@ -56,6 +56,10 @@ public class Contrato implements Serializable {
   * Calcula a despesa total dos servicos contrados pelo hospede
   */
   
+  //Esse metodo percorre a lista de servicos contidos no contrato e adiciona todos a despesaParcial
+  //Logo apos, no retorno ele chama o metodo para verificar se ha algum dia de atraso para que seja adiciona uma multa
+  //Ao valor a pagar
+  
   public void calculaDespesaTotal() {
 	  for (Servico s : servicos) {
 		  s.calculaDespesaTotal();
@@ -89,10 +93,18 @@ public class Contrato implements Serializable {
   private double calculaMulta() {
     return (0.025 * despesaParcial) * diasDeMulta();
   }
-
+  
+  /**
+   * Recebe a data final do contrato
+   */
+  
   public void setDataFinal(){
 	  dataFinal = Calendar.getInstance();
   }
+  
+  /**
+   * @return A data de fechamento do contrato
+   */
   
   public Calendar getDataFinal(){
 	  return dataFinal;
