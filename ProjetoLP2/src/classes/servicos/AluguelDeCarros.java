@@ -3,7 +3,6 @@ package classes.servicos;
 import classes.Hotel;
 import classes.estrategias.CalendarioDeEstrategias;
 import classes.estrategias.EstrategiaDeCalculoDaMontante;
-import enums.ModelosDoCarro;
 
 import java.io.Serializable;
 import java.util.Calendar;

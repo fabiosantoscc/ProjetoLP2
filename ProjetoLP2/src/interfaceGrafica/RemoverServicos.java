@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import classes.Arquivos;
-import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Servico;
 
@@ -27,16 +26,13 @@ public class RemoverServicos extends JPanel {
 	/**
 	 * Cria um painel para remocao de servicos.
 	 */
-	
+
 	private List<Servico> servicosAtuais;
-	private ArrayList<String> nomeServicos = new ArrayList<String>();
 	private ArrayList<String> minhasStrings = new ArrayList<String>();
-	private JList listServicos;
-	private DefaultListModel modeling = new DefaultListModel();
+	private JList<String> listServicos;
+	private DefaultListModel<String> modeling = new DefaultListModel<String>();
 	public RemoverServicos(Hospede hospedeAtual) {
 		setLayout(null);
-		
-		
 		try {
 			servicosAtuais = Run.hotel.getServicosHospede(hospedeAtual);
 		} catch (Exception e) {
@@ -61,43 +57,45 @@ public class RemoverServicos extends JPanel {
 		JScrollPane scrollPaneServicos = new JScrollPane();
 		scrollPaneServicos.setBounds(44, 241, 606, 170);
 		add(scrollPaneServicos);
-		
-		listServicos = new JList(modeling);
-		scrollPaneServicos.setViewportView(listServicos);
-		
+
 		for (int i = 0; i < servicosAtuais.size(); i++){
 			minhasStrings.add(servicosAtuais.get(i).toString());
 		}
 		
+		mostraNaTela();
+
+		listServicos = new JList(modeling);
+		scrollPaneServicos.setViewportView(listServicos);
+
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			  if ( servicosAtuais.size() > 0) {	
 				for ( Servico servico : servicosAtuais ) {
-					if ( ((String) listServicos.getSelectedValue()).equals(servico.toString()) ) {
+					if ( servico.toString().equals(((String) listServicos.getSelectedValue())) ) {
+						minhasStrings.remove(listServicos.getSelectedValue() + "");
 						servicosAtuais.remove(servico);
-						minhasStrings.remove((String)listServicos.getSelectedValue());
-						for ( String s : minhasStrings) {
-							modeling.addElement(s);
-						}
+						modeling.removeAllElements();
+						mostraNaTela();
 						JOptionPane.showMessageDialog(null, "Serviço removido");
+						System.out.println(servicosAtuais.size());
 						try {
 							Arquivos.salvaHotel(Run.hotel);
 						} catch (Exception e1) {
-							e1.getMessage();
+							e1.printStackTrace();
 						}
-					}
 				}
 			  }
-			}
-			  
+			}  
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnRemover.setBounds(320, 458, 162, 40);
 		add(btnRemover);
-		
+	}
+	
+  private void mostraNaTela() {
+
 		for ( String s : minhasStrings) {
 			modeling.addElement(s);
-		}
-	}
+        }
+  }
 }

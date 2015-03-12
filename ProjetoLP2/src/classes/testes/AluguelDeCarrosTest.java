@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import classes.servicos.AluguelDeCarros;
-import enums.ModelosDoCarro;
+import classes.servicos.ModelosDoCarro;
 
 public class AluguelDeCarrosTest {
 	AluguelDeCarros carro1, carro2, carro3;

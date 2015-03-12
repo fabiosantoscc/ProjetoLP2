@@ -53,11 +53,13 @@ public class BuscarRemoverServicos extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					MenuPrincipal.removerServicos = new RemoverServicos(Run.hotel.pesquisaHospede(textCPF.getText()));
+					textCPF.setText("");
 					MenuPrincipal.panel0.add(MenuPrincipal.removerServicos, "27");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "27");
-					textCPF.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch ( Exception e2 ) {
+					e2.getMessage();
 				}
 
 			}

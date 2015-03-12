@@ -1,8 +1,3 @@
-/*("Camas e Quartos disponíveis: \nCamas Extras : "+Run.hotel.getCamaExtra()
-				+"\nQuartos\n Presidencial: "+Run.hotel.getQuartoPresidencial()+"\nLuxo Simples: "+Run.hotel.getQuartoLuxoSimples()
-				+"\nLuxo Duplo: "+Run.hotel.getQuartoLuxoDuplo()+"\nLuxo Triplo: "+Run.hotel.getQuartoLuxoTriplo()
-				+"\nExecutivo Simples: "+Run.hotel.getQuartoExecutivoSimples()+"\n Executivo Duplo: "+Run.hotel.getQuartoExecutivoDuplo()
-				+"\nExecutivo Triplo: "+Run.hotel.getQuartoExecutivoTriplo());*/
 package interfaceGrafica;
 
 import java.awt.Font;
@@ -26,8 +21,8 @@ import classes.servicos.QuartoExecutivo;
 import classes.servicos.QuartoLuxo;
 import classes.servicos.QuartoPresidencial;
 import classes.servicos.Servico;
-import enums.SubtipoDeQuartoExecutivo;
-import enums.SubtipoDeQuartoLuxo;
+import classes.servicos.SubtipoDeQuartoExecutivo;
+import classes.servicos.SubtipoDeQuartoLuxo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 import executar.Run;

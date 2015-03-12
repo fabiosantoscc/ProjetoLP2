@@ -10,13 +10,13 @@ import javax.swing.JOptionPane;
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.AluguelDeCarros;
+import classes.servicos.ModelosDoCarro;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 
-import enums.ModelosDoCarro;
 import executar.Run;
 
 import java.awt.Font;

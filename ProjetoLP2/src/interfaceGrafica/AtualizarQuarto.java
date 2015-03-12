@@ -32,6 +32,7 @@ import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 import executar.Run;
+import javax.swing.SpinnerNumberModel;
 
 public class AtualizarQuarto extends JPanel {
 
@@ -44,15 +45,10 @@ public class AtualizarQuarto extends JPanel {
 	public AtualizarQuarto(Quarto quartoAtual) {
 		setLayout(null);
 		
-		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
+		JLabel lblAdicionarQuarto = new JLabel("Atualizar Quarto");
 		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
 		add(lblAdicionarQuarto);
-		
-		JLabel lblTipoQuarto = new JLabel("Tipo de quarto");
-		lblTipoQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblTipoQuarto.setBounds(47, 94, 146, 25);
-		add(lblTipoQuarto);
 		
 		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
 		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -60,19 +56,10 @@ public class AtualizarQuarto extends JPanel {
 		add(lblQuantidadeDePessoas);
 		
 		JSpinner spinnerQuantidadePessoas = new JSpinner();
+		spinnerQuantidadePessoas.setModel(new SpinnerNumberModel(1, 1, 4, 1));
 		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinnerQuantidadePessoas.setBounds(266, 186, 48, 20);
 		add(spinnerQuantidadePessoas);
-		
-		JLabel lblQuantidadeDeCamas = new JLabel("Quantidade de Camas Extras");
-		lblQuantidadeDeCamas.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblQuantidadeDeCamas.setBounds(47, 238, 219, 25);
-		add(lblQuantidadeDeCamas);
-		
-		JSpinner spinnerQuantidadeCamas = new JSpinner();
-		spinnerQuantidadeCamas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadeCamas.setBounds(266, 242, 48, 20);
-		add(spinnerQuantidadeCamas);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 15));

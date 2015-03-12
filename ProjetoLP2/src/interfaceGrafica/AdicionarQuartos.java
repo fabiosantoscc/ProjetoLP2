@@ -2,11 +2,12 @@ package interfaceGrafica;
 
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
+import classes.servicos.Quarto;
 import classes.servicos.QuartoExecutivo;
 import classes.servicos.QuartoLuxo;
 import classes.servicos.QuartoPresidencial;
-import enums.SubtipoDeQuartoExecutivo;
-import enums.SubtipoDeQuartoLuxo;
+import classes.servicos.SubtipoDeQuartoExecutivo;
+import classes.servicos.SubtipoDeQuartoLuxo;
 import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
@@ -25,14 +26,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class AdicionarQuartos extends JPanel {
 
 
+	private String selecionada;
+	private QuartoLuxo quarto;
 	private JLabel lblAdicionarQuarto, lblTipoQuarto, lblQuantidadeDePessoas;
 	private JSpinner spinnerQuantidadePessoas;
 	private JButton btnAdicionar;
-	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
+	private ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
+	private Quarto umQuarto;
 	
 	public AdicionarQuartos(Hospede hospedeAtual) {
 		setLayout(null);
@@ -46,7 +51,7 @@ public class AdicionarQuartos extends JPanel {
 		JComboBox<String> comboTipoQuarto = new JComboBox<String>();
 		comboTipoQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String c = (String) comboTipoQuarto.getSelectedItem();
+				selecionada = (String) comboTipoQuarto.getSelectedItem();
 			}
 		});
 		
@@ -57,17 +62,19 @@ public class AdicionarQuartos extends JPanel {
 		add(lblQuantidadeDePessoas);
 		
 		spinnerQuantidadePessoas = CriaObjetosNaTela.criaSpinner(new Rectangle(269, 403, 50, 24), CriaObjetosNaTela.getFontePadrao(14));
+		spinnerQuantidadePessoas.setModel(new SpinnerNumberModel(1, 1, 4, 1));
 		add(spinnerQuantidadePessoas);
 		
 		btnAdicionar = CriaObjetosNaTela.criaBotao("Adicionar Quarto", new Rectangle(482, 439, 125, 36), CriaObjetosNaTela.getFontePadrao(12), null, null);
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switch ((String) comboTipoQuarto.getSelectedItem()) {
+				switch (selecionada) {
 				case "Presidencial":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoPresidencial quartoAtual = new QuartoPresidencial(pessoas);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoPresidencial(pessoas);
+						Run.hotel.getContratoAberto(hospedeAtual).adicionaServico(umQuarto);
+						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						MenuPrincipal.cl.show(MenuPrincipal.panel0, "0");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -82,8 +89,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Luxo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoLuxo quartoAtual = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.SIMPLES);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.SIMPLES);
+						Run.hotel.getContratoAberto(hospedeAtual).adicionaServico(umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto Adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -97,8 +104,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Luxo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoLuxo quartoAtual = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.DUPLO);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.DUPLO);
+						Run.hotel.adicionaServico(hospedeAtual, umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -112,8 +119,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Luxo Triplo":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoLuxo quartoAtual = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.TRIPLO);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoLuxo(pessoas, SubtipoDeQuartoLuxo.TRIPLO);
+						Run.hotel.adicionaServico(hospedeAtual, umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -127,8 +134,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Executivo Simples":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoExecutivo quartoAtual = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.SIMPLES);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.SIMPLES);
+						Run.hotel.adicionaServico(hospedeAtual, umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -142,8 +149,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Executivo Duplo":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoExecutivo quartoAtual = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.DUPLO);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.DUPLO);
+						Run.hotel.adicionaServico(hospedeAtual, umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {
@@ -157,8 +164,8 @@ public class AdicionarQuartos extends JPanel {
 				case "Executivo Triplo":
 					try {
 						int pessoas = Integer.parseInt(spinnerQuantidadePessoas.getValue().toString());
-						QuartoExecutivo quartoAtual = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.TRIPLO);
-						Run.hotel.adicionaServico(hospedeAtual, quartoAtual);
+						Quarto umQuarto = new QuartoExecutivo(pessoas, SubtipoDeQuartoExecutivo.TRIPLO);
+						Run.hotel.adicionaServico(hospedeAtual, umQuarto);
 						JOptionPane.showMessageDialog(null, "Quarto adicionado com Sucesso");
 						Arquivos.salvaHotel(Run.hotel);
 					} catch (QuantidadeDePessoasInvalidaException e1) {

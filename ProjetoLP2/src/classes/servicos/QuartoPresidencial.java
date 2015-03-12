@@ -15,7 +15,7 @@ import excecoes.QuartoEsgotadoNoHotelException;
 
 public class QuartoPresidencial extends Quarto {
 
-  private static final long serialVersionUID = 8803978738161881465L;
+  private static final long serialVersionUID = 1L;
   private final double VALOR_DIARIA = 1200.0;
 
 	/**
@@ -39,6 +39,10 @@ public class QuartoPresidencial extends Quarto {
 		int cont = Hotel.getMapaDeQuartos().get("Quarto Presidencial");
 	    Hotel.getMapaDeQuartos().put("Quarto  Presidencial", cont++);
 		Hotel.setQuartoPresidencial(Hotel.getQuartoPresidencial() - 1);
+	}
+	
+	@Override
+	public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
 	}
 	
 	/**

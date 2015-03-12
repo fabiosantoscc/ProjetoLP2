@@ -57,7 +57,7 @@ public class ServicosDoHospede extends JPanel {
 		
 		listServicos = new JList<String>(modeling);
 		scrollPaneServicos.setViewportView(listServicos);
-
+		
 		for (int i = 0; i < servicosAtuais.size(); i++){
 			minhasStrings.add(servicosAtuais.get(i).toString());
 		}

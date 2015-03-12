@@ -55,7 +55,6 @@ public class BuscarServicos extends JPanel {
 					MenuPrincipal.servicosDoHospede = new ServicosDoHospede(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.servicosDoHospede, "22");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "22");
-					textCPF.setText("");
 				} catch (HospedeInvalidoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (Exception e2) {

@@ -16,7 +16,7 @@ import java.util.Calendar;
  */
 
 public abstract class Quarto implements Servico, Serializable  {
-  
+
   private static final long serialVersionUID = 1L;
   private EstrategiaDeCalculoDaMontante estrategia;
   private CalendarioDeEstrategias calendario;
@@ -153,7 +153,8 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-    verificaQuantidadeDePessoas(pessoas);
+    
+	verificaQuantidadeDePessoas(pessoas);
     this.quantidadeDePessoas = pessoas;
   }
   
@@ -165,8 +166,8 @@ public abstract class Quarto implements Servico, Serializable  {
   
   private void verificaQuantidadeDePessoas(int quantidadeDePessoas) 
       throws QuantidadeDePessoasInvalidaException {
-    if ( quantidadeDePessoas <= 0 ) {
-      throw new QuantidadeDePessoasInvalidaException("A quantidade de pessoas deve ser maior que zero.");
+	if ( quantidadeDePessoas <= 0 ) {
+    	throw new QuantidadeDePessoasInvalidaException("A quantidade de pessoas deve ser maior que zero.");
     }
   }  
   

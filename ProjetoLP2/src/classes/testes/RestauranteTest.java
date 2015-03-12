@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import classes.Opiniao;
 import classes.servicos.Restaurante;
-import enums.UnidadesDoRestaurante;
 import excecoes.InputArgumentInvalidException;
 
 public class RestauranteTest {
