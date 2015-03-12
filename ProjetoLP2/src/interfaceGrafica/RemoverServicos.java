@@ -35,6 +35,7 @@ public class RemoverServicos extends JPanel {
 	private JList<String> listServicos;
 	private DefaultListModel<String> modeling = new DefaultListModel<String>();
 	public RemoverServicos(Hospede hospedeAtual) {
+		
 		setLayout(null);
 		
 		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
