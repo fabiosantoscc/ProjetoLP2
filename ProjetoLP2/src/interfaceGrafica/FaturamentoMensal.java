@@ -2,6 +2,7 @@ package interfaceGrafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -25,10 +26,13 @@ import java.awt.Font;
 
 public class FaturamentoMensal extends JPanel {
 
-	JPanel panelChart;
-	Calendar dataAtual = Calendar.getInstance();
+	private JPanel panelChart;
+	private Calendar dataAtual = Calendar.getInstance();
 	private DefaultListModel<String> modeling = new DefaultListModel<String>();
 	private ArrayList<String> minhasStrings = new ArrayList<String>();
+	private JLabel lblFaturamentoMensal;
+	private JScrollPane scrollPane;
+	
 	public FaturamentoMensal() {
 		setLayout(null);
 		
@@ -38,12 +42,10 @@ public class FaturamentoMensal extends JPanel {
 		add(panelChart);
 		panelChart.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("Faturamento Mensal");
-		lblNewLabel.setBounds(39, 40, 259, 22);
-		lblNewLabel.setFont(CriaObjetosNaTela.getFontePadrao(26));
-		add(lblNewLabel);
+		lblFaturamentoMensal = CriaObjetosNaTela.criaLabel("Faturamento Mensal", new Rectangle(39, 40, 259, 22), CriaObjetosNaTela.getFontePadrao(26), null, null);
+		add(lblFaturamentoMensal);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(52, 145, 192, 381);
 		add(scrollPane);
 		
