@@ -125,16 +125,19 @@ public class TelaCadastro extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Cadastro c = null;
 				try {
-					c = new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText());
 					if ( !(passwordField.getText().equals(ConfirmPasswordField.getText())) ) {
 						throw new StringInvalidaException("Senhas nao coincidem.");
 					}
 					
+					c = new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText());
+					
 					Run.hotel.adicionarCadastro(c, textPIN.getText());
+					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
 					textNome.setText("");
 					passwordField.setText("");
 					ConfirmPasswordField.setText("");
-					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
+					textPIN.setText("");
+					textLogin.setText("");
 					Arquivos.salvaHotel(Run.hotel);
 					TelaCadastro.this.dispose();
 				} catch (Exception e) {
