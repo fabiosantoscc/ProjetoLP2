@@ -54,6 +54,12 @@ public class Hotel implements Serializable {
 	// Opinioes dos hospedes que fizeram checkout no hotel.
 	private List<Opiniao> opinioes = new ArrayList<Opiniao>();
 	
+	/**
+	 * Construtor da classe Hotel
+	 * @param pin Codigo a ser usado na hora do cadastro
+	 * @throws StringInvalidaException
+	 */
+	
 	public Hotel( String pin ) throws StringInvalidaException {
 		if ( pin == null || pin.equals("") ) {
 			throw new StringInvalidaException("Pin nao pode ser vazio.");
@@ -64,26 +70,51 @@ public class Hotel implements Serializable {
 		iniciaMapaDeQuartos();
 	}
 	
+	/**
+	 * @return Numero do pin a ser usado no cadastro
+	 */
+	
 	public String getPin() {
 		return pin;
 	}
+	
+	/**
+	 * @return Mapa contendo todos os hospedes do hotel e seus contratos
+	 */
 	
 	public HashMap<Hospede, List<Contrato>> getHospedes(){ 
 		return hospedes;
 	}
 	
 	
+	/**
+	 * @return Lista com os funcionarios cadastrados pelo sofware
+	 */
+	
 	public List<Cadastro> getCadastros() {
 		return cadastros;
 	}
+	
+	/**
+	 * @return Mapa dos quartos com a quantidade de vezes que cada um foi contratado
+	 */
 	
 	public static HashMap<String, Integer> getMapaDeQuartos(){
 		return quartosUsados;
 	}
 	
+	/**
+	 * Remove um hospede da lista de hospedes do hotel
+	 * @param cpf Cpf do hospede a ser removido
+	 * @throws HospedeInvalidoException
+	 */
+	
 	public void removeHospede(String cpf) throws HospedeInvalidoException{
 		hospedes.remove(this.pesquisaHospede(cpf));
 	}
+	
+	//Metodo que inicializa a quantidade de vezes que cada quarto foi contratado
+	//Eh chamado no construtor
 	
 	private void iniciaMapaDeQuartos(){
 		quartosUsados.put("Quarto Presidencial", 0);
@@ -95,9 +126,15 @@ public class Hotel implements Serializable {
 		quartosUsados.put("Quarto Luxo Triplo", 0);
 	}
 	
+	/**
+	 * Metodo que verifica o quarto que foi mais alugado ate o momento
+	 * @return Um string contendo o quarto e a quantidade de vezes que ele foi alugado
+	 */
+	
 	public String verificaQuartoMaisAlugado(){
 		int maximo = 0;
 		String quartoMaisUsado = "";
+		//Percorre o mapa de quarto e compara qual foi o mais usado
 		for (String tipo : quartosUsados.keySet()){
 			if (quartosUsados.get(tipo) >= maximo){
 				maximo = quartosUsados.get(tipo);
@@ -122,20 +159,29 @@ public class Hotel implements Serializable {
 		cadastros.add(funcionario);
 	}
 	
+	/**
+	 * Metodo que verifica qual foi o lucro de cada mes desde que o hotel foi aberto
+	 */
+	
 	public void checaLucroMensal() {
 		int mesInicio = dataDeInicio.get(Calendar.MONTH) + 1;
 		int anoInicio = dataDeInicio.get(Calendar.YEAR);
 		Calendar dataAtual = Calendar.getInstance();
 		double totalMensal = 0;
+		//Esse while co para quando mes do inicio (que vai sendo encrementada) for maior que mes atual
 		while (mesInicio <= (dataAtual.get(Calendar.MONTH) + 1) && anoInicio <= dataAtual.get(Calendar.YEAR)) {
-			
+			//Percorre a lista de hospedes para cada mes percorrido no while acima
 			for (Hospede h : hospedes.keySet()) {
+				//Percorre cada contrato de cada hospede existente
 				for (Contrato contrato : hospedes.get(h)){
+					//Se o contrato nao estiver aberto e o mes for igual ao mes
+					//da iteracao atual ele adiciona a variavel totalMensal o valor do contrato naquele mes
 						if (contrato.isAberto()) continue;
 						if ((contrato.getDataFinal().get(Calendar.MONTH) + 1) == mesInicio && 
 								contrato.getDataFinal().get(Calendar.YEAR) == anoInicio) totalMensal += contrato.getValorAPagar();
 					}
 			}
+			//Agora apos verificar todos os lucros em um mes ele adiona ao mapa o mes e o total de lucro obitido nele
 			LucroPorMes.put(""+mesInicio+"/"+anoInicio, totalMensal);
 			datasLucro.add("Mes: " + mesInicio + "Ano: " + anoInicio);
 			valorDosMeses.add(totalMensal);
@@ -148,6 +194,10 @@ public class Hotel implements Serializable {
 			totalMensal = 0;
 		}
 	}
+	
+	/**
+	 * @return Calcula o redimento medio a partir do rendimento de cada mes
+	 */
 	
 	public double calculaRendimentoMedioMensal(){
 		return lucroTotal / valorDosMeses.size();
@@ -168,9 +218,18 @@ public class Hotel implements Serializable {
 	public HashMap<String, Double> getLucroPorMes(){
 		return LucroPorMes;
 	}
+	
+	/**
+	 * @return Retorna uma lista de meses que o hotel percorreu desde que esta aberto
+	 */
+	
 	public List<String> getListaDeMeses(){
 		return datasLucro;
 	}
+	
+	/**
+	 * @return Uma lista de lucro mensal
+	 */
 	
 	public List<Double> getLucroMensal(){
 		return valorDosMeses;
@@ -268,7 +327,11 @@ public class Hotel implements Serializable {
 		
 		return h;
 	}
-
+	
+	/**
+	 * @return Um mapa com a quantidade de vezes que servicos extra foram contratados
+	 */
+	
 	public HashMap<String, Integer> ServicosContratados(){
 		HashMap<String, Integer> servicos = new HashMap<String, Integer>();
 		servicos.put("Aluguel de Veiculos", maisAluguel);
@@ -276,6 +339,7 @@ public class Hotel implements Serializable {
 		servicos.put("Baby Sitter", maisBaby);
 		return servicos;
 	}
+	
 	/**
 	 * Metodo que verifica o servico mais solicitado ate o momento no hotel
 	 * @return Uma string com o servico mais solicitado e a quantidade de vezes que foi solicitado
@@ -360,8 +424,8 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @param hospede
+	 * Verifica Se há algum contrato aberto no hotel
+	 * @param hospede Hospede que deve ser verificado
 	 * @throws HospedeInvalidoException
 	 * @throws ContratoAbertoException
 	 */
@@ -497,7 +561,6 @@ public class Hotel implements Serializable {
 	
 	/**
 	 * Recupera a quantidade de quarto presidencial do hotel.
-	 * 
 	 * @return - Quantidade de Quarto Presidencial do hotel.
 	 */
 	
@@ -506,8 +569,8 @@ public class Hotel implements Serializable {
 	}
 
 	/**
-	 * 
-	 * @param quartoPresidencial
+	 * Recebe a quantidade de quartos precidenciais restantes
+	 * @param quartoPresidencial Quantida restante
 	 */
 	
 	public static void setQuartoPresidencial(int quartoPresidencial) {
@@ -515,8 +578,7 @@ public class Hotel implements Serializable {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return Quantiade de quartos executivos simples
 	 */
 	
 	public static int getQuartoExecutivoSimples() {
@@ -524,8 +586,8 @@ public class Hotel implements Serializable {
 	}
 
 	/**
-	 * 
-	 * @param quartoExecutivoSimples
+	 * Recebe a quantidade de quartos executivos simples restantes
+	 * @param quartoExecutivo
 	 */
 	
 	public static void setQuartoExecutivoSimples(int quartoExecutivoSimples) {
