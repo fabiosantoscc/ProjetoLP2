@@ -45,6 +45,7 @@ public class BuscarCheckIn extends JPanel {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
+				Run.hotel.verificaContratoAberto(Run.hotel.pesquisaHospede(textCPF.getText()));
 				MenuPrincipal.adicionarContrato = new AdicionarContrato(Run.hotel.pesquisaHospede(textCPF.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.adicionarContrato, "painelAdcContrato");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcContrato");

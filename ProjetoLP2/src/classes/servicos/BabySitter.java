@@ -164,10 +164,10 @@ public class BabySitter implements Servico, Serializable {
   @Override
   public String toString() {
     return "Baby Sitter " + Arquivos.FIM_LINHA
-        + "Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
-        +"Quantidade de Horas Normais: " + quantidadeHoras + Arquivos.FIM_LINHA
-        + "Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
-        + "Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
+        + " Horario de inicio do serviço: "+horaInicial + Arquivos.FIM_LINHA
+        +" Quantidade de Horas: " + quantidadeHoras + Arquivos.FIM_LINHA
+        + " Quantidade de Horas Dobradas: " + quantidadeHorasDobradas
+        + " Data: " + data.get(Calendar.DAY_OF_WEEK) + "/" + data.get(Calendar.MONTH + 1)+ "/"
         + data.get(Calendar.YEAR) + " " + data.get(Calendar.HOUR_OF_DAY) + ":" + data.get(Calendar.MINUTE) + ":" + data.get(Calendar.SECOND);
 	}
 

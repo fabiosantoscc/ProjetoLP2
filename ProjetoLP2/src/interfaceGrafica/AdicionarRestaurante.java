@@ -56,7 +56,7 @@ public class AdicionarRestaurante extends JPanel {
 		lblConsumo = CriaObjetosNaTela.criaLabel("Consumo", new Rectangle(40, 162, 96, 20), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblConsumo);
 		
-		textConsumo = CriaObjetosNaTela.criaTextField(null, new Rectangle(40, 162, 96, 20), CriaObjetosNaTela.getFontePadrao(14), true, null);
+		textConsumo = CriaObjetosNaTela.criaTextField(null, new Rectangle(140, 162, 96, 20), CriaObjetosNaTela.getFontePadrao(14), true, null);
 		add(textConsumo);
 		
 		btnAdicionarConsumo = CriaObjetosNaTela.criaBotao("Adicionar Consumo", new Rectangle(409, 403, 195, 44), CriaObjetosNaTela.getFontePadrao(14), null, null);

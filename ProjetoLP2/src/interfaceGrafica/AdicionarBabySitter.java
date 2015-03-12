@@ -54,7 +54,7 @@ public class AdicionarBabySitter extends JPanel {
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					BabySitter babyAtual = new BabySitter(Integer.parseInt(spinnerHoraInicial.getValue().toString()), Integer.parseInt(spinnerDuracao.getValue().toString()));
+					BabySitter babyAtual = new BabySitter(Integer.parseInt(spinnerDuracao.getValue().toString()), Integer.parseInt(spinnerHoraInicial.getValue().toString()));
 					Run.hotel.adicionaServico(hospedeAtual, babyAtual);
 					Arquivos.salvaHotel(Run.hotel);
 					JOptionPane.showMessageDialog(null, "Baby Sitter adicionado com sucesso!");

@@ -236,6 +236,7 @@ public class Contrato implements Serializable {
     }
 
     representacao += ", Noites de hospedagem: " + getNumeroDeNoites();
+    representacao += Arquivos.FIM_LINHA+" e Total a pagar: "+this.getValorAPagar();
 
     return representacao;
   }

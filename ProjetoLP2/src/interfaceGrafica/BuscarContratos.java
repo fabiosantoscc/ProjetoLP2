@@ -17,10 +17,13 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 
+import excecoes.ContratoAbertoException;
 import excecoes.HospedeInvalidoException;
 import executar.Run;
 
 import javax.swing.ImageIcon;
+
+import classes.Arquivos;
 
 public class BuscarContratos extends JPanel {
 
@@ -54,8 +57,6 @@ public class BuscarContratos extends JPanel {
 				} catch (HospedeInvalidoException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
-				
-				
 			}
 		});
 		btnBuscar.setBounds(296, 211, 114, 29);

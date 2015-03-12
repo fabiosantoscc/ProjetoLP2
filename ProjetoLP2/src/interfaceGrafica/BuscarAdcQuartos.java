@@ -44,10 +44,10 @@ public class BuscarAdcQuartos extends JPanel {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(lblCPF.getText()));
+				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(textCPF.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.adcquartos, "painelAdcQuartos");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcQuartos");
-				lblCPF.setText("");
+				textCPF.setText("");
 				}catch(Exception c){
 					
 				}
