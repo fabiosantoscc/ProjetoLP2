@@ -26,42 +26,30 @@ import java.awt.event.ActionEvent;
 
 public class ContratosDoHospede extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	
-	List<Servico> contratosAtuais;
-	List<String> nomeServicos = new ArrayList<String>();
-	List<String> minhasStrings = new ArrayList<String>();
-	JList listContratos;
+	private List<Contrato> contratosAtuais;
+	private List<String> nomeServicos = new ArrayList<String>();
+	private List<String> minhasStrings = new ArrayList<String>();
+	private JList listContratos;
 	private DefaultListModel modeling = new DefaultListModel();
-
+	private JLabel lblLogoHotel, lblListaDeContratos, lblHospede;
+	private JButton btnVisualizarServios;
+	private JScrollPane scrollPaneContratos;
 	
 	public ContratosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		List<Contrato> contratosAtuais = Run.hotel.pesquisarContratos(hospedeAtual);
+		contratosAtuais = Run.hotel.pesquisarContratos(hospedeAtual);
 		
-		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");
-		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblListaDeContratos.setBounds(44, 49, 270, 31);
+		lblListaDeContratos = CriaObjetosNaTela.criaLabel("Lista de Contratos", new Rectangle(44, 49, 270, 31), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblListaDeContratos);
 		
-		JLabel lblHospede = new JLabel("Hospede:");
-		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(47, 122, 82, 14);
+		lblHospede = CriaObjetosNaTela.criaLabel("Hospede: "+hospedeAtual.getNome(), new Rectangle(47, 122, 485, 20), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblHospede);
 		
-		JLabel lblNomeHospede = new JLabel(hospedeAtual.getNome());
-		lblNomeHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeHospede.setBounds(139, 124, 243, 14);
-		add(lblNomeHospede);
-		
-		JButton btnVisualizarServios = new JButton("Visualizar Servi\u00E7os");
-		btnVisualizarServios.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVisualizarServios = CriaObjetosNaTela.criaBotao("Visualizar Servi\u00E7os", new Rectangle(454, 416, 141, 31), CriaObjetosNaTela.getFontePadrao(14), null, null);
 		btnVisualizarServios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
@@ -73,10 +61,9 @@ public class ContratosDoHospede extends JPanel {
 				}
 			}
 		});
-		btnVisualizarServios.setBounds(454, 416, 141, 31);
 		add(btnVisualizarServios);
 		
-		JScrollPane scrollPaneContratos = new JScrollPane();
+		scrollPaneContratos = new JScrollPane();
 		scrollPaneContratos.setBounds(44, 185, 551, 201);
 		add(scrollPaneContratos);
 		
