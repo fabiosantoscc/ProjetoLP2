@@ -61,7 +61,7 @@ public class FaturamentoMensal extends JPanel {
 
 		DefaultCategoryDataset graficoBarra = new DefaultCategoryDataset();
 		for(String mes : Run.hotel.getLucroPorMes().keySet()){
-			graficoBarra.setValue(Run.hotel.getLucroPorMes().get(mes), mes, dataAtual.get(Calendar.MONTH)+1+"/"+dataAtual.get(Calendar.YEAR));
+			graficoBarra.setValue(Run.hotel.getLucroPorMes().get(mes), mes, mes);
 		}
 		
 		JFreeChart grafico = ChartFactory.createBarChart("Faturamento Mensal", "Mês", "Faturamento", graficoBarra, PlotOrientation.VERTICAL, false, true, false);
