@@ -23,50 +23,39 @@ import executar.Run;
 import javax.swing.ImageIcon;
 
 public class BuscarHospede extends JPanel {
-	private JTextField cpfAPesquisar;
-
-	/**
-	 * Create the panel.
-	 */
+	
+	private JButton btnBuscar;
+	private JTextField textCPF;
+	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
+	
 	public BuscarHospede() {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblBuscarHospede = new JLabel("Pesquisar Hospede");
-		lblBuscarHospede.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblBuscarHospede.setBounds(38, 29, 266, 40);
-		add(lblBuscarHospede);
+		lblBabySitter = CriaObjetosNaTela.criaLabel("BabySitter", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
+		add(lblBabySitter);
 		
-		JLabel textCPF = new JLabel("CPF do Hospede");
-		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textCPF.setBounds(192, 160, 112, 21);
+		lblCPF = CriaObjetosNaTela.criaLabel("CPF do Hospede", new Rectangle(216, 132, 116, 21), CriaObjetosNaTela.getFontePadrao(15), null, null);
+		add(lblCPF);
+		
+		textCPF = CriaObjetosNaTela.criaTextField(null, new Rectangle(381, 132, 148, 20), CriaObjetosNaTela.getFontePadrao(15), true, null);
 		add(textCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(354, 160, 147, 20);
-		add(cpfAPesquisar);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(BuscarHospede.class.getResource("/Icons/zoom.png")));
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnBuscar.setBounds(297, 221, 99, 31);
-		add(btnBuscar);
-		btnBuscar.setToolTipText("Digite um nome ou um cpf para buscar o hospede.");
+		btnBuscar = CriaObjetosNaTela.criaBotao("Buscar", new Rectangle(335, 191, 105, 27), CriaObjetosNaTela.getFontePadrao(15),new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")) , "Digite um CPF para buscar o hospede.");
 		btnBuscar.addActionListener(new ActionListener()  {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(lblCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.telaHospede, "8");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "8");
-					cpfAPesquisar.setText("");
+					lblCPF.setText("");
 				} catch (HospedeInvalidoException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 			}
-		});		
+		});
+		add(btnBuscar);
 	}
 }

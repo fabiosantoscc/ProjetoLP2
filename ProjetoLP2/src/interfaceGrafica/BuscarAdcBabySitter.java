@@ -27,7 +27,6 @@ public class BuscarAdcBabySitter extends JPanel {
 	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
 	
 	public BuscarAdcBabySitter() {
-		
 		setLayout(null);
 		
 		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
