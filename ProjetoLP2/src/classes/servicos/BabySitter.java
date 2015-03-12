@@ -42,7 +42,6 @@ public class BabySitter implements Servico, Serializable {
 		calendario = new CalendarioDeEstrategias(); 
 		checaHoras(quantidadeHoras);
 		checaHoraInicial(horaInicial);
-		Hotel.maisBaby++;
 		this.horaInicial = horaInicial;
 		this.quantidadeHoras = quantidadeHoras;
 		quantidadeHorasDobradas = 0;

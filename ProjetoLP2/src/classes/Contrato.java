@@ -13,7 +13,7 @@ import classes.servicos.Servico;
 /**
  *     Classe que representa um contrato.
  * 
- *     @author Fabio Alexandre Santos Silva Júnior
+ *     @author Fabio Alexandre Santos Silva JÃºnior
  *     @date 02/02/2015
  *     Ultima alteracao: 08/03/2015 / Fabio Alexandre
  */
@@ -27,7 +27,6 @@ public class Contrato implements Serializable {
   private double despesaParcial;
   private int numeroDeNoites;
   private Calendar dataInicial;
-  private CalendarioDeEstrategias calendario;
   private Calendar dataFinal;
   
   /**
@@ -125,6 +124,7 @@ public class Contrato implements Serializable {
   }
 
   public void removeServico( Servico servico ) {
+  	  despesaParcial += servico.getDespesaTotal();
 	  servicos.remove(servico);
   }
   

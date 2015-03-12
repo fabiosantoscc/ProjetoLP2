@@ -41,7 +41,6 @@ public class AluguelDeCarros implements Servico, Serializable {
 		this.modeloCarro = carro;
 		this.tanqueCheio = tanqueCheio;
 		this.seguroDeAutomovel = seguroAutomovel;
-		Hotel.maisAluguel++;
 	}	
 	
 	private void checaTipoCarro(ModelosDoCarro carro) throws Exception {
