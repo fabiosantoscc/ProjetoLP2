@@ -68,12 +68,21 @@ public class Hotel implements Serializable {
 		return pin;
 	}
 	
+	public HashMap<Hospede, List<Contrato>> getHospedes(){ 
+		return hospedes;
+	}
+	
+	
 	public List<Cadastro> getCadastros() {
 		return cadastros;
 	}
 	
 	public static HashMap<String, Integer> getMapaDeQuartos(){
 		return quartosUsados;
+	}
+	
+	public void removeHospede(String cpf) throws HospedeInvalidoException{
+		hospedes.remove(this.pesquisaHospede(cpf));
 	}
 	
 	private void iniciaMapaDeQuartos(){

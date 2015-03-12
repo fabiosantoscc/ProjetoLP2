@@ -19,6 +19,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 
+import classes.Cadastro;
+
 public class MenuPrincipal {
 
 	JFrame frame = new JFrame();
@@ -39,7 +41,7 @@ public class MenuPrincipal {
 	protected static CheckOut checkOut;
 	protected static AtualizarQuarto atualizarQuarto;
 	protected static NotaEComentario notaEComentario;
-	private DefaultMenu menuPadrao = new DefaultMenu();
+	private DefaultMenu menuPadrao;
 	private AdicionarHospede adicionarHospede = new AdicionarHospede();
 	private BuscarHospede buscarHospede = new BuscarHospede();
 	private BuscarContratos buscarContratos = new BuscarContratos();
@@ -56,6 +58,7 @@ public class MenuPrincipal {
 	private TelaSobre telaSobre = new TelaSobre();
 	private ServicosMaisContratados servicosMaisContratados;
 	private FaturamentoMensal faturamento;
+	private RemoverHospede removerHospede;
 		
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnContratos = new JMenu("Contratos");
@@ -78,9 +81,13 @@ public class MenuPrincipal {
 	private final JMenuItem mntmNotaDeAceitao = new JMenuItem("Nota de Aceita\u00E7\u00E3o e Coment\u00E1rios");
 	private final JLabel lblSair = new JLabel("Sair");
 	private final JMenuItem mntmFaturamentoMensal = new JMenuItem("Faturamento Mensal");
+	private final JMenuItem mntmRemover_1 = new JMenuItem("Remover");
 
-	public MenuPrincipal() {
+	public MenuPrincipal(Cadastro cadastroAtual) {
 		initialize();
+		
+		menuPadrao = new DefaultMenu(cadastroAtual);
+		
 		panel0.setLayout(cl);
 		panel0.add(menuPadrao, "MenuPadrao");
 		panel0.add(adicionarHospede, "adicionarHospede");
@@ -141,6 +148,16 @@ public class MenuPrincipal {
 		});
 		
 		mnNewMenu.add(mntmNewMenuItem_2);
+		mntmRemover_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				removerHospede = new RemoverHospede();
+				panel0.add(removerHospede, "removerHospede");
+				cl.show(panel0, "removerHospede");
+				
+			}
+		});
+		
+		mnNewMenu.add(mntmRemover_1);
 		mnContratos.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/report.png")));
 		
 		menuBar.add(mnContratos);

@@ -78,7 +78,7 @@ public class TelaLogin extends JFrame {
 				try {
 					Cadastro funcionarioAtual = Run.hotel.buscarCadastro(loginField.getText());
 					checaSenha(funcionarioAtual.getSenha());
-					MenuPrincipal menuFrame = new MenuPrincipal();
+					MenuPrincipal menuFrame = new MenuPrincipal(funcionarioAtual);
 					TelaLogin.this.dispose();
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
