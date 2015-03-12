@@ -4,6 +4,7 @@ import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 
+
   /**
   * Classe que representa um cadastro.
   * 
