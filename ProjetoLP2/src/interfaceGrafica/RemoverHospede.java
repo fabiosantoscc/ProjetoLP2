@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import classes.Arquivos;
 import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Quarto;
@@ -75,6 +76,7 @@ public class RemoverHospede extends JPanel {
 							}
 							JOptionPane.showMessageDialog(null, "Hospede Removido");
 							Run.hotel.removeHospede(hospede.getCpf());
+							Arquivos.salvaHotel(Run.hotel);
 						}
 					}
 				} catch (Exception e) {
