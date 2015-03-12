@@ -59,6 +59,8 @@ public abstract class Quarto implements Servico, Serializable  {
    * @throws Exception
    */
   
+  //Esse metodo funciona da mesma maneira como o contido na classe AluguelDeQuartos
+  
   public void calculaDespesaTotal() {
 		Calendar dataSaida = Calendar.getInstance();
 		int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
@@ -81,8 +83,8 @@ public abstract class Quarto implements Servico, Serializable  {
 	  }
 
   /**
-   * 
-   * @param diaria
+   * Recebe o valor da diaria do quarto
+   * @param diaria Valor da diaria
    */
  
   public void setValorDiario(double diaria) {
@@ -90,8 +92,7 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-   * 
-   * @return
+   * @return O valor da diaria do quarto
    */
   
   public double getValorDiaria() {
@@ -99,8 +100,7 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-   * 
-   * @return
+   * @return O dia inicial do contrato de um determinado quarto
    */
   
   public int getDiaInicial() {
@@ -108,8 +108,7 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-  * Recupera o mes inicial.
-  * 
+  * Recupera o mes inicial. 
   * @return - Mes inicial.
   */
 
@@ -118,8 +117,7 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-  * 
-  * @return
+  * @return O ano em que o servico foi contratado
   */
 
   public int getAnoInicial() {
@@ -127,7 +125,6 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-  * 
   * @return Quantidade total da despesa durante o contrato por um quarto especifico
   */
 
@@ -143,14 +140,18 @@ public abstract class Quarto implements Servico, Serializable  {
     return quantidadeDePessoas;
   }
 
+  /**
+   * Recebe a quantidade de pessoas que ficarão no quarto
+   * @param pessoas Quantidade de pessoas
+   * @throws QuantidadeDePessoasInvalidaException
+   */
+  
   public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-    
 	verificaQuantidadeDePessoas(pessoas);
     this.quantidadeDePessoas = pessoas;
   }
   
   /**
-   * 
    * @param quantidadeDePessoas
    * @throws QuantidadeDePessoasInvalidaException
    */
@@ -164,7 +165,6 @@ public abstract class Quarto implements Servico, Serializable  {
   
   /**
   * Metodo que retorna uma string para representacao de um quarto.
-  * 
   * @return A string de representacao do quarto.
   */
 
@@ -177,7 +177,6 @@ public abstract class Quarto implements Servico, Serializable  {
 
   /**
   * Metodo que compara se dois objetos do tipo quarto sao iguais.
-  * 
   * @return Um boolean (true) se os objetos forem iguais, (false) caso contrario.
   */
 
