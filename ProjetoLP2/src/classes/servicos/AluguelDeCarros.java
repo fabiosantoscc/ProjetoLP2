@@ -122,12 +122,8 @@ public class AluguelDeCarros implements Servico, Serializable {
 
 	public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
 			int anoSaida) throws Exception {
-		if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) throw new Exception ("O mes e o dia tem que ser valido.");
-		if (!calendario.verificaDataValida(diaSaida, mesSaida)) throw new Exception ("O mes e o dia tem que ser valido.");
-		boolean dataValida = true;
 		int contador = 0;
-		while (dataValida) {
-			if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) break;
+		while (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) {
 			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
 				diaEntrada = 1;
 				if (mesEntrada == 12){
