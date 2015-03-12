@@ -6,11 +6,12 @@ package classes.servicos;
  * @author Fabio Alexandre Santos Silva Junior
  * Ultima alteracao 14/01/2015
  *
- */
+ */ 
 
 public interface Servico {
 
 	public double getDespesaTotal();
-	
+	public void calculaDespesaTotal();
 	public String toString();
-}
+} 
+ 

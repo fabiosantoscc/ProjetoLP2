@@ -20,7 +20,7 @@ import java.util.Calendar;
  */
   
 public class BabySitter implements Servico, Serializable {
-	
+	   
 	private static final long serialVersionUID = 1L;
 	private CalendarioDeEstrategias calendario;
 	private  EstrategiaDeCalculoDaMontante estrategia;
@@ -46,8 +46,10 @@ public class BabySitter implements Servico, Serializable {
 		this.quantidadeHoras = quantidadeHoras;
 		quantidadeHorasDobradas = 0;
 		despesaTotal = 0;
-		calculaDespesa();
+		calculaDespesaTotal();
 	}
+	
+	
 	
 	private void checaHoras(int quantidadeHoras) throws Exception {
 		if (quantidadeHoras <= 0) {
@@ -69,7 +71,7 @@ public class BabySitter implements Servico, Serializable {
 	 * @param mes Mes da solicitacao
 	 */
 	
-	private void calculaDespesa() throws Exception {
+	public void calculaDespesaTotal() {
 		checaHorasDobradas(quantidadeHoras, horaInicial);
 		estrategia = calendario.verificaEstrategia(Calendar.DAY_OF_MONTH, Calendar.MONTH);
 		despesaTotal += estrategia.calculaMontante(calculaTarifa(quantidadeHoras, quantidadeHorasDobradas));

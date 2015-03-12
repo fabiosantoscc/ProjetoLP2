@@ -20,9 +20,9 @@ import classes.servicos.Servico;
  *     @date 02/02/2015
  *     Ultima alteracao: 08/03/2015 / Fabio Alexandre
  */
-
+ 
 public class Contrato implements Serializable {
-
+ 
   private static final long serialVersionUID = 1L;
   private List<Servico> servicos = new ArrayList<Servico>();
   private boolean aberto;
@@ -31,7 +31,7 @@ public class Contrato implements Serializable {
   private int numeroDeNoites;
   private Calendar dataInicial;
   private Calendar dataFinal;
-  
+   
   /**
    * Construtor de um Contrato.
    * 
@@ -58,7 +58,8 @@ public class Contrato implements Serializable {
   
   public void calculaDespesaTotal() {
 	  for (Servico s : servicos) {
-      despesaParcial += s.getDespesaTotal();
+		  s.calculaDespesaTotal();
+		  despesaParcial += s.getDespesaTotal();
     }
 
     this.valorAPagar = despesaParcial + calculaMulta();

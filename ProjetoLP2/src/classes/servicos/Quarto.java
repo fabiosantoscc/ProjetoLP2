@@ -14,9 +14,9 @@ import java.util.Calendar;
  *     @author Fabio Alexandre Santos Silva Junior
  *     Ultima atualizacao 09/03/2015 / Fabio Alexandre
  */
-
+ 
 public abstract class Quarto implements Servico, Serializable  {
-
+ 
   private static final long serialVersionUID = 1L;
   private EstrategiaDeCalculoDaMontante estrategia;
   private CalendarioDeEstrategias calendario;
@@ -25,7 +25,7 @@ public abstract class Quarto implements Servico, Serializable  {
   private int quantidadeDePessoas;
   private double despesaTotal;
   private int diaInicial;
-  private int mesInicial;
+  private int mesInicial; 
   private int anoInicial;
 
   /**
@@ -59,35 +59,26 @@ public abstract class Quarto implements Servico, Serializable  {
    * @throws Exception
    */
   
-  public void calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida,
-      int anoEntrada, int anoSaida) throws Exception {
-    if (!calendario.verificaDataValida(diaEntrada, mesEntrada)) {
-      throw new Exception("O mes e o dia tem que ser valido.");
-    }
-    
-    if (!calendario.verificaDataValida(diaSaida, mesSaida)) {
-      throw new Exception("O mes e o dia tem que ser valido.");
-    }
-    
-    boolean dataValida = true;
-    while (dataValida) {
-      if (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) {
-        break;
-      }
-      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
-        diaEntrada = 1;
-        if (mesEntrada == 12) {
-          anoEntrada++;
-          mesEntrada = 1;
-		} else {
-          mesEntrada++;
-        }
-      }
-      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-      despesaTotal += estrategia.calculaMontante(valorDiaria);
-      diaEntrada++;
-    }
-  }
+  public void calculaDespesaTotal() {
+		Calendar dataSaida = Calendar.getInstance();
+		int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
+		int mesEntrada = data.get(Calendar.MONTH);
+		int anoEntrada = data.get(Calendar.YEAR);
+	    while (diaEntrada >dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
+	      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
+	        diaEntrada = 1;
+	        if (mesEntrada == 12) {
+	          anoEntrada++;
+	          mesEntrada = 1;
+			} else {
+	          mesEntrada++;
+	        }
+	      }
+	      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
+	      despesaTotal += estrategia.calculaMontante(valorDiaria);
+	      diaEntrada++;
+	    }
+	  }
 
   /**
    * 
