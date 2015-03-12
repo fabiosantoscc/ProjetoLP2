@@ -15,22 +15,22 @@ import executar.Run;
 
 public class NotaEComentario extends JPanel {
 
-	String comentarios;
+	private JLabel lblLogoHotel, lblNotaDeAceitao, lblComentriosDosHospedes, lblIcon;
+	private JScrollPane scrollPaneComentarios;
+	private JTextPane textPaneComentarios;
+	private String comentarios, notaFormatada;
 	
-	/**
-	 * Create the panel.
-	 */
 	public NotaEComentario() {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JScrollPane scrollPaneComentarios = new JScrollPane();
+		scrollPaneComentarios = new JScrollPane();
 		scrollPaneComentarios.setBounds(57, 224, 621, 256);
 		add(scrollPaneComentarios);
 		
-		JTextPane textPaneComentarios = new JTextPane();
+		textPaneComentarios = new JTextPane();
 		scrollPaneComentarios.setViewportView(textPaneComentarios);
 		try {
 			textPaneComentarios.setText(Run.hotel.getComentarios());
@@ -40,25 +40,19 @@ public class NotaEComentario extends JPanel {
 			
 		textPaneComentarios.setEditable(false);
 		
-		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o");
-		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNotaDeAceitao.setBounds(57, 25, 251, 50);
+		lblNotaDeAceitao = CriaObjetosNaTela.criaLabel("Nota de Aceita\u00E7\u00E3o", new Rectangle(57, 25, 251, 50), CriaObjetosNaTela.getFontePadrao(20), null, null);
 		add(lblNotaDeAceitao);
 		
-		String Notaformatada = String.format("%.2f", Run.hotel.getNotaDeAceitacao());
-		JLabel lblNota = new JLabel(Notaformatada);
+		notaFormatada = String.format("%.2f", Run.hotel.getNotaDeAceitacao());
+		JLabel lblNota = new JLabel(notaFormatada);
 		lblNota.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNota.setBounds(250, 25, 200, 50);
 		add(lblNota);
 		
-		JLabel lblComentriosDosHospedes = new JLabel("Coment\u00E1rios dos hospedes");
-		lblComentriosDosHospedes.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblComentriosDosHospedes.setBounds(57, 150, 307, 50);
+		lblComentriosDosHospedes = CriaObjetosNaTela.criaLabel("Coment\u00E1rios dos hospedes", new Rectangle(57, 150, 307, 50), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblComentriosDosHospedes);
 		
-		JLabel lblIcon = new JLabel("");
-		lblIcon.setIcon(new ImageIcon(NotaEComentario.class.getResource("/Icons/comments.png")));
-		lblIcon.setBounds(367, 164, 54, 26);
+		lblIcon = CriaObjetosNaTela.criaLabel(null, new Rectangle(367, 164, 54, 26), CriaObjetosNaTela.getFontePadrao(16),new ImageIcon(NotaEComentario.class.getResource("/Icons/comments.png")), null); 
 		add(lblIcon);
 
 	}

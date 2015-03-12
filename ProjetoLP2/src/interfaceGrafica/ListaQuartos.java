@@ -30,19 +30,20 @@ import executar.Run;
 
 public class ListaQuartos extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	List<Servico> servicosAtuais;
-	List<Quarto> quartosAtuais;
-	ArrayList<String> nomeServicos = new ArrayList<String>();
-	ArrayList<String> minhasStrings = new ArrayList<String>();
-	JList meuList;
+	private List<Servico> servicosAtuais;
+	private List<Quarto> quartosAtuais;
+	private ArrayList<String> nomeServicos = new ArrayList<String>();
+	private ArrayList<String> minhasStrings = new ArrayList<String>();
+	private JList meuList;
 	private DefaultListModel modeling = new DefaultListModel();
+	private JLabel lblLogoHotel, lblListaDeContratos, lblHospede;
+	private JScrollPane scrollPane;
+	private JButton btnAtualizarQuarto;
+	
 	public ListaQuartos(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
 		try {
@@ -51,30 +52,20 @@ public class ListaQuartos extends JPanel {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		
-		JLabel lblListaDeContratos = new JLabel("Lista de Serviços");
-		lblListaDeContratos.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblListaDeContratos.setBounds(44, 49, 201, 31);
+		lblListaDeContratos = CriaObjetosNaTela.criaLabel("Quartos", new Rectangle(44, 49, 201, 31), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblListaDeContratos);
 
-		JLabel lblHospede = new JLabel("Hospede:");
-		lblHospede.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHospede.setBounds(47, 122, 82, 14);
+		lblHospede = CriaObjetosNaTela.criaLabel("Hospede: "+hospedeAtual.getNome(), new Rectangle(47, 122, 527, 20), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblHospede);
 		
-		JLabel label = new JLabel(hospedeAtual.getNome());
-		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		label.setBounds(139, 124, 243, 14);
-		add(label);
-		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(44, 241, 606, 202);
 		add(scrollPane);
 		
 		meuList = new JList(modeling);
 		scrollPane.setViewportView(meuList);
 		
-		JButton btnAtualizarQuarto = new JButton("Atualizar Quarto");
-		btnAtualizarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAtualizarQuarto = CriaObjetosNaTela.criaBotao("Atualizar Quarto", new Rectangle(531, 486, 137, 41), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		btnAtualizarQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				for ( Servico servico : servicosAtuais ) {
@@ -87,10 +78,7 @@ public class ListaQuartos extends JPanel {
 				
 			}
 		});
-		btnAtualizarQuarto.setBounds(531, 486, 137, 41);
 		add(btnAtualizarQuarto);
-		
-		System.out.println(servicosAtuais.size());
 		
 		for (int i = 0; i < servicosAtuais.size(); i++){
 			if ( servicosAtuais.get(i) instanceof Quarto){
