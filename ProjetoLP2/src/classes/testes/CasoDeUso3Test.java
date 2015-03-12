@@ -28,7 +28,7 @@ public class CasoDeUso3Test {
 		Calendar d = Calendar.getInstance();
 		hospede = new Hospede("Anisio", "75265471855", "4012888888881881", "moral.legal@gmail.com", tel, end, d);
 	}
-	
+
 	@Test	
 	public void  testaFuncoesDoCasoTres()throws Exception{
 		
