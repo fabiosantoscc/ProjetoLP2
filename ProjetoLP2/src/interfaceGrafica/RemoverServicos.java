@@ -1,12 +1,14 @@
 package interfaceGrafica;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -14,6 +16,7 @@ import javax.swing.JPanel;
 
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
+import classes.servicos.Quarto;
 import classes.servicos.Servico;
 
 import javax.swing.JList;
@@ -33,6 +36,10 @@ public class RemoverServicos extends JPanel {
 	private DefaultListModel<String> modeling = new DefaultListModel<String>();
 	public RemoverServicos(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
+		
 		try {
 			servicosAtuais = Run.hotel.getServicosHospede(hospedeAtual);
 		} catch (Exception e) {
@@ -59,6 +66,7 @@ public class RemoverServicos extends JPanel {
 		add(scrollPaneServicos);
 
 		for (int i = 0; i < servicosAtuais.size(); i++){
+			if(servicosAtuais.get(i) instanceof Quarto) continue;
 			minhasStrings.add(servicosAtuais.get(i).toString());
 		}
 		
@@ -93,7 +101,6 @@ public class RemoverServicos extends JPanel {
 	}
 	
   private void mostraNaTela() {
-
 		for ( String s : minhasStrings) {
 			modeling.addElement(s);
         }

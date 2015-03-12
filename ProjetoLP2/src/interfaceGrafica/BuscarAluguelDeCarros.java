@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -27,6 +28,9 @@ public class BuscarAluguelDeCarros extends JPanel {
 	 */
 	public BuscarAluguelDeCarros() {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblAluguelDeCarro = new JLabel("Aluguel de Carro");
 		lblAluguelDeCarro.setFont(new Font("Tahoma", Font.PLAIN, 24));

@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -29,6 +30,9 @@ public class BuscarRemoverServicos extends JPanel {
 	 */
 	public BuscarRemoverServicos() {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblBuscarSercicos = new JLabel("Buscar Serviços para remover");
 		lblBuscarSercicos.setFont(new Font("Tahoma", Font.PLAIN, 24));

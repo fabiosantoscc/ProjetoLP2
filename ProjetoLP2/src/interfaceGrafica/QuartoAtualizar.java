@@ -1,11 +1,13 @@
 package interfaceGrafica;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -34,6 +36,9 @@ public class QuartoAtualizar extends JPanel {
 	
 	public QuartoAtualizar(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Adicionar Quarto");
 		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 20));

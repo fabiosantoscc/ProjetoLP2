@@ -8,6 +8,7 @@ package interfaceGrafica;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
@@ -21,6 +22,7 @@ import classes.servicos.QuartoPresidencial;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -32,6 +34,7 @@ import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 import executar.Run;
+
 import javax.swing.SpinnerNumberModel;
 
 public class AtualizarQuarto extends JPanel {
@@ -44,6 +47,9 @@ public class AtualizarQuarto extends JPanel {
 	
 	public AtualizarQuarto(Quarto quartoAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblAdicionarQuarto = new JLabel("Atualizar Quarto");
 		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));

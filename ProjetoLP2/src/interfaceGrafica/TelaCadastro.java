@@ -15,6 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import sun.security.provider.VerificationProvider;
 import classes.Arquivos;
 import classes.Cadastro;
 import excecoes.StringInvalidaException;
@@ -130,7 +131,6 @@ public class TelaCadastro extends JFrame {
 					}
 					
 					c = new Cadastro(textPIN.getText(), textNome.getText(), textLogin.getText(), passwordField.getText());
-					
 					Run.hotel.adicionarCadastro(c, textPIN.getText());
 					JOptionPane.showMessageDialog(null, "Funcionario cadastrado com sucesso");
 					textNome.setText("");

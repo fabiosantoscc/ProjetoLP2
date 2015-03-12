@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -37,6 +39,10 @@ public class ContratosDoHospede extends JPanel {
 	
 	public ContratosDoHospede(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
+		
 		List<Contrato> contratosAtuais = Run.hotel.pesquisarContratos(hospedeAtual);
 		
 		JLabel lblListaDeContratos = new JLabel("Lista de Contratos");

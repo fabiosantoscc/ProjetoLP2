@@ -1,5 +1,6 @@
 package interfaceGrafica;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
@@ -20,11 +21,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Rectangle;
 
 public class ServicosMaisContratados extends JPanel {
 	JPanel panelChart;
 	public ServicosMaisContratados() {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblNewLabel = new JLabel("Relat\u00F3rio sobre os Servicos do Hotel");
 		lblNewLabel.setFont(CriaObjetosNaTela.getFontePadrao(26));
@@ -43,15 +48,16 @@ public class ServicosMaisContratados extends JPanel {
 
 		panelChart= new JPanel();
 		panelChart.setBackground(Color.BLUE);
-		panelChart.setBounds(24, 132, 354, 384);
+		panelChart.setBounds(24, 87, 354, 429);
 		add(panelChart);
 		panelChart.setLayout(new BorderLayout(0, 0));
 		
 		DefaultCategoryDataset graficoBarra = new DefaultCategoryDataset();
 		for(String servico : Run.hotel.ServicosContratados().keySet()){
 			graficoBarra.setValue(Run.hotel.ServicosContratados().get(servico), servico, servico);
-			System.out.println(graficoBarra.getColumnCount());
 		}
+		
+		
 		
 		JFreeChart grafico = ChartFactory.createBarChart("Contratação de Servicos", "Servicos", "Numero de contratações", graficoBarra, PlotOrientation.VERTICAL, false, true, false);
 		CategoryPlot grafic = grafico.getCategoryPlot();
@@ -62,11 +68,6 @@ public class ServicosMaisContratados extends JPanel {
 		panelChart.add(painelDoGrafico, BorderLayout.CENTER);
 		painelDoGrafico.setLayout(null);
 		panelChart.validate();
-		
-		JLabel lblListaDeValores = new JLabel("Lista de valores por m\u00EAs");
-		lblListaDeValores.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblListaDeValores.setBounds(52, 99, 243, 22);
-		add(lblListaDeValores);
 		
 	}
 }

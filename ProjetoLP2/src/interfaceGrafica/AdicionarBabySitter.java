@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,6 +29,9 @@ public class AdicionarBabySitter extends JPanel {
 	 */
 	public AdicionarBabySitter(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		lblBabySitter = CriaObjetosNaTela.criaLabel("Baby Sitter", new Rectangle(29, 24, 247, 51), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblBabySitter);

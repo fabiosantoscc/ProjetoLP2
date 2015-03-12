@@ -9,8 +9,10 @@ import classes.Opiniao;
 import classes.dadosDoHospede.Hospede;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.TextField;
 
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
@@ -20,6 +22,7 @@ import executar.Run;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
@@ -31,8 +34,10 @@ public class CheckOut extends JPanel {
 	 */
 	
 	public CheckOut(Hospede hospedeAtual) {
-		setToolTipText("aaa");
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblRealizarChekOut = new JLabel("Realizar check out");
 		lblRealizarChekOut.setFont(new Font("Tahoma", Font.PLAIN, 26));
@@ -43,11 +48,6 @@ public class CheckOut extends JPanel {
 		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNotaDeAceitao.setBounds(37, 154, 173, 50);
 		add(lblNotaDeAceitao);
-		
-//		textNotaAceitacao = new JTextField();
-//		textNotaAceitacao.setBounds(186, 171, 80, 20);
-//		add(textNotaAceitacao);
-//		textNotaAceitacao.setColumns(10);
 		
 		JLabel lblComentario = new JLabel("Coment\u00E1rio:");
 		lblComentario.setFont(new Font("Tahoma", Font.PLAIN, 17));

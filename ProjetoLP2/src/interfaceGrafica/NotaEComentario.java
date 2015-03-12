@@ -7,6 +7,7 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
@@ -21,6 +22,9 @@ public class NotaEComentario extends JPanel {
 	 */
 	public NotaEComentario() {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JScrollPane scrollPaneComentarios = new JScrollPane();
 		scrollPaneComentarios.setBounds(57, 224, 621, 256);

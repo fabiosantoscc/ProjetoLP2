@@ -1,5 +1,6 @@
 package interfaceGrafica;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.awt.Font;
+import java.awt.Rectangle;
 
 public class AdicionarRestaurante extends JPanel {
 	private JTextField textConsumo;
@@ -31,6 +33,9 @@ public class AdicionarRestaurante extends JPanel {
 	 */
 	public AdicionarRestaurante(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblAdicionarConsumo = new JLabel("Adicionar Consumo");
 		lblAdicionarConsumo.setFont(new Font("Tahoma", Font.PLAIN, 24));

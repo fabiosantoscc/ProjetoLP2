@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -34,6 +35,9 @@ public class BuscarCheckOut extends JPanel {
 	public BuscarCheckOut() {
 		setLayout(null);
 		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
+		
 		JLabel lblCheckOUT = new JLabel("Check out");
 		lblCheckOUT.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblCheckOUT.setBounds(38, 29, 175, 40);
@@ -52,7 +56,6 @@ public class BuscarCheckOut extends JPanel {
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setIcon(new ImageIcon(BuscarCheckOut.class.getResource("/Icons/zoom.png")));
-		btnBuscar.setBackground(new Color(0, 204, 255));
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

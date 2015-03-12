@@ -1,5 +1,6 @@
 package interfaceGrafica;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -32,6 +33,8 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		
 		setLayout(null);
 		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		lblAlugarVeiculo = CriaObjetosNaTela.criaLabel("Alugar Ve\u00EDculo", new Rectangle(38, 43, 227, 46), CriaObjetosNaTela.getFontePadrao(23), null, null);
 		add(lblAlugarVeiculo);
 		

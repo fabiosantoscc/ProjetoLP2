@@ -1,5 +1,8 @@
 package interfaceGrafica;
 
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
@@ -16,6 +19,9 @@ public class PainelContrato extends JPanel {
 	 */
 	public PainelContrato(Hospede hospedeAtual, Contrato contratoAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
 		
 		JLabel lblContrato = new JLabel("Contrato");
 		lblContrato.setBounds(32, 32, 46, 14);

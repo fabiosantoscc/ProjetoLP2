@@ -1,7 +1,9 @@
 package interfaceGrafica;
 
 import java.awt.Font;
+import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -24,6 +26,10 @@ public class PainelHospede extends JPanel {
 	private Hospede hospedeAtual;
 	public PainelHospede(Hospede hospedeAtual) {
 		setLayout(null);
+		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
+		
 		this.hospedeAtual = hospedeAtual;
 		
 		JLabel lblHospede = new JLabel("Hospede");

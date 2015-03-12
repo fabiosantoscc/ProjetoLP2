@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import classes.Arquivos;
 
 import java.awt.Font;
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 
@@ -37,9 +39,7 @@ public class TelaSobre extends JPanel {
 		lblRonanSouza.setBounds(146, 259, 165, 17);
 		add(lblRonanSouza);
 		
-		JLabel lblLogoHotel = new JLabel("");
-		lblLogoHotel.setIcon(new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")));
-		lblLogoHotel.setBounds(694, 11, 66, 70);
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
 		JLabel lblLogoUFCG = new JLabel("");

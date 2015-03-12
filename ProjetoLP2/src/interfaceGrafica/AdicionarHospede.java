@@ -40,6 +40,9 @@ public class AdicionarHospede extends JPanel {
 
 		setLayout(null);
 		
+		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		add(lblLogoHotel);
+		
 		lblAtualizarCadastro = CriaObjetosNaTela.criaLabel("Adicionar Hospede", new Rectangle(12, 12, 287, 29), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblAtualizarCadastro);
 		
