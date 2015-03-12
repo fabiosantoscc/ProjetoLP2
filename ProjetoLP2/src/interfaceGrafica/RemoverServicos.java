@@ -70,21 +70,21 @@ public class RemoverServicos extends JPanel {
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for ( Servico servico : servicosAtuais ) {
-					if ( servico.toString().equals(((String) listServicos.getSelectedValue())) ) {
-						minhasStrings.remove(listServicos.getSelectedValue() + "");
-						servicosAtuais.remove(servico);
-						modeling.removeAllElements();
-						mostraNaTela();
-						JOptionPane.showMessageDialog(null, "Serviço removido");
-						System.out.println(servicosAtuais.size());
-						try {
+				try {
+					for ( Servico servico : servicosAtuais ) {
+						if ( servico.toString().equals(((String) listServicos.getSelectedValue())) ) {
+							minhasStrings.remove(listServicos.getSelectedValue() + "");
+							servicosAtuais.remove(servico);
+							modeling.removeAllElements();
+							mostraNaTela();
+							JOptionPane.showMessageDialog(null, "Serviço removido");
+							System.out.println(servicosAtuais.size());
 							Arquivos.salvaHotel(Run.hotel);
-						} catch (Exception e1) {
-							e1.printStackTrace();
 						}
+					}
+				} catch (Exception e2) {
+					e2.getMessage();
 				}
-			  }
 			}  
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.PLAIN, 15));
