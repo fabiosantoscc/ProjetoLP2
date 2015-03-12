@@ -21,49 +21,39 @@ import javax.swing.ImageIcon;
 import executar.Run;
 
 public class BuscarAdcQuartos extends JPanel {
-	private JTextField cpfAPesquisar;
-
-	/**
-	 * Create the panel.
-	 */
+	private JButton btnBuscar;
+	private JTextField textCPF;
+	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
+	
 	public BuscarAdcQuartos() {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblAdicionarQuartos = new JLabel("Adicionar Quartos");
-		lblAdicionarQuartos.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAdicionarQuartos.setBounds(38, 29, 242, 40);
-		add(lblAdicionarQuartos);
+		lblBabySitter = CriaObjetosNaTela.criaLabel("BabySitter", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
+		add(lblBabySitter);
 		
-		JLabel lblCPF = new JLabel("CPF do Hospede");
-		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCPF.setBounds(162, 148, 118, 21);
+		lblCPF = CriaObjetosNaTela.criaLabel("CPF do Hospede", new Rectangle(216, 132, 116, 21), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblCPF);
 		
-		cpfAPesquisar = new JTextField();
-		cpfAPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		cpfAPesquisar.setColumns(10);
-		cpfAPesquisar.setBounds(312, 148, 155, 21);
-		add(cpfAPesquisar);
+		textCPF = CriaObjetosNaTela.criaTextField(null, new Rectangle(381, 132, 148, 20), CriaObjetosNaTela.getFontePadrao(15), true, null);
+		add(textCPF);
 		
-		JButton textCPF = new JButton("Buscar");
-		textCPF.setIcon(new ImageIcon(BuscarAdcQuartos.class.getResource("/Icons/zoom.png")));
-		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textCPF.addActionListener(new ActionListener() {
+		btnBuscar = CriaObjetosNaTela.criaBotao("Buscar", new Rectangle(335, 191, 105, 27), CriaObjetosNaTela.getFontePadrao(15),new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")) , null);
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
-				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(cpfAPesquisar.getText()));
+				MenuPrincipal.adcquartos = new AdicionarQuartos(Run.hotel.pesquisaHospede(lblCPF.getText()));
 				MenuPrincipal.panel0.add(MenuPrincipal.adcquartos, "painelAdcQuartos");
 				MenuPrincipal.cl.show(MenuPrincipal.panel0, "painelAdcQuartos");
-				cpfAPesquisar.setText("");
+				lblCPF.setText("");
 				}catch(Exception c){
 					
 				}
 			}
 		});
-		textCPF.setBounds(262, 253, 111, 25);
-		add(textCPF);
+		
+		add(btnBuscar);
 	}
 }
