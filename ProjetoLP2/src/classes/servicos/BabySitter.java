@@ -35,7 +35,7 @@ public class BabySitter implements Servico, Serializable {
 	 * 
 	 * @param quantidadedeHoras - Horas normais (entre as 7h da manha ate as 18h)
 	 * @param quantidadedeHorasDobradas - Horas dobradas (entre as 18h e 7h da manha)
-	 */
+	 */ 
 	
 	public BabySitter(int quantidadeHoras, int horaInicial) throws Exception {
 		data = Calendar.getInstance();
