@@ -80,7 +80,6 @@ public class CheckOut extends JPanel {
 					Arquivos.salvaHotel(Run.hotel);
 					}catch(Exception c){
 						JOptionPane.showMessageDialog(null, c.getMessage());
-						System.out.println(c);
 					}
 			}
 		});

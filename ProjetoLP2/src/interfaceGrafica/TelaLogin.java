@@ -23,6 +23,8 @@ import javax.swing.ImageIcon;
 
 import classes.Cadastro;
 import executar.Run;
+import java.awt.BorderLayout;
+import javax.swing.border.TitledBorder;
 
 public class TelaLogin extends JFrame {
 

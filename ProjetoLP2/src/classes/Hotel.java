@@ -40,6 +40,7 @@ public class Hotel implements Serializable {
 	private double notaDeAceitacao = 0;
 	private double lucroTotal;
 	
+	private HashMap<String, Double> LucroPorMes = new HashMap<String, Double>();
 	private List<String> datasLucro = new ArrayList<String>();
 	private List<Double> valorDosMeses = new ArrayList<Double>();
 	private List<Cadastro> cadastros = new ArrayList<Cadastro>();
@@ -118,11 +119,12 @@ public class Hotel implements Serializable {
 			
 			for (Hospede h : hospedes.keySet()) {
 				for (Contrato contrato : hospedes.get(h)){
-					if ((contrato.getCalendar().get(Calendar.MONTH) + 1) == mesInicio && 
-							contrato.getCalendar().get(Calendar.YEAR) == anoInicio) totalMensal += contrato.getValorAPagar();
-				}
+						if (contrato.isAberto()) continue;
+						if ((contrato.getDataFinal().get(Calendar.MONTH) + 1) == mesInicio && 
+								contrato.getDataFinal().get(Calendar.YEAR) == anoInicio) totalMensal += contrato.getValorAPagar();
+					}
 			}
-			
+			LucroPorMes.put(""+mesInicio+"/"+anoInicio, totalMensal);
 			datasLucro.add("Mes: " + mesInicio + "Ano: " + anoInicio);
 			valorDosMeses.add(totalMensal);
 			if(mesInicio == 12) {
@@ -147,6 +149,13 @@ public class Hotel implements Serializable {
 		}	
 	}
 	
+	/**
+	 * 
+	 * @return Retorna um mapa com os meses e o respectivo faturamento até entao
+	 */
+	public HashMap<String, Double> getLucroPorMes(){
+		return LucroPorMes;
+	}
 	public List<String> getListaDeMeses(){
 		return datasLucro;
 	}
@@ -186,11 +195,12 @@ public class Hotel implements Serializable {
 		boolean existeContratoAberto = false;
 		
 		for ( Contrato contrato : contratos ) {
-			if ( contrato.isAberto() == true ) {
+			if ( contrato.isAberto()) {
 				contratoAberto = contrato;
 				contrato.setAberto(false);
 				existeContratoAberto = true;
 				contrato.calculaDespesaTotal();
+				contrato.setDataFinal();
 			}
 		}
 		if ( !(existeContratoAberto) ) {
@@ -253,9 +263,10 @@ public class Hotel implements Serializable {
 	 */
 	
 	public String servicoPopular(){
-		if (maisAluguel > maisBaby && maisAluguel > maisRestaurante) return "Aluguel de Carros: " + maisAluguel;
-		if (maisBaby > maisAluguel && maisBaby > maisRestaurante) return "Babby Sitter: " + maisBaby;
-		return "Restaurante: " + maisRestaurante;
+		if (maisAluguel >= maisBaby && maisAluguel >= maisRestaurante) return "Aluguel de Carros, com " + maisAluguel+" contratos";
+		if (maisBaby >= maisAluguel && maisBaby >= maisRestaurante) return "Babby Sitter, com " + maisBaby+" contratos";
+		if (maisRestaurante >= maisAluguel && maisRestaurante >= maisBaby) return "Restaurante, com " + maisRestaurante+" contratos"; 
+		return "Sem serviços adicionais contratados";
 	}
 	
 	/**

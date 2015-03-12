@@ -74,6 +74,8 @@ public class AdicionarAlugueldeCarros extends JPanel {
 		btnAdicionarServico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					isTanqueCheio = boxTanqueCheio.isSelected();
+					isSeguro = boxSeguro.isSelected();
 					AluguelDeCarros carroAtual = new AluguelDeCarros(ModelosDoCarro.valueOf(comboModelosDeCarro.getSelectedItem().toString()), isTanqueCheio, isSeguro);
 					Run.hotel.adicionaServico(hospedeAtual, carroAtual);
 					JOptionPane.showMessageDialog(null, "Veículo Alugado com Sucesso!");

@@ -90,13 +90,18 @@ public class Contrato implements Serializable {
    * Calcula valor da multa se houver atraso
    */
   
-  public Calendar getCalendar(){
-	  return dataFinal;
-  }
-  
   private double calculaMulta() {
     return (0.025 * despesaParcial) * diasDeMulta();
   }
+
+  public void setDataFinal(){
+	  dataFinal = Calendar.getInstance();
+  }
+  
+  public Calendar getDataFinal(){
+	  return dataFinal;
+  }
+  
   
   /**
   * Adiciona varios servicos no Contrato.
