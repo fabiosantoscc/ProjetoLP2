@@ -26,52 +26,40 @@ import java.awt.Font;
 import java.awt.Rectangle;
 
 public class AdicionarRestaurante extends JPanel {
+	
 	private JTextField textConsumo;
+	private JLabel lblAdicionarConsumo, lblLogoHotel, lblUnidade, lblConsumo;
+	private JComboBox<String> comboUnidadeRestaurante;
+	private JButton btnAdicionarConsumo;
 
-	/**
-	 * Create the panel.
-	 */
 	public AdicionarRestaurante(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblAdicionarConsumo = new JLabel("Adicionar Consumo");
-		lblAdicionarConsumo.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAdicionarConsumo.setBounds(40, 28, 284, 53);
+		lblAdicionarConsumo = CriaObjetosNaTela.criaLabel("Adicionar Consumo", new Rectangle(40, 28, 284, 53), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblAdicionarConsumo);
 		
-		JLabel lblUnidade = new JLabel("Unidade");
-		lblUnidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblUnidade.setBounds(37, 113, 124, 20);
+		lblUnidade = CriaObjetosNaTela.criaLabel("Unidade", new Rectangle(37, 113, 124, 20), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblUnidade);
 		
-		JComboBox comboUnidadeRestaurante = new JComboBox();
-		comboUnidadeRestaurante.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		comboUnidadeRestaurante = CriaObjetosNaTela.criaComboBox(new Rectangle(140, 113, 124, 20), CriaObjetosNaTela.getFontePadrao(14));
 		comboUnidadeRestaurante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String c = (String) comboUnidadeRestaurante.getSelectedItem();
 			}
 		});
 		comboUnidadeRestaurante.setModel(new DefaultComboBoxModel(new String[]{""+UnidadesDoRestaurante.TERREO, ""+UnidadesDoRestaurante.COBERTURA}));
-		comboUnidadeRestaurante.setBounds(140, 113, 124, 20);
 		add(comboUnidadeRestaurante);
 		
-		JLabel lblConsumo = new JLabel("Consumo");
-		lblConsumo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblConsumo.setBounds(40, 162, 96, 20);
+		lblConsumo = CriaObjetosNaTela.criaLabel("Consumo", new Rectangle(40, 162, 96, 20), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblConsumo);
 		
-		textConsumo = new JTextField();
-		textConsumo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textConsumo.setBounds(140, 162, 124, 20);
+		textConsumo = CriaObjetosNaTela.criaTextField(null, new Rectangle(40, 162, 96, 20), CriaObjetosNaTela.getFontePadrao(14), true, null);
 		add(textConsumo);
-		textConsumo.setColumns(10);
 		
-		
-		JButton btnAdicionarConsumo = new JButton("Adicionar Consumo");
-		btnAdicionarConsumo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAdicionarConsumo = CriaObjetosNaTela.criaBotao("Adicionar Consumo", new Rectangle(409, 403, 195, 44), CriaObjetosNaTela.getFontePadrao(14), null, null);
 		btnAdicionarConsumo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
@@ -89,7 +77,6 @@ public class AdicionarRestaurante extends JPanel {
 							
 			}
 		});
-		btnAdicionarConsumo.setBounds(409, 403, 195, 44);
 		add(btnAdicionarConsumo);
 	}
 }

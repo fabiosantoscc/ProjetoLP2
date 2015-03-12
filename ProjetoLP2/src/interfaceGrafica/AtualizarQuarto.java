@@ -38,37 +38,29 @@ import executar.Run;
 import javax.swing.SpinnerNumberModel;
 
 public class AtualizarQuarto extends JPanel {
-
-	/**
-	 * Create the panel.
-	 */
 	
-	ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
+	private ArrayList<String> quartos = new ArrayList<>(Arrays.asList("Presidencial", "Luxo Simples", "Luxo Duplo", "Luxo Triplo","Executivo Simples", "Executivo Duplo", "Executivo Triplo"));
+	private JLabel lblLogoHotel, lblAdicionarQuarto, lblQuantidadeDePessoas;
+	private JSpinner spinnerQuantidadePessoas; 
+	private JButton btnAtualizar;
 	
 	public AtualizarQuarto(Quarto quartoAtual) {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblAdicionarQuarto = new JLabel("Atualizar Quarto");
-		lblAdicionarQuarto.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAdicionarQuarto.setBounds(22, 30, 219, 27);
+		lblAdicionarQuarto = CriaObjetosNaTela.criaLabel("Atualizar Quarto", new Rectangle(22, 30, 219, 27), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblAdicionarQuarto);
 		
-		JLabel lblQuantidadeDePessoas = new JLabel("Quantidade de Pessoas");
-		lblQuantidadeDePessoas.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblQuantidadeDePessoas.setBounds(53, 182, 188, 25);
+		lblQuantidadeDePessoas = CriaObjetosNaTela.criaLabel("Quantidade de Pessoas", new Rectangle(53, 182, 188, 25), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblQuantidadeDePessoas);
 		
-		JSpinner spinnerQuantidadePessoas = new JSpinner();
+		spinnerQuantidadePessoas = CriaObjetosNaTela.criaSpinner(new Rectangle(266, 186, 48, 20), CriaObjetosNaTela.getFontePadrao(14));
 		spinnerQuantidadePessoas.setModel(new SpinnerNumberModel(1, 1, 4, 1));
-		spinnerQuantidadePessoas.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinnerQuantidadePessoas.setBounds(266, 186, 48, 20);
 		add(spinnerQuantidadePessoas);
 		
-		JButton btnAtualizar = new JButton("Atualizar");
-		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAtualizar = CriaObjetosNaTela.criaBotao("Atualizar", new Rectangle(482, 439, 119, 37), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -84,7 +76,6 @@ public class AtualizarQuarto extends JPanel {
 				}
 			}
 		});
-		btnAtualizar.setBounds(482, 439, 119, 37);
 		add(btnAtualizar);
 		
 	}
