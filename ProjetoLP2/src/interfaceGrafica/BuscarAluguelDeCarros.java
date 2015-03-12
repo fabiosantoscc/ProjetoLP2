@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import executar.Run;
 
 public class BuscarAluguelDeCarros extends JPanel {
+	
 	private JButton btnBuscar;
 	private JTextField textCPF;
 	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
