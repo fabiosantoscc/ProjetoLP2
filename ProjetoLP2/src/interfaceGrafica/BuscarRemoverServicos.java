@@ -34,7 +34,7 @@ public class BuscarRemoverServicos extends JPanel {
 		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		lblBabySitter = CriaObjetosNaTela.criaLabel("Atualizar Quarto", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
+		lblBabySitter = CriaObjetosNaTela.criaLabel("Remover Servicos", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
 		add(lblBabySitter);
 		
 		lblCPF = CriaObjetosNaTela.criaLabel("CPF do Hospede", new Rectangle(216, 132, 116, 21), CriaObjetosNaTela.getFontePadrao(15), null, null);
