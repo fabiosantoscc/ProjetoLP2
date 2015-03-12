@@ -25,7 +25,7 @@ public abstract class Quarto implements Servico, Serializable  {
   private int quantidadeDePessoas;
   private double despesaTotal;
   private int diaInicial;
-  private int mesInicial;
+  private int mesInicial; 
   private int anoInicial;
 
   /**

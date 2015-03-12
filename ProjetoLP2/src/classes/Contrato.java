@@ -28,7 +28,7 @@ public class Contrato implements Serializable {
   private int numeroDeNoites;
   private Calendar dataInicial;
   private Calendar dataFinal;
-  
+   
   /**
    * Construtor de um Contrato.
    * 

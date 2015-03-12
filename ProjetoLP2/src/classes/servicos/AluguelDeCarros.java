@@ -26,7 +26,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 	private int tarifaTotal;
 	private Calendar data;
 	
-	/**
+	/** 
 	 * Construtor da classe AluguelDeCarros
 	 * 
 	 * @param tipoCarro Modelo do Automovel desejado ( "Luxo" ou "Executivo")
