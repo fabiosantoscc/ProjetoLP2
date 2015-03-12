@@ -39,7 +39,6 @@ public class Restaurante implements Servico, Serializable {
 		calendario = new CalendarioDeEstrategias();
 		data = Calendar.getInstance();
 		this.unidadeRestaurante = tipo;
-		Hotel.maisRestaurante++;
 		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
 		consumoRefeicao = estrategia.calculaMontante(valorConsumido);
 	}
