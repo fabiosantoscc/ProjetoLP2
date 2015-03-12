@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 import classes.estrategias.CalendarioDeEstrategias;
 import classes.servicos.Servico;
 
@@ -62,27 +65,20 @@ public class Contrato implements Serializable {
   }
    
   private int diasDeMulta() {
-/*	 Calendar dataSaida = Calendar.getInstance();
-	 dataFinal = dataSaida;
-	 int diaEntrada = dataInicial.get(Calendar.DAY_OF_MONTH);
-	 int mesEntrada =  dataInicial.get(Calendar.MONTH);
-	 int anoEntrada = dataInicial.get(Calendar.YEAR);
-	 int contaDias = 0;
-	 while (true) {
-		 if (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH)
-				 && anoEntrada == dataSaida.get(Calendar.YEAR)) break;
-		 contaDias++;
-		 if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
-			 diaEntrada = 1;
-			 if (mesEntrada == 12){
-					anoEntrada++;
-					mesEntrada = 1;
-			}
-				else mesEntrada++;
-		}
-	 }*/
-
-	 return 1;//contaDias - numeroDeNoites;
+	  DateTime dataInicial1 = new DateTime(dataInicial);
+	  DateTime dataFinal1 = new DateTime(dataFinal);
+	  
+	   /*Se a diferenca de dias subtraida pela quantidade de noites, for algum numero positivo,
+	     significa que o contrato deve ter multa, caso seja igual ou menor que 0, o
+	     contrato foi fechado no mesmo dia do inicio, ou antes do seu numero de noite e
+	     esse metodo retorna 0.
+       */	  
+	  
+	  if (Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites() > 0 ) {
+		  return Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites();
+	  }
+	  
+	  return 0;
   }
   
   /**
