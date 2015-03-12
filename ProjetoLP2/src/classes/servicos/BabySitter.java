@@ -49,13 +49,23 @@ public class BabySitter implements Servico, Serializable {
 		calculaDespesaTotal();
 	}
 	
-	
+	/**
+	 * Verifica se a quantidade de horas do servico passado no construtor é válida
+	 * @param quantidadeHoras Quantidade de horas que deseja-se contratar o servico
+	 * @throws Exception Se a quantidade de horas for menor que 1
+	 */
 	
 	private void checaHoras(int quantidadeHoras) throws Exception {
 		if (quantidadeHoras <= 0) {
 			throw new Exception ("O numero de horas tem que ser maior que zero.");
 		}
 	}
+	
+	/**
+	 * Verifica se o horario inicial do servico é valido
+	 * @param horaInicial Horario de inicio do servico
+	 * @throws Exception Se o horário for diferente do intervalo (00, 24)
+	 */
 	 
 	private void checaHoraInicial(int horaInicial) throws Exception {
 		if (horaInicial < 0 || horaInicial > 23) {

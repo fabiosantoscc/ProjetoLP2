@@ -44,11 +44,21 @@ public class Restaurante implements Servico, Serializable {
 		calculaDespesaTotal();
 	}
 	
+	/**
+	 * Verifica se o valor 
+	 * @param valor
+	 * @throws NumberInvalidException
+	 */
+	
 	private void checaValorConsumo(double valor) throws NumberInvalidException {
 		if ( valor <= 0 ) {
 			throw new NumberInvalidException("Valor invalido!");
 		}	
 	}
+	
+	/**
+	 * Calcula a tarifa total utilizada por esse servico, metodo que pertence a interface servicos
+	 */
 	
 	public void calculaDespesaTotal(){
 		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);

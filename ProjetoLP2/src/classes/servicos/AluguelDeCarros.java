@@ -85,7 +85,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 	}
 
 	/**
-	 * Vetifica o tipo do carro
+	 * Vetifica o modelo do carro(Luxo ou Executivo)
 	 */
 	
 	public void verificaTipo() {
@@ -124,7 +124,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 			int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
 			int mesEntrada = data.get(Calendar.MONTH);
 			int anoEntrada = data.get(Calendar.YEAR);
-		    while (diaEntrada >dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
+		    while (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
 		      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
 		        diaEntrada = 1;
 		        if (mesEntrada == 12) {
@@ -167,7 +167,7 @@ public class AluguelDeCarros implements Servico, Serializable {
   }
 
   /**
-   * 
+   * @return O valor final, que deve ser pago pelo cliente referente a esse servico 
    */
   
   @Override
