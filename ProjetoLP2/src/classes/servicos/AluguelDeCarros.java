@@ -25,7 +25,7 @@ public class AluguelDeCarros implements Servico, Serializable {
 	private int valorDiaria;
 	private int tarifaTotal;
 	private Calendar data;
-	
+	 
 	/** 
 	 * Construtor da classe AluguelDeCarros
 	 * 
