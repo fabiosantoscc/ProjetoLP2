@@ -23,36 +23,27 @@ import executar.Run;
 import javax.swing.ImageIcon;
 
 public class BuscarRemoverServicos extends JPanel {
+	
+	private JButton btnBuscar;
 	private JTextField textCPF;
-
-	/**
-	 * Create the panel.
-	 */
+	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
+	
 	public BuscarRemoverServicos() {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblBuscarSercicos = new JLabel("Buscar Serviços para remover");
-		lblBuscarSercicos.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblBuscarSercicos.setBounds(38, 29, 326, 40);
-		add(lblBuscarSercicos);
+		lblBabySitter = CriaObjetosNaTela.criaLabel("Atualizar Quarto", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
+		add(lblBabySitter);
 		
-		JLabel lblCPF = new JLabel("CPF do Hospede");
-		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCPF.setBounds(207, 145, 120, 21);
+		lblCPF = CriaObjetosNaTela.criaLabel("CPF do Hospede", new Rectangle(216, 132, 116, 21), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblCPF);
 		
-		textCPF = new JTextField();
-		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textCPF.setColumns(10);
-		textCPF.setBounds(381, 145, 114, 20);
+		textCPF = CriaObjetosNaTela.criaTextField(null, new Rectangle(381, 132, 148, 20), CriaObjetosNaTela.getFontePadrao(15), true, null);
 		add(textCPF);
 		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(BuscarRemoverServicos.class.getResource("/Icons/zoom.png")));
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar = CriaObjetosNaTela.criaBotao("Buscar", new Rectangle(335, 191, 105, 27), CriaObjetosNaTela.getFontePadrao(15),new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")) , null);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -68,7 +59,6 @@ public class BuscarRemoverServicos extends JPanel {
 
 			}
 		});
-		btnBuscar.setBounds(311, 198, 104, 27);
 		add(btnBuscar);
 
 	}
