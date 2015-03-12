@@ -47,10 +47,10 @@ public class BuscarHospede extends JPanel {
 		btnBuscar.addActionListener(new ActionListener()  {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(lblCPF.getText()));
+					MenuPrincipal.telaHospede = new PainelHospede(Run.hotel.pesquisaHospede(textCPF.getText()));
 					MenuPrincipal.panel0.add(MenuPrincipal.telaHospede, "8");
 					MenuPrincipal.cl.show(MenuPrincipal.panel0, "8");
-					lblCPF.setText("");
+					textCPF.setText("");
 				} catch (HospedeInvalidoException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}

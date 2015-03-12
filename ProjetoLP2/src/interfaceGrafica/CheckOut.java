@@ -27,49 +27,44 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class CheckOut extends JPanel {
+	
 	private JTextField textNotaAceitacao;
-
-	/**
-	 * Create the panel.
-	 */
+	private JLabel lblLogoHotel, lblRealizarChekOut, lblNotaDeAceitao, lblComentario;
+	private JTextPane textPaneComentarios;
+	private JScrollPane scrollPaneComentarios;
+	private JSpinner spinnerNota;
+	private JButton btnCheckOut;
 	
 	public CheckOut(Hospede hospedeAtual) {
 		setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblRealizarChekOut = new JLabel("Realizar check out");
-		lblRealizarChekOut.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblRealizarChekOut.setBounds(37, 41, 235, 35);
+		lblRealizarChekOut = CriaObjetosNaTela.criaLabel("Realizar Check out", new Rectangle(37, 41, 235, 35), CriaObjetosNaTela.getFontePadrao(26), null, null);
 		add(lblRealizarChekOut);
 		
-		JLabel lblNotaDeAceitao = new JLabel("Nota de Aceita\u00E7\u00E3o: ");
-		lblNotaDeAceitao.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNotaDeAceitao.setBounds(37, 154, 173, 50);
+		lblNotaDeAceitao = CriaObjetosNaTela.criaLabel("Nota de Aceita\u00E7\u00E3o: ", new Rectangle(37, 154, 173, 50), CriaObjetosNaTela.getFontePadrao(16), null, null);
 		add(lblNotaDeAceitao);
 		
-		JLabel lblComentario = new JLabel("Coment\u00E1rio:");
-		lblComentario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblComentario.setBounds(37, 238, 120, 28);
+		lblComentario = CriaObjetosNaTela.criaLabel("Coment\u00E1rio:", new Rectangle(37, 238, 120, 28), CriaObjetosNaTela.getFontePadrao(17), null, null);
 		add(lblComentario);
 		
-		JScrollPane scrollPaneComentarios = new JScrollPane();
+		scrollPaneComentarios = new JScrollPane();
 		scrollPaneComentarios.setBounds(163, 238, 325, 69);
 		add(scrollPaneComentarios);
 		
-		JTextPane textPaneComentarios = new JTextPane();
+		textPaneComentarios = new JTextPane();
 		scrollPaneComentarios.setViewportView(textPaneComentarios);
 		
-		JSpinner spinnerNota = new JSpinner();
+		spinnerNota = CriaObjetosNaTela.criaSpinner(new Rectangle(192, 171, 41, 20), CriaObjetosNaTela.getFontePadrao(14));
 		spinnerNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinnerNota.setBounds(192, 171, 41, 20);
 		add(spinnerNota);
 		
-		JButton btnCheckOut = new JButton("Check out");
+		btnCheckOut = CriaObjetosNaTela.criaBotao("Check Out", new Rectangle(329, 426, 184, 45), CriaObjetosNaTela.getFontePadrao(17), null, null);
 		btnCheckOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String informacoes = "AAAAAAA";
+				String informacoes = "";
 				try{
 					Opiniao novaOpiniao = new Opiniao(textPaneComentarios.getText(), Double.parseDouble(spinnerNota.getValue().toString()));
 					Run.hotel.adicionaOpiniao(novaOpiniao);
@@ -83,8 +78,6 @@ public class CheckOut extends JPanel {
 					}
 			}
 		});
-		btnCheckOut.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnCheckOut.setBounds(329, 426, 184, 45);
 		add(btnCheckOut);
 		
 		try {
