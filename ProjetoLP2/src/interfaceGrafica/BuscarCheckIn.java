@@ -21,36 +21,27 @@ import javax.swing.ImageIcon;
 import executar.Run;
 
 public class BuscarCheckIn extends JPanel {
+	
+	private JButton btnBuscar;
 	private JTextField textCPF;
-
-	/**
-	 * Create the panel.
-	 */
+	private JLabel lblLogoHotel,lblBabySitter, lblCPF;
+	
 	public BuscarCheckIn() {
-		setLayout(null);
+setLayout(null);
 		
-		JLabel lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
+		lblLogoHotel = CriaObjetosNaTela.criaLabel(null, new Rectangle(694, 11, 66, 70), CriaObjetosNaTela.getFontePadrao(20),new ImageIcon(TelaSobre.class.getResource("/Icons/60x53.png")), null);
 		add(lblLogoHotel);
 		
-		JLabel lblCheckIN = new JLabel("Check in");
-		lblCheckIN.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblCheckIN.setBounds(38, 29, 175, 40);
-		add(lblCheckIN);
+		lblBabySitter = CriaObjetosNaTela.criaLabel("BabySitter", new Rectangle(38, 29, 329, 40), CriaObjetosNaTela.getFontePadrao(24), null, null);
+		add(lblBabySitter);
 		
-		JLabel lblCPF = new JLabel("CPF do Hospede");
-		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCPF.setBounds(167, 132, 152, 21);
+		lblCPF = CriaObjetosNaTela.criaLabel("CPF do Hospede", new Rectangle(216, 132, 116, 21), CriaObjetosNaTela.getFontePadrao(15), null, null);
 		add(lblCPF);
 		
-		textCPF = new JTextField();
-		textCPF.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textCPF.setColumns(10);
-		textCPF.setBounds(329, 132, 152, 20);
+		textCPF = CriaObjetosNaTela.criaTextField(null, new Rectangle(381, 132, 148, 20), CriaObjetosNaTela.getFontePadrao(15), true, null);
 		add(textCPF);
 		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(BuscarCheckIn.class.getResource("/Icons/zoom.png")));
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBuscar = CriaObjetosNaTela.criaBotao("Buscar", new Rectangle(335, 191, 105, 27), CriaObjetosNaTela.getFontePadrao(15),new ImageIcon(BuscarAdcBabySitter.class.getResource("/Icons/zoom.png")) , null);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
@@ -64,7 +55,6 @@ public class BuscarCheckIn extends JPanel {
 				}
 			}
 		});
-		btnBuscar.setBounds(268, 196, 104, 27);
 		add(btnBuscar);
 
 	}
