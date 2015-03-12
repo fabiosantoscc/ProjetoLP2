@@ -103,7 +103,7 @@ public class Hotel implements Serializable {
 	 */
 	
 	public void adicionarCadastro(Cadastro funcionario, String pinFuncionario) throws Exception{
-		if (!(pinFuncionario.equals(pin))){
+		if (!(pinFuncionario.equals(getPin()))){
 			throw new Exception("Pin Inválido!");
 		}
 		verificaCadastroExistente(funcionario.getNomeLogin());

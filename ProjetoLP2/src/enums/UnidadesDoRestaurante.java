@@ -1,4 +1,4 @@
-package classes.testes;
+package enums;
 
 public enum UnidadesDoRestaurante {
 	TERREO, COBERTURA;

@@ -12,7 +12,6 @@ import java.awt.Font;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -23,12 +22,9 @@ import javax.swing.ImageIcon;
 
 import classes.Cadastro;
 import executar.Run;
-import java.awt.BorderLayout;
-import javax.swing.border.TitledBorder;
 
 public class TelaLogin extends JFrame {
 
-	private int telaAberta = 0;
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 	private JButton btnEntrar, btnSair, btnCadastrar;
@@ -63,9 +59,11 @@ public class TelaLogin extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(229, 300, 178, 25);
+		passwordField.setToolTipText("Senha do funcionário");
 		contentPane.add(passwordField);
 		
 		loginField = CriaObjetosNaTela.criaTextField(null, new Rectangle(229, 265, 178, 25), fontePadrao(18), true,"Digite o nome do usuário para entrar no sistema.");
+		loginField.setToolTipText("Nome de login do funcionário.");
 		contentPane.add(loginField);
 		
 		lblLogin = CriaObjetosNaTela.criaLabel("Login",new Rectangle(144, 265, 75, 25) , fontePadrao(18), null, null);
@@ -87,17 +85,17 @@ public class TelaLogin extends JFrame {
 				}
 			}
 		});
+		btnEntrar.setToolTipText("Entrar no sistema");
 		contentPane.add(btnEntrar);
 		
 		btnCadastrar = CriaObjetosNaTela.criaBotao("Cadastrar", new Rectangle(277, 350, 130, 25), fontePadrao(15), new ImageIcon(TelaLogin.class.getResource("/Icons/lock_add.png")), null);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if ( telaAberta == 0) {
-					//telaAberta++;
 					new TelaCadastro();
-				}
 			}
 		});
+
+		btnCadastrar.setToolTipText("Cadastrar novo funcionário");
 		contentPane.add(btnCadastrar);
 		
 		btnSair = CriaObjetosNaTela.criaBotao("Sair", new Rectangle(219, 389, 89, 23), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/cancel.png")), null);
@@ -106,6 +104,7 @@ public class TelaLogin extends JFrame {
 				System.exit(0);
 			}
 		});
+		btnSair.setToolTipText("Sair do sistema");
 		contentPane.add(btnSair);
 		
 		lblLogo = CriaObjetosNaTela.criaLabel("", new Rectangle(172, 25, 192, 179), fontePadrao(18), new ImageIcon(TelaLogin.class.getResource("/Icons/180x158.png")), null);

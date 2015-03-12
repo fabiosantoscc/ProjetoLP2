@@ -74,6 +74,12 @@ public class RemoverServicos extends JPanel {
 					if ( servico.toString().equals(((String) listServicos.getSelectedValue())) ) {
 						minhasStrings.remove(listServicos.getSelectedValue() + "");
 						servicosAtuais.remove(servico);
+						try {
+							servicosAtuais = Run.hotel.getServicosHospede(hospedeAtual);
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+						System.out.println(servicosAtuais.size());
 						modeling.removeAllElements();
 						mostraNaTela();
 						JOptionPane.showMessageDialog(null, "Serviço removido");
