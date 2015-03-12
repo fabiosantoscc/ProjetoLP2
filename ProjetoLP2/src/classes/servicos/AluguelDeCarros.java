@@ -119,26 +119,26 @@ public class AluguelDeCarros implements Servico, Serializable {
 	 * @param mesDeSaida Mes de saida do aluguel
 	 */
 
-	public int calculaDespesaTotal(int diaEntrada, int mesEntrada, int diaSaida, int mesSaida, int anoEntrada,
-			int anoSaida) throws Exception {
-		int contador = 0;
-		while (diaEntrada > diaSaida && mesEntrada == mesSaida && anoEntrada == anoSaida) {
-			if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))){
-				diaEntrada = 1;
-				if (mesEntrada == 12){
-					anoEntrada++;
-					mesEntrada = 1;
-				}
-				else mesEntrada++;
-			}
-			contador++;
-			estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-			tarifaTotal += estrategia.calculaMontante(valorDiaria);
-			diaEntrada++;
-		}
-		return contador; 
-	}
-	
+	  public void calculaDespesaTotal() {
+			Calendar dataSaida = Calendar.getInstance();
+			int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
+			int mesEntrada = data.get(Calendar.MONTH);
+			int anoEntrada = data.get(Calendar.YEAR);
+		    while (diaEntrada >dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
+		      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
+		        diaEntrada = 1;
+		        if (mesEntrada == 12) {
+		          anoEntrada++;
+		          mesEntrada = 1;
+				} else {
+		          mesEntrada++;
+		        }
+		      }
+		      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
+		      tarifaTotal += estrategia.calculaMontante(valorDiaria);
+		      diaEntrada++;
+		    }
+		  }
 		
   /** 
   * Metodo que retorna uma String com os atributos da classe

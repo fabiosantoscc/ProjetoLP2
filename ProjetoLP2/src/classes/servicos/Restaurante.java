@@ -25,6 +25,7 @@ public class Restaurante implements Servico, Serializable {
 	private double consumoRefeicao;
 	private UnidadesDoRestaurante unidadeRestaurante;
 	private Calendar data;
+	private double valorConsumido;
 	
 	/**
 	 * Construtor de um servico Restaurante.
@@ -36,17 +37,22 @@ public class Restaurante implements Servico, Serializable {
 	
 	public Restaurante(UnidadesDoRestaurante tipo, double valorConsumido) throws NumberInvalidException {
 		checaValorConsumo(valorConsumido);
+		this.valorConsumido = valorConsumido;
 		calendario = new CalendarioDeEstrategias();
 		data = Calendar.getInstance();
 		this.unidadeRestaurante = tipo;
-		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
-		consumoRefeicao = estrategia.calculaMontante(valorConsumido);
+		calculaDespesaTotal();
 	}
 	
 	private void checaValorConsumo(double valor) throws NumberInvalidException {
 		if ( valor <= 0 ) {
 			throw new NumberInvalidException("Valor invalido!");
 		}	
+	}
+	
+	public void calculaDespesaTotal(){
+		estrategia = calendario.verificaEstrategia(data.get(Calendar.DAY_OF_MONTH), data.get(Calendar.MONTH) + 1);
+		consumoRefeicao = estrategia.calculaMontante(valorConsumido);
 	}
 	
 	/**

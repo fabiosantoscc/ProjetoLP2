@@ -55,7 +55,8 @@ public class Contrato implements Serializable {
   
   public void calculaDespesaTotal() {
 	  for (Servico s : servicos) {
-      despesaParcial += s.getDespesaTotal();
+		  s.calculaDespesaTotal();
+		  despesaParcial += s.getDespesaTotal();
     }
 
     this.valorAPagar = despesaParcial + calculaMulta();
