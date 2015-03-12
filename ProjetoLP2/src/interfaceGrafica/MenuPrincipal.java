@@ -148,6 +148,7 @@ public class MenuPrincipal {
 		});
 		
 		mnNewMenu.add(mntmNewMenuItem_2);
+		mntmRemover_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Icons/user_delete.png")));
 		mntmRemover_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				removerHospede = new RemoverHospede();
