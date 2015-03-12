@@ -11,9 +11,6 @@ import java.io.ObjectOutputStream;
 
 /**
  * Classe que serve para salvar, ler e verificar se existe um arquivo salvo.
- * 
- * @author Fabio Alexandre Santos Silva Júnior
- *
  */
 
 public class Arquivos {
