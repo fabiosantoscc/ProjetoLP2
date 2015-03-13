@@ -1,5 +1,10 @@
 package classes;
 
+import classes.servicos.QuartoExecutivo;
+import classes.servicos.QuartoLuxo;
+import classes.servicos.QuartoPresidencial;
+import classes.servicos.Servico;
+
 import excecoes.NumeroDeNoitesInvalidoException;
 
 import java.io.Serializable;
@@ -7,16 +12,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.joda.time.Days;
-
-import classes.estrategias.CalendarioDeEstrategias;
-import classes.servicos.Servico;
+import org.joda.time.DateTime;
 
 /**
  *     Classe que representa um contrato.
  * 
- *     @author Fabio Alexandre Santos Silva Júnior
+ *     @author Fabio Alexandre Santos Silva Junior
  *     @date 02/02/2015
  *     Ultima alteracao: 08/03/2015 / Fabio Alexandre
  */
@@ -40,9 +42,8 @@ public class Contrato implements Serializable {
    */
   
   public Contrato( int numeroDeNoites ) throws NumeroDeNoitesInvalidoException {
-    
-	  Calendar dataInicial = Calendar.getInstance();
-    this.dataInicial = dataInicial;
+
+    this.dataInicial = Calendar.getInstance();;
 
     if ( numeroDeNoites <= 0) {
       throw new NumeroDeNoitesInvalidoException("Numero de noites deve ser maior que zero.");
@@ -53,40 +54,40 @@ public class Contrato implements Serializable {
   }
   
   /**
-  * Calcula a despesa total dos servicos contrados pelo hospede
+  * Calcula a despesa total dos servicos contrados pelo hospede.
   */
   
   //Esse metodo percorre a lista de servicos contidos no contrato e adiciona todos a despesaParcial
-  //Logo apos, no retorno ele chama o metodo para verificar se ha algum dia de atraso para que seja adiciona uma multa
-  //Ao valor a pagar
+  //Logo apos, no retorno ele chama o metodo para verificar se ha algum dia de atraso para que seja
+  //adiciona uma multa ao valor a pagar.
   
   public void calculaDespesaTotal() {
-	  for (Servico s : servicos) {
-		  s.calculaDespesaTotal();
-		  despesaParcial += s.getDespesaTotal();
+    for (Servico s : servicos) {
+      s.calculaDespesaTotal();
+      despesaParcial += s.getDespesaTotal();
     }
 
     this.valorAPagar = despesaParcial + calculaMulta();
   }
    
   private int diasDeMulta() {
-	  DateTime dataInicial1 = new DateTime(dataInicial);
-	  DateTime dataFinal1 = new DateTime(dataFinal);
-	  
-	   /*Se a diferenca de dias subtraida pela quantidade de noites, for algum numero positivo,
-	     significa que o contrato deve ter multa, caso seja igual ou menor que 0, o
-	     contrato foi fechado no mesmo dia do inicio, ou antes do seu numero de noite e
-	     esse metodo retorna 0.
-       */	  
-	  
-	  if (Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites() > 0 ) {
-		  return Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites();
-	  }
-	  
-	  return 0;
+    DateTime dataInicial1 = new DateTime(dataInicial);
+    DateTime dataFinal1 = new DateTime(dataFinal);
+
+    /*Se a diferenca de dias subtraida pela quantidade de noites, for algum numero positivo,
+    * significa que o contrato deve ter multa, caso seja igual ou menor que 0, o
+    * contrato foi fechado no mesmo dia do inicio, ou antes do seu numero de noite e
+    * esse metodo retorna 0.
+    */
+
+    if (Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites() > 0 ) {
+      return Days.daysBetween(dataInicial1, dataFinal1).getDays() - getNumeroDeNoites();
+    }
+
+    return 0;
   }
   
-  /**
+  /*
    * Calcula valor da multa se houver atraso
    */
   
@@ -95,19 +96,22 @@ public class Contrato implements Serializable {
   }
   
   /**
-   * Recebe a data final do contrato
+   * Atribui uma data final ao contrato.
+   * 
    */
   
-  public void setDataFinal(){
-	  dataFinal = Calendar.getInstance();
+  public void setDataFinal() {
+    dataFinal = Calendar.getInstance();
   }
   
   /**
-   * @return A data de fechamento do contrato
+   * Recupera a data final do contrato.
+   * 
+   * @return Calendar - A data de fechamento do contrato.
    */
   
-  public Calendar getDataFinal(){
-	  return dataFinal;
+  public Calendar getDataFinal() {
+    return dataFinal;
   }
   
   
@@ -131,10 +135,46 @@ public class Contrato implements Serializable {
     servicos.add(servico);
   }
 
-  // Remove um servico e ja adiciona o valor dele na montante do contrato.
+  /**
+   * Remove um servico e ja adiciona o valor dele na montante do contrato
+   * incrementando na quantidade de quartos geral do hotel.
+   * @param servico - Servico a adicionar.
+  */
+  
   public void removeServico( Servico servico ) {
-  	  despesaParcial += servico.getDespesaTotal();
-	  servicos.remove(servico);
+    despesaParcial += servico.getDespesaTotal();
+    verificaServico(servico);
+    servicos.remove(servico);
+  }
+  
+  private void verificaServico( Servico servico ) {
+	if ( servico instanceof QuartoLuxo && ((QuartoLuxo) servico).getTipo().name().equals("SIMPLES") ) {
+      Hotel.setQuartoLuxoSimples(Hotel.getQuartoLuxoSimples() + 1);
+    }
+
+    if ( servico instanceof QuartoLuxo && ((QuartoLuxo) servico).getTipo().name().equals("DUPLO") ) {
+      Hotel.setQuartoLuxoDuplo(Hotel.getQuartoLuxoDuplo() + 1);
+    }
+
+    if ( servico instanceof QuartoLuxo && ((QuartoLuxo) servico).getTipo().name().equals("TRIPLO") ) {
+      Hotel.setQuartoLuxoTriplo(Hotel.getQuartoLuxoTriplo() + 1);
+    }
+
+    if ( servico instanceof QuartoExecutivo && ((QuartoExecutivo) servico).getTipo().name().equals("SIMPLES") ) {
+      Hotel.setQuartoExecutivoSimples(Hotel.getQuartoExecutivoSimples() + 1);
+    }
+
+    if ( servico instanceof QuartoExecutivo && ((QuartoExecutivo) servico).getTipo().name().equals("DUPLO") ) {
+      Hotel.setQuartoExecutivoDuplo(Hotel.getQuartoExecutivoDuplo() + 1);
+    }
+
+    if ( servico instanceof QuartoExecutivo && ((QuartoExecutivo) servico).getTipo().name().equals("TRIPLO") ) {
+      Hotel.setQuartoExecutivoTriplo(Hotel.getQuartoExecutivoTriplo() + 1);
+    }
+
+    if ( servico instanceof QuartoPresidencial ) {
+      Hotel.setQuartoPresidencial(Hotel.getQuartoPresidencial() + 1);
+    }
   }
   
   /**
@@ -236,7 +276,7 @@ public class Contrato implements Serializable {
     }
 
     representacao += ", Noites de hospedagem: " + getNumeroDeNoites();
-    representacao += Arquivos.FIM_LINHA+" e Total a pagar: "+this.getValorAPagar();
+    representacao += Arquivos.FIM_LINHA + " e Total a pagar: " + this.getValorAPagar();
 
     return representacao;
   }
