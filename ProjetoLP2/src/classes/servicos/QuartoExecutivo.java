@@ -1,16 +1,18 @@
 package classes.servicos;
 
-import java.io.Serializable;
-
 import classes.Hotel;
+
 import enums.SubtipoDeQuartoExecutivo;
 import excecoes.QuantidadeDePessoasInvalidaException;
 import excecoes.QuartoEsgotadoNoHotelException;
 
+import java.io.Serializable;
+
 /**
+ * Classe que representa um quarto executivo.
  * 
- * @author Fabio
- *
+ * @author Fabio Alexandre
+ * @since 02/03/2015
  */
 
 public class QuartoExecutivo extends Quarto implements Serializable {
@@ -19,11 +21,14 @@ public class QuartoExecutivo extends Quarto implements Serializable {
   private SubtipoDeQuartoExecutivo tipo;
 
   /**
+   * Construtor de um Quarto Executivo.
    * 
-   * @param quantidadeDePessoas
-   * @param tipo
-   * @throws QuantidadeDePessoasInvalidaException
-   * @throws QuartoEsgotadoNoHotelException
+   * @param quantidadeDePessoas - Quantidade de pessoas no quarto.
+   * @param tipo - Tipo do quarto.
+   * @throws QuantidadeDePessoasInvalidaException - Pode lancar excecao
+   *         Quantidade de pessoas invalida.
+   *         
+   * @throws QuartoEsgotadoNoHotelException - Pode lancar excecao de quarto esgotado.
    */
   
   public QuartoExecutivo( int quantidadeDePessoas, SubtipoDeQuartoExecutivo tipo)
@@ -31,7 +36,8 @@ public class QuartoExecutivo extends Quarto implements Serializable {
     super(quantidadeDePessoas);
     
     if ( quantidadeDePessoas > 3 ) {
-    	throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser maior que 3 neste tipo de quarto");
+      throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas nao pode ser "
+            + "maior que 3 neste tipo de quarto");
     }
 
     this.tipo = tipo;
@@ -39,8 +45,9 @@ public class QuartoExecutivo extends Quarto implements Serializable {
   }
 
   /**
+   * Recupera o tipo do Quarto.
    * 
-   * @return
+   * @return SubtipoDeQuartoExecutivo - Tipo do quarto. 
    */
   
   public SubtipoDeQuartoExecutivo getTipo() {
@@ -76,16 +83,27 @@ public class QuartoExecutivo extends Quarto implements Serializable {
     }
   }
   
+  /**
+   * Metodo que atribui uma quantidade de pessoas do quarto,
+   * ele sobrescreve o metodo da sua super classe porque,
+   * outros quartos podem ter quantidade de pessoas maximas
+   * diferentes.
+   *
+   * @param pessoas - Quantidade de pessoas a modificar.
+   */
   
   @Override
   public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-	  if ( pessoas > 3 ) {
-		  throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas invalida.");
-	  }
-	  super.setQuantidadeDePessoas(pessoas);
+    if ( pessoas > 3 ) {
+      throw new QuantidadeDePessoasInvalidaException("Quantidade de pessoas invalida.");
+    }
+    super.setQuantidadeDePessoas(pessoas);
   }
   
   /**
+   * Representa um quarto executivo como string.
+   * 
+   * @return String - Representacao do quarto.
    * 
    */
   
@@ -96,17 +114,20 @@ public class QuartoExecutivo extends Quarto implements Serializable {
   }
 
   /**
+   * Compara se dois quartos executivos sao iguais.
    * 
+   * @return boolean - True se os quartos forem iguais.
+   *                   false, caso contratio.
    */
   
   @Override
   public boolean equals( Object obj ) {
     if ( !(obj instanceof SubtipoDeQuartoExecutivo) ) {
-    	return false;
+      return false;
     }
     
-    QuartoExecutivo q = (QuartoExecutivo) obj;
+    QuartoExecutivo quartoExe = (QuartoExecutivo) obj;
     
-    return super.equals(q) && tipo.equals(q.getTipo());
+    return super.equals(quartoExe) && tipo.equals(quartoExe.getTipo());
   }
 }

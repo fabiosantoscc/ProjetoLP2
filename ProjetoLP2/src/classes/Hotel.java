@@ -20,7 +20,7 @@ import excecoes.StringInvalidaException;
  * Classe que representa um hotel.
  * 
  * @author Fabio Alexandre Santos Silva Junior
- * Ultima alteracao: 10/02/2015 / Fabio Alexandre
+ * Ultima alteracao: 10/02/2015.
  * 
  */
 
@@ -29,7 +29,12 @@ public class Hotel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Calendar dataDeInicio;
     private String pin;
-	private static int quartoPresidencial = 5;
+    
+    /* Variaveis statics para aumentar ou diminuir
+    * a quantidade dos quartos.
+    */
+
+    private static int quartoPresidencial = 5;
 	private static int quartoExecutivoSimples = 5;
 	private static int quartoExecutivoDuplo = 15;
 	private static int quartoExecutivoTriplo = 20;
@@ -228,6 +233,8 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
+	 * Recupera o lucro mensal.
+	 *  
 	 * @return Uma lista de lucro mensal
 	 */
 	
@@ -341,17 +348,27 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
-	 * Metodo que verifica o servico mais solicitado ate o momento no hotel
+	 * Metodo que verifica o servico mais solicitado ate o momento no hotel.
+	 * 
 	 * @return Uma string com o servico mais solicitado e a quantidade de vezes que foi solicitado
 	 */
 	
-	public String servicoPopular(){
-		if (maisAluguel >= maisBaby && maisAluguel >= maisRestaurante) return "Aluguel de Carros, com " + maisAluguel+" contratos";
-		if (maisBaby >= maisAluguel && maisBaby >= maisRestaurante) return "Babby Sitter, com " + maisBaby+" contratos";
-		if (maisRestaurante >= maisAluguel && maisRestaurante >= maisBaby) return "Restaurante, com " + maisRestaurante+" contratos"; 
+	public String servicoPopular() {
+		if (maisAluguel >= maisBaby && maisAluguel >= maisRestaurante) {
+			return "Aluguel de Carros, com " + maisAluguel+" contratos";
+		}
+		
+		if (maisBaby >= maisAluguel && maisBaby >= maisRestaurante) {
+			return "Babby Sitter, com " + maisBaby+" contratos";
+		}
+		
+		if (maisRestaurante >= maisAluguel && maisRestaurante >= maisBaby) {
+			return "Restaurante, com " + maisRestaurante+" contratos"; 
+		}
+		
 		return "Sem serviços adicionais contratados";
 	}
-	
+
 	/**
 	 * Recupera a lista de contratos do hospede.
 	 * 
@@ -366,13 +383,12 @@ public class Hotel implements Serializable {
 	/**
 	 * Adiciona varios servicos a determinado hospede.
 	 * 
-	 * @param hospede - Hosped onde vai se adicionar os servicos.
+	 * @param hospede - Hospede onde vai se adicionar os servicos.
 	 * @param meusServicos - Todos os servicos a serem adicionados con contrato.
 	 * @throws ContratoAbertoException 
 	 * @throws HospedeInvalidoException 
 	 */
-	
-	// talvez colocar esse metodo em contrato
+
 	public void adicionaVariosServicos(Hospede hospede, List<Servico> meusServicos) throws HospedeInvalidoException, ContratoAbertoException {
 		
 		List<Contrato> contratos =  hospedes.get(hospede);
@@ -389,15 +405,13 @@ public class Hotel implements Serializable {
 			throw new ContratoAbertoException("Nenhum contrato aberto para o hospede");
 		}
 	}
-	
 
-	
 	/**
 	 * Adiciona um servico ao contrato aberto do hospede, se existir.
 	 * 
-	 * @param esseHospede
-	 * @param umServico
-	 * @throws ContratoAbertoException 
+	 * @param esseHospede - Hospede a adicionar servico.
+	 * @param umServico - Servico a adicionar.
+	 * @throws ContratoAbertoException - Contrato fechado.
 	 */
 	
 	public void adicionaServico( Hospede esseHospede, Servico umServico ) throws ContratoAbertoException {
@@ -453,7 +467,7 @@ public class Hotel implements Serializable {
 	 * 
 	 * @param hospede - Hospede do qual vai se criar cum contrato.
 	 * @param noites - Noite de estadia no hotel.
-	 * @throws Exception
+	 * @throws Exception.
 	 */
 	
 	public void criaContrato( Hospede hospede, int noites ) throws Exception {
@@ -467,7 +481,7 @@ public class Hotel implements Serializable {
 	/**
 	 * Retorna o HashMap Hospede : Contratos do hotel.
 	 * 
-	 * @return O HashMap com essas infromacoes.
+	 * @return HashMap<Hospede, List<Contrato> - O HashMap com essas infromacoes.
 	 */
 	
 	public HashMap<Hospede, List<Contrato>> getMapaDeHospedes() {
@@ -479,7 +493,7 @@ public class Hotel implements Serializable {
 	 * 
 	 * @param hospede - Hospede do qual deseja-se pesquisar a lista de servicos.
 	 * @return - Todos os servicos do hospede.
-	 * @throws Exception
+	 * @throws Exception - Nao exixte contrato aberto.
 	 */
 	
 	public List<Servico> getServicosHospede( Hospede hospede ) throws Exception {
@@ -502,10 +516,10 @@ public class Hotel implements Serializable {
 	}
 	
 	/**
-	 * Adiciona um hospede no hotel
+	 * Adiciona um hospede no hotel.
 	 * 
-	 * @param hospede - Hospede a ser adicionado no hotel
-	 * @throws HospedeInvalidoException 
+	 * @param hospede - Hospede a ser adicionado no hotel.
+	 * @throws HospedeInvalidoException - Hospede Invalido.
 	 */
 	
 	public void addHospede( Hospede hospede ) throws HospedeInvalidoException {
@@ -532,8 +546,9 @@ public class Hotel implements Serializable {
 	}
 
   /**
+   * Calcula nota de aceitacao do hotel.
    * 
-   * @param opinioes
+   * @param opinioes - Opinioes do hotel.
    */
 	
   private void calculaNotaDeAceitacao( List<Opiniao> opinioes ) {
@@ -558,127 +573,58 @@ public class Hotel implements Serializable {
 		this.opinioes.add(umaOpiniao);
 		calculaNotaDeAceitacao(opinioes);
 	}
-	
-	/**
-	 * Recupera a quantidade de quarto presidencial do hotel.
-	 * @return - Quantidade de Quarto Presidencial do hotel.
-	 */
-	
+		
 	public static int getQuartoPresidencial() {
 		return quartoPresidencial;
 	}
-
-	/**
-	 * Recebe a quantidade de quartos precidenciais restantes
-	 * @param quartoPresidencial Quantida restante
-	 */
 	
 	public static void setQuartoPresidencial(int quartoPresidencial) {
 		Hotel.quartoPresidencial = quartoPresidencial;
 	}
 
-	/**
-	 * @return Quantiade de quartos executivos simples
-	 */
-	
 	public static int getQuartoExecutivoSimples() {
 		return quartoExecutivoSimples;
 	}
 
-	/**
-	 * Recebe a quantidade de quartos executivos simples restantes
-	 * @param quartoExecutivo
-	 */
-	
 	public static void setQuartoExecutivoSimples(int quartoExecutivoSimples) {
 		Hotel.quartoExecutivoSimples = quartoExecutivoSimples;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
 	
 	public static int getQuartoExecutivoDuplo() {
 		return quartoExecutivoDuplo;
 	}
-
-	/**
-	 * 
-	 * @param quartoExecutivoDuplo
-	 */
 	
 	public static void setQuartoExecutivoDuplo(int quartoExecutivoDuplo) {
 		Hotel.quartoExecutivoDuplo = quartoExecutivoDuplo;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	
 	public static int getQuartoExecutivoTriplo() {
 		return quartoExecutivoTriplo;
 	}
-
-	/**
-	 * 
-	 * @param quartoExecutivoTriplo
-	 */
 	
 	public static void setQuartoExecutivoTriplo(int quartoExecutivoTriplo) {
 		Hotel.quartoExecutivoTriplo = quartoExecutivoTriplo;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
 	
 	public static int getQuartoLuxoSimples() {
 		return quartoLuxoSimples;
 	}
-
-	/**
-	 * 
-	 * @param quartoLuxoSimples
-	 */
 	
 	public static void setQuartoLuxoSimples(int quartoLuxoSimples) {
 		Hotel.quartoLuxoSimples = quartoLuxoSimples;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
 	
 	public static int getQuartoLuxoDuplo() {
 		return quartoLuxoDuplo;
 	}
-
-	/**
-	 * 
-	 * @param quartoLuxoDuplo
-	 */
 	
 	public static void setQuartoLuxoDuplo(int quartoLuxoDuplo) {
 		Hotel.quartoLuxoDuplo = quartoLuxoDuplo;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
 	
 	public static int getQuartoLuxoTriplo() {
 		return quartoLuxoTriplo;
 	}
-
-	/**
-	 * 
-	 * @param quartoLuxoTriplo
-	 */
 	
 	public static void setQuartoLuxoTriplo(int quartoLuxoTriplo) {
 		Hotel.quartoLuxoTriplo = quartoLuxoTriplo;
@@ -702,27 +648,5 @@ public class Hotel implements Serializable {
 
   public List<Opiniao> getListaOpinioes(){
     return opinioes;
-  }
-
-  /**
-  * 
-  */
-
-  @Override
-  public String toString() {
-    return "";
-  }
-
-  /**
-  * 
-  */
-
-  @Override
-  public boolean equals( Object obj ) {
-    if ( !( obj instanceof Hotel ) ) {
-      return false;
-    }
-
-    return true;
   }
 }

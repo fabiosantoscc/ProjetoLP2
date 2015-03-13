@@ -15,15 +15,16 @@ import java.io.ObjectOutputStream;
 
 public class Arquivos {
 
+  // Destino do hotel salvo no projeto
   private final static String DESTINO = "hotel";
   // Caracter de fim de linha.
   public static final String FIM_LINHA = System.getProperty("line.separator");
-  
+
   /**
-  * Metodo que salva um onjeto do tipo hotel.
+  * Metodo que salva um objeto do tipo hotel.
   * 
-  * @param hotel
-  * @throws Exception
+  * @param hotel - Hotel a ser salvo.
+  * @throws Exception - pode lançar exceção de arquivo inexistente.
   */
 
   public static void salvaHotel(Hotel hotel) throws Exception {
@@ -47,10 +48,10 @@ public class Arquivos {
   }
 
   /**
-  * Metodo que ler um onjeto do tipo hotel.
+  * Metodo que ler um objeto do tipo hotel.
   * 
-  * @return Hotel - O HOtel lido.
-  * @throws Exception
+  * @return Hotel - O Hotel lido.
+  * @throws Exception - Pode lancar excecao se o hotel nao existir.
   */
 
   public static Hotel lerHotel() throws Exception {
@@ -60,22 +61,20 @@ public class Arquivos {
     try {
       input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(DESTINO)));
 
-      Hotel h = (Hotel) input.readObject();
-      return h;
+      Hotel hotel = (Hotel) input.readObject();
+      return hotel;
     } catch (EOFException e) {
       e.getMessage();
     } finally {
       input.close();
     }
-    
     return null;
-    
   }
 
   /**
   * Metodo que verifica se existe um hotel salvo.
   * 
-  * @return
+  * @return boolean - Se o hotel existe ou nao.
   */
 
   public static boolean existeHotel() {

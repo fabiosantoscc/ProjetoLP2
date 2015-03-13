@@ -116,8 +116,7 @@ public class Contrato implements Serializable {
   * 
   * @param meusServicos - Servicos a serem adicionados.
   */
-  
-  //metodo parecido em hotel.
+
   public void servicosContrato( List<Servico> meusServicos ) {
     servicos.addAll(meusServicos);
   }
@@ -132,6 +131,7 @@ public class Contrato implements Serializable {
     servicos.add(servico);
   }
 
+  // Remove um servico e ja adiciona o valor dele na montante do contrato.
   public void removeServico( Servico servico ) {
   	  despesaParcial += servico.getDespesaTotal();
 	  servicos.remove(servico);

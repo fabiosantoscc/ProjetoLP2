@@ -48,58 +48,39 @@ public abstract class Quarto implements Servico, Serializable  {
   }
   
   /**
-   * Metodo que calcula a despesa do quarto.
-   * 
-   * @param diaEntrada
-   * @param mesEntrada
-   * @param diaSaida
-   * @param mesSaida
-   * @param anoEntrada
-   * @param anoSaida
-   * @throws Exception
+   * Calcula a despesa total do quarto, de acordo com a data de entrada,
+   * e a data de saida.
    */
   
   //Esse metodo funciona da mesma maneira como o contido na classe AluguelDeQuartos
   
   public void calculaDespesaTotal() {
-		Calendar dataSaida = Calendar.getInstance();
-		int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
-		int mesEntrada = data.get(Calendar.MONTH);
-		int anoEntrada = data.get(Calendar.YEAR);
-	    while (diaEntrada >dataSaida.get(Calendar.DAY_OF_MONTH) && mesEntrada == dataSaida.get(Calendar.MONTH) && anoEntrada == dataSaida.get(Calendar.YEAR)) {
-	      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
-	        diaEntrada = 1;
-	        if (mesEntrada == 12) {
-	          anoEntrada++;
-	          mesEntrada = 1;
-			} else {
-	          mesEntrada++;
-	        }
-	      }
-	      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
-	      despesaTotal += estrategia.calculaMontante(valorDiaria);
-	      diaEntrada++;
-	    }
-	  }
+    Calendar dataSaida = Calendar.getInstance();
+    int diaEntrada = data.get(Calendar.DAY_OF_MONTH);
+    int mesEntrada = data.get(Calendar.MONTH);
+    int anoEntrada = data.get(Calendar.YEAR);
+    while (diaEntrada > dataSaida.get(Calendar.DAY_OF_MONTH)
+        && mesEntrada == dataSaida.get(Calendar.MONTH)
+        && anoEntrada == dataSaida.get(Calendar.YEAR)) {
+      if (!(calendario.verificaDataValida(diaEntrada, mesEntrada))) {
+        diaEntrada = 1;
+        if (mesEntrada == 12) {
+          anoEntrada++;
+          mesEntrada = 1;
+        } else {
+          mesEntrada++;
+        }
+      }
 
-  /**
-   * Recebe o valor da diaria do quarto
-   * @param diaria Valor da diaria
-   */
- 
-  public void setValorDiario(double diaria) {
-    valorDiaria = diaria;
+      estrategia = calendario.verificaEstrategia(diaEntrada, mesEntrada);
+      despesaTotal += estrategia.calculaMontante(valorDiaria);
+      diaEntrada++;
+    }
   }
 
   /**
-   * @return O valor da diaria do quarto
-   */
-  
-  public double getValorDiaria() {
-    return valorDiaria;
-  }
-
-  /**
+   * Recupera o dia inicial do quarto.
+   * 
    * @return O dia inicial do contrato de um determinado quarto
    */
   
@@ -108,8 +89,8 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-  * Recupera o mes inicial. 
-  * @return - Mes inicial.
+  * Recupera o mes inicial do quarto.
+  * @return Mes - mes inicial.
   */
 
   public int getMesInicial() {
@@ -117,6 +98,8 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
+  * Recupera o ano inicial do hospede.
+  * 
   * @return O ano em que o servico foi contratado
   */
 
@@ -125,7 +108,9 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-  * @return Quantidade total da despesa durante o contrato por um quarto especifico
+  * Recupera a despesa total do quarto.
+  * 
+  * @return Quantidade total da despesa durante o contrato por um quarto especifico.
   */
 
   public double getDespesaTotal() {
@@ -141,25 +126,27 @@ public abstract class Quarto implements Servico, Serializable  {
   }
 
   /**
-   * Recebe a quantidade de pessoas que ficarão no quarto
-   * @param pessoas Quantidade de pessoas
-   * @throws QuantidadeDePessoasInvalidaException
+   * Recebe a quantidade de pessoas que ficarão no quarto.
+   * 
+   * @param pessoas - Quantidade de pessoas.
+   * @throws QuantidadeDePessoasInvalidaException - Pode lancar
+   *         Excecao de quantidade de pessoas no quarto invalida.
    */
   
   public void setQuantidadeDePessoas(int pessoas) throws QuantidadeDePessoasInvalidaException {
-	verificaQuantidadeDePessoas(pessoas);
+    verificaQuantidadeDePessoas(pessoas);
     this.quantidadeDePessoas = pessoas;
   }
   
-  /**
-   * @param quantidadeDePessoas
-   * @throws QuantidadeDePessoasInvalidaException
+  /* Verifica se a quantidade minima do quarto eh zero, a quantidade
+   * maxima depende do quarto especifico.
    */
   
   private void verificaQuantidadeDePessoas(int quantidadeDePessoas) 
       throws QuantidadeDePessoasInvalidaException {
-	if ( quantidadeDePessoas <= 0 ) {
-    	throw new QuantidadeDePessoasInvalidaException("A quantidade de pessoas deve ser maior que zero.");
+    if ( quantidadeDePessoas <= 0 ) {
+      throw new QuantidadeDePessoasInvalidaException("A quantidade de pessoas "
+          + "deve ser maior que zero.");
     }
   }  
   

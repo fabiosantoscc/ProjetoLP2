@@ -4,7 +4,6 @@ import excecoes.StringInvalidaException;
 
 import java.io.Serializable;
 
-
   /**
   * Classe que representa um cadastro.
   * 
@@ -132,18 +131,34 @@ public class Cadastro implements Serializable {
     return pin;
   }
 
+  /* 
+   * Verifica se a senha eh valida, ou seja, se for igual a null ou
+   * string vazia, lanca excecao de senha invalida. 
+   * 
+   */
+  
   private void verificaSenha(String senha) throws StringInvalidaException {
     if ( senha == null || senha.equals("") ) {
       throw new StringInvalidaException("Senha nao pode ser vazia.");
     }
   }
 
+  /*
+   * Verifica se um nome de login eh valido, ou seja, eh diferente
+   * de null e string vazia.
+   */
+
   private void verificaNomeLogin(String nomeLogin) throws StringInvalidaException {
     if ( nomeLogin == null || nomeLogin.equals("")) {
       throw new StringInvalidaException("Nome de login nao pode ser vazio.");
     }
   }
-
+  
+  /*
+   * Verifica se o nome eh valido, ou seja, eh diferente
+   * de null e string vazia.
+   */
+  
   private void verificaNome(String nome) throws StringInvalidaException {
     if ( nome == null || nome.equals("")) {
       throw new StringInvalidaException("Nome nao pode ser vazio.");
