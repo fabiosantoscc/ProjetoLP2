@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.JTextField;
@@ -19,7 +18,6 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import executar.Run;
-
 
 public class BuscarRestaurante extends JPanel {
 	

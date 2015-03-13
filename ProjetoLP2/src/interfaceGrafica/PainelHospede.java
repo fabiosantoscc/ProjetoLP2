@@ -1,11 +1,9 @@
 package interfaceGrafica;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;

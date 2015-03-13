@@ -8,9 +8,7 @@ import classes.Arquivos;
 import classes.Opiniao;
 import classes.dadosDoHospede.Hospede;
 
-import java.awt.Font;
 import java.awt.Rectangle;
-import java.awt.TextField;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;

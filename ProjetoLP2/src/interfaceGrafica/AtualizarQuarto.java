@@ -1,8 +1,3 @@
-/*("Camas e Quartos disponíveis: \nCamas Extras : "+Run.hotel.getCamaExtra()
-				+"\nQuartos\n Presidencial: "+Run.hotel.getQuartoPresidencial()+"\nLuxo Simples: "+Run.hotel.getQuartoLuxoSimples()
-				+"\nLuxo Duplo: "+Run.hotel.getQuartoLuxoDuplo()+"\nLuxo Triplo: "+Run.hotel.getQuartoLuxoTriplo()
-				+"\nExecutivo Simples: "+Run.hotel.getQuartoExecutivoSimples()+"\n Executivo Duplo: "+Run.hotel.getQuartoExecutivoDuplo()
-				+"\nExecutivo Triplo: "+Run.hotel.getQuartoExecutivoTriplo());*/
 package interfaceGrafica;
 
 import java.util.ArrayList;
@@ -11,29 +6,18 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
-import classes.Arquivos;
-import classes.dadosDoHospede.Hospede;
 import classes.servicos.Quarto;
-import classes.servicos.QuartoPresidencial;
 
 import javax.swing.JLabel;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
 
-import excecoes.ContratoAbertoException;
 import excecoes.QuantidadeDePessoasInvalidaException;
-import excecoes.QuartoEsgotadoNoHotelException;
-import executar.Run;
 
 import javax.swing.SpinnerNumberModel;
 

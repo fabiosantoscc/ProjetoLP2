@@ -1,29 +1,23 @@
 package interfaceGrafica;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Quarto;
 import classes.servicos.Servico;
 
 import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import executar.Run;

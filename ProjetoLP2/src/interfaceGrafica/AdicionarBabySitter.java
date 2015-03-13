@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JSpinner.DefaultEditor;
-import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import classes.Arquivos;
@@ -20,8 +19,6 @@ import classes.servicos.BabySitter;
 import executar.Run;
 
 public class AdicionarBabySitter extends JPanel {
-	private JTextField tFHorarioInicial;
-	private JTextField tFDuracao;
 	private JLabel lblBabySitter, lblHorarioInicial, lblDuracaoEmHoras;
 	private JButton btnAdicionarServico;
 	private JSpinner spinnerDuracao, spinnerHoraInicial;

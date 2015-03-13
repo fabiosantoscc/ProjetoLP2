@@ -5,8 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -14,15 +12,12 @@ import javax.swing.JButton;
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
 import classes.servicos.Restaurante;
-import classes.servicos.Servico;
 import enums.UnidadesDoRestaurante;
 import excecoes.ContratoAbertoException;
 import executar.Run;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.List;
-import java.awt.Font;
 import java.awt.Rectangle;
 
 public class AdicionarRestaurante extends JPanel {

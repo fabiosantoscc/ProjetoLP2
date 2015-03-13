@@ -1,10 +1,8 @@
 package interfaceGrafica;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -13,7 +11,6 @@ import javax.swing.JTextField;
 
 import classes.Arquivos;
 import classes.dadosDoHospede.Hospede;
-import classes.dadosDoHospede.Telefone;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

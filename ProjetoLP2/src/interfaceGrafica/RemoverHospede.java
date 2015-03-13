@@ -1,18 +1,15 @@
 package interfaceGrafica;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,12 +17,8 @@ import javax.swing.JPanel;
 import classes.Arquivos;
 import classes.Contrato;
 import classes.dadosDoHospede.Hospede;
-import classes.servicos.Quarto;
-import classes.servicos.Servico;
 
 import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import executar.Run;
@@ -33,10 +26,9 @@ import executar.Run;
 public class RemoverHospede extends JPanel {
 
 	private HashMap<Hospede, List<Contrato>> hospedesAtuais;
-	private ArrayList<String> nomeServicos = new ArrayList<String>();
 	private ArrayList<String> minhasStrings = new ArrayList<String>();
-	private JList meuList;
-	private DefaultListModel modeling = new DefaultListModel();
+	private JList<String> meuList;
+	private DefaultListModel<String> modeling = new DefaultListModel<String>();
 	private JLabel lblLogoHotel, lblListaDeHospedes;
 	private JScrollPane scrollPane;
 	private JButton btnRemoverHospede;
@@ -60,7 +52,7 @@ public class RemoverHospede extends JPanel {
 		scrollPane.setBounds(44, 241, 606, 202);
 		add(scrollPane);
 		
-		meuList = new JList(modeling);
+		meuList = new JList<String>(modeling);
 		scrollPane.setViewportView(meuList);
 		
 		btnRemoverHospede = CriaObjetosNaTela.criaBotao("Remover Hospede", new Rectangle(531, 486, 137, 41), CriaObjetosNaTela.getFontePadrao(15), null, null);
@@ -85,11 +77,9 @@ public class RemoverHospede extends JPanel {
 			}
 		});
 		add(btnRemoverHospede);
-		
 
-		
 		for (Hospede h : hospedesAtuais.keySet()){
-			minhasStrings.add("Nome: "+h.getNome()+" e CPF: "+h.getCpf());
+			minhasStrings.add("Nome: "+ h.getNome() + " e CPF: " + h.getCpf());
 		}
 		for ( String s : minhasStrings) {
 			modeling.addElement(s);

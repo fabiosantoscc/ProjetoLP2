@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.JTextField;
@@ -19,7 +18,6 @@ import classes.dadosDoHospede.Hospede;
 import excecoes.StringInvalidaException;
 
 import java.util.Calendar;
-
 
 public class AdicionarContrato extends JPanel {
 	private JTextField textField;

@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
-import javax.swing.AbstractListModel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;

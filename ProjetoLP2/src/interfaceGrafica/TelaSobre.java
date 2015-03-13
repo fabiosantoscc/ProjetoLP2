@@ -3,8 +3,6 @@ package interfaceGrafica;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-import classes.Arquivos;
-
 import java.awt.Font;
 import java.awt.Rectangle;
 
